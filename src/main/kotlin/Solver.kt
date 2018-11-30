@@ -7,7 +7,6 @@ class Solver(val cplex: IloCplex){
         if (cplex.solve()) {
             println("Solution status = " + cplex.getStatus())
             println("Solution status = " + cplex.getObjValue())
-
             val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
             val x = cplex.getValues(lp)
             for (j in x.indices) {
@@ -16,7 +15,6 @@ class Solver(val cplex: IloCplex){
         }
         cplex.end()
     }
-
 }
 
 
