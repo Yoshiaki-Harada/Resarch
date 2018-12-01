@@ -1,5 +1,0 @@
-package lpformat
-
-class VCG{
-
-}

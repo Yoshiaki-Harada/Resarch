@@ -1,3 +1,5 @@
+package adapter
+
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
 import java.lang.reflect.Array

@@ -3,7 +3,7 @@ import java.io.File
 
 class LpWriter(val filename: String) {
 
-    val file = File(filename).absoluteFile
+    val file = File(filename+".lp").absoluteFile
 
     fun obj(obj: Object) {
         //出来れば一回しか書き込めないエラー処理

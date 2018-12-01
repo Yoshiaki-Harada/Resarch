@@ -2,40 +2,14 @@ import lpformat.Constrait
 import lpformat.VarType
 import lpformat.Object as Obj
 
-class LPMaker(filname: String) {
+class LPMaker(filname: String, val bidders :ArrayList<Bidder>) {
     val lp = LpWriter(filname)
-    fun makeLP() {
+    fun makeFile() {
         //目的
         lp.obj(Obj.MAX)
-        //入札作成                  　　　　　　　(財1の要求量, 財2の要求量)
-        val bid00 = Bid(6.0, arrayListOf(1.0, 0.0))
-        val bid01 = Bid(0.0, arrayListOf(0.0, 1.0))
-        val bid02 = Bid(6.0, arrayListOf(1.0, 1.0))
-        val bid10 = Bid(0.0, arrayListOf(1.0, 0.0))
-        val bid11 = Bid(0.0, arrayListOf(0.0, 1.0))
-        val bid12 = Bid(8.0, arrayListOf(1.0, 1.0))
-        val bid20 = Bid(0.0, arrayListOf(1.0, 0.0))
-        val bid21 = Bid(5.0, arrayListOf(0.0, 1.0))
-        val bid22 = Bid(5.0, arrayListOf(1.0, 1.0))
-        val bidder0 = Bidder()
-        bidder0.add(bid00)
-        bidder0.add(bid01)
-        bidder0.add(bid02)
-        val bidder1 = Bidder()
-        bidder1.add(bid10)
-        bidder1.add(bid11)
-        bidder1.add(bid12)
-        val bidder2 = Bidder()
-        bidder2.add(bid20)
-        bidder2.add(bid21)
-        bidder2.add(bid22)
-        val bidders = arrayListOf<Bidder>()
-        bidders.add(bidder0)
-        bidders.add(bidder1)
-        bidders.add(bidder2)
 
-        for (bidder in bidders)
-            println(bidder.toJson())
+        for (bidder in bidders.withIndex())
+            JsonWriter("Bid/Bidder"+bidder.index.toString()).makeFile((bidder.value.toJson()))
 
         for (bidder in bidders.withIndex()) {
             for (bid in bidder.value.bids.withIndex()) {
