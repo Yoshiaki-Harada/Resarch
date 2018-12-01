@@ -2,12 +2,12 @@ import lpformat.Constrait
 import lpformat.VarType
 import lpformat.Object as Obj
 
-class LPMaker(filname: String, val bidders :ArrayList<Bidder>) {
+/*ファイル名とAllayList<入札者>を受け取って定式化を行いLPファイルを作成する*/
+class LPMaker(val filname: String, val obj :lpformat.Object, val bidders :ArrayList<Bidder>) {
     val lp = LpWriter(filname)
     fun makeFile() {
         //目的
-        lp.obj(Obj.MAX)
-
+        lp.obj(obj)
         for (bidder in bidders.withIndex()) {
             for (bid in bidder.value.bids.withIndex()) {
                 //pxijと書いている

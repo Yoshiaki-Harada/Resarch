@@ -2,27 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b643a80e-3eec-4564-a8c0-b166e13b099d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/VCG.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Bidder0.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Bidder1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Bidder2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/example2.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Bidder$fromJson$LENIENT_FACTORY$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Bidder$fromJson$LENIENT_FACTORY$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Bidder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Bidder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Bundle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/JsonImporter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/JsonWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/JsonWriter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/LPMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/LPMaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/LpImporter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/RunMakeKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/RunMakeKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/RunSolveKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/RunSolveKt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Solver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Bid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Bid.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Bidder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Bidder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Bundle.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/JsonImporter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Impoter/JsonImporter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/JsonWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/JsonWriter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/LPImporter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/LPMaker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LPMaker.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/RunMake.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/RunMake.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" afterDir="false" />
@@ -44,20 +29,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LP/example1.lp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/RunSolve.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="210">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,8 +44,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/RunMake.kt">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="9" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/LpWriter.kt">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+                <element signature="n#!!block;n#isNotContain#0;n#!!block;n#LpWriter#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/LPMaker.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+            <state relative-caret-position="-69">
+              <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
               <folding>
                 <element signature="e#0#79#0" expanded="true" />
               </folding>
@@ -84,10 +79,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/Bidder.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/lpformat/Object.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+            <state relative-caret-position="30">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/VCG.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bid/Bidder0.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -102,10 +118,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/Impoter/JsonImporter.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            <state relative-caret-position="120">
+              <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -115,15 +131,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
               <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bid/Bidder2.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -149,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/cplex.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Cplex.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/VarType.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/ObjectFunction.kt" />
@@ -174,7 +180,6 @@
         <option value="$PROJECT_DIR$/example2.lp" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Bundle.java" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Bidder.java" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Make.kt" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/kotlin/ArrayListAdapter.kt" />
@@ -188,18 +193,20 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/JsonImporter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/adapter/JsonAdapter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/LPImporter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Bid.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/Solver.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Impoter/JsonImporter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Bidder.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/RunMake.kt" />
         <option value="$PROJECT_DIR$/Bid/Bidder0.json" />
         <option value="$PROJECT_DIR$/Bid/Bidder1.json" />
         <option value="$PROJECT_DIR$/Bid/Bidder2.json" />
-        <option value="$PROJECT_DIR$/LP/example2.lp" />
         <option value="$PROJECT_DIR$/src/main/kotlin/JsonWriter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/LPMaker.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/RunMake.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/Solver.kt" />
+        <option value="$PROJECT_DIR$/LP/example2.lp" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/VCG.kt" />
       </list>
     </option>
   </component>
@@ -258,6 +265,22 @@
             </path>
             <path>
               <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="Impoter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="lpformat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
               <item name="外部ライブラリー" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -270,10 +293,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543643192416" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543647206103" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="モジュール" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -304,7 +327,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.RunMakeKt">
+  <component name="RunManager" selected="Kotlin.RunSolveKt">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -375,8 +398,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.RunMakeKt" />
         <item itemvalue="Kotlin.RunSolveKt" />
+        <item itemvalue="Kotlin.RunMakeKt" />
         <item itemvalue="Gradle.Resarch [dependencies]" />
       </list>
     </recent_temporary>
@@ -404,12 +427,12 @@
       <workItem from="1543310805642" duration="12194000" />
       <workItem from="1543408111730" duration="13726000" />
       <workItem from="1543488031776" duration="11656000" />
-      <workItem from="1543544627341" duration="37253000" />
+      <workItem from="1543544627341" duration="41752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77645000" />
+    <option name="totallyTimeSpent" value="82144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
@@ -423,8 +446,8 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="UI デザイナー" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.46751592" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.2522293" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.46751592" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.37579617" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28025478" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -432,7 +455,7 @@
       <window_info anchor="bottom" id="Build" order="7" weight="0.3299363" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.3299363" />
       <window_info anchor="bottom" id="SBT Console" order="9" weight="0.3299363" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.6" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.5477707" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5007153" side_tool="true" weight="0.5363057" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -600,13 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/lpformat/Object.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/adapter/JsonAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -635,13 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -693,48 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Solver.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/LpWriter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <element signature="n#!!block;n#isNotContain#0;n#!!block;n#LpWriter#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/Bidder0.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/Bidder1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/Bidder2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Impoter/JsonImporter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -749,17 +716,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/RunSolve.kt">
+    <entry file="file://$PROJECT_DIR$/LP/example1.lp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state>
+          <caret column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/RunMake.kt">
+    <entry file="file://$PROJECT_DIR$/Bid/Bidder2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="11" lean-forward="true" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bid/Bidder1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/lpformat/Object.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/LpWriter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+            <element signature="n#!!block;n#isNotContain#0;n#!!block;n#LpWriter#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -772,25 +764,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/LPMaker.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        <state relative-caret-position="-69">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding>
             <element signature="e#0#79#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LP/example2.lp">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LP/example1.lp">
+    <entry file="file://$PROJECT_DIR$/LP/example2.lp">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-end-column="8" />
+        <state relative-caret-position="120">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/RunSolve.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/RunMake.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bid/Bidder0.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Solver.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/VCG.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

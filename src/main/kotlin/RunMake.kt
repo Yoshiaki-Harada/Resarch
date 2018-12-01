@@ -1,4 +1,5 @@
 import Impoter.JsonImporter
+import lpformat.Object
 
 fun main(args: Array<String>){
     val bidders = ArrayList<Bidder>()
@@ -7,5 +8,5 @@ fun main(args: Array<String>){
         val bidder = Bidder().fromJson(JsonImporter("Bid/Bidder" + j.toString()).getString())
         bidders.add(bidder)
     }
-    LPMaker("LP/example2",bidders).makeFile()
+    LPMaker("LP/example2",Object.MAX,bidders).makeFile()
 }
