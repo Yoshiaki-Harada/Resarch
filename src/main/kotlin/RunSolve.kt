@@ -1,5 +1,4 @@
-import lpformat.Bounds
-import lpformat.Object
+import Impoter.LpImporter
 
 fun main(args: Array<String>) {
     val solver = Solver(LpImporter("LP/example2.lp").getCplex())

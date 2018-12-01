@@ -1,7 +1,5 @@
-import ilog.cplex.IloCplex
-import java.io.BufferedReader
+package Impoter
 import java.io.File
-
 
 class JsonImporter(val filename: String) {
     val file = File(filename + ".json").absoluteFile

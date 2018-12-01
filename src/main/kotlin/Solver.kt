@@ -2,7 +2,6 @@ import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 
 class Solver(val cplex: IloCplex){
-
     fun solve() {
         if (cplex.solve()) {
             println("Solution status = " + cplex.getStatus())

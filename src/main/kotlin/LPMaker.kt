@@ -8,9 +8,6 @@ class LPMaker(filname: String, val bidders :ArrayList<Bidder>) {
         //目的
         lp.obj(Obj.MAX)
 
-        for (bidder in bidders.withIndex())
-            JsonWriter("Bid/Bidder"+bidder.index.toString()).makeFile((bidder.value.toJson()))
-
         for (bidder in bidders.withIndex()) {
             for (bid in bidder.value.bids.withIndex()) {
                 //pxijと書いている
@@ -21,6 +18,7 @@ class LPMaker(filname: String, val bidders :ArrayList<Bidder>) {
                 lp.plus()
             }
         }
+
         lp.newline()
         //制約条件
         lp.subto()
