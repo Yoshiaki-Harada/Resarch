@@ -1,3 +1,5 @@
+package model
+
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import java.lang.reflect.Type

@@ -7,7 +7,7 @@ import java.io.File
 class LpImporter(val filename: String) {
     fun getCplex(): IloCplex {
         val cplex = IloCplex()
-        cplex.importModel(filename+".lp")
+        cplex.importModel(filename + ".lp")
         return cplex
     }
 }

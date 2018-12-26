@@ -1,21 +1,35 @@
+package model
+
 import adapter.BidAdapter
 import adapter.BundleAdapter
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
+import model.Bid
 import java.lang.reflect.Type
 import java.util.*
 import kotlin.collections.ArrayList
 
 
 class Bidder() {
-    val bids = ArrayList<Bid>()
+    val bids: MutableList<Bid> = mutableListOf()
+
 
     constructor(bid: Bid) : this() {
         bids.add(bid)
     }
 
+    constructor(initBids: List<Bid>) : this() {
+        this.add(initBids)
+    }
+
     fun add(bid: Bid) {
         bids.add(bid)
+    }
+
+    fun add(bids: List<Bid>) {
+        bids.forEach {
+            this.add(it)
+        }
     }
 
     fun makeData(number: Int, item: Int, valueMax: Int) {

@@ -1,8 +1,8 @@
 package adapter
 
-import Bid
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
+import model.Bid
 
 class BidAdapter {
     @ToJson

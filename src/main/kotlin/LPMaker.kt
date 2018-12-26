@@ -1,54 +1,58 @@
 import lpformat.Constrait
 import lpformat.VarType
+import model.Bidder
+import writer.LpWriter
 import lpformat.Object as Obj
 
+
 /*ファイル名とAllayList<入札者>を受け取って定式化を行いLPファイルを作成する*/
-class LPMaker(val filname: String, val obj :lpformat.Object, val bidders :ArrayList<Bidder>) {
+class LPMaker(val filname: String, val obj: lpformat.Object, val bidders: MutableList<Bidder>, val resource: Array<Double>) {
     val lp = LpWriter(filname)
     fun makeFile() {
         //目的
         lp.obj(obj)
-        for (bidder in bidders.withIndex()) {
-            for (bid in bidder.value.bids.withIndex()) {
-                //pxijと書いている
-                lp.term(bid.value.price, "x", bidder.index.toString() + bid.index.toString())
-                //最後は無視
-                if (bidder.index == bidders.size - 1 && bid.index == bidder.value.bids.size - 1)
-                    break
-                lp.plus()
+        kotlin.run loop@{
+            bidders.forEachIndexed { i, bidder ->
+                bidder.bids.forEachIndexed { j, bid ->
+                    lp.term(bid.value, "x", i.toString() + j.toString())
+                    if (i == bidders.size - 1 && j == bidder.bids.size - 1)
+                        return@loop
+                    lp.plus()
+                }
             }
         }
 
         lp.newline()
         //制約条件
         lp.subto()
-        for (n in 0 until 2) {
-            //制約の名前
+
+        resource.forEachIndexed { n, _ ->
             lp.constrateName("c" + n.toString())
-            //各入札者について
-            for (bidder in bidders.withIndex()) {
-                //各入札について
-                for (bid in bidder.value.bids.withIndex()) {
-                    //財の組合せの(財1の要求量, 財2の要求量)
-                    lp.term(bid.value.bundle[n], "x", bidder.index.toString() + bid.index.toString())
-                    if (bidder.index == bidders.size - 1 && bid.index == bidder.value.bids.size - 1)
-                        break
-                    lp.plus()
+            kotlin.run loop@{
+                bidders.forEachIndexed { i, bidder ->
+                    bidder.bids.forEachIndexed { j, bid ->
+                        lp.term(bid.bundle[n], "x", i.toString() + j.toString())
+                        if (i == bidders.size - 1 && j == bidder.bids.size - 1)
+                            return@loop
+                        lp.plus()
+                    }
                 }
             }
             lp.constrait(Constrait.LEQ)
-            lp.number(1.0)
+            lp.number(resource[n])
             lp.newline()
         }
+
         lp.newline()
+        lp.varType(VarType.BIN)
 
         //0-1変数制約
-        lp.varType(VarType.BIN)
-        for (bidder in bidders.withIndex()) {
-            for (bid in bidder.value.bids.withIndex()) {
-                lp.term("x", bidder.index.toString() + bid.index.toString())
+        bidders.forEachIndexed { i, bidder ->
+            bidder.bids.forEachIndexed { j, _ ->
+                lp.term("x", i.toString() + j.toString())
             }
         }
+
         lp.newline()
         lp.end()
     }
