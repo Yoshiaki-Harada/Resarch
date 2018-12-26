@@ -26,10 +26,11 @@ class Bidder() {
         bids.add(bid)
     }
 
-    fun add(bids: List<Bid>) {
+    fun add(bids: List<Bid>): Bidder {
         bids.forEach {
             this.add(it)
         }
+        return this
     }
 
     fun makeData(number: Int, item: Int, valueMax: Int) {

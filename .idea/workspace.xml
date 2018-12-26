@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b643a80e-3eec-4564-a8c0-b166e13b099d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/config/Config.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/config/RunSetting.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Bid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Bidder$fromJson$LENIENT_FACTORY$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Bidder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/JsonWriter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/LpWriter$isNotContain$lines$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/LpWriter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Converter/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/converter/JsonConverter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/LPMaker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LPMaker.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Result/BidResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Result/Excel.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Result/Result.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/RunMake.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/RunMake.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Util.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/VCG.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/VCG.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Writer/JsonWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/writer/JsonWriter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Writer/LpWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/writer/LpWriter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/adapter/BidAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/adapter/BidAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/lpformat/Calculation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/lpformat/Calculation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Bid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Bid.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Resource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Resource.kt" afterDir="false" />
-    </list>
+    <list default="true" id="b643a80e-3eec-4564-a8c0-b166e13b099d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -94,8 +67,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/VCG.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+            <state relative-caret-position="198">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Result/test_result.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -112,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="199">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -344,7 +326,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545833138419" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545833999816" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="モジュール" />
@@ -494,17 +476,17 @@
       <workItem from="1543408111730" duration="13726000" />
       <workItem from="1543488031776" duration="11656000" />
       <workItem from="1543544627341" duration="41752000" />
-      <workItem from="1545807531759" duration="23087000" />
+      <workItem from="1545807531759" duration="23328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105329000" />
+    <option name="totallyTimeSpent" value="105570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19241774" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19241774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="デザイナー" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -513,7 +495,7 @@
       <window_info id="UI デザイナー" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.46751592" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.37579617" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.37579617" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28025478" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -521,7 +503,7 @@
       <window_info anchor="bottom" id="Build" order="7" weight="0.3299363" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.3299363" />
       <window_info anchor="bottom" id="SBT Console" order="9" weight="0.3299363" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.5477707" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.17961784" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5007153" side_tool="true" weight="0.5363057" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -753,13 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/Result.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -771,20 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Result/test_result.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -802,10 +763,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Result/test_result.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/VCG.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        <state relative-caret-position="198">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>

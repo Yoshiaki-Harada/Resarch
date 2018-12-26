@@ -32,18 +32,11 @@ class VCG() {
 
 
         winBids.forEach { bidIndex ->
-            val bids = bidders.mapIndexed() { i, bidder ->
-                bidder.bids.filterIndexed { j, bid ->
+            val exbidders = bidders.mapIndexed() { i, bidder ->
+                Bidder().add(bidder.bids.filterIndexed { j, bid ->
                     !(bidIndex[0] == i && bidIndex[1] == j)
-                }
+                })
             }.toMutableList()
-
-            val exbidders: MutableList<Bidder> = mutableListOf()
-            bids.forEach {
-                val bidder = Bidder()
-                bidder.add(it)
-                exbidders.add(bidder)
-            }
 
             val filename = "LP/VCG/Exclude" + bidIndex.toString()
             LPMaker(filename, Object.MAX, exbidders, resource).makeFile()
