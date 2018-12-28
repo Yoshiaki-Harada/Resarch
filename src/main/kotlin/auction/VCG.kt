@@ -40,8 +40,9 @@ object VCG : SingleSidedAuction {
                 })
             }
 
-            val filename = "LP/auction.VCG/Exclude" + bidIndex.toString()
-            SingleSidedAuctionImpl.makeLpFile(config, Object.MAX, exbidders, resource)
+            val filename = "LP/VCG/Exclude" + bidIndex.toString()
+            val vcgConfig = Config(config.provider, config.requester, config.resource, config.bidderFile, filename, config.auction, config.resultFile, config.tmpFile)
+            SingleSidedAuctionImpl.makeLpFile(vcgConfig, Object.MAX, exbidders, resource)
             val vcgCplex = LpImporter(filename).getCplex()
             vcgCplex.solve()
             val payment = vcgCplex.objValue - (objValue - bidders[bidIndex[0]].bids[bidIndex[1]].getValue())

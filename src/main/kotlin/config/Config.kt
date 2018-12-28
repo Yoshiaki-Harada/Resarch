@@ -2,7 +2,6 @@ package config
 
 import Impoter.JsonImporter
 import converter.ConfigConverter
-import jdk.internal.loader.Resource
 
 data class Config(val provider: Int,
                   val requester: Int,

@@ -17,6 +17,7 @@ object SingleSidedAuctionImpl : LpMaker, SingleSidedAuction {
     override fun makeLpFile(config: Config, obj: lpfile.lpformat.Object, bidders: List<Bidder>, vararg options: Option) {
         when (options.size) {
             1 -> {
+                println(config.lpFile)
                 val option = options[0]
                 when (option) {
                     is Resource -> {
@@ -42,14 +43,9 @@ object SingleSidedAuctionImpl : LpMaker, SingleSidedAuction {
 
     fun writeObjFunction(lp: LpWriter, obj: lpfile.lpformat.Object, bidders: List<Bidder>) {
         lp.obj(obj)
-        kotlin.run loop@{
-            bidders.forEachIndexed { i, bidder ->
-                bidder.bids.forEachIndexed { j, bid ->
-                    lp.term(bid.getValue(), "x", i.toString() + j.toString())
-                    if (i == bidders.size - 1 && j == bidder.bids.size - 1)
-                        return@loop
-                    lp.plus()
-                }
+        bidders.forEachIndexed { i, bidder ->
+            bidder.bids.forEachIndexed { j, bid ->
+                lp.term(bid.getValue(), "x", i.toString() + j.toString())
             }
         }
         lp.newline()
@@ -59,14 +55,10 @@ object SingleSidedAuctionImpl : LpMaker, SingleSidedAuction {
         lp.subto()
         resource.forEachIndexed { n, _ ->
             lp.constrateName("c" + n.toString())
-            kotlin.run loop@{
-                bidders.forEachIndexed { i, bidder ->
-                    bidder.bids.forEachIndexed { j, bid ->
-                        lp.term(bid.bundle[n], "x", i.toString() + j.toString())
-                        if (i == bidders.size - 1 && j == bidder.bids.size - 1)
-                            return@loop
-                        lp.plus()
-                    }
+            bidders.forEachIndexed { i, bidder ->
+                bidder.bids.forEachIndexed { j, bid ->
+                    lp.term(bid.bundle[n], "x", i.toString() + j.toString())
+
                 }
             }
             lp.constrait(Constrait.LEQ)

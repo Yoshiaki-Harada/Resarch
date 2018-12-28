@@ -5,14 +5,16 @@
             0,
             0
          ],
-         "payment": 3.0
+         "payment": 3.0,
+         "profit": 3.0
       },
       {
          "id": [
             2,
             1
          ],
-         "payment": 2.0
+         "payment": 2.0,
+         "profit": 3.0
       }
    ],
    "objectValue": 11.0
