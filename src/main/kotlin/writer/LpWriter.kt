@@ -1,11 +1,11 @@
 package writer
 
-import lpformat.*
+import lpfile.lpformat.*
 import java.io.File
 
 class LpWriter(val filename: String) {
 
-    val file = File(filename+".lp").absoluteFile
+    val file = File("$filename.lp").absoluteFile
 
     fun obj(obj: Object) {
         //出来れば一回しか書き込めないエラー処理
@@ -21,8 +21,8 @@ class LpWriter(val filename: String) {
         file.appendText(cons.str + " ")
     }
 
-    fun constrateName(name :String){
-        file.appendText(name+": ")
+    fun constrateName(name: String) {
+        file.appendText("$name: ")
     }
 
     fun bounds(bounds: Bounds) {
@@ -40,24 +40,28 @@ class LpWriter(val filename: String) {
         file.appendText("end")
     }
 
-    fun term(double :Double, variable :String, suffix :String){
-        file.appendText(" " + double.toString() + variable + suffix)
+    fun term(double: Double, variable: String, suffix: String) {
+        when {
+            double >= 0 -> file.appendText(" +" + double.toString() + variable + suffix)
+            double < 0 -> file.appendText(" " + double.toString() + variable + suffix)
+
+        }
     }
 
-    fun number(double :Double){
-        file.appendText(" " + double.toString()+ " ")
+    fun number(double: Double) {
+        file.appendText(" " + double.toString() + " ")
     }
 
 
-    fun term(variable :String, suffix :String){
+    fun term(variable: String, suffix: String) {
         file.appendText(" $variable$suffix ")
     }
 
-    fun plus(){
+    fun plus() {
         file.appendText(" " + Calculation.PLUS.str)
     }
 
-    fun mul(){
+    fun mul() {
         file.appendText(" " + Calculation.MULTI.str)
     }
 
@@ -72,7 +76,7 @@ class LpWriter(val filename: String) {
         }.isEmpty()
     }
 
-    fun newline(){
+    fun newline() {
         file.appendText("\n")
     }
 

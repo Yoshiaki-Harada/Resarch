@@ -1,17 +1,20 @@
+package auction
+
 import Impoter.LpImporter
+import Util
 import config.Config
-import converter.ConfigConverter
 import converter.ResultConverter
 import ilog.concert.IloLPMatrix
-import lpformat.Object
-import model.Bid
+import lpfile.lpformat.Object
 import model.Bidder
+import model.Resource
 import result.BidResult
 import result.Result
 import writer.JsonWriter
+import lpfile.SingleSidedAuctionImpl as SingleSidedAuctionImpl
 
-class VCG() {
-    fun start(lpfile: String, bidders: MutableList<Bidder>, resource: Array<Double>, config: Config) {
+object VCG : SingleSidedAuction {
+    fun start(lpfile: String, bidders: MutableList<Bidder>, resource: Resource, config: Config) {
         val cplex = LpImporter(lpfile).getCplex()
         cplex.solve()
         //最適かの判定
@@ -27,50 +30,26 @@ class VCG() {
 
         //勝者となった入札を読み込む
         val winBids = getWinBids(x)
+
         //勝者となった入札を除いた入札を作成する
         val bidResults: MutableList<BidResult> = mutableListOf()
-
-
         winBids.forEach { bidIndex ->
             val exbidders = bidders.mapIndexed() { i, bidder ->
                 Bidder().add(bidder.bids.filterIndexed { j, bid ->
                     !(bidIndex[0] == i && bidIndex[1] == j)
                 })
-            }.toMutableList()
+            }
 
-            val filename = "LP/VCG/Exclude" + bidIndex.toString()
-            LPMaker(filename, Object.MAX, exbidders, resource).makeFile()
+            val filename = "LP/auction.VCG/Exclude" + bidIndex.toString()
+            SingleSidedAuctionImpl.makeLpFile(config, Object.MAX, exbidders, resource)
             val vcgCplex = LpImporter(filename).getCplex()
             vcgCplex.solve()
-            val payment = vcgCplex.objValue - (objValue - bidders[bidIndex[0]].bids[bidIndex[1]].value)
-            bidResults.add(BidResult(arrayOf(bidIndex[0], bidIndex[1]), payment))
+            val payment = vcgCplex.objValue - (objValue - bidders[bidIndex[0]].bids[bidIndex[1]].getValue())
+            val profit = bidders[bidIndex[0]].bids[bidIndex[1]].getValue() - payment
+            bidResults.add(BidResult(arrayOf(bidIndex[0], bidIndex[1]), payment, profit))
+
         }
-
-//
-//        winBids.forEach { bidIndex ->
-//            val exbidders: MutableList<Bidder> = mutableListOf()
-//            val tmpBidder: Bidder = Bidder()
-//            bidders.forEachIndexed { i, bidder ->
-//                val tmpBids: MutableList<Bid> = mutableListOf()
-//                bidder.bids.forEachIndexed { j, bid ->
-//                    if (!(bidIndex[0] == i && bidIndex[1] == j)) {
-//                        tmpBids.add(bid)
-//                    }
-//                }
-//                tmpBidder.add(tmpBids)
-//                exbidders.add(tmpBidder)
-//            }
-//            val filename = "LP/VCG/Exclude" + bidIndex.toString()
-//            LPMaker(filename, Object.MAX, exbidders, resource).makeFile()
-//            val vcgCplex = LpImporter(filename).getCplex()
-//            vcgCplex.solve()
-//            val payment = vcgCplex.objValue - (objValue - bidders[bidIndex[0]].bids[bidIndex[1]].value)
-//            bidResults.add(BidResult(arrayOf(bidIndex[0], bidIndex[1]), payment))
-//        }
-
-
         JsonWriter(config.resultFile).makeFile(ResultConverter.toJson(Result(objValue, bidResults)))
-
         cplex.end()
     }
 
@@ -85,4 +64,5 @@ class VCG() {
         }
         return winBids
     }
+
 }
