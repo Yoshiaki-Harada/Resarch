@@ -42,18 +42,25 @@ class LpWriter(val filename: String) {
 
     fun term(double: Double, variable: String, suffix: String) {
         when {
-            double >= 0 -> file.appendText(" +" + double.toString() + variable + suffix)
-            double < 0 -> file.appendText(" " + double.toString() + variable + suffix)
-
+            double >= 0 -> file.appendText(" +" + double.toString() + " " + variable + suffix + " ")
+            double < 0 -> file.appendText(" " + double.toString() + " " + variable + suffix + " ")
         }
     }
 
     fun number(double: Double) {
-        file.appendText(" " + double.toString() + " ")
+        when {
+            double >= 0 -> file.appendText(" +" + double.toString() + " ")
+            double < 0 -> file.appendText(" " + double.toString() + " ")
+        }
     }
 
 
     fun term(variable: String, suffix: String) {
+        file.appendText(" +$variable$suffix ")
+    }
+
+
+    fun variable(variable: String, suffix: String) {
         file.appendText(" $variable$suffix ")
     }
 
@@ -61,8 +68,17 @@ class LpWriter(val filename: String) {
         file.appendText(" " + Calculation.PLUS.str)
     }
 
-    fun mul() {
-        file.appendText(" " + Calculation.MULTI.str)
+    fun mul(variable: String, suffix: String) {
+        file.appendText(Calculation.MULTI.str + " $variable$suffix ")
+    }
+
+
+    fun mul(double: Double, variable1: String, suffix1: String, variable2: String, suffix2: String) {
+        file.appendText("+ " + double.toString() + " $variable1$suffix1 " + Calculation.MULTI.str + " $variable2$suffix2 ")
+    }
+
+    fun mul(variable1: String, suffix1: String, variable2: String, suffix2: String) {
+        file.appendText("+ [ $variable1$suffix1 " + Calculation.MULTI.str + " $variable2$suffix2 ] ")
     }
 
     fun isNotContain(str: String): Boolean {

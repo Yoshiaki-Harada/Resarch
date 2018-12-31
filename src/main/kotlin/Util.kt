@@ -10,5 +10,4 @@ object Util {
         val list: List<DoubleArray> = mutableList
         return list
     }
-
 }

@@ -1,10 +1,10 @@
 {
   "auction": 0,
-  "bidderFile": "Bid/Test01/bidder_test",
-  "lpFile": "LP/test_file",
-  "provider": 1,
-  "requester": 3,
+  "bidderFile": "Bid/bidder",
+  "lpFile": "LP/test",
+  "provider": 2,
+  "requester": 2,
   "resource": 2,
-  "resultFile": "Result/result_file",
+  "resultFile": "Result/test_file",
   "tmpFile": "tmp_file"
 }

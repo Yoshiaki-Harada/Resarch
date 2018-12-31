@@ -58,7 +58,6 @@ object SingleSidedAuctionImpl : LpMaker, SingleSidedAuction {
             bidders.forEachIndexed { i, bidder ->
                 bidder.bids.forEachIndexed { j, bid ->
                     lp.term(bid.bundle[n], "x", i.toString() + j.toString())
-
                 }
             }
             lp.constrait(Constrait.LEQ)
