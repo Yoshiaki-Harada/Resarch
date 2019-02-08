@@ -1,10 +1,20 @@
 {
-  "auction": 0,
-  "bidderFile": "Bid/bidder",
-  "lpFile": "LP/test",
-  "provider": 2,
-  "requester": 2,
-  "resource": 2,
-  "resultFile": "Result/test_file",
-  "tmpFile": "tmp_file"
+   "auction": 1,
+   "bidNumber": 1,
+   "bidderFile": "Bid/Bidder",
+   "lpFile": "LP/costMin",
+   "provider": 20,
+   "providerResourceNumber": 1,
+   "providerTimeMax": 300.0,
+   "providerTimeMin": 200.0,
+   "providerValueMax": 0.15,
+   "providerValueMin": 0.1,
+   "requester": 40,
+   "requesterTimeMax": 50.0,
+   "requesterTimeMin": 0.0,
+   "requesterValueMax": 1.5,
+   "requesterValueMin": 1.0,
+   "resource": 4,
+   "resultFile": "Result/costMin",
+   "tmpFile": "tmp_file"
 }

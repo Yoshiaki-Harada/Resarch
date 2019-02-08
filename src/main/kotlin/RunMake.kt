@@ -1,8 +1,8 @@
 import Impoter.JsonImporter
 import config.Config
 import converter.BidderConverter
-import lpfile.SingleSidedAuctionImpl
-import lpfile.lpformat.Object
+import winner.SingleSidedAuction
+import cplex.lpformat.Object
 import model.Bidder
 import model.Resource
 
@@ -14,6 +14,6 @@ fun main(args: Array<String>) {
         val bidder = BidderConverter.fromJson(JsonImporter(config.bidderFile + j.toString()).getString())
         bidders.add(bidder)
     }
-    SingleSidedAuctionImpl.makeLpFile(config, Object.MAX, bidders, Resource(arrayOf(1.0, 1.0)))
+    SingleSidedAuction.makeLpFile(config, Object.MAX, bidders, Resource(arrayOf(1.0, 1.0)))
 
 }

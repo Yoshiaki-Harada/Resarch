@@ -1,6 +1,6 @@
 package writer
 
-import lpfile.lpformat.*
+import cplex.lpformat.*
 import java.io.File
 
 class LpWriter(val filename: String) {
@@ -47,6 +47,10 @@ class LpWriter(val filename: String) {
         }
     }
 
+    fun minus(double: Double, variable: String, suffix: String) {
+        file.appendText(" " + double.toString() + " " + variable + suffix + " ")
+    }
+
     fun number(double: Double) {
         when {
             double >= 0 -> file.appendText(" +" + double.toString() + " ")
@@ -65,7 +69,7 @@ class LpWriter(val filename: String) {
     }
 
     fun plus() {
-        file.appendText(" " + Calculation.PLUS.str)
+        file.appendText(" " + Calculation.PLUS.str + " ")
     }
 
     fun mul(variable: String, suffix: String) {
@@ -90,6 +94,10 @@ class LpWriter(val filename: String) {
         return lines.filter {
             regex.containsMatchIn(it)
         }.isEmpty()
+    }
+
+    fun arrow() {
+        file.appendText("->")
     }
 
     fun newline() {

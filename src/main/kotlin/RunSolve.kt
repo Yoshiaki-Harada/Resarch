@@ -1,6 +1,7 @@
 import Impoter.JsonImporter
-import auction.VCG
+import trade.VCG
 import config.Config
+import converter.BidderConverter
 import model.Bidder
 import model.Resource
 
@@ -10,7 +11,7 @@ fun main(args: Array<String>) {
     val config = Config.fromJson("config")
 
     for (j in 0 until config.requester) {
-        val bidder = Bidder().fromJson(JsonImporter(config.bidderFile + j.toString()).getString())
+        val bidder = BidderConverter.fromJson(JsonImporter(config.bidderFile + j.toString()).getString())
         bidders.add(bidder)
     }
 

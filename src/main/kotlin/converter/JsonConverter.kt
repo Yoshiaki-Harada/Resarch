@@ -5,14 +5,14 @@ import com.squareup.moshi.Moshi
 import config.Config
 import model.Bidder
 import model.Resource
+import result.BidCal
+import result.BidderCal
 import result.Result
 import java.lang.reflect.Type
 
 interface JsonConverter<T> {
-
     val moshi: Moshi.Builder
         get() = Moshi.Builder()
-
     val LENIENT_FACTORY: JsonAdapter.Factory
         get() = object : JsonAdapter.Factory {
             override fun create(type: Type, annotations: Set<Annotation>, moshi: Moshi): JsonAdapter<*> {
@@ -48,7 +48,6 @@ object BidderConverter : JsonConverter<Bidder> {
 }
 
 object ResourceConverter : JsonConverter<Resource> {
-
     override fun toJson(t: Resource): String {
         return moshi.build().adapter(Resource::class.java).indent("   ").toJson(t)
     }
@@ -68,3 +67,15 @@ object ConfigConverter : JsonConverter<Config> {
         return moshi.add(LENIENT_FACTORY).build().adapter(Config::class.java).fromJson(s)!!
     }
 }
+
+object BidderCalConverter : JsonConverter<BidderCal> {
+
+    override fun toJson(t: BidderCal): String {
+        return moshi.build().adapter(BidderCal::class.java).indent("   ").toJson(t)
+    }
+
+    override fun fromJson(s: String): BidderCal {
+        return moshi.add(LENIENT_FACTORY).build().adapter(BidderCal::class.java).fromJson(s)!!
+    }
+}
+
