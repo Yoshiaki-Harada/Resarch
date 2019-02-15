@@ -1,12 +1,18 @@
+import Impoter.JsonImporter
 import config.Config
+import converter.BidderConverter
+import cplex.lpformat.Object
+import model.Bidder
+import winner.CostMinPenaltyAuction
 import java.util.*
 import kotlin.streams.toList
 
 fun main(args: Array<String>) {
+    val config = Config.fromJson("config")
+    val bidders = mutableListOf<Bidder>()
+    for (index in 0 until config.provider + config.requester) {
+        bidders.add(BidderConverter.fromJson(JsonImporter(config.bidderFile + "$index").getString()))
+    }
 
-    val rands = (1..4).toList().shuffled()
-    val resource = rands.subList(0, 2).sorted()
-    println(rands)
-    println(resource)
-
+    CostMinPenaltyAuction.makeLpFile(config, Object.MIN,bidders)
 }

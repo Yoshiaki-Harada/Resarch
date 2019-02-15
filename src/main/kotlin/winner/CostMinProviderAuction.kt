@@ -8,7 +8,7 @@ import writer.LpWriter
 import cplex.lpformat.Constrait
 import cplex.lpformat.VarType
 
-//resource提供側の勝者を決める問題
+// resource提供側の勝者を決める問題
 object CostMinProviderAuction : LpMaker {
     override fun makeLpFile(config: Config, obj: Object, bidders: List<Bidder>, vararg option: Option) {
         val lp = LpWriter(config.lpFile)

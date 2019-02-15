@@ -40,21 +40,29 @@ class LpWriter(val filename: String) {
         file.appendText("end")
     }
 
+    fun leftBracket() {
+        file.appendText("(")
+    }
+
+    fun rightBracket() {
+        file.appendText(")")
+    }
+
     fun term(double: Double, variable: String, suffix: String) {
         when {
-            double >= 0 -> file.appendText(" +" + double.toString() + " " + variable + suffix + " ")
-            double < 0 -> file.appendText(" " + double.toString() + " " + variable + suffix + " ")
+            double >= 0 -> file.appendText(" +$double $variable$suffix ")
+            double < 0 -> file.appendText(" $double $variable$suffix ")
         }
     }
 
     fun minus(double: Double, variable: String, suffix: String) {
-        file.appendText(" " + double.toString() + " " + variable + suffix + " ")
+        file.appendText(" -$double $variable$suffix ")
     }
 
     fun number(double: Double) {
         when {
-            double >= 0 -> file.appendText(" +" + double.toString() + " ")
-            double < 0 -> file.appendText(" " + double.toString() + " ")
+            double >= 0 -> file.appendText(" +$double ")
+            double < 0 -> file.appendText(" $double ")
         }
     }
 
@@ -66,6 +74,10 @@ class LpWriter(val filename: String) {
 
     fun variable(variable: String, suffix: String) {
         file.appendText(" $variable$suffix ")
+    }
+
+    fun minus() {
+        file.appendText(" " + Calculation.MINUS.str + " ")
     }
 
     fun plus() {

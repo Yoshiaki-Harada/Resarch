@@ -37,8 +37,7 @@ object ProfitMaxDoubleAuction : LpMaker {
                     requester.bids.forEachIndexed { n, bid ->
                         //provider_iがresource_rをrequester_jに提供するとき1となる変数
                         //provider_iがresource_rをrequester_jの入札nに提供する時間x(正の整数)
-
-                        lp.minus(-resource.getValue() * bid.bundle[r], "x", "$i$r$j$n")
+                        lp.minus(resource.getValue() * bid.bundle[r], "x", "$i$r$j$n")
                     }
                 }
             }
