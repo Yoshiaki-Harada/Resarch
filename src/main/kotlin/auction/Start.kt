@@ -9,12 +9,10 @@ import cplex.Solver
 import cplex.lpformat.Object
 import model.Bidder
 import trade.AveCostMin
+import trade.AvePenaltyCostMin
 import trade.AveProfitMax
 import trade.Trade
-import winner.CostMinProviderAuction
-import winner.LpMaker
-import winner.ProfitMaxDoubleAuction
-import winner.SingleSidedAuction
+import winner.*
 
 
 fun main(args: Array<String>) {
@@ -30,6 +28,7 @@ fun main(args: Array<String>) {
         0 -> SingleSidedAuction
         1 -> CostMinProviderAuction
         2 -> ProfitMaxDoubleAuction
+        3 -> CostMinPenaltyAuction
         else -> {
             println("error")
             //とりあえず
@@ -41,6 +40,7 @@ fun main(args: Array<String>) {
         0 -> Object.MAX
         1 -> Object.MIN
         2 -> Object.MAX
+        3 -> Object.MIN
         else -> {
             println("error")
             //とりあえず
@@ -52,6 +52,7 @@ fun main(args: Array<String>) {
         //Todo:0->VCG
         1 -> AveCostMin
         2 -> AveProfitMax
+        3 -> AvePenaltyCostMin
         else -> {
             println("error")
             //とりあえず

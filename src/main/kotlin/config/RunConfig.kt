@@ -19,6 +19,7 @@ fun main(args: Array<String>) {
             2.0,
             1,
             2,
+            1000.0,
             "Bid/First/bidder",
             "LP/lp_file",
             0,

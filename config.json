@@ -1,8 +1,9 @@
 {
-   "auction": 0,
+   "auction": 3,
    "bidNumber": 1,
    "bidderFile": "Bid/First/bidder",
-   "lpFile": "LP/test_file",
+   "lpFile": "LP/lp_file",
+   "penalty": 1000.0,
    "provider": 8,
    "providerResourceNumber": 1,
    "providerTimeMax": 1000.0,

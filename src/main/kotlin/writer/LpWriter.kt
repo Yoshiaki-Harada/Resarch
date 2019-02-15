@@ -50,13 +50,13 @@ class LpWriter(val filename: String) {
 
     fun term(double: Double, variable: String, suffix: String) {
         when {
-            double >= 0 -> file.appendText(" +$double $variable$suffix ")
+            double >= 0 -> file.appendText(" + $double $variable$suffix ")
             double < 0 -> file.appendText(" $double $variable$suffix ")
         }
     }
 
     fun minus(double: Double, variable: String, suffix: String) {
-        file.appendText(" -$double $variable$suffix ")
+        file.appendText(" - $double $variable$suffix ")
     }
 
     fun number(double: Double) {
@@ -66,6 +66,9 @@ class LpWriter(val filename: String) {
         }
     }
 
+    fun pureNumber(double: Double) {
+        file.appendText(" $double ")
+    }
 
     fun term(variable: String, suffix: String) {
         file.appendText(" +$variable$suffix ")

@@ -17,6 +17,7 @@ class Config(val provider: Int, /*提供企業数*/
              val requesterValueMax: Double, /*要求企業の最大予算*/
              val bidNumber: Int, /*入札数*/
              val resource: Int, /*リソースの種類*/
+             val penalty: Double, /*ペナルティ係数*/
              val bidderFile: String, /*入札者用Jsonファイルのファイル名*/
              val lpFile: String, /*LPファイルのファイル名*/
              val auction: Int, /*オークションの種類*/

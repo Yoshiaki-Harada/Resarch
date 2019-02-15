@@ -1,7 +1,9 @@
 import Impoter.JsonImporter
+import Impoter.LpImporter
 import config.Config
 import converter.BidderConverter
 import cplex.lpformat.Object
+import ilog.cplex.IloCplex
 import model.Bidder
 import winner.CostMinPenaltyAuction
 import java.util.*
@@ -15,4 +17,7 @@ fun main(args: Array<String>) {
     }
 
     CostMinPenaltyAuction.makeLpFile(config, Object.MIN,bidders)
+
+    val cplex = LpImporter("lp").getCplex()
+    cplex.ray
 }

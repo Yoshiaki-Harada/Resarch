@@ -49,6 +49,7 @@ object AveProfitMax : Trade {
                 }
             }
         }
+
         //利益の計算用
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
