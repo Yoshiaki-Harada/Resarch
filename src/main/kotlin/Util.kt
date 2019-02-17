@@ -47,4 +47,9 @@ object Util {
 
         return mutableList2
     }
+
+    fun sd(doubles: List<Double>): Double {
+        val ave = doubles.average()
+        return Math.sqrt(doubles.map { Math.pow(2.0, it - ave) }.sum() / doubles.size)
+    }
 }

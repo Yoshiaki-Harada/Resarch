@@ -6,10 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="b643a80e-3eec-4564-a8c0-b166e13b099d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/test.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LP/lp_file.lp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LP/test_file.lp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/result/BidCal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/BidCal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/result/BidResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/BidResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/result/BidderCal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/BidderCal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/result/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveCostMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AveCostMin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AvePenaltyCostMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AvePenaltyCostMin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveProfitMax.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AveProfitMax.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Util.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_result_file.json" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,6 +34,25 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/Result.kt">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="225">
+                    <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -40,27 +71,82 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state>
+              <caret column="14" selection-start-column="14" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LP/testl1p_file.lp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LP/test_file.lp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_result_file.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="367" column="10" lean-forward="true" selection-start-line="367" selection-start-column="10" selection-end-line="367" selection-end-column="10" />
               <folding>
-                <element signature="n#!!block;n#writeSubToProvide#0;n#!!block;n#CostMinPenaltyAuction#0" />
-                <element signature="n#!!block;n#writeSubToWinner#0;n#!!block;n#CostMinPenaltyAuction#0" />
-                <element signature="n#!!block;n#writeSubToBidY#0;n#!!block;n#CostMinPenaltyAuction#0" />
-                <element signature="n#!!block;n#writeSubToRelstionXsndY#0;n#!!block;n#CostMinPenaltyAuction#0" />
-                <element signature="n#!!block;n#writeSubToBidX#0;n#!!block;n#CostMinPenaltyAuction#0" />
-                <element signature="n#!!block;n#writeBinVariable#0;n#!!block;n#CostMinPenaltyAuction#0" />
+                <element signature="e#54#2432#0" />
+                <element signature="e#62#237#0" />
+                <element signature="e#245#394#0" />
+                <element signature="e#402#551#0" />
+                <element signature="e#2544#2922#0" />
+                <element signature="e#2949#5327#0" />
+                <element signature="e#5442#6209#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinProviderAuction.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/Util.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1185">
-              <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
+            <state>
+              <caret column="20" selection-start-column="14" selection-end-column="20" />
+              <folding>
+                <element signature="n#!!block;n#convertDimension#0;n#!!block;n#Util#0" />
+                <element signature="n#!!block;n#convertDimension4#0;n#!!block;n#Util#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidderResult.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -68,44 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="102" column="83" lean-forward="true" selection-start-line="102" selection-start-column="83" selection-end-line="102" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test_result_file.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="350" column="7" selection-start-line="350" selection-start-column="7" selection-end-line="350" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/Test.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/writer/LpWriter.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state relative-caret-position="51">
+              <caret line="85" selection-start-line="85" selection-end-line="91" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -113,17 +163,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LP/lp_file.lp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="49" lean-forward="true" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+            <state relative-caret-position="288">
+              <caret line="98" column="23" lean-forward="true" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -152,6 +193,7 @@
       <find>Ave</find>
       <find>objValue</find>
       <find>sum</find>
+      <find>providerResults</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,12 +202,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/lpfile/ProfitMaxDoubleAuction.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/lpfile/LpMaker.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/auction/AveCostMin.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/auction/AveProfitMax.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/result/Results.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/auction/Auction.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/tradingPrice/Auction.kt" />
@@ -193,14 +232,10 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/dataset/DataMaker.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/dataset/RunData.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/config/RunSetting.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/Util.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/dataset/BidderDataMaker.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/dataset/BidDataMaker.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/winner/ProfitMaxDoubleAuction.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/winner/CostMinProviderAuction.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/auction/Start.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Test.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/writer/LpWriter.kt" />
@@ -209,8 +244,15 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/config/RunConfig.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt" />
         <option value="$PROJECT_DIR$/config.json" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" />
         <option value="$PROJECT_DIR$/test_result_file.json" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidderCal.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/Util.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" />
       </list>
     </option>
   </component>
@@ -220,8 +262,8 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="203" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -249,69 +291,6 @@
             </path>
             <path>
               <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Result" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="auction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="trade" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="winner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="writer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
               <item name="外部ライブラリー" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -323,7 +302,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550386788581" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550394309064" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/kotlin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -482,18 +461,19 @@
       <workItem from="1549552437846" duration="1653000" />
       <workItem from="1549600353160" duration="3721000" />
       <workItem from="1550191322051" duration="150000" />
-      <workItem from="1550192341893" duration="22136000" />
+      <workItem from="1550192341893" duration="22517000" />
+      <workItem from="1550388202938" duration="5950000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="288232000" />
+    <option name="totallyTimeSpent" value="294563000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14306152" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14520743" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="デザイナー" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -588,29 +568,6 @@
     <option name="SHOW_DIFF_PREVIEW" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Result/costMinResult_file.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1412">
-          <caret line="375" column="14" lean-forward="true" selection-start-line="375" selection-start-column="14" selection-end-line="375" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Result/profitMax.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/VCG.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/Test01/Bidder2.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/Test01/Bidder1.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bid/Test01/bidder_test2.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -635,9 +592,6 @@
           <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LP/testl1p_file.lp">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/LP/testlp_file.lp">
       <provider selected="true" editor-type-id="text-editor" />
@@ -682,13 +636,6 @@
     <entry file="file://$PROJECT_DIR$/LP/example1.lp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/config/Config.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -700,13 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/Result.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -770,13 +710,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LP/test.lp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LP/lp_file.lp">
+    <entry file="file://$PROJECT_DIR$/LP/test.lp" />
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="49" lean-forward="true" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+        <state relative-caret-position="153">
+          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!block;n#writeSubToProvide#0;n#!!block;n#CostMinPenaltyAuction#0" />
+            <element signature="n#!!block;n#writeSubToWinner#0;n#!!block;n#CostMinPenaltyAuction#0" />
+            <element signature="n#!!block;n#writeSubToBidY#0;n#!!block;n#CostMinPenaltyAuction#0" />
+            <element signature="n#!!block;n#writeSubToRelstionXsndY#0;n#!!block;n#CostMinPenaltyAuction#0" />
+            <element signature="n#!!block;n#writeSubToBidX#0;n#!!block;n#CostMinPenaltyAuction#0" />
+            <element signature="n#!!block;n#writeBinVariable#0;n#!!block;n#CostMinPenaltyAuction#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinProviderAuction.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -789,65 +742,115 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/writer/LpWriter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        <state relative-caret-position="810">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinProviderAuction.kt">
+    <entry file="file://$PROJECT_DIR$/LP/lp_file.lp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
+        <state relative-caret-position="60">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="102" column="17" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+        <state relative-caret-position="45">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidderCal.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="45">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/Result.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Util.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" selection-start-column="14" selection-end-column="20" />
           <folding>
-            <element signature="n#!!block;n#writeSubToProvide#0;n#!!block;n#CostMinPenaltyAuction#0" />
-            <element signature="n#!!block;n#writeSubToWinner#0;n#!!block;n#CostMinPenaltyAuction#0" />
-            <element signature="n#!!block;n#writeSubToBidY#0;n#!!block;n#CostMinPenaltyAuction#0" />
-            <element signature="n#!!block;n#writeSubToRelstionXsndY#0;n#!!block;n#CostMinPenaltyAuction#0" />
-            <element signature="n#!!block;n#writeSubToBidX#0;n#!!block;n#CostMinPenaltyAuction#0" />
-            <element signature="n#!!block;n#writeBinVariable#0;n#!!block;n#CostMinPenaltyAuction#0" />
+            <element signature="n#!!block;n#convertDimension#0;n#!!block;n#Util#0" />
+            <element signature="n#!!block;n#convertDimension4#0;n#!!block;n#Util#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LP/testl1p_file.lp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LP/test_file.lp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="81" column="23" lean-forward="true" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="102" column="83" lean-forward="true" selection-start-line="102" selection-start-column="83" selection-end-line="102" selection-end-column="83" />
+        <state relative-caret-position="210">
+          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_result_file.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="350" column="7" selection-start-line="350" selection-start-column="7" selection-end-line="350" selection-end-column="7" />
+        <state relative-caret-position="345">
+          <caret line="367" column="10" lean-forward="true" selection-start-line="367" selection-start-column="10" selection-end-line="367" selection-end-column="10" />
+          <folding>
+            <element signature="e#54#2432#0" />
+            <element signature="e#62#237#0" />
+            <element signature="e#245#394#0" />
+            <element signature="e#402#551#0" />
+            <element signature="e#2544#2922#0" />
+            <element signature="e#2949#5327#0" />
+            <element signature="e#5442#6209#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidderResult.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="85" selection-start-line="85" selection-end-line="91" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="98" column="23" lean-forward="true" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
         </state>
       </provider>
     </entry>

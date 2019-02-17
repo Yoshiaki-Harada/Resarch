@@ -142,6 +142,8 @@
          "profit": 45.00000000000001
       }
    ],
+   "providerProfitAve": 38.92857142857143,
+   "providerProfitSD": 1.3000286636535415E7,
    "providerResults": [
       {
          "id": 0,
@@ -306,6 +308,8 @@
          "profit": 44.99999999999999
       }
    ],
+   "requesterProfitAve": 38.92857142857143,
+   "requesterProfitSD": 1.3000286636535287E7,
    "requesterResults": [
       {
          "id": 0,
@@ -350,6 +354,8 @@
    ],
    "sumCost": 110.0,
    "sumProfit": 1090.0,
+   "tradeAve": 46.785714285714285,
+   "tradeSD": 8.742468165644546E8,
    "x": [
       1.0,
       1.0,

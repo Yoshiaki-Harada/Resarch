@@ -59,9 +59,7 @@ object AveProfitMax : Trade {
         val providerBidResults = mutableListOf<BidResult>()
         val requesterBidResults = mutableListOf<BidResult>()
 
-        println("provider:" + providers.size)
-
-        println("providerCals:" + providerCals.size)
+        var payments = mutableListOf<Double>()
 
         //利益の計算
         x.forEachIndexed { i, provider ->
@@ -70,6 +68,7 @@ object AveProfitMax : Trade {
                     requester.forEachIndexed { n, d ->
                         if (d == 1.0) {
                             val payment = calPayment(providers[i], requesters[j], n, r)
+                            payments.add(payment)
                             providerCals[i].bids[r].addPayment(payment)
                             providerCals[i].bids[r].addProfit(calProviderProfit(payment, providers[i], requesters[j], n, r))
                             providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, calProviderProfit(payment, providers[i], requesters[j], n, r)))
@@ -85,19 +84,30 @@ object AveProfitMax : Trade {
 
 
         //支払い価格と利益の合計の計算
-        val providerResults = mutableListOf<BidderResult>()
-        val requesterResults = mutableListOf<BidderResult>()
-
-        providerCals.forEachIndexed { i, it ->
-            providerResults.add(BidderResult(i, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum()))
+        val providerResults = providerCals.mapIndexed { i, it ->
+            BidderResult(i, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
 
-        requesterCals.forEachIndexed { j, it ->
-            requesterResults.add(BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum()))
+        val requesterResults = requesterCals.mapIndexed { j, it ->
+            BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
 
-        return Result(objValue, cost, objValue, xCplex, providerResults, requesterResults, providerBidResults, requesterBidResults)
-
+        return Result(
+                objValue,
+                cost,
+                objValue,
+                xCplex,
+                providerResults,
+                requesterResults,
+                providerBidResults.map { it.profit }.average(),
+                Util.sd(providerBidResults.map { it.profit }),
+                requesterBidResults.map { it.profit }.average(),
+                Util.sd(requesterBidResults.map { it.profit }),
+                payments.average(),
+                Util.sd(payments),
+                providerBidResults,
+                requesterBidResults
+        )
     }
 
     fun initBidderCals(bidderCals: MutableList<BidderCal>, bidders: List<Bidder>) {
