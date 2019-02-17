@@ -5,24 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b643a80e-3eec-4564-a8c0-b166e13b099d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/trade/CalAve.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/lp_file.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/test_file.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Util.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/result/BidCal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/BidCal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/result/BidResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/BidResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/result/BidderCal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/BidderCal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/result/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/Result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveCostMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AveCostMin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AvePenaltyCostMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AvePenaltyCostMin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveProfitMax.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AveProfitMax.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Util.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_result_file.json" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -52,6 +38,23 @@
         </state>
       </content>
     </window>
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="780">
+                    <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -71,19 +74,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
+            <state relative-caret-position="131">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/CalAve.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding>
+                <element signature="e#15#79#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+            <state relative-caret-position="135">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -154,17 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="85" selection-start-line="85" selection-end-line="91" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="98" column="23" lean-forward="true" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+            <state relative-caret-position="264">
+              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
             </state>
           </provider>
         </entry>
@@ -177,8 +183,8 @@
         <option value="Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin File" />
         <option value="Kotlin Object" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -202,10 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/lpfile/LpMaker.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/auction/AveCostMin.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/auction/AveProfitMax.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/result/Results.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/auction/Auction.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/tradingPrice/Auction.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/tradingPrice/VCG.kt" />
@@ -252,6 +254,10 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveTradeUtil.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveUtil.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/CalAve.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" />
       </list>
     </option>
@@ -287,7 +293,28 @@
             <path>
               <item name="program" type="b2602c69:ProjectViewProjectNode" />
               <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="LP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="trade" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="program" type="b2602c69:ProjectViewProjectNode" />
@@ -302,7 +329,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550394309064" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550394999061" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/kotlin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -462,18 +489,18 @@
       <workItem from="1549600353160" duration="3721000" />
       <workItem from="1550191322051" duration="150000" />
       <workItem from="1550192341893" duration="22517000" />
-      <workItem from="1550388202938" duration="5950000" />
+      <workItem from="1550388202938" duration="6909000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294563000" />
+    <option name="totallyTimeSpent" value="295522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14520743" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14520743" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="デザイナー" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -482,7 +509,7 @@
       <window_info id="UI デザイナー" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.46751592" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.29808918" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.29808918" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28025478" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -568,12 +595,6 @@
     <option name="SHOW_DIFF_PREVIEW" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Bid/Test01/bidder_test2.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/Test01/bidder_test1.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bid/Test01/bidder_test0.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -835,22 +856,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="85" selection-start-line="85" selection-end-line="91" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="98" column="23" lean-forward="true" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+        <state relative-caret-position="264">
+          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+        <state relative-caret-position="131">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/CalAve.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="e#15#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
         </state>
       </provider>
     </entry>

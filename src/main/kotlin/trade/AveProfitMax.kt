@@ -70,12 +70,12 @@ object AveProfitMax : Trade {
                             val payment = calPayment(providers[i], requesters[j], n, r)
                             payments.add(payment)
                             providerCals[i].bids[r].addPayment(payment)
-                            providerCals[i].bids[r].addProfit(calProviderProfit(payment, providers[i], requesters[j], n, r))
-                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, calProviderProfit(payment, providers[i], requesters[j], n, r)))
+                            providerCals[i].bids[r].addProfit(TradeUtil.providerProfit(payment, providers[i], requesters[j], n, r))
+                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.providerProfit(payment, providers[i], requesters[j], n, r)))
                             //要求側
                             requesterCals[j].bids[n].addPayment(payment)
-                            requesterCals[j].bids[n].addProfit(calRequesterProfit(payment, requesters[j], n, r))
-                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, calRequesterProfit(payment, requesters[j], n, r)))
+                            requesterCals[j].bids[n].addProfit(TradeUtil.requesterProfit(payment, requesters[j], n, r))
+                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.requesterProfit(payment, requesters[j], n, r)))
                         }
                     }
                 }
@@ -132,15 +132,5 @@ object AveProfitMax : Trade {
         val avePay = (provider.bids[resource].getValue() + budgetOfResource) / 2
         //                                       time
         return avePay * requester.bids[bidIndex].bundle[resource]
-    }
-
-    fun calProviderProfit(payment: Double, provider: Bidder, requester: Bidder, n: Int, r: Int): Double {
-        //                                 cost                          time
-        return payment - provider.bids[r].getValue() * requester.bids[n].bundle[r]
-    }
-
-    fun calRequesterProfit(payment: Double, requester: Bidder, bidIndex: Int, resource: Int): Double {
-        //     resourceに対する予算の密度                                                             time
-        return calRequesterBudgetDensity(requester, bidIndex, resource) * requester.bids[bidIndex].bundle[resource] - payment
     }
 }
