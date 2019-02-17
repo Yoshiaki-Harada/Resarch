@@ -49,7 +49,10 @@ object Util {
     }
 
     fun sd(doubles: List<Double>): Double {
-        val ave = doubles.average()
-        return Math.sqrt(doubles.map { Math.pow(2.0, it - ave) }.sum() / doubles.size)
+        return Math.sqrt(doubles.map { Math.pow(it - doubles.average(), 2.0) }.sum() / doubles.size)
     }
+}
+
+fun List<Double>.sd(): Double {
+    return Math.sqrt(this.map { Math.pow(it - this.average(), 2.0) }.sum() / this.size)
 }

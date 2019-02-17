@@ -25,7 +25,7 @@ object AveTrade {
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
                     requester.forEachIndexed { n, d ->
-                        if (d != 0.0) {
+                        if (d == 1.0) {
                             val payment = AveTrade.payment(providers[i], requesters[j], n, r)
                             payments.add(payment)
                             //提供側

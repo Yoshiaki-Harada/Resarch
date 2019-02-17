@@ -10,6 +10,7 @@ import java.util.*
 import kotlin.streams.toList
 
 fun main(args: Array<String>) {
+    /*
     val config = Config.fromJson("config")
     val bidders = mutableListOf<Bidder>()
     for (index in 0 until config.provider + config.requester) {
@@ -20,4 +21,7 @@ fun main(args: Array<String>) {
 
     val cplex = LpImporter("lp").getCplex()
     cplex.ray
+    */
+
+
 }

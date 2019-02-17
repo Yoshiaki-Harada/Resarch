@@ -5,6 +5,7 @@ import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
 import result.*
+import sd
 
 object AvePenaltyCostMin : Trade {
     override fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
@@ -68,12 +69,12 @@ object AvePenaltyCostMin : Trade {
                 xCplex,
                 providerResults,
                 requesterResults,
-                providerBidResults.map { it.profit }.average(),
-                Util.sd(providerBidResults.map { it.profit }),
-                requesterBidResults.map { it.profit }.average(),
-                Util.sd(requesterBidResults.map { it.profit }),
+                providerResults.map { it.profit }.average(),
+                providerResults.map { it.profit }.sd(),
+                requesterResults.map { it.profit }.average(),
+                requesterResults.map { it.profit }.sd(),
                 payments.average(),
-                Util.sd(payments),
+                payments.sd(),
                 providerBidResults,
                 requesterBidResults
         )

@@ -1,10 +1,10 @@
 {
-   "auction": 2,
+   "auction": 3,
    "bidNumber": 1,
-   "bidderFile": "Bid/First/bidder",
-   "lpFile": "LP/pMax",
+   "bidderFile": "Bid/ResourceShortage/bidder",
+   "lpFile": "LP/pe",
    "penalty": 1000.0,
-   "provider": 4,
+   "provider": 2,
    "providerResourceNumber": 1,
    "providerTimeMax": 1000.0,
    "providerTimeMin": 500.0,
@@ -16,6 +16,6 @@
    "requesterValueMax": 2.0,
    "requesterValueMin": 1.0,
    "resource": 2,
-   "resultFile": "pMax",
+   "resultFile": "pe",
    "tmpFile": "tmp_file"
 }
