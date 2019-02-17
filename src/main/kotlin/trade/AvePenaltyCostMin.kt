@@ -10,14 +10,16 @@ object AvePenaltyCostMin : Trade {
     override fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
         //最適かの判定
         val status = cplex.status
+        println("status = $status")
         //目的関数値
         val objValue = cplex.objValue
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
         val xCplex = cplex.getValues(lp)
         println("objValue = $objValue")
         val providers = bidders.subList(0, config.provider)
-        println("provider:" + providers.size)
+        println("providerNumber:" + providers.size)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
+        println("requesterNumber:" + requesters.size)
         val sum = requesters.map { it -> it.bids.size }.sum()
         println(sum)
         val excludedXCplex = xCplex.copyOfRange(sum, xCplex.lastIndex + 1)
@@ -43,13 +45,12 @@ object AvePenaltyCostMin : Trade {
 
         val providerBidResults = mutableListOf<BidResult>()
         val requesterBidResults = mutableListOf<BidResult>()
+        val payments = mutableListOf<Double>()
 
-        var payments = mutableListOf<Double>()
-
-        //取引を実行し利益等を計算する
+        // 取引を実行し利益等を計算する
         AveTrade.run(x, providers, requesters, payments, providerCals, providerBidResults, requesterCals, requesterBidResults)
 
-        //支払い価格と利益の合計の計算
+        // 各企業の利益の合計を計算し，結果用のクラスに変換
         val providerResults = providerCals.mapIndexed { i, it ->
             BidderResult(i, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }

@@ -6,22 +6,23 @@ import ilog.cplex.IloCplex
 import model.Bidder
 import result.*
 
-//costMim用の方を作る
 object AveCostMin : Trade {
     override
     fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
         //最適かの判定
         val status = cplex.status
+        println("status = $status")
         //目的関数値
         val objValue = cplex.objValue
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
         val xCplex = cplex.getValues(lp)
         println("objValue = $objValue")
-
         val providers = bidders.subList(0, config.provider)
+        println("providersNumber:" + providers.size)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
+        println("requesterNumber:" + requesters.size)
         val x = Util.convertDimension4(xCplex, requesters.map { it -> it.bids.size }, providers.map { it -> it.bids.size }, config)
-
+        // 解を出力
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
@@ -32,21 +33,17 @@ object AveCostMin : Trade {
             }
         }
 
-        val cost = TradeUtil.cost(x, providers, requesters)
-
-        //利益の計算用
+        // 利益の計算用クラスの用意
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
+        // 初期化
         TradeUtil.initBidderCals(providerCals, providers)
         TradeUtil.initBidderCals(requesterCals, requesters)
-
         val providerBidResults = mutableListOf<BidResult>()
         val requesterBidResults = mutableListOf<BidResult>()
+        val payments = mutableListOf<Double>()
 
-        var payments = mutableListOf<Double>()
-
-
-        //利益の計算
+        // 利益の計算
         AveTrade.run(x, providers, requesters, payments, providerCals, providerBidResults, requesterCals, requesterBidResults)
 
         //支払い価格と利益の合計の計算
@@ -58,6 +55,7 @@ object AveCostMin : Trade {
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
 
+        //総利益の計算
         val sumProfit = providerBidResults.map { it.profit }.sum().plus(requesterBidResults.map { it.profit }.sum())
 
         return Result(

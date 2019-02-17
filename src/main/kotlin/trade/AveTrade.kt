@@ -4,6 +4,7 @@ import model.Bidder
 import result.BidResult
 import result.BidderCal
 
+// Ruleを継承したAveTrade(paymentとrunを継承?)
 object AveTrade {
     fun calRequesterBudgetDensity(requester: Bidder, bidIndex: Int, resource: Int): Double {
         return (requester.bids[bidIndex].getValue() * (requester.bids[bidIndex].bundle[resource] / requester.bids[bidIndex].bundle.sum())) / requester.bids[bidIndex].bundle[resource]
@@ -18,6 +19,7 @@ object AveTrade {
         return avePay * requester.bids[bidIndex].bundle[resource]
     }
 
+    //　Calsを引数にせずに本来は計算結果を生成して返す?
     fun run(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>, payments: MutableList<Double>, providerCals: MutableList<BidderCal>, providerBidResults: MutableList<BidResult>, requesterCals: MutableList<BidderCal>, requesterBidResults: MutableList<BidResult>) {
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
