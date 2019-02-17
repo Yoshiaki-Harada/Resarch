@@ -67,8 +67,9 @@ object AvePenaltyCostMin : Trade {
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
                     requester.forEachIndexed { n, d ->
-                        if (d == 1.0) {
+                        if (d != 0.0) {
                             val payment = calPayment(providers[i], requesters[j], n, r)
+                            //提供側
                             providerCals[i].bids[r].addPayment(payment)
                             providerCals[i].bids[r].addProfit(calProviderProfit(payment, providers[i], requesters[j], n, r))
                             providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, calProviderProfit(payment, providers[i], requesters[j], n, r)))
@@ -96,7 +97,7 @@ object AvePenaltyCostMin : Trade {
 
         val sumProfit = providerBidResults.map { it.profit }.sum().plus(requesterBidResults.map { it.profit }.sum())
 
-        return Result(objValue, cost + config.penalty * config.requester, sumProfit, xCplex, providerResults, requesterResults, providerBidResults, requesterBidResults)
+        return Result(objValue, cost, sumProfit, xCplex, providerResults, requesterResults, providerBidResults, requesterBidResults)
     }
 
     fun initBidderCals(bidderCals: MutableList<BidderCal>, bidders: List<Bidder>) {
