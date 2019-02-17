@@ -35,8 +35,6 @@ object AveProfitMax : Trade {
             }
         }
 
-        val cost = TradeUtil.cost(x, providers, requesters)
-
         //利益の計算用
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
@@ -80,7 +78,7 @@ object AveProfitMax : Trade {
 
         return Result(
                 objValue,
-                cost,
+                TradeUtil.cost(x, providers, requesters),
                 objValue,
                 xCplex,
                 providerResults,

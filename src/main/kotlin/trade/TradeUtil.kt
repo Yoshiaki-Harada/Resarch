@@ -22,6 +22,7 @@ object TradeUtil {
         return cost
     }
 
+    // 結果出力用リストの初期化
     fun initBidderCals(bidderCals: MutableList<BidderCal>, bidders: List<Bidder>) {
         println("bidders:" + bidders.size)
         bidders.forEach {

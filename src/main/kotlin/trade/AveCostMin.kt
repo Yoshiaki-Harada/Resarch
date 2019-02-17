@@ -81,7 +81,7 @@ object AveCostMin : Trade {
 
         return Result(
                 objValue,
-                cost,
+                TradeUtil.cost(x, providers, requesters),
                 sumProfit,
                 xCplex,
                 providerResults,

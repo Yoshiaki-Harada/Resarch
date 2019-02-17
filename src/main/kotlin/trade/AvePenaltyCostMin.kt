@@ -37,6 +37,7 @@ object AvePenaltyCostMin : Trade {
         //利益の計算用
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
+        // 初期化
         TradeUtil.initBidderCals(providerCals, providers)
         TradeUtil.initBidderCals(requesterCals, requesters)
 
