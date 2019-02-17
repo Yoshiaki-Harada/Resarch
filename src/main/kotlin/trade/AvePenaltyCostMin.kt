@@ -46,27 +46,8 @@ object AvePenaltyCostMin : Trade {
 
         var payments = mutableListOf<Double>()
 
-        //利益の計算
-        x.forEachIndexed { i, provider ->
-            provider.forEachIndexed { r, resource ->
-                resource.forEachIndexed { j, requester ->
-                    requester.forEachIndexed { n, d ->
-                        if (d != 0.0) {
-                            val payment = AveTrade.payment(providers[i], requesters[j], n, r)
-                            payments.add(payment)
-                            //提供側
-                            providerCals[i].bids[r].addPayment(payment)
-                            providerCals[i].bids[r].addProfit(TradeUtil.providerProfit(payment, providers[i], requesters[j], n, r))
-                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.providerProfit(payment, providers[i], requesters[j], n, r)))
-                            //要求側
-                            requesterCals[j].bids[n].addPayment(payment)
-                            requesterCals[j].bids[n].addProfit(TradeUtil.requesterProfit(payment, requesters[j], n, r))
-                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.requesterProfit(payment, requesters[j], n, r)))
-                        }
-                    }
-                }
-            }
-        }
+        //取引を実行し利益等を計算する
+        AveTrade.run(x, providers, requesters, payments, providerCals, providerBidResults, requesterCals, requesterBidResults)
 
         //支払い価格と利益の合計の計算
         val providerResults = providerCals.mapIndexed { i, it ->
