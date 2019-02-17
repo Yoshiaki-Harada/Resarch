@@ -32,11 +32,13 @@ object AveCostMin : Trade {
             }
         }
 
+        val cost = TradeUtil.cost(x, providers, requesters)
+
         //利益の計算用
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
-        initBidderCals(providerCals, providers)
-        initBidderCals(requesterCals, requesters)
+        TradeUtil.initBidderCals(providerCals, providers)
+        TradeUtil.initBidderCals(requesterCals, requesters)
 
         val providerBidResults = mutableListOf<BidResult>()
         val requesterBidResults = mutableListOf<BidResult>()
@@ -50,16 +52,16 @@ object AveCostMin : Trade {
                     requester.forEachIndexed { n, d ->
                         //勝者となった入札に関して
                         if (d == 1.0) {
-                            val payment = calPayment(providers[i], requesters[j], n, r)
+                            val payment = AveTrade.payment(providers[i], requesters[j], n, r)
                             payments.add(payment)
                             //提供側
                             providerCals[i].bids[r].addPayment(payment)
-                            providerCals[i].bids[r].addProfit(calProviderProfit(payment, providers[i], requesters[j], n, r))
-                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, calProviderProfit(payment, providers[i], requesters[j], n, r)))
+                            providerCals[i].bids[r].addProfit(TradeUtil.providerProfit(payment, providers[i], requesters[j], n, r))
+                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.providerProfit(payment, providers[i], requesters[j], n, r)))
                             //要求側
                             requesterCals[j].bids[n].addPayment(payment)
-                            requesterCals[j].bids[n].addProfit(calRequesterProfit(payment, requesters[j], n, r))
-                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, calRequesterProfit(payment, requesters[j], n, r)))
+                            requesterCals[j].bids[n].addProfit(TradeUtil.requesterProfit(payment, requesters[j], n, r))
+                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.requesterProfit(payment, requesters[j], n, r)))
                         }
                     }
                 }
@@ -79,7 +81,7 @@ object AveCostMin : Trade {
 
         return Result(
                 objValue,
-                objValue,
+                cost,
                 sumProfit,
                 xCplex,
                 providerResults,
@@ -93,38 +95,5 @@ object AveCostMin : Trade {
                 providerBidResults,
                 requesterBidResults
         )
-    }
-
-    fun initBidderCals(bidderCals: MutableList<BidderCal>, bidders: List<Bidder>) {
-        bidders.forEach {
-            val bidCal = BidderCal()
-            it.bids.forEach {
-                bidCal.bids.add(BidCal())
-            }
-            bidderCals.add(bidCal)
-        }
-    }
-
-    fun calRequesterBudgetDensity(requester: Bidder, bidIndex: Int, resource: Int): Double {
-        return (requester.bids[bidIndex].getValue() * (requester.bids[bidIndex].bundle[resource] / requester.bids[bidIndex].bundle.sum())) / requester.bids[bidIndex].bundle[resource]
-    }
-
-    fun calPayment(provider: Bidder, requester: Bidder, bidIndex: Int, resource: Int): Double {
-        //resourceに対する予算の密度
-        val budgetOfResource = calRequesterBudgetDensity(requester, bidIndex, resource)
-        //提供側と要求側の予算密度の平均
-        val avePay = (provider.bids[resource].getValue() + budgetOfResource) / 2
-        //                                       time
-        return avePay * requester.bids[bidIndex].bundle[resource]
-    }
-
-    fun calProviderProfit(payment: Double, provider: Bidder, requester: Bidder, n: Int, r: Int): Double {
-        //                                 cost                          time
-        return payment - provider.bids[r].getValue() * requester.bids[n].bundle[r]
-    }
-
-    fun calRequesterProfit(payment: Double, requester: Bidder, bidIndex: Int, resource: Int): Double {
-        //     resourceに対する予算の密度                                                             time
-        return calRequesterBudgetDensity(requester, bidIndex, resource) * requester.bids[bidIndex].bundle[resource] - payment
     }
 }

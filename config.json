@@ -1,8 +1,8 @@
 {
-   "auction": 3,
+   "auction": 2,
    "bidNumber": 1,
    "bidderFile": "Bid/First/bidder",
-   "lpFile": "LP/test_file",
+   "lpFile": "LP/pMax",
    "penalty": 1000.0,
    "provider": 4,
    "providerResourceNumber": 1,
@@ -16,6 +16,6 @@
    "requesterValueMax": 2.0,
    "requesterValueMin": 1.0,
    "resource": 2,
-   "resultFile": "test_result_file",
+   "resultFile": "pMax",
    "tmpFile": "tmp_file"
 }
