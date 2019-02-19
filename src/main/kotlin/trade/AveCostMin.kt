@@ -34,30 +34,20 @@ object AveCostMin : Trade {
             }
         }
 
-        // 利益の計算用クラスの用意
-        var providerCals = mutableListOf<BidderCal>()
-        var requesterCals = mutableListOf<BidderCal>()
-        // 初期化
-        TradeUtil.initBidderCals(providerCals, providers)
-        TradeUtil.initBidderCals(requesterCals, requesters)
-        val providerBidResults = mutableListOf<BidResult>()
-        val requesterBidResults = mutableListOf<BidResult>()
-        val payments = mutableListOf<Double>()
-
         // 利益の計算
-        AveTrade.run(x, providers, requesters, payments, providerCals, providerBidResults, requesterCals, requesterBidResults)
+        val rs = AveTrade.run(x, providers, requesters)
 
         //支払い価格と利益の合計の計算
-        val providerResults = providerCals.mapIndexed { i, it ->
+        val providerResults = rs.providerCals.mapIndexed { i, it ->
             BidderResult(i, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
 
-        val requesterResults = requesterCals.mapIndexed { j, it ->
+        val requesterResults = rs.requesterCals.mapIndexed { j, it ->
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
 
         //総利益の計算
-        val sumProfit = providerBidResults.map { it.profit }.sum().plus(requesterBidResults.map { it.profit }.sum())
+        val sumProfit = rs.providerBidResults.map { it.profit }.sum().plus(rs.requesterBidResults.map { it.profit }.sum())
 
         return Result(
                 objValue,
@@ -70,10 +60,10 @@ object AveCostMin : Trade {
                 providerResults.map { it.profit }.sd(),
                 requesterResults.map { it.profit }.average(),
                 requesterResults.map { it.profit }.sd(),
-                payments.average(),
-                payments.sd(),
-                providerBidResults,
-                requesterBidResults
+                rs.payments.average(),
+                rs.payments.sd(),
+                rs.providerBidResults,
+                rs.requesterBidResults
         )
     }
 }

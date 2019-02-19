@@ -2,6 +2,7 @@ package trade
 
 import model.Bidder
 import result.BidCal
+import result.BidResult
 import result.BidderCal
 
 object TradeUtil {
@@ -34,13 +35,24 @@ object TradeUtil {
         }
     }
 
-    fun providerProfit(payment: Double, provider: Bidder, requester: Bidder, n: Int, r: Int): Double {
+    fun calProviderProfit(payment: Double, provider: Bidder, requester: Bidder, n: Int, r: Int): Double {
         //                                 cost                          time
         return payment - provider.bids[r].getValue() * requester.bids[n].bundle[r]
     }
 
-    fun requesterProfit(payment: Double, requester: Bidder, bidIndex: Int, resource: Int): Double {
+    fun calRequesterProfit(payment: Double, requester: Bidder, bidIndex: Int, resource: Int): Double {
         //     resourceに対する予算の密度                                                             time
         return AveTrade.calRequesterBudgetDensity(requester, bidIndex, resource) * requester.bids[bidIndex].bundle[resource] - payment
     }
+
+}
+
+
+class ResultPre(
+        val payments: MutableList<Double>,
+        val providerCals: MutableList<BidderCal>,
+        val requesterCals: MutableList<BidderCal>,
+        val providerBidResults: MutableList<BidResult>,
+        val requesterBidResults: MutableList<BidResult>){
+
 }

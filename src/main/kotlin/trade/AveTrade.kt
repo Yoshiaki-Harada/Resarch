@@ -19,8 +19,17 @@ object AveTrade {
         return avePay * requester.bids[bidIndex].bundle[resource]
     }
 
-    //　Calsを引数にせずに本来は計算結果を生成して返す?
-    fun run(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>, payments: MutableList<Double>, providerCals: MutableList<BidderCal>, providerBidResults: MutableList<BidResult>, requesterCals: MutableList<BidderCal>, requesterBidResults: MutableList<BidResult>) {
+    fun run(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>): ResultPre {
+        var providerCals = mutableListOf<BidderCal>()
+        var requesterCals = mutableListOf<BidderCal>()
+        // 初期化
+        TradeUtil.initBidderCals(providerCals, providers)
+        TradeUtil.initBidderCals(requesterCals, requesters)
+        val providerBidResults = mutableListOf<BidResult>()
+        val requesterBidResults = mutableListOf<BidResult>()
+        val payments = mutableListOf<Double>()
+
+        //決定変数が1の時に取引を行う
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
@@ -28,18 +37,25 @@ object AveTrade {
                         if (d == 1.0) {
                             val payment = AveTrade.payment(providers[i], requesters[j], n, r)
                             payments.add(payment)
-                            //提供側
+                            // 提供側
                             providerCals[i].bids[r].addPayment(payment)
-                            providerCals[i].bids[r].addProfit(TradeUtil.providerProfit(payment, providers[i], requesters[j], n, r))
-                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.providerProfit(payment, providers[i], requesters[j], n, r)))
-                            //要求側
+                            providerCals[i].bids[r].addProfit(TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r))
+                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r)))
+                            // 要求側
                             requesterCals[j].bids[n].addPayment(payment)
-                            requesterCals[j].bids[n].addProfit(TradeUtil.requesterProfit(payment, requesters[j], n, r))
-                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.requesterProfit(payment, requesters[j], n, r)))
+                            requesterCals[j].bids[n].addProfit(TradeUtil.calRequesterProfit(payment, requesters[j], n, r))
+                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calRequesterProfit(payment, requesters[j], n, r)))
                         }
                     }
                 }
             }
         }
+
+        return ResultPre(
+                payments,
+                providerCals,
+                requesterCals,
+                providerBidResults,
+                requesterBidResults)
     }
 }

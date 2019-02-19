@@ -38,27 +38,20 @@ object AveProfitMax : Trade {
             }
         }
 
-        // 利益の計算用クラスの準備
-        var providerCals = mutableListOf<BidderCal>()
-        var requesterCals = mutableListOf<BidderCal>()
-        TradeUtil.initBidderCals(providerCals, providers)
-        TradeUtil.initBidderCals(requesterCals, requesters)
-
-        val providerBidResults = mutableListOf<BidResult>()
-        val requesterBidResults = mutableListOf<BidResult>()
-
-        val payments = mutableListOf<Double>()
-
         // 利益の計算
-        AveTrade.run(x, providers, requesters, payments, providerCals, providerBidResults, requesterCals, requesterBidResults)
+        val rs = AveTrade.run(x, providers, requesters)
 
         // 支払い価格と利益の合計の計算
-        val providerResults = providerCals.mapIndexed { i, it ->
-            BidderResult(i, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
+        val providerResults = rs.providerCals.mapIndexed { i, it ->
+            BidderResult(
+                    i, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum()
+            )
         }
 
-        val requesterResults = requesterCals.mapIndexed { j, it ->
-            BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
+        val requesterResults = rs.requesterCals.mapIndexed { j, it ->
+            BidderResult(
+                    j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum()
+            )
         }
 
         return Result(
@@ -72,10 +65,10 @@ object AveProfitMax : Trade {
                 providerResults.map { it.profit }.sd(),
                 requesterResults.map { it.profit }.average(),
                 requesterResults.map { it.profit }.sd(),
-                payments.average(),
-                payments.sd(),
-                providerBidResults,
-                requesterBidResults
+                rs.payments.average(),
+                rs.payments.sd(),
+                rs.providerBidResults,
+                rs.requesterBidResults
         )
     }
 }

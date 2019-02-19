@@ -47,10 +47,6 @@ object Util {
 
         return mutableList2
     }
-
-    fun sd(doubles: List<Double>): Double {
-        return Math.sqrt(doubles.map { Math.pow(it - doubles.average(), 2.0) }.sum() / doubles.size)
-    }
 }
 
 fun List<Double>.sd(): Double {
