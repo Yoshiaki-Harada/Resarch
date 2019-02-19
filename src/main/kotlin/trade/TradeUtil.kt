@@ -42,9 +42,13 @@ object TradeUtil {
 
     fun calRequesterProfit(payment: Double, requester: Bidder, bidIndex: Int, resource: Int): Double {
         //     resourceに対する予算の密度                                                             time
-        return AveTrade.calRequesterBudgetDensity(requester, bidIndex, resource) * requester.bids[bidIndex].bundle[resource] - payment
+        return calRequesterTrueBudgetDensity(requester, bidIndex, resource) * requester.bids[bidIndex].bundle[resource] - payment
     }
 
+}
+
+fun calRequesterTrueBudgetDensity(requester: Bidder, bidIndex: Int, resource: Int): Double {
+    return (requester.bids[bidIndex].value.tValue * (requester.bids[bidIndex].bundle[resource] / requester.bids[bidIndex].bundle.sum())) / requester.bids[bidIndex].bundle[resource]
 }
 
 
@@ -53,6 +57,6 @@ class ResultPre(
         val providerCals: MutableList<BidderCal>,
         val requesterCals: MutableList<BidderCal>,
         val providerBidResults: MutableList<BidResult>,
-        val requesterBidResults: MutableList<BidResult>){
+        val requesterBidResults: MutableList<BidResult>) {
 
 }
