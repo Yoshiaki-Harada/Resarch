@@ -1,0 +1,21 @@
+{
+   "auction": 3,
+   "bidNumber": 3,
+   "bidderFile": "Bid/需要と供給1対1/bidder",
+   "lpFile": "LP/penalty",
+   "penalty": 10.0,
+   "provider": 10,
+   "providerResourceNumber": 2,
+   "providerTimeMax": 300.0,
+   "providerTimeMin": 100.0,
+   "providerValueMax": 0.5,
+   "providerValueMin": 0.1,
+   "requester": 10,
+   "requesterTimeMax": 200.0,
+   "requesterTimeMin": 0.0,
+   "requesterValueMax": 1.5,
+   "requesterValueMin": 1.0,
+   "resource": 4,
+   "resultFile": "Result/penalty",
+   "tmpFile": "tmp_file"
+}

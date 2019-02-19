@@ -7,6 +7,11 @@ class LpWriter(val filename: String) {
 
     val file = File("$filename.lp").absoluteFile
 
+    init {
+        if (file.delete())
+            println("$filename を削除しました")
+    }
+
     fun obj(obj: Object) {
         //出来れば一回しか書き込めないエラー処理
         file.appendText(obj.str + "\n")

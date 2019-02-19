@@ -10,18 +10,17 @@ import java.util.*
 import kotlin.streams.toList
 
 fun main(args: Array<String>) {
-    /*
+
     val config = Config.fromJson("config")
     val bidders = mutableListOf<Bidder>()
     for (index in 0 until config.provider + config.requester) {
         bidders.add(BidderConverter.fromJson(JsonImporter(config.bidderFile + "$index").getString()))
     }
 
-    CostMinPenaltyAuction.makeLpFile(config, Object.MIN,bidders)
+    CostMinPenaltyAuction.makeLpFile(config, Object.MIN, bidders)
 
     val cplex = LpImporter("lp").getCplex()
     cplex.ray
-    */
 
 
 }

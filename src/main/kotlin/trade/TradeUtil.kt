@@ -37,7 +37,7 @@ object TradeUtil {
 
     fun calProviderProfit(payment: Double, provider: Bidder, requester: Bidder, n: Int, r: Int): Double {
         //                                 cost                          time
-        return payment - provider.bids[r].getValue() * requester.bids[n].bundle[r]
+        return payment - provider.bids[r].value.tValue * requester.bids[n].bundle[r]
     }
 
     fun calRequesterProfit(payment: Double, requester: Bidder, bidIndex: Int, resource: Int): Double {

@@ -33,8 +33,9 @@ object Util {
         c = 0
         for (x in 0 until config.provider) {
             for (i in 0 until config.resource) {
+                println("listSize: ${mutableList0.size} c,last: $c ${c + config.requester}")
                 mutableList1.add(mutableList0.subList(c, c + config.requester))
-                c += sum
+                c += config.requester
             }
         }
 

@@ -21,8 +21,9 @@ object AvePenaltyCostMin : Trade {
         println("providerNumber:" + providers.size)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         println("requesterNumber:" + requesters.size)
-        val sum = requesters.map { it -> it.bids.size }.sum()
+        val sum = requesters.map { it.bids.size }.sum()
         println(sum)
+        val y = xCplex.copyOfRange(0, sum)
         val excludedXCplex = xCplex.copyOfRange(sum, xCplex.lastIndex + 1)
         println("x_size:" + excludedXCplex.size)
         val x = Util.convertDimension4(excludedXCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
@@ -38,7 +39,7 @@ object AvePenaltyCostMin : Trade {
         }
 
         // 取引を実行し利益等を計算する
-        val rs  = AveTrade.run(x, providers, requesters)
+        val rs = AveTrade.run(x, providers, requesters)
 
         // 各企業の利益の合計を計算し，結果用のクラスに変換
         val providerResults = rs.providerCals.mapIndexed { i, it ->
@@ -56,6 +57,7 @@ object AvePenaltyCostMin : Trade {
                 TradeUtil.cost(x, providers, requesters),
                 sumProfit,
                 xCplex,
+                y.filter { it == 1.0 }.size,
                 providerResults,
                 requesterResults,
                 providerResults.map { it.profit }.average(),

@@ -24,6 +24,8 @@ object AveProfitMax : Trade {
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         println("requesterNumber:" + requesters.size)
         val sum = requesters.map { it.bids.size }.sum()
+        val y = xCplex.copyOfRange(0, sum)
+        println("y_size: ${y.size}")
         val excludedXCplex = xCplex.copyOfRange(sum, xCplex.lastIndex + 1)
         println("x_size:" + excludedXCplex.size)
         val x = Util.convertDimension4(excludedXCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
@@ -59,6 +61,7 @@ object AveProfitMax : Trade {
                 TradeUtil.cost(x, providers, requesters),
                 objValue,
                 xCplex,
+                y.filter { it == 1.0 }.size,
                 providerResults,
                 requesterResults,
                 providerResults.map { it.profit }.average(),

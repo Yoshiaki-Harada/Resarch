@@ -54,6 +54,7 @@ object AveCostMin : Trade {
                 TradeUtil.cost(x, providers, requesters),
                 sumProfit,
                 xCplex,
+                -1,
                 providerResults,
                 requesterResults,
                 providerResults.map { it.profit }.average(),
