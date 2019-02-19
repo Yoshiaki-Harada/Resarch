@@ -49,6 +49,7 @@ object Util {
     }
 }
 
+// 標準偏差を求める
 fun List<Double>.sd(): Double {
     return Math.sqrt(this.map { Math.pow(it - this.average(), 2.0) }.sum() / this.size)
 }

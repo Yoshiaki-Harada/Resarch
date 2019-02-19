@@ -4,8 +4,10 @@ import model.Bidder
 import result.BidResult
 import result.BidderCal
 
-// Ruleを継承したAveTrade(paymentとrunを継承?)
+// TODO Ruleを継承したAveTrade(paymentとrunをinterfaceに定義)
 object AveTrade {
+
+    // paymentを求める為の関数
     fun calRequesterBudgetDensity(requester: Bidder, bidIndex: Int, resource: Int): Double {
         return (requester.bids[bidIndex].getValue() * (requester.bids[bidIndex].bundle[resource] / requester.bids[bidIndex].bundle.sum())) / requester.bids[bidIndex].bundle[resource]
     }

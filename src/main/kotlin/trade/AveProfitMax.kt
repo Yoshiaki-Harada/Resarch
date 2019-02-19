@@ -15,15 +15,15 @@ object AveProfitMax : Trade {
         println("status = $status")
         // 目的関数値
         val objValue = cplex.objValue
+        println("objValue = $objValue")
+
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
         val xCplex = cplex.getValues(lp)
-        println("objValue = $objValue")
         val providers = bidders.subList(0, config.provider)
         println("providerNumber:" + providers.size)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         println("requesterNumber:" + requesters.size)
         val sum = requesters.map { it.bids.size }.sum()
-        println(sum)
         val excludedXCplex = xCplex.copyOfRange(sum, xCplex.lastIndex + 1)
         println("x_size:" + excludedXCplex.size)
         val x = Util.convertDimension4(excludedXCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
