@@ -1,0 +1,14 @@
+{
+   "providerProfitAve": 107.85729868322198,
+   "providerProfitSD": 9.739294987343829,
+   "providerTimeRatioAve": 0.7527677376017292,
+   "providerTimeRatioSD": 0.08766550849394635,
+   "requesterProfitAve": 107.85729868322196,
+   "requesterProfitSD": 9.739294987343817,
+   "sumCostAve": 632.202183165064,
+   "sumCostSD": 95.9673656345591,
+   "sumProfitAve": 2157.145973664439,
+   "sumProfitSD": 194.78589974687628,
+   "winBidAve": 8.0,
+   "winBidSD": 1.0954451150103321
+}

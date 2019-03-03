@@ -1,0 +1,23 @@
+{
+   "auction": 3,
+   "bidDir": "Bid/supply-300.0-400.0",
+   "bidNumber": 3,
+   "bidderFile": "Bid/supply-300.0-400.0/0",
+   "lpFile": "LP/profitMax",
+   "penalty": 10000.0,
+   "profitRate": 30,
+   "provider": 10,
+   "providerResourceNumber": 2,
+   "providerTimeMax": 150.0,
+   "providerTimeMin": 50.0,
+   "providerValueMax": 0.5,
+   "providerValueMin": 0.1,
+   "requester": 10,
+   "requesterTimeMax": 200.0,
+   "requesterTimeMin": 0.0,
+   "requesterValueMax": 1.5,
+   "requesterValueMin": 1.0,
+   "resource": 4,
+   "resultDir": "Result/supply-300.0-400.0/0/コスト最小化-ペナルティ-10000.0-平均",
+   "resultFile": "Result/profitMax"
+}

@@ -21,10 +21,12 @@ fun main(args: Array<String>) {
             2,
             1000.0,
             "Bid/First/bidder",
+            "Bid/First/bidder",
             "LP/lp_file",
             0,
             "test_result_file",
-            "tmp_file"
+            "test_result_file",
+            10
     )
     writer.JsonWriter("config").makeFile(ConfigConverter.toJson(config))
 }

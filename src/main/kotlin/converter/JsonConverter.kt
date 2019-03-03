@@ -8,6 +8,7 @@ import model.Resource
 import result.BidCal
 import result.BidderCal
 import result.Result
+import result.analysis.Conclusion
 import java.lang.reflect.Type
 
 interface JsonConverter<T> {
@@ -76,6 +77,17 @@ object BidderCalConverter : JsonConverter<BidderCal> {
 
     override fun fromJson(s: String): BidderCal {
         return moshi.add(LENIENT_FACTORY).build().adapter(BidderCal::class.java).fromJson(s)!!
+    }
+}
+
+object ConclusionConverter : JsonConverter<Conclusion> {
+
+    override fun toJson(t: Conclusion): String {
+        return BidderCalConverter.moshi.build().adapter(Conclusion::class.java).indent("   ").toJson(t)
+    }
+
+    override fun fromJson(s: String): Conclusion {
+        return BidderCalConverter.moshi.add(BidderCalConverter.LENIENT_FACTORY).build().adapter(Conclusion::class.java).fromJson(s)!!
     }
 }
 

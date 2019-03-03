@@ -20,6 +20,8 @@ object ProfitMaxDoubleAuction : LpMaker {
         writeSubToProvide(lp, obj, providers, requesters)
         writeSubToRelstionXsndY(lp, obj, providers, requesters, config)
         writeSubToWinner(lp, obj, providers, requesters)
+        writeSubToBidX(lp, obj, providers, requesters, config)
+        writeSubToBidY(lp, obj, providers, requesters)
         writeBinVariable(lp, providers, requesters)
         lp.end()
     }
@@ -119,16 +121,32 @@ object ProfitMaxDoubleAuction : LpMaker {
         }
     }
 
-    //予算制約
-    fun writeSubToBudget(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
-        //全てのrequesterの入札について
-        requesters.forEachIndexed { i, requester ->
-            requester.bids.forEachIndexed { j, bid ->
-                lp.constrateName("budget$i$j")
-                bid.bundle.forEachIndexed { r, time ->
-                    lp.term(bid.bundle[r], "y", "$i$j")
+    // 勝者となる入札はたかだか1つ
+    fun writeSubToBidX(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
+        providers.forEachIndexed { i, provider ->
+            for (r in 0..config.resource) {
+                requesters.forEachIndexed { j, requester ->
+                    lp.constrateName("bidX $i,$r,$j")
+                    provider.bids.forEachIndexed { n, bid ->
+                        lp.term("x", "$i$r$j$n")
+                    }
+                    lp.constrait(Constrait.LEQ)
+                    lp.number(1.0)
+                    lp.newline()
                 }
             }
+        }
+    }
+
+    fun writeSubToBidY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
+        requesters.forEachIndexed { j, requesters ->
+            lp.constrateName("bidY $j")
+            requesters.bids.forEachIndexed { n, bid ->
+                lp.term("y", "$j$n")
+            }
+            lp.constrait(Constrait.LEQ)
+            lp.number(1.0)
+            lp.newline()
         }
     }
 

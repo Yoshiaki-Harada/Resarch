@@ -1,8 +1,10 @@
-package trade
+package trade.average
 
 import model.Bidder
 import result.BidResult
 import result.BidderCal
+import trade.ResultPre
+import trade.TradeUtil
 
 // TODO Ruleを継承したAveTrade(paymentとrunをinterfaceに定義)
 object AveTrade {
@@ -14,10 +16,10 @@ object AveTrade {
 
     fun payment(provider: Bidder, requester: Bidder, bidIndex: Int, resource: Int): Double {
         //resourceに対する予算の密度
-        val budgetOfResource = AveTrade.calRequesterBudgetDensity(requester, bidIndex, resource)
+        val budgetOfResource = calRequesterBudgetDensity(requester, bidIndex, resource)
         //提供側と要求側の予算密度の平均
         val avePay = (provider.bids[resource].getValue() + budgetOfResource) / 2
-        //                                       time
+        //                                       timeRatio
         return avePay * requester.bids[bidIndex].bundle[resource]
     }
 
@@ -37,14 +39,16 @@ object AveTrade {
                 resource.forEachIndexed { j, requester ->
                     requester.forEachIndexed { n, d ->
                         if (d == 1.0) {
-                            val payment = AveTrade.payment(providers[i], requesters[j], n, r)
+                            val payment = payment(providers[i], requesters[j], n, r)
                             payments.add(payment)
                             // 提供側
                             providerCals[i].bids[r].addPayment(payment)
+                            providerCals[i].bids[r].addTime(requesters[j].bids[n].bundle[r])
                             providerCals[i].bids[r].addProfit(TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r))
                             providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r)))
                             // 要求側
                             requesterCals[j].bids[n].addPayment(payment)
+                            requesterCals[i].bids[n].addTime(requesters[j].bids[n].bundle[r])
                             requesterCals[j].bids[n].addProfit(TradeUtil.calRequesterProfit(payment, requesters[j], n, r))
                             requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calRequesterProfit(payment, requesters[j], n, r)))
                         }

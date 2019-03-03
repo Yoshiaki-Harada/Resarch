@@ -1,39 +1,69 @@
+package dataset
+
 import Impoter.JsonImporter
-import Impoter.LpImporter
 import config.Config
 import converter.BidderConverter
-import cplex.lpformat.Object
-import ilog.cplex.IloCplex
 import model.Bid
 import model.Bidder
 import model.Value
-import winner.CostMinPenaltyAuction
 import writer.JsonWriter
-import java.util.*
-import kotlin.streams.toList
+import java.io.File
 
+/*
+sValueを与える為の関数
+ */
 fun main(args: Array<String>) {
 
+    val profitMap =
+            mapOf(/*利益率 sValueの割合*/
+                    "10%" to 0.11,
+                    "20%" to 0.25,
+                    "30%" to 0.43,
+                    "40%" to 0.66,
+                    "50%" to 1.0,
+                    "60%" to 1.5,
+                    "70%" to 2.3,
+                    "80%" to 4.0,
+                    "90%" to 9.0
+            )
+
     val config = Config.fromJson("config")
-    val bidders = mutableListOf<Bidder>()
-    for (index in 0 until config.provider + config.requester) {
-        bidders.add(BidderConverter.fromJson(JsonImporter(config.bidderFile + "$index").getString()))
-    }
 
-    val copyBidders = bidders
-            .subList(0, config.provider)
-            .map {
-                Bidder().add(
-                        it.bids.map {
-                            Bid(Value(it.value.tValue, 1.5 * it.value.tValue), it.bundle)
+    // 提供割合の違いの繰り返し
+    for (s in 0 until 5) {
+        var minSupply = config.providerTimeMin + s * 50.0
+        var maxSupply = config.providerTimeMax + s * 50.0
+
+        val bidDir = "Bid/supply-${minSupply}-${maxSupply}"
+
+        // 利益率による繰り返し
+        for (p in 0 until 5) {
+            var profit = 30 + 10 * p
+
+            // データセット数による繰り返し
+            for (i in 0 until 5) {
+                val bidders = mutableListOf<Bidder>()
+                for (index in 0 until config.provider + config.requester) {
+                    bidders.add(BidderConverter.fromJson(JsonImporter("$bidDir/$i/bidder$index").getString()))
+                    println("$bidDir/$i/bidder$index")
+                }
+                val copyBidders = bidders
+                        .subList(0, config.provider)
+                        .map {
+                            Bidder().add(
+                                    it.bids.map {
+                                        Bid(Value(it.value.tValue, profitMap["$profit%"]!!.times(it.value.tValue)), it.bundle)
+                                    }
+                            )
                         }
-                )
+
+                val afterBidders = copyBidders.plus(bidders.subList(config.provider, config.provider + config.requester))
+                val dir = File("${bidDir}-profit$profit%/$i").absoluteFile
+                dir.mkdirs()
+                afterBidders.forEachIndexed { index, bidder ->
+                    JsonWriter("$bidDir-profit$profit%/$i/bidder$index").makeFile(BidderConverter.toJson(bidder))
+                }
             }
-
-    val afterBidders = copyBidders.plus(bidders.subList(config.provider, config.provider + config.requester))
-
-    afterBidders.forEachIndexed { index, bidder ->
-        JsonWriter(config.bidderFile + "Single$index").makeFile(BidderConverter.toJson(bidder))
+        }
     }
-
 }

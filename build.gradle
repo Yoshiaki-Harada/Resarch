@@ -18,7 +18,8 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile("com.squareup.moshi:moshi:1.8.0")
     compile "com.squareup.moshi:moshi-kotlin:1.8.0"
-
+    compile 'link.webarata3.kexcelapi:kexcelapi:0.5.1'
+    compile group: 'org.apache.poi', name: 'poi', version: '3.9'
 }
 
 compileKotlin {

@@ -8,20 +8,35 @@ import converter.ResultConverter
 import cplex.Solver
 import cplex.lpformat.Object
 import model.Bidder
-import trade.AveCostMin
-import trade.AvePenaltyCostMin
-import trade.AveProfitMax
-import trade.Trade
+import result.analysis.run
+import trade.*
+import trade.average.AveCostMin
+import trade.average.AvePenaltyCostMin
+import trade.average.AveProfitMax
+import trade.provider_single.SingleCostMin
 import winner.*
+import writer.JsonWriter
+import writer.Saver
+import java.io.File
 
-
+/*
+0 VCG用
+1 コスト最小化
+2 利益最大化 取引（平均）
+3 コスト最小化（ペナルティ）取引（平均）
+4~　コスト最小化（ペナルティ）取引（提供単価）
+ */
 fun main(args: Array<String>) {
     val config = Config.fromJson("config")
+    run(config)
+}
 
+fun run(config: Config) {
     //入札作成
     val bidders = mutableListOf<Bidder>()
+
     for (index in 0 until config.provider + config.requester) {
-        bidders.add(BidderConverter.fromJson(JsonImporter(config.bidderFile + "$index").getString()))
+        bidders.add(BidderConverter.fromJson(JsonImporter("${config.bidderFile}/bidder$index").getString()))
     }
 
     val lpMaker: LpMaker = when (config.auction) {
@@ -29,6 +44,7 @@ fun main(args: Array<String>) {
         1 -> CostMinProviderAuction
         2 -> ProfitMaxDoubleAuction
         3 -> CostMinPenaltyAuction
+        4, 5, 6, 7, 8 -> CostMinPenaltyAuction
         else -> {
             println("error")
             //とりあえず
@@ -41,6 +57,7 @@ fun main(args: Array<String>) {
         1 -> Object.MIN
         2 -> Object.MAX
         3 -> Object.MIN
+        4, 5, 6, 7, 8 -> Object.MIN
         else -> {
             println("error")
             //とりあえず
@@ -53,9 +70,10 @@ fun main(args: Array<String>) {
         1 -> AveCostMin
         2 -> AveProfitMax
         3 -> AvePenaltyCostMin
+        4, 5, 6, 7, 8 -> SingleCostMin
         else -> {
             println("error")
-            //とりあえず
+            //とりあえずO
             AveCostMin
         }
     }
@@ -65,6 +83,8 @@ fun main(args: Array<String>) {
     //勝者決定と取引価格決定
     val cplex = Solver(LpImporter(config.lpFile).getCplex()).solve()
     val result = trade.trade(cplex, bidders, config)
-    writer.JsonWriter(config.resultFile).makeFile(ResultConverter.toJson(result))
+    JsonWriter(config.resultFile).makeFile(ResultConverter.toJson(result))
+    // 実験に使ったファイルを全て保存しておく
 
+    Saver.run(bidders, result, config)
 }

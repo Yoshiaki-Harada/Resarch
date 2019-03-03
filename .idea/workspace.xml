@@ -1,50 +1,677 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt" line="42" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt" line="45" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b643a80e-3eec-4564-a8c0-b166e13b099d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/auction/ChangeSupplyStart.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/auction/RepeatStart.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/result/analysis/Analysis.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/result/analysis/Conclusion.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/result/analysis/Excel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/result/analysis/RepeatAnalysis.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileChanges/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileChanges/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcsWorkingDirs/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/vcsWorkingDirs/gc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/1208.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/costMin.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/example1.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/pMax.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/pe.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/proMax.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/profitMax.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/test2.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/test_file.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/testl1p_file.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LP/testlp_file.lp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfitMAx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Result/profitMax.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/bidder/bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/costMin/costMin.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/costMin/costMin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/costMin/cotMIn.lp" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/costMin/cotMIn.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/profitMax/profitMax.json" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/profitMax/profitMax.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2019-01-07/CompareExperiment/profitMax/profitMax.lp" beforeDir="false" afterPath="$PROJECT_DIR$/2019-01-07/CompareExperiment/profitMax/profitMax.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder10.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder11.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder12.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder13.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder14.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder15.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder16.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder17.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder18.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder19.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder20.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder21.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder22.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder23.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder24.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder25.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder26.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder27.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder28.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder29.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder30.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder31.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder32.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder33.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder34.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder35.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder36.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder37.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder38.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder39.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder40.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder41.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder42.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder43.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder44.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder45.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder46.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder47.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder48.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder49.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder50.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder51.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder52.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder53.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder54.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder55.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder56.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder57.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder58.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder59.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder60.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder61.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder62.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder63.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder64.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder65.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder66.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder67.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder68.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder69.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder70.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder71.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder72.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder73.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Bidder9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/First/bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/First/bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/ResourceShortage/bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/ResourceShortage/bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Test01/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Test01/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Test01/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Test01/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Test01/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Test01/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Test01/bidder_test0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Test01/bidder_test0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Test01/bidder_test1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Test01/bidder_test1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bid/Test01/bidder_test2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Bid/Test01/bidder_test2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CostMin" beforeDir="false" afterPath="$PROJECT_DIR$/CostMin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/auto/formula.el" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/auto/formula.el" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/formulation.aux" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/formulation.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/formulation.dvi" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/formulation.dvi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/formulation.fdb_latexmk" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/formulation.fdb_latexmk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/formulation.fls" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/formulation.fls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/formulation.log" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/formulation.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/formulation.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/formulation.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/formulation.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/formulation.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formulation/formulation.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Formulation/formulation.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LP/VCG/Exclude[0, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/LP/VCG/Exclude[0, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LP/VCG/Exclude[2, 1].lp" beforeDir="false" afterPath="$PROJECT_DIR$/LP/VCG/Exclude[2, 1].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LP/pM.lp" beforeDir="false" afterPath="$PROJECT_DIR$/LP/pM.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LP/penalty.lp" beforeDir="false" afterPath="$PROJECT_DIR$/LP/penalty.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LP/profitMax.lp" beforeDir="false" afterPath="$PROJECT_DIR$/LP/profitMax.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LP/test.lp" beforeDir="false" afterPath="$PROJECT_DIR$/LP/test.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/Bid/Bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[0, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[0, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[1, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[1, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[11, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[11, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[12, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[12, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[14, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[14, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[16, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[16, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[17, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[17, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[18, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[18, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[19, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[19, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[2, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[2, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[3, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[3, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[4, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[4, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[5, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[5, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[6, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[6, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[7, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[7, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[8, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[8, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[9, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/VCG/exclude-[9, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/resource.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/resource.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01-a/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01-a/result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/Bid/Bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[0, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[0, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[1, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[1, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[11, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[11, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[12, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[12, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[14, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[14, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[16, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[16, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[17, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[17, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[18, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[18, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[19, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[19, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[2, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[2, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[3, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[3, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[4, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[4, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[5, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[5, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[6, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[6, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[7, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[7, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[8, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[8, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[9, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/VCG/exclude-[9, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/formulation.lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/formulation.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/resource.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/resource.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-01/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-01/result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/Bid/Bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[0, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[0, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[1, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[1, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[10, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[10, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[11, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[11, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[13, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[13, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[14, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[14, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[15, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[15, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[16, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[16, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[18, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[18, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[19, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[19, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[2, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[2, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[3, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[3, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[4, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[4, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[5, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[5, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[6, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[6, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[7, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[7, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[8, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[8, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[9, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/VCG/exclude-[9, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/formulation.lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/formulation.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-02/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-02/result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/Bid/Bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[0, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[0, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[1, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[1, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[10, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[10, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[11, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[11, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[12, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[12, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[13, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[13, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[16, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[16, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[17, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[17, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[18, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[18, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[19, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[19, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[2, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[2, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[3, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[3, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[4, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[4, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[5, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[5, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[6, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[6, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[7, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[7, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[8, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[8, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[9, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/VCG/exclude-[9, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/formulation.lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/formulation.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/resource.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/resource.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-03/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-03/result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/Bid/Bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[0, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[0, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[1, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[1, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[11, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[11, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[12, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[12, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[13, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[13, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[14, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[14, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[15, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[15, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[16, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[16, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[18, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[18, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[2, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[2, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[3, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[3, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[4, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[4, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[5, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[5, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[6, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[6, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[7, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[7, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[8, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[8, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[9, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/VCG/exclude-[9, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/formulation.lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/formulation.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/resource.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/resource.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-04/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-04/result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/Bid/Bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[0, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[0, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[1, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[1, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[10, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[10, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[12, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[12, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[14, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[14, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[15, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[15, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[16, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[16, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[18, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[18, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[19, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[19, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[2, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[2, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[3, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[3, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[4, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[4, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[5, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[5, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[6, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[6, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[7, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[7, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[8, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[8, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[9, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/VCG/exclude-[9, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/formulation.lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/formulation.lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/resource.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/resource.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-05/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-05/result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Test01/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Test01/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Test01/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Test01/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Test01/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/Bid/Test01/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[0, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[0, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[1, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[1, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[10, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[10, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[11, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[11, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[12, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[12, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[14, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[14, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[15, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[15, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[16, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[16, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[17, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[17, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[18, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[18, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[2, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[2, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[3, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[3, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[4, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[4, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[5, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[5, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[6, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[6, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[7, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[7, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[8, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[8, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[9, 0].lp" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/VCG/exclude-[9, 0].lp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/condition.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/condition.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/formulation" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/formulation" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/resource.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/resource.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-11-00/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-11-00/result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Report/12-09-13-00/Bid/Bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/Arrangement.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/Arrangement.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/Book1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/Book1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/実験結果.textClipping" beforeDir="false" afterPath="$PROJECT_DIR$/Report/実験結果.textClipping" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report/実験結果.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report/実験結果.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/1208.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/1208.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/costMinResult_file.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/costMinResult_file.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/pM.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/pM.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/penalty-10%-1000.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/penalty-10%-1000.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/penalty-10%-10000.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/penalty-10%-10000.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/penalty-50%-1000.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/penalty-50%-1000.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/penalty-50%-10000.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/penalty-50%-10000.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/penalty.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/penalty.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/penalty10%.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/penalty10%.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/penalty50%.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/penalty50%.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(100).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(100).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(1000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(1000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(10000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(10000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(100000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(100000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(150).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(150).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(200).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(200).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(500).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(500).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(600).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/penalty(600).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/profitMax.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/profitMax.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/~$結果.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/~$結果.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/結果.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要が少し足りない(ペナルティによる比較)/結果.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない/提供単価最小化-ペナルティ-1000.0-利益率50%/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない/提供単価最小化-ペナルティ-1000.0-利益率50%/lp.lp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要が少し足りない/提供単価最小化-ペナルティ-1000.0-利益率50%/result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder19.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder19.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder3.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/Bidder/bidder9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(100).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(100).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(1000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(1000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(10000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(10000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(100000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(100000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(15000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(15000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(2000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(2000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(3000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(3000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(4000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(4000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(500).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(500).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(5000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(5000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(6000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(6000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(7000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(7000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(8000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(8000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(9000).json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/penalty(9000).json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Result/需要と供給1対1/profitMax.json" beforeDir="false" afterPath="$PROJECT_DIR$/Result/需要と供給1対1/profitMax.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bidder.json" beforeDir="false" afterPath="$PROJECT_DIR$/bidder.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/TestKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/TestKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Util.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/UtilKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/UtilKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dataset/ProviderBidDataMakerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dataset/ProviderBidDataMakerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dataset/ProviderDataMakerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dataset/ProviderDataMakerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dataset/RequesterBidDataMakerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dataset/RequesterBidDataMakerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/dataset/RequesterDataMakerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dataset/RequesterDataMakerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Impoter/JsonImporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Impoter/JsonImporter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Impoter/LpImporter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Impoter/LpImporter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/META-INF/haradayodshiaki.program.main.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/META-INF/haradayodshiaki.program.main.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/TestKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/auction/StartKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/auction/StartKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/config/Config$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/config/Config$Companion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/config/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/config/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/config/RunConfigKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/config/RunConfigKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/converter/BidderCalConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/converter/BidderCalConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/converter/BidderConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/converter/BidderConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/converter/ConfigConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/converter/ConfigConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/converter/JsonConverter$DefaultImpls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/converter/JsonConverter$DefaultImpls.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/converter/JsonConverter$LENIENT_FACTORY$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/converter/JsonConverter$LENIENT_FACTORY$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/converter/ResourceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/converter/ResourceConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/converter/ResultConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/converter/ResultConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/cplex/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/cplex/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/Bounds.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/Bounds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/Calculation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/Calculation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/Constrait.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/Constrait.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/Object.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/Object.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/VarType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/cplex/lpformat/VarType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/dataset/RunDataKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/dataset/RunDataKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveCostMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AveCostMin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AvePenaltyCostMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AvePenaltyCostMin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveProfitMax.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AveProfitMax.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveTrade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/AveTrade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/ResultSet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/model/Bid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/model/Bid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/model/Bidder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/model/Bidder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/model/Resource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/model/Resource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/model/Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/model/Value.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/result/BidCal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/BidCal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/result/BidderResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/BidderResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/result/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/result/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveCostMin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AvePenaltyCostMin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveProfitMax.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/trade/AveTrade.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/trade/TradeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/trade/TradeUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pMax.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/winner/CostMinPenaltyAuction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/winner/CostMinPenaltyAuction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/winner/ProfitMaxDoubleAuction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/winner/ProfitMaxDoubleAuction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pe.json" beforeDir="false" afterPath="$PROJECT_DIR$/pe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Impoter/JsonImporter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Impoter/JsonImporter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Impoter/LpImporter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Impoter/LpImporter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/RunMake.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/RunMake.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Util.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/auction/Start.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/auction/Start.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/config/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/config/Config.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/config/RunConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/config/RunConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/converter/JsonConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/converter/JsonConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cplex/Solver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/cplex/Solver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/Bounds.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/Bounds.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/Calculation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/Calculation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/Constrait.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/Constrait.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/Object.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/Object.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/VarType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/cplex/lpformat/VarType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dataset/BidDataMaker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dataset/BidDataMaker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dataset/BidderDataMaker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dataset/BidderDataMaker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dataset/DataMaker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dataset/DataMaker.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/dataset/RunData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dataset/RunData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dataset/SValueData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dataset/SValueData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Bid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Bid.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Option.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Option.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Resource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Resource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Value.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Value.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/BidderCal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/BidderCal.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/BidderResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/BidderResult.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/Trade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/Trade.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/VCG.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/VCG.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/average/AveCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/average/AveCostMin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/average/AvePenaltyCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/average/AvePenaltyCostMin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/average/AveProfitMax.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/average/AveProfitMax.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/average/AveTrade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/average/AveTrade.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleCostMin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleCostMin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleTrade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleTrade.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/winner/CostMinProviderAuction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/winner/CostMinProviderAuction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/winner/LpMaker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/winner/LpMaker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/winner/ProfitMaxDoubleAuction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/winner/ProfitMaxDoubleAuction.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/winner/SingleSidedAuction.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/winner/SingleSidedAuction.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/writer/JsonWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/writer/JsonWriter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/writer/LpWriter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/writer/LpWriter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/writer/Saver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/writer/Saver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_result_file.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_result_file.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/~$result.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/~$result.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/~$実験結果.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/~$実験結果.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder10.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder11.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/bidder/bidder9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/costMin/costMin.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/costMin/cotMIn.lp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/profitMax/profitMax.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/First/profitMax/profitMax.lp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/ResourceShortage/bidder9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/~$原稿.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/~$実験結果.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/~$日本機械学会.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/原田佳明.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/原稿.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/原稿.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/図.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/論文/日本機械学会2018/実験結果.xlsx" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -56,25 +683,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/Result.kt">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="240">
-                    <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -86,46 +694,63 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="program" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bid/First/bidder0.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bid/First/bidder1.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bid/First/bidder2.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bid/First/bidder3.json">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/analysis/Analysis.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+            <state relative-caret-position="355">
+              <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Bid/First/bidder4.json">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/average/AvePenaltyCostMin.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.json">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/average/AveProfitMax.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+            <state relative-caret-position="625">
+              <caret line="82" column="9" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidderCal.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/ChangeSupplyStart.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -140,28 +765,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/Start.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/Impoter/LpImporter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+            <state relative-caret-position="75">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/Test.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/analysis/RepeatAnalysis.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleCostMin.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+            <state relative-caret-position="552">
+              <caret line="76" column="16" selection-start-line="76" selection-end-line="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleTrade.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="37" column="92" selection-start-line="37" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -172,10 +806,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Object" />
-        <option value="Kotlin File" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -192,7 +826,19 @@
       <find>SD</find>
       <find>Ave</find>
       <find>y_</find>
+      <find>1.0</find>
       <find>sum</find>
+      <find>trade</find>
+      <find>paymen</find>
+      <find>config.auction</find>
+      <find>Di</find>
+      <find>Dir</find>
+      <find>Directory</find>
+      <find>config.auctio</find>
+      <find>bidder</find>
+      <find>bidderDir</find>
+      <find>profitRate</find>
+      <find>i</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,57 +847,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/tradingPrice/AveProfitMax.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/tradingPrice/TradingPrice.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/tradingPrice/AveCostMin.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/Impoter/LPImporter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/converter/JsonConverter.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/DataSet.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/Dataset2.kt" />
-        <option value="$PROJECT_DIR$/Bid/ResourceShortage/bidder1.json" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/cplex/Solver.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/RunSolve.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/model/Resource.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/winner/LpMaker.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/BidderDataMakerImpl.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/DataMakerImpl.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/model/Bid.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/BidDataMake.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/BidDataMakerImpl.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/VCG.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/DataMaker.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/config/RunSetting.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/winner/ProfitMaxDoubleAuction.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/winner/CostMinProviderAuction.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/auction/Start.kt" />
-        <option value="$PROJECT_DIR$/LP/test_file.lp" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/config/Config.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/config/RunConfig.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt" />
-        <option value="$PROJECT_DIR$/test_result_file.json" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidderCal.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveTradeUtil.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveUtil.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/CalAve.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/Ave.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/PaymentRule.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveTrade.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/dataset/BidderDataMaker.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/dataset/BidDataMaker.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/RunData.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Util.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/writer/LpWriter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/writer/JsonWriter.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt" />
-        <option value="$PROJECT_DIR$/config.json" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/SingleCostMin.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/SingleTrade.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Test.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/sValueData.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/ProviderSingle/SingleTrade.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt" />
+        <option value="$PROJECT_DIR$/Result/penalty.json" />
+        <option value="$PROJECT_DIR$/Result/penalty(10%).json" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/writer/lpMaker.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/writer/ResultWriter.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/Impoter/JsonImporter.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/converter/JsonConverter.kt" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/winner/ProfitMaxDoubleAuction.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/auction/Repeat.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/config/RunConfig.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/writer/Saver.kt" />
+        <option value="$PROJECT_DIR$/config.json" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/auction/changeSupplyStart.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/auction/Auction.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/auction/AuctionList.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/auction/RepeatStart.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/RunData.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/dataset/SValueData.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/auction/Start.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/config/Config.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/Result.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/average/AvePenaltyCostMin.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/BidderResult.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/average/AveCostMin.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/average/AveProfitMax.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleCostMin.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/auction/ChangeSupplyStart.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/analysis/RepeatAnalysis.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/analysis/Conclusion.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/analysis/Analysis.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleTrade.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/result/analysis/Excel.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/trade/average/AveTrade.kt" />
       </list>
     </option>
   </component>
@@ -261,7 +907,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -274,28 +920,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="program" type="b2602c69:ProjectViewProjectNode" />
               <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Bid" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="LP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Result" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="program" type="b2602c69:ProjectViewProjectNode" />
@@ -317,40 +947,81 @@
             </path>
             <path>
               <item name="program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="外部ライブラリー" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="auction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="result" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="result" type="462c0819:PsiDirectoryNode" />
+              <item name="analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="trade" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Resarch" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="trade" type="462c0819:PsiDirectoryNode" />
+              <item name="provider_single" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550578503017" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551599422429" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/kotlin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="モジュール" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/dataset" />
       <recent name="$PROJECT_DIR$/Bid/Test01" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/Impoter" />
       <recent name="$PROJECT_DIR$/src/main/kotlin" />
       <recent name="$PROJECT_DIR$/LP" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="trade.provider_single" />
+      <recent name="trade.ProviderSingle" />
+      <recent name="trade.Average" />
       <recent name="cplex" />
       <recent name="auction" />
-      <recent name="lpfile" />
-      <recent name="adapter" />
-      <recent name="lpformat" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libs" />
@@ -368,7 +1039,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.auction.StartKt">
+  <component name="RunManager" selected="Kotlin.result.analysis.ExcelKt">
     <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
       <setting name="replType" value="NREPL" />
       <setting name="execution" value="LEININGEN" />
@@ -387,41 +1058,15 @@
       <module name="" />
       <method v="2" />
     </configuration>
-    <configuration name="TestKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
-      <module name="haradayodshiaki.program.main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="TestKt" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="auction.StartKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+    <configuration name="auction.ChangeSupplyStartKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="haradayodshiaki.program.main" />
       <option name="VM_PARAMETERS" value="-Djava.library.path=/Applications/CPLEX_Studio128/cplex/bin/x86-64_osx" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="auction.StartKt" />
+      <option name="MAIN_CLASS_NAME" value="auction.ChangeSupplyStartKt" />
       <option name="WORKING_DIRECTORY" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="config.RunConfigKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
-      <module name="haradayodshiaki.program.main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="config.RunConfigKt" />
-      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -439,18 +1084,73 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="dataset.SValueDataKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="haradayodshiaki.program.main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dataset.SValueDataKt" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="result.analysis.AnalysisKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="haradayodshiaki.program.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="result.analysis.AnalysisKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="result.analysis.ExcelKt" type="JetRunConfigurationType" factoryName="Kotlin" nameIsGenerated="true">
+      <module name="haradayodshiaki.program.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="result.analysis.ExcelKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="result.analysis.RepeatAnalysisKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="haradayodshiaki.program.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="result.analysis.RepeatAnalysisKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Kotlin.auction.StartKt" />
-      <item itemvalue="Kotlin.TestKt" />
-      <item itemvalue="Kotlin.config.RunConfigKt" />
+      <item itemvalue="Kotlin.result.analysis.ExcelKt" />
+      <item itemvalue="Kotlin.dataset.SValueDataKt" />
+      <item itemvalue="Kotlin.result.analysis.AnalysisKt" />
       <item itemvalue="Kotlin.dataset.RunDataKt" />
+      <item itemvalue="Kotlin.auction.ChangeSupplyStartKt" />
+      <item itemvalue="Kotlin.result.analysis.RepeatAnalysisKt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.auction.StartKt" />
+        <item itemvalue="Kotlin.result.analysis.RepeatAnalysisKt" />
+        <item itemvalue="Kotlin.auction.ChangeSupplyStartKt" />
+        <item itemvalue="Kotlin.dataset.SValueDataKt" />
         <item itemvalue="Kotlin.dataset.RunDataKt" />
-        <item itemvalue="Kotlin.TestKt" />
-        <item itemvalue="Kotlin.config.RunConfigKt" />
+        <item itemvalue="Kotlin.result.analysis.AnalysisKt" />
       </list>
     </recent_temporary>
   </component>
@@ -490,33 +1190,39 @@
       <workItem from="1550191322051" duration="150000" />
       <workItem from="1550192341893" duration="22517000" />
       <workItem from="1550388202938" duration="14375000" />
-      <workItem from="1550409139561" duration="20761000" />
+      <workItem from="1550409139561" duration="59042000" />
+      <workItem from="1551238408904" duration="269000" />
+      <workItem from="1551249450614" duration="18075000" />
+      <workItem from="1551408366799" duration="52000" />
+      <workItem from="1551511258229" duration="32845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="323749000" />
+    <option name="totallyTimeSpent" value="413271000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1416309" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20028612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="デザイナー" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="UI デザイナー" order="6" />
+      <window_info id="Designer" order="7" />
+      <window_info id="UI Designer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.46751592" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.29808918" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.5503185" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28025478" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.3299363" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.38853502" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.38756478" />
       <window_info anchor="bottom" id="SBT Console" order="9" weight="0.3299363" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.31398964" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -533,53 +1239,16 @@
       <window_info anchor="right" id="Clojure Deps" order="6" />
       <window_info anchor="right" id="REPL" order="7" side_tool="true" />
       <window_info anchor="right" id="キャプチャー分析" order="8" />
-      <window_info anchor="right" id="Gradle" order="9" />
+      <window_info anchor="right" id="Gradle" order="9" weight="0.3297568" />
       <window_info anchor="right" id="Database" order="10" />
       <window_info anchor="right" id="Leiningen" order="11" />
       <window_info anchor="right" id="Palette&#9;" order="12" />
       <window_info anchor="right" id="Theme Preview" order="13" />
       <window_info anchor="right" id="パレット" order="14" />
+      <window_info anchor="right" x="0" y="0" width="310" height="677" id="Documentation" order="15" side_tool="true" weight="0.32904148" />
+      <window_info anchor="right" id="Palette" order="16" />
+      <window_info anchor="right" id="Capture Analysis" order="17" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14306152" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="デザイナー" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="UI デザイナー" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.46751592" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.29808918" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.28025478" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.3299363" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.38853502" />
-      <window_info anchor="bottom" id="SBT Console" order="9" weight="0.3299363" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31398964" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5007153" side_tool="true" weight="0.5363057" />
-      <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.3299363" />
-      <window_info anchor="bottom" id="sbt-shell-toolwindow" order="15" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.19027181" />
-      <window_info anchor="right" id="sbt" order="4" />
-      <window_info anchor="right" id="Key Promoter X" order="5" />
-      <window_info anchor="right" id="Clojure Deps" order="6" />
-      <window_info anchor="right" id="REPL" order="7" side_tool="true" />
-      <window_info anchor="right" id="キャプチャー分析" order="8" />
-      <window_info anchor="right" id="Gradle" order="9" />
-      <window_info anchor="right" id="Database" order="10" />
-      <window_info anchor="right" id="Leiningen" order="11" />
-      <window_info anchor="right" id="Palette&#9;" order="12" />
-      <window_info anchor="right" id="Theme Preview" order="13" />
-      <window_info anchor="right" id="パレット" order="14" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -596,112 +1265,74 @@
     <option name="SHOW_DIFF_PREVIEW" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LP/pMax.lp">
+    <entry file="file://$PROJECT_DIR$/test_result_file.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/Trade.kt">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="54">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/model/Option.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/converter/JsonConverter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        <state relative-caret-position="1050">
+          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/ResourceShortage/bidder0.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/ResourceShortage/bidder2.json">
+    <entry file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.71/ff62b6a76e3200cac3d7df0859d7665fe6d54955/kotlin-stdlib-common-1.2.71-sources.jar!/generated/_Ranges.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/ResourceShortage/bidder3.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/ResourceShortage/bidder1.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/SingleSidedAuction.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/LpMaker.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        <state relative-caret-position="313">
+          <caret line="585" column="21" selection-start-line="585" selection-start-column="21" selection-end-line="585" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/ProfitMaxDoubleAuction.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1235">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+          <folding>
+            <element signature="n#!!block;n#writeSubToRelstionXsndY#0;n#!!block;n#ProfitMaxDoubleAuction#0" />
+            <element signature="n#!!block;n#writeSubToBidX#0;n#!!block;n#ProfitMaxDoubleAuction#0" />
+            <element signature="n#!!block;n#writeSubToBidY#0;n#!!block;n#ProfitMaxDoubleAuction#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LP/pe.lp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pMax.json">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/LpMaker.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5370">
-          <caret line="358" column="9" selection-start-line="358" selection-start-column="8" selection-end-line="358" selection-end-column="9" />
+        <state relative-caret-position="90">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinProviderAuction.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="98" column="8" lean-forward="true" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
+        <state relative-caret-position="105">
+          <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pe.json">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/Repeat.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
-          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="768">
+          <caret line="87" column="60" lean-forward="true" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidderCal.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/SingleSidedAuction.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="420">
+          <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
         </state>
       </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.71/2e8041d08283cbbb58ad131617486fc6449f6c85/kotlin-stdlib-1.2.71-sources.jar!/kotlin/Collections.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="191" column="17" selection-start-line="191" selection-start-column="17" selection-end-line="191" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CostMin">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/winner/CostMinPenaltyAuction.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+        <state relative-caret-position="945">
+          <caret line="98" column="5" selection-start-line="98" selection-end-line="109" />
           <folding>
             <element signature="n#!!block;n#writeSubToProvide#0;n#!!block;n#CostMinPenaltyAuction#0" />
             <element signature="n#!!block;n#writeSubToWinner#0;n#!!block;n#CostMinPenaltyAuction#0" />
@@ -713,180 +1344,279 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/lib/src.zip!/java.base/java/util/AbstractList.java">
+    <entry file="file://$PROJECT_DIR$/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="506" selection-start-line="506" selection-end-line="506" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/Auction.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="1136" selection-start-line="1136" selection-end-line="1136" />
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/AuctionList.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/Trade.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/RunSolve.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/RunMake.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/dataset/BidDataMaker.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!block;n#BidDataMaker#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/dataset/BidderDataMaker.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="23" column="12" selection-start-line="23" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/dataset/RunData.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProfitMAx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Util.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/dataset/BidderDataMaker.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/config/RunConfig.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="n#!!block;n#convertDimension#0;n#!!block;n#Util#0" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/dataset/DataMaker.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        <state relative-caret-position="60">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LP/penalty.lp">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/dataset/RunData.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/dataset/SValueData.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+          <folding>
+            <element signature="e#17#199#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/writer/JsonWriter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Result/penalty.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        <state relative-caret-position="105">
+          <caret line="7" column="20" selection-start-line="7" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/writer/LpWriter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="190">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Result/profitMax.json">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/writer/Saver.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1672">
-          <caret line="282" column="7" selection-start-line="282" selection-start-column="7" selection-end-line="282" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Result/pM.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="354" column="19" selection-start-line="354" selection-start-column="19" selection-end-line="354" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/Result.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/model/Bidder.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/model/Bid.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AvePenaltyCostMin.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="25" column="42" selection-start-line="25" selection-end-line="26" />
-          <folding>
-            <element signature="e#15#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveCostMin.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveProfitMax.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/AveTrade.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding>
-            <element signature="e#15#82#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/TradeUtil.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        <state relative-caret-position="253">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/First/bidder0.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/First/bidder1.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/First/bidder2.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/First/bidder4.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bid/First/bidder3.json">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        <state relative-caret-position="108">
+          <caret line="457" selection-start-line="457" selection-end-line="457" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="371" selection-start-line="371" selection-end-line="371" />
+          <folding>
+            <element signature="e#13945#13946#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/Result.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidResult.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidderResult.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidCal.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="4350" selection-start-line="4350" selection-end-line="4350" />
+          <folding>
+            <element signature="e#201832#201833#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/link.webarata3.kexcelapi/kexcelapi/0.5.1/95f37b6085ac311a087f011706380afdcb1e5104/kexcelapi-0.5.1-sources.jar!/link/webarata3/kexcelapi/KExcel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/config/Config.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/average/AveTrade.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/average/AveCostMin.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/analysis/Conclusion.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/analysis/Excel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="n#!!block;n#initExcel#0;n#!!block;n#Excel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/Start.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="n#!!block;n#main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/RepeatStart.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/ChangeSupplyStart.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/average/AvePenaltyCostMin.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/average/AveProfitMax.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="82" column="9" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleTrade.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="37" column="92" selection-start-line="37" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/trade/provider_single/SingleCostMin.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="76" column="16" selection-start-line="76" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/BidderCal.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Impoter/LpImporter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -897,31 +1627,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.json">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/analysis/Analysis.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        <state relative-caret-position="355">
+          <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Result/test.json">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/result/analysis/RepeatAnalysis.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="355" column="23" lean-forward="true" selection-start-line="355" selection-start-column="23" selection-end-line="355" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/auction/Start.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/Test.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="210">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -977,7 +1693,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>10</last-edited>
+          <last-edited>11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -989,7 +1705,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>main|haradayodshiaki.program</last-edited>
+          <last-edited>test|haradayodshiaki.program</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

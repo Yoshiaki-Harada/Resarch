@@ -1,4 +1,4 @@
-package trade
+package trade.average
 
 import config.Config
 import ilog.concert.IloLPMatrix
@@ -6,6 +6,8 @@ import ilog.cplex.IloCplex
 import model.Bidder
 import result.*
 import sd
+import trade.Trade
+import trade.TradeUtil
 
 object AvePenaltyCostMin : Trade {
     override fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
@@ -40,10 +42,15 @@ object AvePenaltyCostMin : Trade {
 
         // 取引を実行し利益等を計算する
         val rs = AveTrade.run(x, providers, requesters)
-
+        // 各企業のリソース提供時間のリスト
+        val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
         // 各企業の利益の合計を計算し，結果用のクラスに変換
         val providerResults = rs.providerCals.mapIndexed { i, it ->
-            BidderResult(i, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
+            ProviderResult(
+                    i,
+                    it.bids.map { it.payment }.sum(),
+                    it.bids.map { it.profit }.sum(),
+                    it.bids.map { it.time }.sum().div(p[i]))
         }
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
@@ -62,6 +69,8 @@ object AvePenaltyCostMin : Trade {
                 requesterResults,
                 providerResults.map { it.profit }.average(),
                 providerResults.map { it.profit }.sd(),
+                providerResults.map { it.timeRatio }.average(),
+                providerResults.map { it.timeRatio }.sd(),
                 requesterResults.map { it.profit }.average(),
                 requesterResults.map { it.profit }.sd(),
                 rs.payments.average(),

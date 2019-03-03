@@ -1,9 +1,11 @@
-package trade
+package trade.provider_single
 
 import model.Bidder
 import result.BidResult
 import result.BidderCal
-import trade.Average.AveTrade
+import trade.average.AveTrade
+import trade.ResultPre
+import trade.TradeUtil
 
 // TODO Ruleを継承したAveTrade(paymentとrunをinterfaceに定義)
 object SingleTrade {
@@ -33,10 +35,12 @@ object SingleTrade {
                             // 提供側
                             providerCals[i].bids[r].addPayment(payment)
                             providerCals[i].bids[r].addProfit(TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r))
+                            providerCals[i].bids[r].addTime(requesters[j].bids[n].bundle[r])
                             providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r)))
                             // 要求側
                             requesterCals[j].bids[n].addPayment(payment)
                             requesterCals[j].bids[n].addProfit(TradeUtil.calRequesterProfit(payment, requesters[j], n, r))
+                            requesterCals[i].bids[n].addTime(requesters[j].bids[n].bundle[r])
                             requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calRequesterProfit(payment, requesters[j], n, r)))
                         }
                     }

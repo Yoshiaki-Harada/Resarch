@@ -29,6 +29,9 @@ object CostMinPenaltyAuction : LpMaker {
 
         writeSubToBidX(lp, obj, providers, requesters, config)
 
+        //予算制約
+        writeSubToBudget(lp, obj, providers, requesters, config)
+
         writeBinVariable(lp, providers, requesters)
 
         lp.end()
@@ -158,6 +161,23 @@ object CostMinPenaltyAuction : LpMaker {
                     lp.number(1.0)
                     lp.newline()
                 }
+            }
+        }
+    }
+
+    //予算制約
+    fun writeSubToBudget(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
+        requesters.forEachIndexed { j, requester ->
+            requester.bids.forEachIndexed { n, bid ->
+                lp.constrateName("budget $j,$n")
+                providers.forEachIndexed { i, provider ->
+                    provider.bids.forEachIndexed { r, resource ->
+                        lp.term(resource.getValue() * bid.bundle[r], "x", "$i$r$j$n")
+                    }
+                }
+                lp.constrait(Constrait.LEQ)
+                lp.number(bid.getValue())
+                lp.newline()
             }
         }
     }

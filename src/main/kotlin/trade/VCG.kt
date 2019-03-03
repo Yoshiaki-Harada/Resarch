@@ -39,7 +39,7 @@ object VCG  {
             }
 
 //            val filename = "LP/VCG/Exclude" + bidIndex.toString()
-//            val vcgConfig = Config(config.provider, config.requester, config.resource, config.bidderFile, filename, config.auction, config.resultFile, config.tmpFile)
+//            val vcgConfig = Config(config.provider, config.requester, config.resource, config.bidderFile, filename, config.auction, config.resultFile, config.profitRate)
 //            SingleSidedAuction.makeLpFile(vcgConfig, Object.MAX, exbidders, resource)
 //            val vcgCplex = LpImporter(filename).getCplex()
 //            vcgCplex.solve()

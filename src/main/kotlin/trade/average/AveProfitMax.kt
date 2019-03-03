@@ -1,4 +1,4 @@
-package trade
+package trade.average
 
 import config.Config
 import ilog.concert.IloLPMatrix
@@ -6,6 +6,8 @@ import ilog.cplex.IloCplex
 import model.Bidder
 import result.*
 import sd
+import trade.Trade
+import trade.TradeUtil
 
 object AveProfitMax : Trade {
     override
@@ -43,29 +45,35 @@ object AveProfitMax : Trade {
         // 利益の計算
         val rs = AveTrade.run(x, providers, requesters)
 
-        // 支払い価格と利益の合計の計算
+        // 各企業のリソース提供時間のリスト
+        val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
+        // 各企業の利益の合計を計算し，結果用のクラスに変換
         val providerResults = rs.providerCals.mapIndexed { i, it ->
-            BidderResult(
-                    i, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum()
-            )
+            ProviderResult(
+                    i,
+                    it.bids.map { it.payment }.sum(),
+                    it.bids.map { it.profit }.sum(),
+                    it.bids.map { it.time }.sum().div(p[i]))
         }
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
-            BidderResult(
-                    j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum()
-            )
+            BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
+
+        val sumProfit = rs.providerBidResults.map { it.profit }.sum().plus(rs.requesterBidResults.map { it.profit }.sum())
 
         return Result(
                 objValue,
                 TradeUtil.cost(x, providers, requesters),
-                objValue,
+                sumProfit,
                 xCplex,
                 y.filter { it == 1.0 }.size,
                 providerResults,
                 requesterResults,
                 providerResults.map { it.profit }.average(),
                 providerResults.map { it.profit }.sd(),
+                providerResults.map { it.timeRatio }.average(),
+                providerResults.map { it.timeRatio }.sd(),
                 requesterResults.map { it.profit }.average(),
                 requesterResults.map { it.profit }.sd(),
                 rs.payments.average(),

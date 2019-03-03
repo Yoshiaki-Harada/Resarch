@@ -18,30 +18,27 @@ import java.io.File
 4　コスト最小化（ペナルティ）取引（提供単価）
  */
 
-object ResultWriter {
-    fun save(bidders: List<Bidder>, obj: Object, result: Result, config: Config) {
-        val dirName: String = "Result" + when (config.auction) {
-            0 -> "vcg"
-            1 -> "コスト最小化-取引価格-平均"
-            2 -> "利益最大化-取引価格-平均"
-            3 -> "コスト最小化-ペナルティ-${config.penalty}-平均"
-            4 -> "提供単価最小化-ペナルティ-${config.penalty}-利益率${config.profitRate}%"
-            else -> {
-                "error"
-            }
-        }
+object Saver {
+    fun run(bidders: List<Bidder>, result: Result, config: Config) {
+        val dirName = "${config.resultDir}"
+        println("Directory: $dirName")
         val dir = File("${dirName}").absoluteFile
-        dir.mkdir()
-        //resultFile
+        dir.mkdirs()
+        // resultFile
         writer.JsonWriter("${dirName}/result").makeFile(ResultConverter.toJson(result))
-        //configFile
+        // configFile
         writer.JsonWriter("${dirName}/config").makeFile(ConfigConverter.toJson(config))
-        //lpFile
-        val lpFile = File("${dirName}lp.file").absoluteFile
-        lpFile.copyTo(File(config.lpFile).absoluteFile)
-        //bidFileを詰め込みたい
+        // lpFile
+        val lpFile = File("${config.lpFile}.lp").absoluteFile
+        if (File("${dirName}/lp.lp").absoluteFile.delete())
+            println("${dirName}/lp.lp を削除しました")
+
+        lpFile.copyTo(File("${dirName}/lp.lp").absoluteFile)
+        // bidFileを詰め込みたい
+        val bidDir = File("${dirName}/Bid").absoluteFile
+        bidDir.mkdir()
         bidders.forEachIndexed { index, bidder ->
-            JsonWriter(dirName + "${dirName}bidder$index").makeFile(BidderConverter.toJson(bidder))
+            JsonWriter("${dirName}/Bid/bidder$index").makeFile(BidderConverter.toJson(bidder))
         }
     }
 }

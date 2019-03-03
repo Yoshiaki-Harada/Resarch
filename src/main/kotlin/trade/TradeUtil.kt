@@ -15,7 +15,7 @@ object TradeUtil {
                     requester.bids.forEachIndexed { n, bid ->
                         //provider_iがresource_rをrequester_jに提供するとき1となる変数
                         //provider_iがresource_rをrequester_jの入札の要求resource_mに提供する時間x(正の整数)
-                        cost += resource.getValue() * bid.bundle[r] * x[i][r][j][n]
+                        cost += resource.value.tValue * bid.bundle[r] * x[i][r][j][n]
                     }
                 }
             }
@@ -36,12 +36,12 @@ object TradeUtil {
     }
 
     fun calProviderProfit(payment: Double, provider: Bidder, requester: Bidder, n: Int, r: Int): Double {
-        //                                 cost                          time
+        //                                 cost                          timeRatio
         return payment - provider.bids[r].value.tValue * requester.bids[n].bundle[r]
     }
 
     fun calRequesterProfit(payment: Double, requester: Bidder, bidIndex: Int, resource: Int): Double {
-        //     resourceに対する予算の密度                                                             time
+        //     resourceに対する予算の密度                                                             timeRatio
         return calRequesterTrueBudgetDensity(requester, bidIndex, resource) * requester.bids[bidIndex].bundle[resource] - payment
     }
 

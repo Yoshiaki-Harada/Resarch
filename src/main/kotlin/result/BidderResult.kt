@@ -1,5 +1,11 @@
 package result
 
-data class BidderResult(val id: Int,
+open class BidderResult(val id: Int,
                         val payment: Double,
                         val profit: Double)
+
+class ProviderResult(id: Int,
+                     payment: Double,
+                     profit: Double,
+                     val timeRatio: Double) : BidderResult(id, payment, profit)
+
