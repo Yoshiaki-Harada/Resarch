@@ -35,7 +35,9 @@ fun run(min: Double, max: Double) {
             rs.map { it.winBidNUmber }.average(),
             rs.map { it.winBidNUmber.toDouble() }.sd(),
             rs.map { it.providerTimeRatioAve }.average(),
-            rs.map { it.providerTimeRatioAve }.sd()
+            rs.map { it.providerTimeRatioAve }.sd(),
+            rs.map { it.tradeAve }.average(),
+            rs.map { it.tradeAve }.sd()
     )
 
     writer.JsonWriter("$dir/$auction").makeFile(ConclusionConverter.toJson(con))
@@ -58,7 +60,9 @@ fun run(min: Double, max: Double, auction: String) {
             rs.map { it.winBidNUmber }.average(),
             rs.map { it.winBidNUmber.toDouble() }.sd(),
             rs.map { it.providerTimeRatioAve }.average(),
-            rs.map { it.providerTimeRatioAve }.sd()
+            rs.map { it.providerTimeRatioAve }.sd(),
+            rs.map { it.tradeAve }.average(),
+            rs.map { it.tradeAve }.sd()
     )
     println("$dir/$auction")
     writer.JsonWriter("$dir/$auction").makeFile(ConclusionConverter.toJson(con))

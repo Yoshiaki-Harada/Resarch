@@ -30,15 +30,15 @@ fun main(args: Array<String>) {
     val config = Config.fromJson("config")
 
     // 提供割合の違いの繰り返し
-    for (s in 0 until 5) {
+    for (s in 0 until 1) {
         var minSupply = config.providerTimeMin + s * 50.0
         var maxSupply = config.providerTimeMax + s * 50.0
 
         val bidDir = "Bid/supply-${minSupply}-${maxSupply}"
 
         // 利益率による繰り返し
-        for (p in 0 until 5) {
-            var profit = 30 + 10 * p
+        for (p in 0 until profitMap.size) {
+            var profit = 10 + 10 * p
 
             // データセット数による繰り返し
             for (i in 0 until 5) {

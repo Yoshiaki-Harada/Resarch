@@ -44,7 +44,7 @@ fun run(config: Config) {
         1 -> CostMinProviderAuction
         2 -> ProfitMaxDoubleAuction
         3 -> CostMinPenaltyAuction
-        4, 5, 6, 7, 8 -> CostMinPenaltyAuction
+        4, 5, 6, 7, 8, 9, 10, 11 -> CostMinPenaltyAuction
         else -> {
             println("error")
             //とりあえず
@@ -57,7 +57,7 @@ fun run(config: Config) {
         1 -> Object.MIN
         2 -> Object.MAX
         3 -> Object.MIN
-        4, 5, 6, 7, 8 -> Object.MIN
+        4, 5, 6, 7, 8, 10, 11 -> Object.MIN
         else -> {
             println("error")
             //とりあえず
@@ -70,7 +70,7 @@ fun run(config: Config) {
         1 -> AveCostMin
         2 -> AveProfitMax
         3 -> AvePenaltyCostMin
-        4, 5, 6, 7, 8 -> SingleCostMin
+        4, 5, 6, 7, 8, 9, 10, 11 -> SingleCostMin
         else -> {
             println("error")
             //とりあえずO

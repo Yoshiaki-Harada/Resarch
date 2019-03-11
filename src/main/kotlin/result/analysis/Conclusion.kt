@@ -11,4 +11,6 @@ data class Conclusion(val sumCostAve: Double,
                       val winBidAve: Double,
                       val winBidSD: Double,
                       val providerTimeRatioAve: Double,
-                      val providerTimeRatioSD: Double)
+                      val providerTimeRatioSD: Double,
+                      val tradeAve: Double,
+                      val tradeSD: Double)

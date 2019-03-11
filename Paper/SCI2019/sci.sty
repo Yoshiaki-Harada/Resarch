@@ -1,0 +1,178 @@
+% sci.sty - STYLE FILE FOR ISCIE CONFERENCE
+% システム制御情報学会 研究発表講演会論文集原稿作成用 スタイルファイル
+% Version 2001-1.21
+% Copyright (C) 2000 by MORI Naoki  and  CHEN Gan, All Rights Reserved
+% 
+% 2006-11-16 minor modification by TF %SCI07
+%
+% usage: 
+%  \documentclass{jarticle} % pLaTeX2e
+%  \usepackage{sci}
+%  \usepackage{latexsym} % 日本語で執筆する場合は任意 %SCI07
+%
+%    or
+%
+%  \documentstyle[sci]{jarticle} % pLaTeX209
+%
+
+%
+% 日本語/英語切替
+%
+% 英語で執筆する場合は \english を宣言し, article を利用してください. 
+% \english は参考文献, References の制御を行いません. 
+% maketitle, newtheorem のみを変更します. 
+%
+\newif\ifenglish
+\englishfalse
+\def\english{\englishtrue}
+
+%
+% title, author, abstract
+%
+\newcommand{\jtitle}[1]{\gdef\@jtitle{#1}}
+\newcommand{\etitle}[1]{\gdef\@etitle{#1}}
+\newcommand{\jauthor}[1]{\gdef\@jauthor{#1}}
+\newcommand{\eauthor}[1]{\gdef\@eauthor{#1}}
+\newcommand{\Eqref}[1]{式~(\ref{#1})}
+\newcommand{\figref}[1]{Fig.\ref{#1}}
+\newcommand{\tabref}[1]{Table\ref{#1}}
+\newcommand{\englishabstract}[1]{\gdef\@englishabstract{#1}}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+
+% original from article.sty of LaTeX 209
+\def\maketitle{\par
+ \begingroup
+ \def\thefootnote{\fnsymbol{footnote}}
+ \def\@makefnmark{\hbox{$^{\@thefnmark}$\hss}}
+ \if@twocolumn 
+ \twocolumn[\@maketitle] 
+ \else \newpage
+ %
+ % suppress page number
+ %
+ % \global\@topnum\z@ \@maketitle \fi\thispagestyle{plain}\@thanks %original
+ \global\@topnum\z@ \@maketitle \fi\thispagestyle{empty}\@thanks % SCI01
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+
+\def\@maketitle{%
+  \newpage
+  \null
+%  \vskip 2em% % original
+  \begin{center}%
+  \let \footnote \thanks
+    {\Large \bf 
+%     \@title % original
+     \ifenglish\else \@jtitle \\ \fi \@etitle %SCI01
+     \par}%
+%    \vskip 1.5em% % original
+    \vskip 0.5em% SCI01
+    {\normalsize \bf
+      \lineskip .5em%
+%      \begin{tabular}[t]{c}% % original
+%        \@author % original
+        \ifenglish\else \@jauthor \\ \fi %SCI01
+        \@eauthor %SCI01
+%      \end{tabular}% original
+      \par}%
+    \vskip 1em% %original
+%    \vskip 0.5em% %SCI01
+%    {\large \@date}% % original
+    \parbox{150mm}{\baselineskip 12pt %SCI07
+      {\bf Abstract \hskip 0.8em}\@englishabstract\par} %SCI07
+%      \begin{tabular}{p{150mm}} %SCI01
+%      \normalsize {\bf Abstract \hskip 0.8em}\@englishabstract %SCI01
+%      \baselineskip 1.15em %SCI01
+%      \end{tabular} %SCI01
+  \end{center}%
+%  \par %SCI01
+%  \vskip 1.5em% original
+  \vskip 0.5em %SCI01
+}
+
+%
+% theorem text in \rm and label in \bf
+%
+\renewcommand{\@begintheorem}[2]{\trivlist \item[\hskip 
+  \labelsep{\bf #1\ #2\ }]}
+\renewcommand{\@opargbegintheorem}[3]{\trivlist \item[\hskip 
+  \labelsep{\bf #1\ #2\ \rm [#3]\ }]}
+
+%
+% narrower spaces in equation array
+%
+\def\eqnarray{\stepcounter{equation}\let\@currentlabel=\theequation
+\global\@eqnswtrue
+\global\@eqcnt\z@\tabskip\@centering\let\\=\@eqncr
+$$\halign to \displaywidth\bgroup\@eqnsel\hskip\@centering
+  $\displaystyle\tabskip\z@{##}$&\global\@eqcnt\@ne 
+%  \hskip 2\arraycolsep \hfil${##}$\hfil % original
+  \hfil$\displaystyle{{}##{}}$\hfil %SCI01
+%  &\global\@eqcnt\tw@ \hskip 2\arraycolsep % original
+  &\global\@eqcnt\tw@ %SCI01
+   $\displaystyle\tabskip\z@{##}$\hfil 
+   \tabskip\@centering&\llap{##}\tabskip\z@\cr}
+
+%
+% adjust character size and spaces around section header
+% Original from art10.sty
+%
+\def\section{\@startsection {section}{1}{\z@}{2.5ex plus 1ex minus 
+ .2ex}{1.5ex plus .2ex}{\large\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{2.5ex plus 1ex minus 
+ .2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{2.5ex plus 
+1ex minus .2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+\def\paragraph{\@startsection
+ {paragraph}{4}{\z@}{2.5ex plus 1ex minus .2ex}{-1em}{\normalsize\bf}}
+\def\subparagraph{\@startsection
+ {subparagraph}{4}{\parindent}{2.5ex plus 1ex minus 
+ .2ex}{-1em}{\normalsize\bf}}
+
+%
+% initialization 
+%
+\twocolumn
+\pagestyle{empty}
+
+% 
+% paper size for A4
+%
+\topmargin 0mm  
+\oddsidemargin -5mm  
+\evensidemargin -5mm
+
+\headheight 0pt  
+\headsep 0pt  
+\footskip 0pt
+\columnseprule 0pt
+\parindent 3mm
+\textheight 240mm
+\textwidth 172mm
+\columnsep 6mm
+
+% 
+% preparation for theorems and lemmas
+%
+\newtheorem{definition}{\ifenglish Definition\else 定義\fi}
+\newtheorem{theorem}{\ifenglish Theorem\else 定理\fi}
+\newtheorem{corollary}{\ifenglish Corollary\else 系\fi}
+\newtheorem{lemma}{\ifenglish Lemma\else 補題\fi}
+\newtheorem{proof}{\ifenglish Proof\else 証明\fi}
+  %
+  % suppress numbering
+  %
+  \renewcommand{\theproof}{} 
+  %
+  % put a box at the end of proof
+  % LaTeX2e: \usepackage{latexsym} is required for \Box
+  %
+%  \renewcommand{\endproof}{$\Box$\endtrivlist} %SCI01
+  \renewcommand{\endproof}{\ifenglish $\Box$\else {\small □}\fi
+                           \endtrivlist} %SCI07
+
+% end of sci.sty

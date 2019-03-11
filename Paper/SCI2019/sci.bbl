@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{IVI}
+IVI.
+\newblock Industrial valuechain initiative – つながるものづくり.
+\newblock https://iv-i.org/wp/ja/.
+\newblock (Accessed on 03/05/2019).
+
+\bibitem{IEC}
+Factory of the future.
+\newblock https://www.iec.ch/whitepaper/pdf/iecWP-futurefactory-LR-en.pdf.
+\newblock (Accessed on 03/10/2019).
+
+\bibitem{勝村}
+勝村義輝, 杉西優一, 貝原俊也.
+\newblock
+  クラウドマニュファクチャリングの生産効率性に関する研究.
+\newblock 日本機械学会論文集, Vol.~82, No. 835, pp.
+  15--00430--15--00430, 2016.
+
+\bibitem{Wu}
+Dazhong Wu, Matthew~John Greer, David~W. Rosen, and Dirk Schaefer.
+\newblock Cloud manufacturing: Strategic vision and state-of-the-art.
+\newblock {\em Journal of Manufacturing Systems}, Vol.~32, No. 835, pp.
+  564--579, 2013.
+
+\bibitem{Parnia}
+Parnia Samimi, Youness Teimourib, and Muriati Mukhtara.
+\newblock A combinatorial double auction resource allocation model in cloud
+  computing.
+\newblock {\em Information Sciences}, No. 357, pp. 201--216, 2016.
+
+\end{thebibliography}

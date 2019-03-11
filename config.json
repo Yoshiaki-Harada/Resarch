@@ -7,9 +7,9 @@
    "penalty": 10000.0,
    "provider": 10,
    "providerResourceNumber": 2,
-   "providerTimeMax": 150.0,
-   "providerTimeMin": 50.0,
-   "providerValueMax": 0.5,
+   "providerTimeMax": 400.0,
+   "providerTimeMin": 300.0,
+   "providerValueMax": 0.2,
    "providerValueMin": 0.1,
    "requester": 10,
    "requesterTimeMax": 200.0,
@@ -19,5 +19,5 @@
    "resource": 4,
    "resultDir": "Result/profitMax",
    "resultFile": "Result/profitMax",
-   "profitRate": 60
+   "profitRate": 10
 }

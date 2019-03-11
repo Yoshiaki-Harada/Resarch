@@ -51,7 +51,7 @@ class Config(var provider: Int, /*提供企業数*/
             1 -> "Result/${this.bidDir.substring(4)}/$repeat/コスト最小化-取引価格-平均"
             2 -> "Result/${this.bidDir.substring(4)}/$repeat/利益最大化-取引価格-平均"
             3 -> "Result/${this.bidDir.substring(4)}/$repeat/コスト最小化-ペナルティ-${this.penalty}-平均"
-            4, 5, 6, 7, 8 -> "Result/${this.bidDir.substring(4)}/$repeat/提供単価最小化-ペナルティ-${this.penalty}-利益率${this.profitRate}%"
+            4, 5, 6, 7, 8,9,10,11 -> "Result/${this.bidDir.substring(4)}/$repeat/提供単価最小化-ペナルティ-${this.penalty}-利益率${this.profitRate}%"
             else -> {
                 "error"
             }
