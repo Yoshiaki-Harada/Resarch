@@ -1,6 +1,6 @@
 package config
 
-import Impoter.JsonImporter
+import impoter.JsonImporter
 import converter.ConfigConverter
 
 /*
@@ -32,7 +32,8 @@ class Config(var provider: Int, /*提供企業数*/
              var auction: Int, /*オークションの種類*/
              var resultFile: String, /*結果出力用のファイル名*/
              var resultDir: String, /*結果出力用のディレクトリ名*/
-             var profitRate: Int /*その他*/) {
+             var profitRate: Int /*その他*/,
+             val period: Double/*1期間何Tsであるか*/) {
     companion object {
         fun fromJson(filePath: String): Config {
             return ConfigConverter.fromJson(JsonImporter(filePath).getString())

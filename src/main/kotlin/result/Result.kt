@@ -16,4 +16,6 @@ data class Result(val objectValue: Double,
                   val tradeAve: Double,
                   val tradeSD: Double,
                   val providerBidResults: List<BidResult>,
-                  val requesteBidResults: List<BidResult>)
+                  val requesteBidResults: List<BidResult>,
+                  val beforeProviderAvailabilityRatio: Double,
+                  val afterProviderAvailabilityRatio: Double)

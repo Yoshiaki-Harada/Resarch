@@ -77,11 +77,18 @@ INPUT extractbb -B cropbox -O CsMfg.pdf
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 OUTPUT sci.dvi
-INPUT bid-provider-single.pdf
-INPUT extractbb -B cropbox -O bid-provider-single.pdf
-INPUT bid-requester.pdf
-INPUT extractbb -B cropbox -O bid-requester.pdf
-INPUT bid-provider-single.pdf
+INPUT bid-provider-single.png
+INPUT ./bid-provider-single.png
+INPUT ./bid-provider-single.png
+INPUT ./bid-provider-single.png
+INPUT ./bid-provider-single.png
+INPUT bid-requester.png
+INPUT ./bid-requester.png
+INPUT ./bid-requester.png
+INPUT ./bid-requester.png
+INPUT ./bid-requester.png
+INPUT bid-provider-double.pdf
+INPUT extractbb -B cropbox -O bid-provider-double.pdf
 INPUT profit.pdf
 INPUT extractbb -B cropbox -O profit.pdf
 INPUT trade.pdf

@@ -1,4 +1,4 @@
-import Impoter.JsonImporter
+import impoter.JsonImporter
 import config.Config
 import converter.BidderConverter
 import winner.SingleSidedAuction

@@ -7,7 +7,7 @@
 利益最大化の目的関数
 \begin{flalign*}
   % 目的関数
-  {\rm max} \quad &\sum_{j=1}^{J}\sum_{n=1}^{N}v_{j} \times y_{j,n} - \sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times TR_{i,n,r}\times x_{i,r,j,n} \\ 
+  {\rm max} \quad &\sum_{j=1}^{J}\sum_{n=1}^{N}v_{j} \times y_{j,n} - \sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times TR_{j,n,r}\times x_{i,r,j,n} \\ 
   % 提供側の容量制約
   {\rm s.t.} \quad &\sum_{j=1}^{J}\sum_{n=1}^{N}TR_{j,n,r}  \times x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \\
   &\begin{cases}
@@ -30,7 +30,7 @@
 コスト最小化（ペナルティ）の目的関数
 \begin{flalign*}
   % 目的関数
-  {\rm min} \quad &\sum_{j=1}^{J} \alpha (1 - \sum_{n=1}^{N}y_{j,n}) + \sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times TR_{i,n,r}\times x_{i,r,j,n} \\ 
+  {\rm min} \quad &\sum_{j=1}^{J} \alpha (1 - \sum_{n=1}^{N}y_{j,n}) + \sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times TR_{j,n,r}\times x_{i,r,j,n} \\ 
   % 提供側の容量制約
   {\rm s.t.} \quad &\sum_{j=1}^{J}\sum_{n=1}^{N}TR_{j,n,r}  \times x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \\
   &\begin{cases}
@@ -53,7 +53,7 @@
 提供単価最小化
 \begin{flalign*}
   % 目的関数
-  {\rm min} \quad &\sum_{j=1}^{J} \alpha (1 - \sum_{n=1}^{N}y_{j,n}) + \sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}p_{i,r}\times TR_{i,n,r}\times x_{i,r,j,n} \\ 
+  {\rm min} \quad &\sum_{j=1}^{J} \alpha (1 - \sum_{n=1}^{N}y_{j,n}) + \sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}p_{i,r}\times TR_{j,n,r}\times x_{i,r,j,n} \\ 
   % 提供側の容量制約
   {\rm s.t.} \quad &\sum_{j=1}^{J}\sum_{n=1}^{N}TR_{j,n,r}  \times x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \\
   &\begin{cases}

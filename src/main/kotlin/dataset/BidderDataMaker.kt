@@ -1,11 +1,9 @@
 package dataset
 
 import config.Config
-import model.Bid
 import model.Bidder
-import java.util.*
 
-interface BidderDataMaker : DataMaker<List<out Bidder>> {
+interface BidderDataMaker : DataMaker<List<Bidder>> {
     override fun run(config: Config): List<Bidder>
 }
 
@@ -21,7 +19,7 @@ providerResourceNumberで指定された数のリソースを提供する
 object ProviderDataMakerImpl : BidderDataMaker {
     override fun run(config: Config): List<Bidder> {
         return List(config.provider) {
-            val rands = (0..(config.resource - 1)).toList().shuffled()
+            val rands = (0 until config.resource).toList().shuffled()
             //提供するresourceのリストを作る
             val resource = rands.subList(0, config.providerResourceNumber).sorted()
 

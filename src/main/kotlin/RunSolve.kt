@@ -1,4 +1,4 @@
-import Impoter.JsonImporter
+import impoter.JsonImporter
 import trade.VCG
 import config.Config
 import converter.BidderConverter

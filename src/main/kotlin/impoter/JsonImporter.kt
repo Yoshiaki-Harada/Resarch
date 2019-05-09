@@ -1,4 +1,4 @@
-package Impoter
+package impoter
 
 import java.io.File
 

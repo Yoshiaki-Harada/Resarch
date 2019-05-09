@@ -7,5 +7,7 @@ open class BidderResult(val id: Int,
 class ProviderResult(id: Int,
                      payment: Double,
                      profit: Double,
-                     val timeRatio: Double) : BidderResult(id, payment, profit)
+                     val timeRatio: Double,
+                     val beforeAvailabilityRatio: Double,
+                     val afterProviderAvailabilityRatio: Double) : BidderResult(id, payment, profit)
 

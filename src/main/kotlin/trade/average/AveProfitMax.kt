@@ -1,10 +1,13 @@
 package trade.average
 
+import Util
 import config.Config
 import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
-import result.*
+import result.BidderResult
+import result.ProviderResult
+import result.Result
 import sd
 import trade.Trade
 import trade.TradeUtil
@@ -53,7 +56,10 @@ object AveProfitMax : Trade {
                     i,
                     it.bids.map { it.payment }.sum(),
                     it.bids.map { it.profit }.sum(),
-                    it.bids.map { it.time }.sum().div(p[i]))
+                    it.bids.map { it.time }.sum().div(p[i]),
+                    p[i].div(config.period.times(config.providerResourceNumber)),
+                    p[i].plus(it.bids.map { it.time }.sum()).div(config.period.times(config.providerResourceNumber))
+            )
         }
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
@@ -79,7 +85,9 @@ object AveProfitMax : Trade {
                 rs.payments.average(),
                 rs.payments.sd(),
                 rs.providerBidResults,
-                rs.requesterBidResults
+                rs.requesterBidResults,
+                providerResults.map { it.beforeAvailabilityRatio }.average(),
+                providerResults.map { it.afterProviderAvailabilityRatio }.average()
         )
     }
 }

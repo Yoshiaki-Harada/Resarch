@@ -1,7 +1,6 @@
-package Impoter
+package impoter
 
 import ilog.cplex.IloCplex
-import java.io.File
 
 /*LPファイル名を受け取って，cplexを返す*/
 class LpImporter(val filename: String) {

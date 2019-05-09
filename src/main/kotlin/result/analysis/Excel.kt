@@ -1,8 +1,10 @@
 package result.analysis
 
-import Impoter.JsonImporter
 import converter.ConclusionConverter
-import link.webarata3.kexcelapi.*
+import impoter.JsonImporter
+import link.webarata3.kexcelapi.KExcel
+import link.webarata3.kexcelapi.get
+import link.webarata3.kexcelapi.set
 import org.apache.poi.ss.usermodel.Sheet
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.FileOutputStream

@@ -1,5 +1,6 @@
 package trade.provider_single
 
+import Util
 import config.Config
 import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
@@ -10,7 +11,6 @@ import result.Result
 import sd
 import trade.Trade
 import trade.TradeUtil
-import trade.average.AveTrade
 
 object SingleCostMin : Trade {
     override fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
@@ -54,7 +54,10 @@ object SingleCostMin : Trade {
                     i,
                     it.bids.map { it.payment }.sum(),
                     it.bids.map { it.profit }.sum(),
-                    it.bids.map { it.time }.sum().div(p[i]))
+                    it.bids.map { it.time }.sum().div(p[i]),
+                    p[i].div(config.period.times(config.providerResourceNumber)),
+                    p[i].plus(it.bids.map { it.time }.sum()).div(config.period.times(config.providerResourceNumber))
+            )
         }
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
@@ -80,7 +83,9 @@ object SingleCostMin : Trade {
                 rs.payments.average(),
                 rs.payments.sd(),
                 rs.providerBidResults,
-                rs.requesterBidResults
+                rs.requesterBidResults,
+                providerResults.map { it.beforeAvailabilityRatio }.average(),
+                providerResults.map { it.afterProviderAvailabilityRatio }.average()
         )
     }
 }

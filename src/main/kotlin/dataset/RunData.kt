@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
     for (i in 0 until 5) {
         val dir = File("$bidDir/$i").absoluteFile
         dir.mkdirs()
-        //データ生成
+        // データ生成
         val bidders = ProviderDataMakerImpl.run(config).plus(RequesterDataMakerImpl.run(config))
         bidders.forEachIndexed { index, bidder ->
             JsonWriter("$bidDir/$i/bidder$index").makeFile(BidderConverter.toJson(bidder))

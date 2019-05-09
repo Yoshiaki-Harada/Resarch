@@ -1,6 +1,6 @@
 package result.analysis
 
-import Impoter.JsonImporter
+import impoter.JsonImporter
 import converter.ConclusionConverter
 import converter.ResultConverter
 import sd

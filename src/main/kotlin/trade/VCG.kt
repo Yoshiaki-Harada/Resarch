@@ -1,14 +1,12 @@
 package trade
 
-import Impoter.LpImporter
+import impoter.LpImporter
 import Util
 import config.Config
 import ilog.concert.IloLPMatrix
-import cplex.lpformat.Object
 import model.Bidder
 import model.Resource
 import result.BidResult
-import winner.SingleSidedAuction
 
 object VCG  {
     fun start(lpfile: String, bidders: MutableList<Bidder>, resource: Resource, config: Config) {

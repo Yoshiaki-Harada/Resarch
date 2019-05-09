@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex sci"] 1552950707 "sci.aux" "sci.bbl" "sci" 1552950710
+["bibtex sci"] 1553180266 "sci.aux" "sci.bbl" "sci" 1553180322
   "junsrt.bst" 0 -1 0 ""
-  "sci.aux" 1552950709 3725 4a74a854e8104b9ea28c00a7b551a657 ""
-  "sci.bib" 1552207982 1266 8a36570787702d224ba42406a6d3e92e ""
+  "sci.aux" 1553180321 3395 50096f3df8966c7d2fb86e6dafc84353 ""
+  "sci.bib" 1553180252 1168 16a485b097d3719ad73de3513d72701a ""
   (generated)
   "sci.bbl"
   "sci.blg"
-["dvipdf"] 1552950709 "sci.dvi" "sci.pdf" "sci" 1552950710
-  "sci.dvi" 1552950709 33020 718af7b98bca375324b8fbc5a940b292 "latex"
+["dvipdf"] 1553180321 "sci.dvi" "sci.pdf" "sci" 1553180322
+  "sci.dvi" 1553180321 31396 915cb57211e1e62a1c52d33d343dce5d "latex"
   (generated)
   "sci.pdf"
-["latex"] 1552950707 "sci.tex" "sci.dvi" "sci" 1552950710
+["latex"] 1553180320 "sci.tex" "sci.dvi" "sci" 1553180322
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -51,17 +51,18 @@
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1537778020 4475280 ad19b176f34f811085aaa5475ab22cf5 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "CsMfg.pdf" 1552709000 29510 8ff50c52b2df3369a3e69130762bcf90 ""
-  "bid-provider-single.pdf" 1552121653 13928 19d093dcb40cff22a32b329fcee9fa9e ""
-  "bid-requester.pdf" 1552122578 12615 4e7234506f9e4dda28dc577bfe0af965 ""
-  "profit.pdf" 1552195187 26202 72b9ec2275fe1e53fa414ba8915431e5 ""
+  "bid-provider-double.pdf" 1552124154 14050 97302844206274c8d80cdfb36fbb9867 ""
+  "bid-provider-single.png" 1552952272 28125 7ee77783937695715eb8fa9c9f6f6b59 ""
+  "bid-requester.png" 1552122088 23806 b4b82c53081e3129a3d53110be154fa9 ""
+  "profit.pdf" 1553179591 35980 b03a38f3c5df3df12cce0442594e7d91 ""
   "provide_rate.pdf" 1552197080 26186 9bb408ec13a67645d99cf2c214752d05 ""
-  "request_rate.pdf" 1552195259 26104 ced09edfc08f04f4a396323d2402ec09 ""
-  "sci.aux" 1552950709 3725 4a74a854e8104b9ea28c00a7b551a657 ""
-  "sci.bbl" 1552950707 1083 be4f29052b2756e07ec37d5d478d57ee "bibtex sci"
+  "request_rate.pdf" 1553179837 36448 464a47e7c03d31ff733a5a10459b1c1b ""
+  "sci.aux" 1553180321 3395 50096f3df8966c7d2fb86e6dafc84353 ""
+  "sci.bbl" 1553180266 994 54d26f4378cc5ec70b6b07015f387033 "bibtex sci"
   "sci.sty" 1552704626 5283 29597acb45b149be2f715ff483f8a513 ""
-  "sci.tex" 1552950702 23747 d94cc93252fd47432633f2548bac6ff9 ""
-  "trade.pdf" 1552196980 26231 abbeb8711064e7b7d47a445efb306ea7 ""
+  "sci.tex" 1553180318 22562 32a31de7890b3bc763cf3d0454a0ca5e ""
+  "trade.pdf" 1553179730 63990 a5734e36da7ab0c8d2b167576aa873fe ""
   (generated)
-  "sci.log"
   "sci.dvi"
+  "sci.log"
   "sci.aux"

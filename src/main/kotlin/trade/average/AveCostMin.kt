@@ -1,10 +1,13 @@
 package trade.average
 
+import Util
 import config.Config
 import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
-import result.*
+import result.BidderResult
+import result.ProviderResult
+import result.Result
 import sd
 import trade.Trade
 import trade.TradeUtil
@@ -47,7 +50,10 @@ object AveCostMin : Trade {
                     i,
                     it.bids.map { it.payment }.sum(),
                     it.bids.map { it.profit }.sum(),
-                    it.bids.map { it.time }.sum().div(p[i]))
+                    it.bids.map { it.time }.sum().div(p[i]),
+                    TODO(),
+                    TODO()
+            )
         }
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
@@ -73,7 +79,9 @@ object AveCostMin : Trade {
                 rs.payments.average(),
                 rs.payments.sd(),
                 rs.providerBidResults,
-                rs.requesterBidResults
+                rs.requesterBidResults,
+                TODO(),
+                TODO()
         )
     }
 }

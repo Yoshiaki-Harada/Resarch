@@ -1,8 +1,6 @@
 package config
 
-import com.squareup.moshi.JsonWriter
 import converter.ConfigConverter
-import converter.JsonConverter
 
 fun main(args: Array<String>) {
     val config = Config(
@@ -26,7 +24,9 @@ fun main(args: Array<String>) {
             0,
             "test_result_file",
             "test_result_file",
-            10
+            10,
+            1000.0
+
     )
     writer.JsonWriter("config").makeFile(ConfigConverter.toJson(config))
 }
