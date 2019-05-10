@@ -3,7 +3,9 @@ package impoter
 import ilog.cplex.IloCplex
 
 /**
- * LPファイル名を受け取って，IloCplexオブジェクトを返す
+ * file名を受け取ってIloCplexオブジェクトを返す
+ *
+ * @property filename
  */
 class LpImporter(val filename: String) {
     fun getCplex(): IloCplex {

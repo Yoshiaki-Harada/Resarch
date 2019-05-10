@@ -12,6 +12,7 @@ import sd
 import trade.Trade
 import trade.TradeUtil
 
+
 object SingleCostMin : Trade {
     override fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
         //最適かの判定

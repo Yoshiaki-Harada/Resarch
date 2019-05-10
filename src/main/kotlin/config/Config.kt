@@ -3,14 +3,37 @@ package config
 import impoter.JsonImporter
 import converter.ConfigConverter
 
-/*
-0 VCG用
-1 コスト最小化
-2 利益最大化 取引（平均）
-3 コスト最小化（ペナルティ）取引（平均）
-4~　コスト最小化（ペナルティ）取引（提供単価）
- */
 
+/**
+ * 設定用ファイル
+ *
+ * @property provider
+ * @property providerTimeMin
+ * @property providerTimeMax
+ * @property providerValueMin
+ * @property providerValueMax
+ * @property providerResourceNumber
+ * @property requester
+ * @property requesterTimeMin
+ * @property requesterTimeMax
+ * @property requesterValueMin
+ * @property requesterValueMax
+ * @property bidNumber
+ * @property resource
+ * @property penalty
+ * @property bidderFile
+ * @property bidDir
+ * @property lpFile
+ * @property lpDir
+ * @property auction
+ * @property resultFile
+ * @property resultDir
+ * @property profitRate
+ * @property period 1期間あたりのTs
+ * @property targetAuction 計算させたいオークションのリスト
+ * @property targetData　計算させたいデータセットのリスト
+ * @property targetDataIterate データセットの繰り返し数
+ */
 class Config(var provider: Int, /*提供企業数*/
              var providerTimeMin: Double, /*提供企業の最小提供時間*/
              val providerTimeMax: Double, /*提供企業の最大提供時間*/
