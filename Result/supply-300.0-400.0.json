@@ -1,0 +1,20 @@
+{
+   "providerAfterAvailabilityRatioAve": 0.018562507038321976,
+   "providerAfterAvailabilityRatioSD": 0.5032870166571769,
+   "providerBeforeAvailabilityRatioAve": 0.35320810862608665,
+   "providerBeforeAvailabilityRatioSD": 0.005259457529273084,
+   "providerProfitAve": 197.24264839858947,
+   "providerProfitSD": 18.276434054158447,
+   "providerTimeRatioAve": 0.42793470798406147,
+   "providerTimeRatioSD": 0.047300750734231234,
+   "requesterProfitAve": 98.73250599891642,
+   "requesterProfitSD": 12.613370986557609,
+   "sumCostAve": 656.7342826644871,
+   "sumCostSD": 54.71115241289439,
+   "sumProfitAve": 2959.751543975059,
+   "sumProfitSD": 303.1337756335091,
+   "tradeAve": 65.72901916625955,
+   "tradeSD": 5.730845302445513,
+   "winBidAve": 10.0,
+   "winBidSD": 0.0
+}

@@ -23,10 +23,11 @@
   "resultFile": "Result",
   "profitRate": 10,
   "targetAuction": [
+    "利益最大化-平均",
     "提供単価最小化-ペナルティ-10000.0-profit40%",
     "提供単価最小化-ペナルティ-10000.0-profit50%",
     "提供単価最小化-ペナルティ-10000.0-profit60%"
-    ],
+  ],
   "targetData": [
     "supply-300.0-400.0",
     "supply-350.0-450.0",

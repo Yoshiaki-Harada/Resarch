@@ -21,77 +21,22 @@ fun main(args: Array<String>) {
     }
 }
 
-/*
-fun run(min: Double, max: Double) {
-    val dir = "Result/supply-$min-$max/"
-    val auction = "提供単価最小化-ペナルティ-10000.0-利益率60%"
-    val rs = (0..4).toList().map {
-        ResultConverter.fromJson(JsonImporter("$dir/$it/$auction/result").getString())
-    }
-
-    val con = Conclusion(
-            rs.map { it.sumCost }.average(),
-            rs.map { it.sumCost }.sd(),
-            rs.map { it.sumProfit }.average(),
-            rs.map { it.sumProfit }.sd(),
-            rs.map { it.providerProfitAve }.average(),
-            rs.map { it.providerProfitAve }.sd(),
-            rs.map { it.requesterProfitAve }.average(),
-            rs.map { it.requesterProfitAve }.sd(),
-            rs.map { it.winBidNUmber }.average(),
-            rs.map { it.winBidNUmber.toDouble() }.sd(),
-            rs.map { it.providerTimeRatioAve }.average(),
-            rs.map { it.providerTimeRatioAve }.sd(),
-            rs.map { it.tradeAve }.average(),
-            rs.map { it.tradeAve }.sd(),
-            ,
-            ,
-            ,
-
-    )
-
-    writer.JsonWriter("$dir/$auction").makeFile(ConclusionConverter.toJson(con))
-}
-
-fun run(min: Double, max: Double, auction: String) {
-    val dir = "Result/supply-$min-$max/"
-    val rs = (0..4).toList().map {
-        ResultConverter.fromJson(JsonImporter("$dir/$it/$auction/result").getString())
-    }
-    val con = Conclusion(
-            rs.map { it.sumCost }.average(),
-            rs.map { it.sumCost }.sd(),
-            rs.map { it.sumProfit }.average(),
-            rs.map { it.sumProfit }.sd(),
-            rs.map { it.providerProfitAve }.average(),
-            rs.map { it.providerProfitAve }.sd(),
-            rs.map { it.requesterProfitAve }.average(),
-            rs.map { it.requesterProfitAve }.sd(),
-            rs.map { it.winBidNUmber }.average(),
-            rs.map { it.winBidNUmber.toDouble() }.sd(),
-            rs.map { it.providerTimeRatioAve }.average(),
-            rs.map { it.providerTimeRatioAve }.sd(),
-            rs.map { it.tradeAve }.average(),
-            rs.map { it.tradeAve }.sd(),
-            ,
-            ,
-            ,
-
-    )
-    println("$dir/$auction")
-    writer.JsonWriter("$dir/$auction").makeFile(ConclusionConverter.toJson(con))
-}
-*/
 
 /**
- * $resultDir/$dataset/$ite/$auction のresult.jsonの結果をまとめて，$resultDir/$datasetに保存
+ *  $resultDir/$dataset/$ite/$auction のresult.jsonの結果をまとめて，$resultDir/$datasetにauction名で保存
+ *
+ * @param auction
+ * @param resultDir
+ * @param dataSet
+ * @param ite
  */
 fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
     val dir = "$resultDir/$dataSet"
 
-    val rs = (0..ite).toList().map {
+    val rs = (0 until ite).toList().map {
         ResultConverter.fromJson(JsonImporter("$dir/$it/$auction/result").getString())
     }
+
 
     val con = Conclusion(
             rs.map { it.sumCost }.average(),
@@ -110,10 +55,10 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
             rs.map { it.tradeAve }.sd(),
             rs.map { it.beforeProviderAvailabilityRatioAve }.average(),
             rs.map { it.beforeProviderAvailabilityRatioAve }.sd(),
-            rs.map { it.afterProviderAvailabilityRatioAve }.sd(),
-            rs.map { it.afterProviderAvailabilityRatioAve }.average()
+            rs.map { it.afterProviderAvailabilityRatioAve }.average(),
+            rs.map { it.afterProviderAvailabilityRatioAve }.sd()
     )
     println("$dir/$auction")
-    writer.JsonWriter("$resultDir/$dataSet").makeFile(ConclusionConverter.toJson(con))
+    writer.JsonWriter("$resultDir/$dataSet/$auction").makeFile(ConclusionConverter.toJson(con))
 }
 

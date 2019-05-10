@@ -1,6 +1,6 @@
 {
-   "afterProviderAvailabilityRatio": 0.7786778433020012,
-   "beforeProviderAvailabilityRatio": 0.5492141990097245,
+   "afterProviderAvailabilityRatioAve": 0.7786778433020012,
+   "beforeProviderAvailabilityRatioAve": 0.5492141990097245,
    "objectValue": 4994.265490165938,
    "providerBidResults": [
       {
@@ -440,7 +440,7 @@
    ],
    "providerTimeRatioAve": 0.5146672946918159,
    "providerTimeRatioSD": 0.3155615643818697,
-   "requesteBidResults": [
+   "requesterBidResults": [
       {
          "id": [
             0,
