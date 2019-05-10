@@ -11,6 +11,9 @@ import result.Result
 import result.analysis.Conclusion
 import java.lang.reflect.Type
 
+/**
+ * Jsonへの変換用オブジェクト
+ */
 interface JsonConverter<T> {
     val moshi: Moshi.Builder
         get() = Moshi.Builder()

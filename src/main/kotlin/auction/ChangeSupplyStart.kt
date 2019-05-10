@@ -37,7 +37,7 @@ fun main(args: Array<String>) {
 //                    config.changeAuction(auction + 2, i)
 //                }
 //                config.changeAuction(auction + 2, i)
-//                run(config)
+//                run1(config)
 //            }
 //        }
     }

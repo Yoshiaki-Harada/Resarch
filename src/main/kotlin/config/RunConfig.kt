@@ -21,12 +21,15 @@ fun main(args: Array<String>) {
             "Bid/First/bidder",
             "Bid/First/bidder",
             "LP/lp_file",
+            "",
             0,
             "test_result_file",
             "test_result_file",
             10,
-            1000.0
-
+            1000.0,
+            listOf(),
+            listOf(),
+            0
     )
     writer.JsonWriter("config").makeFile(ConfigConverter.toJson(config))
 }

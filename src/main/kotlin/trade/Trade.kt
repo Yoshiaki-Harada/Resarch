@@ -6,7 +6,7 @@ import model.Bidder
 import result.Result
 
 interface Trade {
-    fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result
+    fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result
 }
 
 

@@ -13,7 +13,7 @@ import trade.Trade
 import trade.TradeUtil
 
 object SingleCostMin : Trade {
-    override fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
+    override fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
         //最適かの判定
         val status = cplex.status
         println("status = $status")
@@ -44,7 +44,7 @@ object SingleCostMin : Trade {
         }
 
         // 取引を実行し利益等を計算する
-        val rs = SingleTrade.run(x, providers, requesters)
+        val rs = SingleTradeImpl.run(x, providers, requesters)
 
         // 各企業のリソース提供時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }

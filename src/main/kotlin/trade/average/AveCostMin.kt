@@ -14,7 +14,7 @@ import trade.TradeUtil
 
 object AveCostMin : Trade {
     override
-    fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
+    fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
         //最適かの判定
         val status = cplex.status
         println("status = $status")
@@ -23,11 +23,13 @@ object AveCostMin : Trade {
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
         val xCplex = cplex.getValues(lp)
         println("objValue = $objValue")
+
         val providers = bidders.subList(0, config.provider)
         println("providersNumber:" + providers.size)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         println("requesterNumber:" + requesters.size)
-        val x = Util.convertDimension4(xCplex, requesters.map { it -> it.bids.size }, providers.map { it -> it.bids.size }, config)
+
+        val x = Util.convertDimension4(xCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
         // 解を出力
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
@@ -44,17 +46,10 @@ object AveCostMin : Trade {
 
         // 各企業のリソース提供時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
+
         // 各企業の利益の合計を計算し，結果用のクラスに変換
-        val providerResults = rs.providerCals.mapIndexed { i, it ->
-            ProviderResult(
-                    i,
-                    it.bids.map { it.payment }.sum(),
-                    it.bids.map { it.profit }.sum(),
-                    it.bids.map { it.time }.sum().div(p[i]),
-                    TODO(),
-                    TODO()
-            )
-        }
+        val providerResults = TradeUtil.calProviderResult(p, rs, config)
+
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())

@@ -13,7 +13,7 @@ import trade.Trade
 import trade.TradeUtil
 
 object AvePenaltyCostMin : Trade {
-    override fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
+    override fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
         //最適かの判定
         val status = cplex.status
         println("status = $status")
@@ -47,17 +47,9 @@ object AvePenaltyCostMin : Trade {
         val rs = AveTrade.run(x, providers, requesters)
         // 各企業の総リソース提供時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
+
         // 各企業の利益の合計を計算し，結果用のクラスに変換
-        val providerResults = rs.providerCals.mapIndexed { i, it ->
-            ProviderResult(
-                    i,
-                    it.bids.map { it.payment }.sum(),
-                    it.bids.map { it.profit }.sum(),
-                    it.bids.map { it.time }.sum().div(p[i]),
-                    p[i].div(config.period.times(config.providerResourceNumber)),
-                    p[i].plus(it.bids.map { it.time }.sum()).div(config.period.times(config.providerResourceNumber))
-            )
-        }
+        val providerResults = TradeUtil.calProviderResult(p, rs, config)
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())

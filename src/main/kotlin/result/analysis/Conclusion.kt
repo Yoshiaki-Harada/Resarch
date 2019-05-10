@@ -13,4 +13,8 @@ data class Conclusion(val sumCostAve: Double,
                       val providerTimeRatioAve: Double,
                       val providerTimeRatioSD: Double,
                       val tradeAve: Double,
-                      val tradeSD: Double)
+                      val tradeSD: Double,
+                      val providerBeforeAvailabilityRatioAve: Double,
+                      val providerBeforeAvailabilityRatioSD: Double,
+                      val providerAfterAvailabilityRatioAve: Double,
+                      val providerAfterAvailabilityRatioSD: Double)

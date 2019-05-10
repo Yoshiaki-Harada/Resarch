@@ -4,6 +4,9 @@ import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 
 class Solver(val cplex: IloCplex) {
+    /**
+     * LPファイルを受け取って最適解を求め，IloCplexオブジェクトを返す
+     */
     fun solve(): IloCplex {
         cplex.solve()
         println("Solution status      = " + cplex.status)

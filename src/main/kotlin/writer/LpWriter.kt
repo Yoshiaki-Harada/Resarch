@@ -3,6 +3,9 @@ package writer
 import cplex.lpformat.*
 import java.io.File
 
+/**
+ * LPファイルを作成する為のクラス
+ */
 class LpWriter(val filename: String) {
 
     val file = File("$filename.lp").absoluteFile

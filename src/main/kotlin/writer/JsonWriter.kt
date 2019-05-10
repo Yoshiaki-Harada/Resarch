@@ -2,7 +2,9 @@ package writer
 
 import java.io.File
 
-
+/**
+ * jsonファイルを作成する為のクラス
+ */
 class JsonWriter(val filename: String) {
 
     val file = File("$filename.json").absoluteFile

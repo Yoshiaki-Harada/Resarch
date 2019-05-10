@@ -3,18 +3,27 @@ package trade.average
 import model.Bidder
 import result.BidResult
 import result.BidderCal
+import trade.DobuleSided
 import trade.ResultPre
 import trade.TradeUtil
 
-// TODO Ruleを継承したAveTrade(paymentとrunをinterfaceに定義)
-object AveTrade {
+object AveTrade : DobuleSided {
 
     // paymentを求める為の関数
     fun calRequesterBudgetDensity(requester: Bidder, bidIndex: Int, resource: Int): Double {
         return (requester.bids[bidIndex].getValue() * (requester.bids[bidIndex].bundle[resource] / requester.bids[bidIndex].bundle.sum())) / requester.bids[bidIndex].bundle[resource]
     }
 
-    fun payment(provider: Bidder, requester: Bidder, bidIndex: Int, resource: Int): Double {
+    /**
+     * 取引価格はお互いの希望の半分
+     *
+     * @param provider
+     * @param requester
+     * @param bidIndex
+     * @param resource
+     * @return
+     */
+    override fun payment(provider: Bidder, requester: Bidder, bidIndex: Int, resource: Int): Double {
         //resourceに対する予算の密度
         val budgetOfResource = calRequesterBudgetDensity(requester, bidIndex, resource)
         //提供側と要求側の予算密度の平均
@@ -23,7 +32,15 @@ object AveTrade {
         return avePay * requester.bids[bidIndex].bundle[resource]
     }
 
-    fun run(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>): ResultPre {
+    /**
+     * 取引価格はお互いの希望の半分
+     *
+     * @param x
+     * @param providers
+     * @param requesters
+     * @return
+     */
+    override fun run(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>): ResultPre {
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
         // 初期化
@@ -33,7 +50,7 @@ object AveTrade {
         val requesterBidResults = mutableListOf<BidResult>()
         val payments = mutableListOf<Double>()
 
-        //決定変数が1の時に取引を行う
+        // 決定変数が1の時に取引を行う
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->

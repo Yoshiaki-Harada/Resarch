@@ -6,7 +6,6 @@ import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
 import result.BidderResult
-import result.ProviderResult
 import result.Result
 import sd
 import trade.Trade
@@ -14,7 +13,7 @@ import trade.TradeUtil
 
 object AveProfitMax : Trade {
     override
-    fun trade(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
+    fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
         // 最適かの判定
         val status = cplex.status
         println("status = $status")
@@ -24,10 +23,12 @@ object AveProfitMax : Trade {
 
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
         val xCplex = cplex.getValues(lp)
+
         val providers = bidders.subList(0, config.provider)
         println("providerNumber:" + providers.size)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         println("requesterNumber:" + requesters.size)
+
         val sum = requesters.map { it.bids.size }.sum()
         val y = xCplex.copyOfRange(0, sum)
         println("y_size: ${y.size}")
@@ -35,6 +36,7 @@ object AveProfitMax : Trade {
         println("x_size:" + excludedXCplex.size)
         val x = Util.convertDimension4(excludedXCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
 
+        // 解の表示
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
@@ -45,22 +47,14 @@ object AveProfitMax : Trade {
             }
         }
 
-        // 利益の計算
+        // 取引を行い利益等を計算する
         val rs = AveTrade.run(x, providers, requesters)
 
-        // 各企業のリソース提供時間のリスト
+        // 各企業の総リソース提供可能時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
+
         // 各企業の利益の合計を計算し，結果用のクラスに変換
-        val providerResults = rs.providerCals.mapIndexed { i, it ->
-            ProviderResult(
-                    i,
-                    it.bids.map { it.payment }.sum(),
-                    it.bids.map { it.profit }.sum(),
-                    it.bids.map { it.time }.sum().div(p[i]),
-                    p[i].div(config.period.times(config.providerResourceNumber)),
-                    p[i].plus(it.bids.map { it.time }.sum()).div(config.period.times(config.providerResourceNumber))
-            )
-        }
+        val providerResults = TradeUtil.calProviderResult(p, rs, config)
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())

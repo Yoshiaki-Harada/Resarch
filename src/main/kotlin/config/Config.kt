@@ -11,7 +11,6 @@ import converter.ConfigConverter
 4~　コスト最小化（ペナルティ）取引（提供単価）
  */
 
-//TODO nullを許容する設定
 class Config(var provider: Int, /*提供企業数*/
              var providerTimeMin: Double, /*提供企業の最小提供時間*/
              val providerTimeMax: Double, /*提供企業の最大提供時間*/
@@ -26,14 +25,18 @@ class Config(var provider: Int, /*提供企業数*/
              var bidNumber: Int, /*入札数*/
              var resource: Int, /*リソースの種類*/
              var penalty: Double, /*ペナルティ係数*/
-             var bidderFile: String, /*入札者用Jsonファイルのファイル名*/
+             var bidderFile: String, /*入札者用Jsonファイルのファイル名(Bidディレクトリ直下)*/
              var bidDir: String, /*入札者用Jsonファイルのディレクトリ名*/
-             var lpFile: String, /*LPファイルのファイル名*/
+             var lpFile: String, /*LPファイルのファイル名(LPディレクトリ直下)*/
+             val lpDir: String,/*LPファイルのディレクトリ名*/
              var auction: Int, /*オークションの種類*/
-             var resultFile: String, /*結果出力用のファイル名*/
-             var resultDir: String, /*結果出力用のディレクトリ名*/
+             var resultFile: String, /*結果出力用のファイル名(resultDir直下)*/
+             var resultDir: String,/*結果出力用のディレクトリ名*/
              var profitRate: Int /*その他*/,
-             val period: Double/*1期間何Tsであるか*/) {
+             val period: Double/*1期間何Tsであるか*/,
+             val targetAuction: List<String>,
+             var targetData: List<String>,
+             val targetDataIterate: Int?) {
     companion object {
         fun fromJson(filePath: String): Config {
             return ConfigConverter.fromJson(JsonImporter(filePath).getString())

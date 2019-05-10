@@ -1,9 +1,11 @@
 package trade
 
+import config.Config
 import model.Bidder
 import result.BidCal
 import result.BidResult
 import result.BidderCal
+import result.ProviderResult
 
 object TradeUtil {
 
@@ -45,6 +47,30 @@ object TradeUtil {
         return calRequesterTrueBudgetDensity(requester, bidIndex, resource) * requester.bids[bidIndex].bundle[resource] - payment
     }
 
+    /**
+     * providerの結果を出力する関数
+     *
+     * @param provideTimes 各企業の提供可能時間のリスト
+     * @param rs Resultの準備用クラス
+     * @param config
+     * @return providerResult
+     */
+    fun calProviderResult(provideTimes: List<Double>, rs: ResultPre, config: Config): List<ProviderResult> {
+        return rs.providerCals.mapIndexed { i, it ->
+            // 1- 提供可能時間[Ts]/1期間[Ts]*提供リソース数 = 稼働率
+            val beforeAvailabilityRatio = 1 - provideTimes[i].div(config.period.times(config.providerResourceNumber))
+            // 稼働率 + 総提供時間 / 1期間[Ts]*提供リソース数
+            val afterAvailabilityRatio = beforeAvailabilityRatio.plus(it.bids.map { it.time }.sum().div(config.period.times(config.providerResourceNumber)))
+            ProviderResult(
+                    i,
+                    it.bids.map { it.payment }.sum(),
+                    it.bids.map { it.profit }.sum(),
+                    it.bids.map { it.time }.sum().div(provideTimes[i]),
+                    beforeAvailabilityRatio,
+                    afterAvailabilityRatio
+            )
+        }
+    }
 }
 
 fun calRequesterTrueBudgetDensity(requester: Bidder, bidIndex: Int, resource: Int): Double {

@@ -1,5 +1,28 @@
 package result
 
+/**
+ * 結果クラス
+ *
+ * @property objectValue 目的関数値
+ * @property sumCost    総コスト
+ * @property sumProfit  総利益
+ * @property x  決定変数
+ * @property winBidNUmber   勝者となった入札数(要求)
+ * @property providerResults    提供側の結果のリスト
+ * @property requesterResults   要求側の結果のリスト
+ * @property providerProfitAve  提供側の結果の平均値
+ * @property providerProfitSD   提供側の結果の分散
+ * @property providerTimeRatioAve  実際に提供した時間/提供可能時間の平均
+ * @property providerTimeRatioSD   実際に提供した時間/提供可能時間の分散
+ * @property requesterProfitAve 要求側利益の平均
+ * @property requesterProfitSD  要求側利益の分散
+ * @property tradeAve   取引価格の平均
+ * @property tradeSD    取引価格の分散
+ * @property providerBidResults 提供側の入札の結果のリスト
+ * @property requesterBidResults　要求側の入札の結果のリスト
+ * @property beforeProviderAvailabilityRatioAve 提供側の取引前の稼働率の平均
+ * @property afterProviderAvailabilityRatioAve  提供側の取引後の稼働率の平均
+ */
 data class Result(val objectValue: Double,
                   val sumCost: Double,
                   val sumProfit: Double,
@@ -16,6 +39,6 @@ data class Result(val objectValue: Double,
                   val tradeAve: Double,
                   val tradeSD: Double,
                   val providerBidResults: List<BidResult>,
-                  val requesteBidResults: List<BidResult>,
-                  val beforeProviderAvailabilityRatio: Double,
-                  val afterProviderAvailabilityRatio: Double)
+                  val requesterBidResults: List<BidResult>,
+                  val beforeProviderAvailabilityRatioAve: Double,
+                  val afterProviderAvailabilityRatioAve: Double)
