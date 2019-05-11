@@ -37,7 +37,7 @@ import impoter.JsonImporter
  */
 class Config(var provider: Int, /*提供企業数*/
              var providerTimeMin: Double, /*提供企業の最小提供時間*/
-             val providerTimeMax: Double, /*提供企業の最大提供時間*/
+             var providerTimeMax: Double, /*提供企業の最大提供時間*/
              var providerValueMin: Double, /*提供企業の最小コスト*/
              var providerValueMax: Double, /*提供企業の最大コスト*/
              var providerResourceNumber: Int, /*提供リソース数*/

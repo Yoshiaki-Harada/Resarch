@@ -132,8 +132,11 @@ fun main(args: Array<String>) {
                         BidderConverter.fromJson(JsonImporter("${config.bidDir}/$data/$i/bidder$j").getString())
                     }
                     lpMaker.makeLpFile(config, obj, bidders)
+                    println("LPファイルの作成")
                     val cplex = Solver(LpImporter("${config.lpDir}/${config.lpFile}").getCplex()).solve()
+                    println("勝者決定問題")
                     val result = trade.run(cplex, bidders, config)
+                    println("オークション終了")
 
                     // TODO: ここでやること？
                     if (data.contains("%")) {

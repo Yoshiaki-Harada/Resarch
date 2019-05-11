@@ -39,6 +39,15 @@ object CostMinPenaltyAuction : LpMaker {
 
     }
 
+    /**
+     * 目的関数
+     *
+     * @param lp
+     * @param obj
+     * @param providers
+     * @param requesters
+     * @param config
+     */
     fun writeObjFunction(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
         lp.obj(obj)
 
@@ -61,7 +70,14 @@ object CostMinPenaltyAuction : LpMaker {
         lp.newline()
     }
 
-    // 提供時間制約
+    /**
+     * 提供側の容量制約
+     *
+     * @param lp
+     * @param obj
+     * @param providers
+     * @param requesters
+     */
     fun writeSubToProvide(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
         // 全てのresouceについて
         providers.forEachIndexed { i, provider ->
@@ -79,7 +95,14 @@ object CostMinPenaltyAuction : LpMaker {
         }
     }
 
-    // 勝者となれるのは1企業のみ
+    /**
+     * 勝者となれるのは1企業のみ
+     *
+     * @param lp
+     * @param obj
+     * @param providers
+     * @param requesters
+     */
     fun writeSubToWinner(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
@@ -96,7 +119,14 @@ object CostMinPenaltyAuction : LpMaker {
         }
     }
 
-    // 勝者となる入札はたかだか1つ
+    /**
+     * 勝者となる入札はたかだか1つ
+     *
+     * @param lp
+     * @param obj
+     * @param providers
+     * @param requesters
+     */
     fun writeSubToBidY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
         requesters.forEachIndexed { j, requesters ->
             lp.constrateName("bidY $j")
@@ -149,7 +179,15 @@ object CostMinPenaltyAuction : LpMaker {
         }
     }
 
-    // 勝者となる入札はたかだか1つ
+    /**
+     * 勝者となる入札はたかだか1つ
+     *
+     * @param lp
+     * @param obj
+     * @param providers
+     * @param requesters
+     * @param config
+     */
     fun writeSubToBidX(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
         providers.forEachIndexed { i, provider ->
             for (r in 0..config.resource) {
@@ -166,7 +204,15 @@ object CostMinPenaltyAuction : LpMaker {
         }
     }
 
-    //予算制約
+    /**
+     * 予算制約
+     *
+     * @param lp
+     * @param obj
+     * @param providers
+     * @param requesters
+     * @param config
+     */
     fun writeSubToBudget(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
@@ -183,6 +229,13 @@ object CostMinPenaltyAuction : LpMaker {
         }
     }
 
+    /**
+     * 0-1変数
+     *
+     * @param lp
+     * @param providers
+     * @param requesters
+     */
     fun writeBinVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>) {
         lp.varType(VarType.BIN)
         requesters.forEachIndexed { j, requester ->
