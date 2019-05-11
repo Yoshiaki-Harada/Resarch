@@ -1,0 +1,49 @@
+This is upBibTeX, Version 0.99d-j0.33-u1.23 (utf8.uptex) (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: sci.aux
+The style file: junsrt.bst
+Database file #1: sci.bib
+Warning--there's a number but no volume in Parnia
+You've used 5 entries,
+            2270 wiz_defined-function locations,
+            567 strings with 4776 characters,
+and the built_in function-call counts, 1066 in all, are:
+= -- 63
+> -- 38
+< -- 5
++ -- 16
+- -- 11
+* -- 42
+:= -- 142
+add.period$ -- 16
+call.type$ -- 5
+change.case$ -- 5
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 69
+empty$ -- 112
+format.name$ -- 22
+if$ -- 253
+int.to.chr$ -- 0
+int.to.str$ -- 5
+missing$ -- 3
+newline$ -- 29
+num.names$ -- 4
+pop$ -- 39
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 48
+stack$ -- 0
+substring$ -- 0
+swap$ -- 9
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 4
+width$ -- 6
+write$ -- 55
+is.kanji.str$ -- 52
+(There was 1 warning)

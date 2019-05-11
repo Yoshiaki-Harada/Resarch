@@ -1,0 +1,12 @@
+# Bidフォルダはいらない
+/Bid
+/Result
+/LP
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+
