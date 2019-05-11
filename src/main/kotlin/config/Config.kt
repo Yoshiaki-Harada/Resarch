@@ -1,7 +1,7 @@
 package config
 
-import impoter.JsonImporter
 import converter.ConfigConverter
+import impoter.JsonImporter
 
 
 /**
@@ -33,7 +33,7 @@ import converter.ConfigConverter
  * @property targetAuction 計算させたいオークションのリスト
  * @property targetData　計算させたいデータセットのリスト
  * @property targetDataIterate データセットの繰り返し数
- * @property items 評価指標のリスト
+ * @property items  Excelに出力する評価指標のリスト
  */
 class Config(var provider: Int, /*提供企業数*/
              var providerTimeMin: Double, /*提供企業の最小提供時間*/
@@ -65,25 +65,6 @@ class Config(var provider: Int, /*提供企業数*/
     companion object {
         fun fromJson(filePath: String): Config {
             return ConfigConverter.fromJson(JsonImporter(filePath).getString())
-        }
-    }
-
-    fun changeAuction(auction: Int, repeat: Int) {
-        this.auction = auction
-        // 利益率をどの程度変化させるかによって変わる
-        this.bidderFile = when (auction) {
-            4, 5, 6, 7, 8 -> "${this.bidDir}-profit${this.profitRate}%/$repeat"
-            else -> "${this.bidDir}/$repeat"
-        }
-        this.resultDir = when (auction) {
-            0 -> "Result/${this.bidDir.substring(4)}/$repeat/vcg"
-            1 -> "Result/${this.bidDir.substring(4)}/$repeat/コスト最小化-取引価格-平均"
-            2 -> "Result/${this.bidDir.substring(4)}/$repeat/利益最大化-取引価格-平均"
-            3 -> "Result/${this.bidDir.substring(4)}/$repeat/コスト最小化-ペナルティ-${this.penalty}-平均"
-            4, 5, 6, 7, 8,9,10,11 -> "Result/${this.bidDir.substring(4)}/$repeat/提供単価最小化-ペナルティ-${this.penalty}-利益率${this.profitRate}%"
-            else -> {
-                "error"
-            }
         }
     }
 }

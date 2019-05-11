@@ -20,7 +20,7 @@ import writer.Saver
  * 提供単価最小化に関しては，自動で$targetDataを$targetData-${profitRate}%と変換する
  */
 fun main(args: Array<String>) {
-    val config = Config.fromJson("config-test")
+    val config = Config.fromJson("config")
     config.targetAuction.forEach {
         val (lpMaker, obj, trade) = when (it) {
             "VCG" -> {

@@ -29,7 +29,7 @@ object RequesterBidDataMakerImpl : BidDataMaker {
 提供時間はproviderMin~providerMaxの乱数
 コストはproviderValueMin~providerValueMaxの乱数
  */
-object ProviderBidDataMakerImpl {
+object ProviderBidDataMakerProvideTimeImpl {
     fun run(config: Config, resource: Int): Bid {
         val bundle = List(config.resource) {
             Random().doubles(1, config.providerTimeMin, config.providerTimeMax)

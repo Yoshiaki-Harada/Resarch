@@ -6,7 +6,6 @@ import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
 import result.BidderResult
-import result.ProviderResult
 import result.Result
 import sd
 import trade.Trade
@@ -49,17 +48,9 @@ object SingleCostMin : Trade {
 
         // 各企業のリソース提供時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
+
         // 各企業の利益の合計を計算し，結果用のクラスに変換
-        val providerResults = rs.providerCals.mapIndexed { i, it ->
-            ProviderResult(
-                    i,
-                    it.bids.map { it.payment }.sum(),
-                    it.bids.map { it.profit }.sum(),
-                    it.bids.map { it.time }.sum().div(p[i]),
-                    p[i].div(config.period.times(config.providerResourceNumber)),
-                    p[i].plus(it.bids.map { it.time }.sum()).div(config.period.times(config.providerResourceNumber))
-            )
-        }
+        val providerResults = TradeUtil.calProviderResult(p, rs, config)
 
         val requesterResults = rs.requesterCals.mapIndexed { j, it ->
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())

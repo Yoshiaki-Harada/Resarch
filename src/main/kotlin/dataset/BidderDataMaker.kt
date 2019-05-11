@@ -26,9 +26,9 @@ object ProviderDataMakerImpl : BidderDataMaker {
             Bidder().add(List(config.resource) { index ->
                 //提供するリソースであれば，その種類を引数に渡す，提供しなければ-1を渡すことで0の入札を作成する
                 if (resource.contains(index))
-                    ProviderBidDataMakerImpl.run(config, index)
+                    ProviderBidDataMakerProvideTimeImpl.run(config, index)
                 else
-                    ProviderBidDataMakerImpl.run(config, -1)
+                    ProviderBidDataMakerProvideTimeImpl.run(config, -1)
             })
         }
     }
