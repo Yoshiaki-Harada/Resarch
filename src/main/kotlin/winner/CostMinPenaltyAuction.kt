@@ -24,7 +24,7 @@ object CostMinPenaltyAuction : LpMaker {
         // 提供時間制約
         writeSubToProvide(lp, obj, providers, requesters)
 
-        writeSubToWinner(lp, obj, providers, requesters)
+        //  writeSubToWinner(lp, obj, providers, requesters)
 
         writeSubToBidY(lp, obj, providers, requesters)
 

@@ -7,9 +7,12 @@ import java.io.File
 
 fun main(args: Array<String>) {
     val config = Config.fromJson("config")
-    for (s in 0 until 8) {
+    val SUPPLY_DATA_NUMBER = 8
+    val DATASET_ITERATE = 10
+
+    for (s in 0 until SUPPLY_DATA_NUMBER) {
         val bidDir = "${config.bidDir}/supply-${config.providerTimeMin}-${config.providerTimeMax}"
-        for (i in 0 until 10) {
+        for (i in 0 until DATASET_ITERATE) {
             val dir = File("$bidDir/$i").absoluteFile
             dir.mkdirs()
             // データ生成
