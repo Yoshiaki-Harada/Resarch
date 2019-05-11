@@ -56,6 +56,7 @@ object CostMinPenaltyAuction : LpMaker {
                 lp.minus(config.penalty, "y", "$j$n")
             }
         }
+        lp.newline()
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
                 requesters.forEachIndexed { j, requester ->
@@ -63,6 +64,7 @@ object CostMinPenaltyAuction : LpMaker {
                         //provider_iがresource_rをrequester_jに提供するとき1となる変数
                         //provider_iがresource_rをrequester_jの入札の要求resource_mに提供する時間x(正の整数)
                         lp.term(resource.getValue() * bid.bundle[r], "x", "$i$r$j$n")
+                        if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
             }
@@ -243,12 +245,14 @@ object CostMinPenaltyAuction : LpMaker {
                 lp.variable("y", "$j$n")
             }
         }
+        lp.newline()
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
                         //provider_iがresource_rをrequester_jに提供するとき1となる変数
                         lp.variable("x", "$i$r$j$n")
+                        if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
             }
