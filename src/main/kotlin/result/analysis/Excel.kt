@@ -8,19 +8,15 @@ import impoter.JsonImporter
 import link.webarata3.kexcelapi.KExcel
 import link.webarata3.kexcelapi.get
 import link.webarata3.kexcelapi.set
-import org.apache.poi.ss.usermodel.Sheet
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.FileOutputStream
 
 
-/*
-* auction = 0 総利益最大化
-* auction = 1 コスト最小化
-* auction = 2 提供単価最小化 40%
-* auction = 3 提供単価最小化 50%
-* auction = 4 提供単価最小化 60%
-* */
-
+/**
+ * Excelに結果を出力する為のmain関数
+ * targetAuctionとtargetDataのConclusionファイルを読み込んで，Excelに出力
+ * @param args
+ */
 fun main(args: Array<String>) {
     val config = Config.fromJson("config-test")
 
@@ -35,54 +31,42 @@ fun main(args: Array<String>) {
 
     Excel.outConclusionEachSheetItem("test-2-excel", config, conList)
 
-
-//    // 場合分けの数
-//    val sheetNum = 8
-//    var min = 50.0
-//    var max = 150.0
-//
-//    Excel.initExcel("Result/conclusion01", sheetNum)
-//
-//    for (s in 0 until sheetNum) {
-//        var conclusionDir = "Result/supply-$min-$max"
-//        val auction = listOf(
-//                "利益最大化-取引価格-平均",
-//                "コスト最小化-ペナルティ-10000.0-平均",
-//                "提供単価最小化-ペナルティ-10000.0-利益率40%",
-//                "提供単価最小化-ペナルティ-10000.0-利益率60%")
-//
-//        val con = (0 until auction.size).toList().map {
-//            ConclusionConverter.fromJson(JsonImporter("$conclusionDir/${auction[it]}").getString())
-//        }
-//        Excel.write(s, con)
-//        min += 50.0
-//        max += 50.0
-//    }
 }
 
+/**
+ * 結果をExcelに出力する為のオブジェクト
+ */
 object Excel {
+    /**
+     * 評価指標
+     */
     private const val SUM_PROFIT = "総利益"
     private const val SUM_COST = "総コスト"
     private const val PROVIDER_PROFIT_AVE = "提供企業側の利益の平均"
     private const val WIN_BID_NUMBER = "勝者となった要求数"
-    private const val PROVIDEER_RATE = "提供率"
+    private const val PROVIDER_RATE = "提供率"
     private const val TRADE_PRICE = "取引価格"
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
 
+    /**
+     * 評価指標のリスト
+     * ここに足せば自動的にExcelにこの順番で出力される
+     * ただしConclusionに追加は必要
+     */
     private val itemList = listOf(
             SUM_PROFIT,
             SUM_COST,
             PROVIDER_PROFIT_AVE,
             WIN_BID_NUMBER,
-            PROVIDEER_RATE,
+            PROVIDER_RATE,
             TRADE_PRICE,
             BEFORE_PROVIDER_AVAILABILITY_RATIO,
-            AFTER_PROVIDER_AVAILABILITY_RATIO)
+            AFTER_PROVIDER_AVAILABILITY_RATIO
+    )
 
-    private val AVE = "AVE."
-    private val SD = "S.D."
-
+    private const val AVE = "AVE."
+    private const val SD = "S.D."
 
     /**
      *
@@ -95,22 +79,6 @@ object Excel {
      */
     fun outConclusionEachSheetDataset(file: String, config: Config, conList: List<List<Conclusion>>) {
         val AUCTION_ROW = 0
-        val SUM_PROFIT_AVE_ROW = 1
-        val SUM_PROFIT_SD_ROW = 2
-        val SUM_COST_ROW_AVE = 3
-        val SUM_COST_ROW_SD = 4
-        val PROVIDER_PROFIT_AVE_AVE_ROW = 5
-        val PROVIDER_PROFIT_AVE_SD_ROW = 6
-        val WIN_BID_NUMBER_AVE_ROW = 7
-        val WIN_BID_NUMBER_SD_ROW = 8
-        val PROVIDER_RATE_AVE_ROW = 9
-        val PROVIDER_RATE_SD_ROW = 10
-        val TRADE_PRICE_AVE_ROW = 11
-        val TRADE_PRICE_SD_ROW = 12
-        val BEFORE_PROVIDER_AVAILABILITY_RATIO_AVE_ROW = 13
-        val BEFORE_PROVIDER_AVAILABILITY_RATIO_SD_ROW = 14
-        val AFTER_PROVIDER_AVAILABILITY_RATIO_AVE_ROW = 15
-        val AFTER_PROVIDER_AVAILABILITY_RATIO_SD_ROW = 16
         val ITEM_COLUMUN = 0
         val AVE_AND_SD_COLUMN = 1
 
@@ -119,49 +87,19 @@ object Excel {
             config.targetData.forEachIndexed { index, it ->
                 val sheet = workbook[index]
 
-                sheet[ITEM_COLUMUN, SUM_PROFIT_AVE_ROW] = SUM_PROFIT
-                sheet[AVE_AND_SD_COLUMN, SUM_PROFIT_AVE_ROW] = AVE
-                sheet[AVE_AND_SD_COLUMN, SUM_PROFIT_SD_ROW] = SD
-                sheet[ITEM_COLUMUN, SUM_COST_ROW_AVE] = SUM_COST
-                sheet[AVE_AND_SD_COLUMN, SUM_COST_ROW_AVE] = AVE
-                sheet[AVE_AND_SD_COLUMN, SUM_COST_ROW_SD] = SD
-                sheet[ITEM_COLUMUN, PROVIDER_PROFIT_AVE_AVE_ROW] = PROVIDER_PROFIT_AVE
-                sheet[AVE_AND_SD_COLUMN, PROVIDER_PROFIT_AVE_AVE_ROW] = AVE
-                sheet[AVE_AND_SD_COLUMN, PROVIDER_PROFIT_AVE_SD_ROW] = SD
-                sheet[ITEM_COLUMUN, WIN_BID_NUMBER_AVE_ROW] = WIN_BID_NUMBER
-                sheet[AVE_AND_SD_COLUMN, WIN_BID_NUMBER_AVE_ROW] = AVE
-                sheet[AVE_AND_SD_COLUMN, WIN_BID_NUMBER_SD_ROW] = SD
-                sheet[ITEM_COLUMUN, PROVIDER_RATE_AVE_ROW] = PROVIDEER_RATE
-                sheet[AVE_AND_SD_COLUMN, PROVIDER_RATE_AVE_ROW] = AVE
-                sheet[AVE_AND_SD_COLUMN, PROVIDER_RATE_SD_ROW] = SD
-                sheet[ITEM_COLUMUN, TRADE_PRICE_AVE_ROW] = TRADE_PRICE
-                sheet[AVE_AND_SD_COLUMN, TRADE_PRICE_AVE_ROW] = AVE
-                sheet[AVE_AND_SD_COLUMN, TRADE_PRICE_SD_ROW] = SD
-                sheet[ITEM_COLUMUN, BEFORE_PROVIDER_AVAILABILITY_RATIO_AVE_ROW] = BEFORE_PROVIDER_AVAILABILITY_RATIO
-                sheet[AVE_AND_SD_COLUMN, BEFORE_PROVIDER_AVAILABILITY_RATIO_AVE_ROW] = AVE
-                sheet[AVE_AND_SD_COLUMN, BEFORE_PROVIDER_AVAILABILITY_RATIO_SD_ROW] = SD
-                sheet[ITEM_COLUMUN, AFTER_PROVIDER_AVAILABILITY_RATIO_AVE_ROW] = AFTER_PROVIDER_AVAILABILITY_RATIO
-                sheet[AVE_AND_SD_COLUMN, AFTER_PROVIDER_AVAILABILITY_RATIO_AVE_ROW] = AVE
-                sheet[AVE_AND_SD_COLUMN, AFTER_PROVIDER_AVAILABILITY_RATIO_SD_ROW] = SD
+                config.targetAuction.forEachIndexed { i, a ->
+                    sheet[AVE_AND_SD_COLUMN + 1 + i, AUCTION_ROW] = a
 
-                config.targetAuction.forEachIndexed { auctionIndex, auction ->
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, AUCTION_ROW] = auction
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, SUM_PROFIT_AVE_ROW] = conList[index][auctionIndex].sumProfitAve
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, SUM_PROFIT_SD_ROW] = conList[index][auctionIndex].sumProfitSD
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, SUM_COST_ROW_AVE] = conList[index][auctionIndex].sumCostAve
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, SUM_COST_ROW_SD] = conList[index][auctionIndex].sumCostSD
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, PROVIDER_PROFIT_AVE_AVE_ROW] = conList[index][auctionIndex].providerProfitAve
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, PROVIDER_PROFIT_AVE_SD_ROW] = conList[index][auctionIndex].providerProfitSD
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, WIN_BID_NUMBER_AVE_ROW] = conList[index][auctionIndex].winBidAve
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, WIN_BID_NUMBER_SD_ROW] = conList[index][auctionIndex].winBidSD
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, PROVIDER_RATE_AVE_ROW] = conList[index][auctionIndex].providerTimeRatioAve
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, PROVIDER_RATE_SD_ROW] = conList[index][auctionIndex].providerTimeRatioSD
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, TRADE_PRICE_AVE_ROW] = conList[index][auctionIndex].tradeAve
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, TRADE_PRICE_SD_ROW] = conList[index][auctionIndex].tradeSD
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, BEFORE_PROVIDER_AVAILABILITY_RATIO_AVE_ROW] = conList[index][auctionIndex].providerBeforeAvailabilityRatioAve
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, BEFORE_PROVIDER_AVAILABILITY_RATIO_SD_ROW] = conList[index][auctionIndex].providerBeforeAvailabilityRatioSD
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, AFTER_PROVIDER_AVAILABILITY_RATIO_AVE_ROW] = conList[index][auctionIndex].providerAfterAvailabilityRatioAve
-                    sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, AFTER_PROVIDER_AVAILABILITY_RATIO_SD_ROW] = conList[index][auctionIndex].providerAfterAvailabilityRatioSD
+                }
+
+                itemList.forEachIndexed { itemIndex, item ->
+                    sheet[ITEM_COLUMUN, 1 + 2 * itemIndex] = item
+                    sheet[AVE_AND_SD_COLUMN, 1 + 2 * itemIndex] = AVE
+                    sheet[AVE_AND_SD_COLUMN, 1 + 2 * itemIndex + 1] = SD
+                    config.targetAuction.forEachIndexed { auctionIndex, auction ->
+                        sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, 1 + 2 * itemIndex] = conList[index][auctionIndex].getValue(item, AVE)
+                        sheet[AVE_AND_SD_COLUMN + 1 + auctionIndex, 1 + 2 * itemIndex + 1] = conList[index][auctionIndex].getValue(item, SD)
+                    }
                 }
             }
             KExcel.write(workbook, "${file}.xlsx")
@@ -222,77 +160,8 @@ object Excel {
                     }
                 }
             }
-            KExcel.write(workbook, "${file}.xlsx")
+            KExcel.write(workbook, "$file.xlsx")
         }
-    }
-
-
-    fun write(sheetNum: Int, con: List<Conclusion>) {
-        val resultExcelFile = "Result/conclusion01"
-
-        KExcel.open("${resultExcelFile}.xlsx").use { workbook ->
-            val sheet = workbook[sheetNum]
-            sheet[0, 2] = "総利益"
-            sheet[0, 4] = "総コスト"
-            sheet[0, 6] = "提供企業側の利益の平均"
-            sheet[0, 8] = "要求企業側の利益の平均"
-            sheet[0, 10] = "勝者となった要求数"
-            sheet[0, 12] = "提供率"
-            sheet[0, 14] = "取引価格"
-
-            sheet[1, 2] = "Ave."
-            sheet[1, 3] = "S.D."
-            sheet[1, 4] = "Ave."
-            sheet[1, 5] = "S.D."
-            sheet[1, 6] = "Ave."
-            sheet[1, 7] = "S.D."
-            sheet[1, 8] = "Ave."
-            sheet[1, 9] = "S.D."
-            sheet[1, 10] = "Ave."
-            sheet[1, 11] = "S.D."
-            sheet[1, 12] = "Ave."
-            sheet[1, 13] = "S.D."
-
-            sheet[2, 0] = "手法I"
-            sheet[3, 0] = "手法II"
-            sheet[4, 0] = "手法III"
-            sheet[4, 1] = "40%"
-            sheet[5, 1] = "60%"
-            con.forEachIndexed { index, it ->
-                writeConclusion(sheet, it, index)
-            }
-            KExcel.write(workbook, "${resultExcelFile}.xlsx")
-        }
-
-
-    }
-
-    fun writeConclusion(sheet: Sheet, con: Conclusion, auction: Int) {
-        println("auction $auction")
-        sheet[2 + auction, 2] = con.sumProfitAve
-        sheet[2 + auction, 3] = con.sumProfitSD
-        sheet[2 + auction, 4] = con.sumCostAve
-        sheet[2 + auction, 5] = con.sumCostSD
-        sheet[2 + auction, 6] = con.providerProfitAve
-        sheet[2 + auction, 7] = con.providerProfitSD
-        sheet[2 + auction, 8] = con.requesterProfitAve
-        sheet[2 + auction, 9] = con.requesterProfitSD
-        sheet[2 + auction, 10] = con.winBidAve
-        sheet[2 + auction, 11] = con.winBidSD
-        sheet[2 + auction, 12] = con.providerTimeRatioAve
-        sheet[2 + auction, 13] = con.providerTimeRatioSD
-        sheet[2 + auction, 14] = con.tradeAve
-        sheet[2 + auction, 15] = con.tradeSD
-    }
-
-    fun initExcel(fileName: String, sheetNum: Int) {
-        val wb = XSSFWorkbook()
-        val out = FileOutputStream("${fileName}.xlsx")
-        for (i in 0 until sheetNum) {
-            wb.createSheet()
-        }
-        wb.write(out)
-        out.close()
     }
 
     /**
@@ -311,6 +180,13 @@ object Excel {
         out.close()
     }
 
+    /**
+     * ("評価指標", "平均, 標準偏差")の形で値を取得する為の関数
+     *
+     * @param item
+     * @param kind
+     * @return
+     */
     fun Conclusion.getValue(item: String, kind: String): Double = when (val str = "$item-$kind") {
         "$SUM_PROFIT-$AVE" -> this.sumProfitAve
         "$SUM_PROFIT-$SD" -> this.sumProfitSD
@@ -320,8 +196,8 @@ object Excel {
         "$PROVIDER_PROFIT_AVE-$SD" -> this.providerProfitSD
         "$WIN_BID_NUMBER-$AVE" -> this.winBidAve
         "$WIN_BID_NUMBER-$SD" -> this.winBidSD
-        "$PROVIDEER_RATE-$AVE" -> this.providerTimeRatioAve
-        "$PROVIDEER_RATE-$SD" -> this.providerTimeRatioSD
+        "$PROVIDER_RATE-$AVE" -> this.providerTimeRatioAve
+        "$PROVIDER_RATE-$SD" -> this.providerTimeRatioSD
         "$TRADE_PRICE-$AVE" -> this.tradeAve
         "$TRADE_PRICE-$SD" -> this.tradeSD
         "$BEFORE_PROVIDER_AVAILABILITY_RATIO-$AVE" -> this.providerBeforeAvailabilityRatioAve
