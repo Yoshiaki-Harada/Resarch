@@ -33,6 +33,7 @@ import converter.ConfigConverter
  * @property targetAuction 計算させたいオークションのリスト
  * @property targetData　計算させたいデータセットのリスト
  * @property targetDataIterate データセットの繰り返し数
+ * @property items 評価指標のリスト
  */
 class Config(var provider: Int, /*提供企業数*/
              var providerTimeMin: Double, /*提供企業の最小提供時間*/
@@ -59,7 +60,8 @@ class Config(var provider: Int, /*提供企業数*/
              val period: Double/*1期間何Tsであるか*/,
              val targetAuction: List<String>,
              var targetData: List<String>,
-             val targetDataIterate: Int?) {
+             val targetDataIterate: Int?,
+             val items: List<String>) {
     companion object {
         fun fromJson(filePath: String): Config {
             return ConfigConverter.fromJson(JsonImporter(filePath).getString())

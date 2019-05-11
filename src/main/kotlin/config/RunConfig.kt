@@ -29,7 +29,8 @@ fun main(args: Array<String>) {
             1000.0,
             listOf(),
             listOf(),
-            0
+            0,
+            emptyList<String>()
     )
     writer.JsonWriter("config").makeFile(ConfigConverter.toJson(config))
 }

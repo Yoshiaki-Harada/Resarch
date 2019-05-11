@@ -27,9 +27,9 @@ fun main(args: Array<String>) {
             ConclusionConverter.fromJson(JsonImporter("${config.resultDir}/$data/$auction").getString())
         }
     }
-    Excel.outConclusionEachSheetDataset("test-1-excel", config, conList)
+    Excel.outConclusionEachSheetDataset("${config.resultDir}/result-sheet-dataset", config, conList)
 
-    Excel.outConclusionEachSheetItem("test-2-excel", config, conList)
+    Excel.outConclusionEachSheetItem("${config.resultDir}/result-sheet-item", config, conList)
 
 }
 
@@ -49,30 +49,16 @@ object Excel {
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
 
-    /**
-     * 評価指標のリスト
-     * ここに足せば自動的にExcelにこの順番で出力される
-     * ただしConclusionに追加は必要
-     */
-    private val itemList = listOf(
-            SUM_PROFIT,
-            SUM_COST,
-            PROVIDER_PROFIT_AVE,
-            WIN_BID_NUMBER,
-            PROVIDER_RATE,
-            TRADE_PRICE,
-            BEFORE_PROVIDER_AVAILABILITY_RATIO,
-            AFTER_PROVIDER_AVAILABILITY_RATIO
-    )
-
     private const val AVE = "AVE."
     private const val SD = "S.D."
 
     /**
      *
-     * |      |            | Auction1 | Auction2 |
-     * | ITEM | AVE and SD | VALUE    | VALUE    |
-     *
+     * |       |     | Auction1 | Auction2 |
+     * | ITEM1 | AVE | VALUE    | VALUE    |
+     * |       | SD  | VALUE    | VALUE    |
+     * | ITEM2 | AVE | VALUE    | VALUE    |
+     * |       | SD  | VALUE    | VALUE    |
      * sheet datasetA, datasetB..
      * @param file
      * @param config
@@ -92,7 +78,7 @@ object Excel {
 
                 }
 
-                itemList.forEachIndexed { itemIndex, item ->
+                config.items.forEachIndexed { itemIndex, item ->
                     sheet[ITEM_COLUMUN, 1 + 2 * itemIndex] = item
                     sheet[AVE_AND_SD_COLUMN, 1 + 2 * itemIndex] = AVE
                     sheet[AVE_AND_SD_COLUMN, 1 + 2 * itemIndex + 1] = SD
@@ -108,14 +94,14 @@ object Excel {
 
     /**
      * | Ave.    | Auctin1 | Auction2 |
-     * | [a, b]  | value   | value
-     * | [c, d]  | value   | value
+     * | [a, b]  | VALUE   | VALUE
+     * | [c, d]  | VALUE   | VALUE
      *
      *
      *
      * | S.D.    | Auctin1 | Auction2 |
-     * | [a, b]  | value   | value
-     * | [c, d]  | value   | value
+     * | [a, b]  | VALUE   | VALUE
+     * | [c, d]  | VALUE   | VALUE
      *
      * sheet itemA,  itemB...
      * @param file
@@ -125,10 +111,10 @@ object Excel {
     fun outConclusionEachSheetItem(file: String, config: Config, conList: List<List<Conclusion>>) {
         val AUCTION_ROW = 0
         val DATA_COLUMN = 0
-        initExcel(file, itemList)
+        initExcel(file, config.items)
 
         KExcel.open("$file.xlsx").use { workbook ->
-            itemList.forEachIndexed { itemIndex, item ->
+            config.items.forEachIndexed { itemIndex, item ->
                 val sheet = workbook[itemIndex]
 
                 sheet[DATA_COLUMN, AUCTION_ROW] = AVE
@@ -165,7 +151,7 @@ object Excel {
     }
 
     /**
-     * 作成するexcelのファイル名と作成したsheet名のリストを受け取る
+     * 作成するexcelのファイル名と作成するsheet名のリストを受け取る
      *
      * @param fileName
      * @param sheetNames
@@ -181,7 +167,7 @@ object Excel {
     }
 
     /**
-     * ("評価指標", "平均, 標準偏差")の形で値を取得する為の関数
+     * ("評価指標", "平均or標準偏差")の形で値を取得する為の関数
      *
      * @param item
      * @param kind
