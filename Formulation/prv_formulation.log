@@ -1,0 +1,299 @@
+This is e-upTeX, Version 3.14159265-p3.8.1-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.9.24)  31 JUL 2019 10:21
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**&uplatex prv_formulation.ini \nonstopmode\nofiles\PassOptionsToPackage{active,tightpage,auctex}{preview}\AtBeginDocument{\ifx\ifPreview\undefined\RequirePackage[displaymath,floats,graphics,textmath,sections,footnotes]{preview}[2004/11/05]\fi} \input {\detokenize{ formulation.tex }}
+(./prv_formulation.ini
+pLaTeX2e <2018-07-28u02>+1 (based on LaTeX2e <2018-04-01> patch level 5)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/carlisle/mylatex.ltx) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/.tex File ignored))
+No auxiliary output files.
+
+(./formulation.tex (/usr/local/texlive/2018/texmf-dist/tex/uplatex/base/ujarticle.cls
+Document Class: ujarticle 2018/07/03 v1.8-u00 Standard upLaTeX class
+\c@@paper=\count83
+(/usr/local/texlive/2018/texmf-dist/tex/uplatex/base/ujsize10.clo
+File: ujsize10.clo 2018/07/03 v1.8-u00 Standard upLaTeX file (size option)
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 9.6222pt on input line 28.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 9.6222pt on input line 28.
+)
+\c@part=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
+\c@figure=\count90
+\c@table=\count91
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY2/mc/m/n --> JY2/gt/m/n on input line 615.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+\heisei=\count92
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen121
+)) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen122
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count93
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count94
+\leftroot@=\count95
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count96
+\DOTSCASE@=\count97
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box42
+\strutbox@=\box43
+\big@size=\dimen123
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count98
+\c@MaxMatrixCols=\count99
+\dotsspace@=\muskip10
+\c@parentequation=\count100
+\dspbrk@lvl=\count101
+\tag@help=\toks16
+\row@=\count102
+\column@=\count103
+\maxfields@=\count104
+\andhelp@=\toks17
+\eqnshift@=\dimen124
+\alignsep@=\dimen125
+\tagshift@=\dimen126
+\tagwidth@=\dimen127
+\totwidth@=\dimen128
+\lineht@=\dimen129
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+) (/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf-uptex/otf.sty
+Package: otf 2018/02/01 v1.7b7 psitau, u0.21 ttk
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+)
+LaTeX Font Info:    Redeclaring symbol font `mincho' on input line 314.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `normal'
+(Font)                  JY2/mc/m/n --> JY2/hmc/m/n on input line 314.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY2/gt/m/n --> JY2/hmc/m/n on input line 314.
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY2/hmc/m/n --> JY2/hmc/bx/n on input line 316.
+LaTeX Font Info:    Redeclaring math alphabet \mathgt on input line 317.
+LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `normal'
+(Font)                  JY2/gt/m/n --> JY2/hgt/m/n on input line 317.
+LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
+(Font)                  JY2/gt/m/n --> JY2/hgt/m/n on input line 317.
+LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
+(Font)                  JY2/hgt/m/n --> JY2/hgt/bx/n on input line 318.
+ (/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf/ajmacros.sty
+Package: ajmacros 2005/12/25 13:52 iNOUE Koich! <inoue@ma.ns.musashi-tech.ac.jp>
+\@tempcntc=\count105
+\@tempcntd=\count106
+\@tempcnte=\count107
+\@tempcntf=\count108
+)) (/usr/local/texlive/2018/texmf-dist/tex/platex/pxchfon/pxchfon.sty
+Package: pxchfon 2018/03/15 v1.2
+
+
+Package pxchfon Warning: The option 'unicode(*)' is enforced, because the
+(pxchfon)                preset 'sourcehan' is selected..
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/pxufont/pxufont.sty
+Package: pxufont 2017/07/07 v0.3
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/ifptex/ifuptex.sty
+Package: ifuptex 2017/10/04 v1.2c upTeX checker
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/ifptex/ifptex.sty
+Package: ifptex 2017/10/04 v1.2c pTeX checker
+)))) (/usr/local/texlive/2018/texmf-dist/tex/latex/ncctools/nccmath.sty
+Package: nccmath 2006/01/20 v1.3 Additional Math Commands (NCC)
+\NCC@fracrulewidth=\dimen130
+)
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 9.6222pt on input line 6.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 6.73553pt on input line 6.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 4.8111pt on input line 6.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 9.6222pt on input line 6.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 6.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 11.54663pt on input line 6.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 7.69775pt on input line 6.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 7.69775pt on input line 6.
+LaTeX Font Info:    Font shape `JT2/hmc/bx/n' will be
+(Font)              scaled to size 9.6222pt on input line 6.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
+(Font)              scaled to size 9.6222pt on input line 6.
+
+
+LaTeX Font Warning: Font shape `JT2/hmc/bx/it' undefined
+(Font)              using `JT2/hmc/bx/n' instead on input line 6.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/bx/it' undefined
+(Font)              using `JY2/hmc/bx/n' instead on input line 6.
+
+
+LaTeX Font Warning: Font shape `JT2/hmc/m/it' undefined
+(Font)              using `JT2/hmc/m/n' instead on input line 6.
+
+
+LaTeX Font Warning: Font shape `JY2/hmc/m/it' undefined
+(Font)              using `JY2/hmc/m/n' instead on input line 6.
+
+ )
+Beginning to dump on file prv_formulation.fmt
+ (preloaded format=prv_formulation 2019.7.31)
+11082 strings of total length 168651
+119424 memory locations dumped; current usage is 344&116874
+8310 multiletter control sequences
+\font\nullfont=nullfont
+\font\OMX/cmex/m/n/10=cmex10
+\font\tenln=line10
+\font\tenlnw=linew10
+\font\tencirc=lcircle10
+\font\tencircw=lcirclew10
+\font\OT1/cmr/m/n/5=cmr5
+\font\OT1/cmr/m/n/7=cmr7
+\font\OT1/cmr/m/n/10=cmr10
+\font\OML/cmm/m/it/5=cmmi5
+\font\OML/cmm/m/it/7=cmmi7
+\font\OML/cmm/m/it/10=cmmi10
+\font\OMS/cmsy/m/n/5=cmsy5
+\font\OMS/cmsy/m/n/7=cmsy7
+\font\OMS/cmsy/m/n/10=cmsy10
+\font\tenmin=upjisr-h at 9.62216pt
+\font\@bannerfont=cmtt9
+\font\JT2/mc/m/n/10=upjisr-v at 9.6222pt
+\font\JY2/mc/m/n/10=upjisr-h at 9.6222pt
+\font\JY2/mc/m/n/5=upjisr-h at 4.8111pt
+\font\JY2/mc/m/n/7=upjisr-h at 6.73553pt
+\font\JY2/mc/m/n/12=upjisr-h at 11.54663pt
+\font\JY2/gt/m/n/5=upjisg-h at 4.8111pt
+\font\JY2/gt/m/n/7=upjisg-h at 6.73553pt
+\font\JY2/gt/m/n/10=upjisg-h at 9.6222pt
+\font\JY2/gt/m/n/12=upjisg-h at 11.54663pt
+\font\JT2/mc/m/n/5=upjisr-v at 4.8111pt
+\font\JT2/mc/m/n/7=upjisr-v at 6.73553pt
+\font\JT2/mc/m/n/12=upjisr-v at 11.54663pt
+\font\JT2/gt/m/n/5=upjisg-v at 4.8111pt
+\font\JT2/gt/m/n/7=upjisg-v at 6.73553pt
+\font\JT2/gt/m/n/10=upjisg-v at 9.6222pt
+\font\JT2/gt/m/n/12=upjisg-v at 11.54663pt
+\font\OMX/cmex/m/n/7=cmex7
+\font\OMX/cmex/m/n/5=cmex7 at 5.0pt
+\font\JY2/hmc/m/n/10=zu-upnmlminr-h at 9.6222pt
+\font\JY2/hmc/m/n/7=zu-upnmlminr-h at 6.73553pt
+\font\JY2/hmc/m/n/5=zu-upnmlminr-h at 4.8111pt
+\font\JT2/hmc/m/n/10=zu-upnmlminr-v at 9.6222pt
+\font\JT2/hmc/m/n/12=zu-upnmlminr-v at 11.54663pt
+\font\JY2/hmc/m/n/12=zu-upnmlminr-h at 11.54663pt
+\font\OT1/cmr/m/n/12=cmr12
+\font\JT2/hmc/m/n/8=zu-upnmlminr-v at 7.69775pt
+\font\JY2/hmc/m/n/8=zu-upnmlminr-h at 7.69775pt
+\font\OT1/cmr/m/n/8=cmr8
+\font\JT2/hmc/bx/n/10=zu-upnmlminb-v at 9.6222pt
+\font\JY2/hmc/bx/n/10=zu-upnmlminb-h at 9.6222pt
+\font\OT1/cmr/bx/n/10=cmbx10
+\font\OT1/cmr/bx/it/10=cmbxti10
+\font\OT1/cmr/m/it/10=cmti10
+\font\OT1/cmtt/m/n/10=cmtt10
+\font\OT1/cmss/m/n/10=cmss10
+10331 words of font info for 51 preloaded fonts
+929 hyphenation exceptions
+Hyphenation trie of length 352291 has 9657 ops out of 35111
+  143 for language 84
+  110 for language 83
+  138 for language 82
+  7 for language 81
+  12 for language 80
+  53 for language 79
+  127 for language 78
+  183 for language 77
+  71 for language 76
+  248 for language 75
+  62 for language 74
+  66 for language 73
+  119 for language 71
+  43 for language 70
+  58 for language 69
+  7 for language 68
+  194 for language 67
+  37 for language 66
+  23 for language 65
+  852 for language 64
+  852 for language 63
+  21 for language 62
+  38 for language 61
+  77 for language 60
+  58 for language 59
+  201 for language 58
+  105 for language 57
+  25 for language 56
+  27 for language 55
+  37 for language 54
+  229 for language 53
+  38 for language 52
+  21 for language 51
+  147 for language 38
+  185 for language 37
+  50 for language 36
+  18 for language 35
+  533 for language 34
+  551 for language 33
+  551 for language 32
+  39 for language 31
+  76 for language 30
+  40 for language 29
+  89 for language 28
+  31 for language 27
+  113 for language 24
+  145 for language 23
+  377 for language 22
+  224 for language 21
+  265 for language 20
+  60 for language 19
+  63 for language 18
+  19 for language 17
+  14 for language 16
+  2 for language 14
+  21 for language 13
+  54 for language 12
+  36 for language 11
+  5 for language 10
+  148 for language 7
+  97 for language 6
+  137 for language 5
+  551 for language 4
+  551 for language 3
+  2 for language 1
+  181 for language 0
+No pages of output.

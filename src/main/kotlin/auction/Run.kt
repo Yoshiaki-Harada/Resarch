@@ -21,26 +21,27 @@ import writer.Saver
  */
 fun main(args: Array<String>) {
     val config = Config.fromJson("config")
+    val lpFileName = "lp"
     config.targetAuction.forEach {
         val (lpMaker, obj, trade) = when (it) {
             "VCG" -> {
                 throw Exception("Auction: ${it}は存在しません")
             }
             "コスト最小化" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 Triple(CostMinProviderAuction, Object.MIN, AveCostMin)
             }
             "利益最大化-平均" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 Triple(ProfitMaxDoubleAuction, Object.MAX, AveProfitMax)
             }
             "コスト最小化-ペナルティ-10000.0-平均" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 config.penalty = 10000.0
                 Triple(CostMinPenaltyAuction, Object.MIN, AvePenaltyCostMin)
             }
             "提供単価最小化-ペナルティ-10000.0-profit10%" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 config.profitRate = 10
                 // TODO 微妙なきがする
                 config.targetData = config.targetData.map { t ->
@@ -54,7 +55,7 @@ fun main(args: Array<String>) {
                 Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
             }
             "提供単価最小化-ペナルティ-10000.0-profit20%" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 config.profitRate = 20
                 config.targetData = config.targetData.map { t ->
                     if (t.contains("%")) {
@@ -67,7 +68,7 @@ fun main(args: Array<String>) {
                 Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
             }
             "提供単価最小化-ペナルティ-10000.0-profit30%" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 config.profitRate = 30
                 config.targetData = config.targetData.map { t ->
                     if (t.contains("%")) {
@@ -80,7 +81,7 @@ fun main(args: Array<String>) {
                 Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
             }
             "提供単価最小化-ペナルティ-10000.0-profit40%" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 config.profitRate = 40
                 config.targetData = config.targetData.map { t ->
                     if (t.contains("%")) {
@@ -93,7 +94,7 @@ fun main(args: Array<String>) {
                 Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
             }
             "提供単価最小化-ペナルティ-10000.0-profit50%" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 config.profitRate = 50
                 config.targetData = config.targetData.map { t ->
                     if (t.contains("%")) {
@@ -106,7 +107,7 @@ fun main(args: Array<String>) {
                 Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
             }
             "提供単価最小化-ペナルティ-10000.0-profit60%" -> {
-                config.lpFile = it
+                config.lpFile = lpFileName
                 config.profitRate = 60
                 config.targetData = config.targetData.map { t ->
                     if (t.contains("%")) {

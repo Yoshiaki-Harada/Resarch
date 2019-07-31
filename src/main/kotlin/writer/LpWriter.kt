@@ -33,6 +33,12 @@ class LpWriter(val filename: String) {
         file.appendText("$name: ")
     }
 
+    fun bounds() {
+        //文字列"bounds"がなければ追記できるような場合分けを書きたい
+        if (isNotContain("bounds"))
+            file.appendText("bounds" + "\n")
+    }
+
     fun bounds(bounds: Bounds) {
         //文字列"bounds"がなければ追記できるような場合分けを書きたい
         if (isNotContain("bounds"))

@@ -10,7 +10,7 @@ import writer.LpWriter
 
 /**
  * 利益最大化の定式化
- * 現状予算制約が破られることはないので記述していない
+ * 現状予算制約が破られることはないので記述していない(本当はすべき)
  */
 object ProfitMaxDoubleAuction : LpMaker {
     override fun makeLpFile(config: Config, obj: Object, bidders: List<Bidder>, vararg option: Option) {
@@ -22,7 +22,7 @@ object ProfitMaxDoubleAuction : LpMaker {
         //制約条件
         lp.subto()
         writeSubToProvide(lp, obj, providers, requesters)
-        writeSubToRelstionXsndY(lp, obj, providers, requesters, config)
+        writeSubToRelationXsndY(lp, obj, providers, requesters, config)
         //  writeSubToWinner(lp, obj, providers, requesters)
         writeSubToBidX(lp, obj, providers, requesters, config)
         writeSubToBidY(lp, obj, providers, requesters)
@@ -102,7 +102,7 @@ object ProfitMaxDoubleAuction : LpMaker {
      * @param requesters
      * @param config
      */
-    fun writeSubToRelstionXsndY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
+    fun writeSubToRelationXsndY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
                 //条件分岐

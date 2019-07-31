@@ -15,7 +15,7 @@ import java.io.File
  */
 fun main(args: Array<String>) {
 
-    val SUPPLY_DATASET_NUMBER = 8
+    val SUPPLY_DATASET_NUMBER = 1
     val DATASET_ITERATE = 10
     val profitMap =
             mapOf(/*利益率 sValueの割合*/

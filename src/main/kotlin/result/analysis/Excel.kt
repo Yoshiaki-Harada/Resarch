@@ -43,6 +43,8 @@ object Excel {
     private const val SUM_PROFIT = "総利益"
     private const val SUM_COST = "総コスト"
     private const val PROVIDER_PROFIT_AVE = "提供企業側の利益の平均"
+    private const val REQUESTER_PROFIT_AVE = "要求企業側の利益の平均"
+
     private const val WIN_BID_NUMBER = "勝者となった要求数"
     private const val PROVIDER_RATE = "提供率"
     private const val TRADE_PRICE = "取引価格"
@@ -180,6 +182,8 @@ object Excel {
         "$SUM_COST-$SD" -> this.sumCostSD
         "$PROVIDER_PROFIT_AVE-$AVE" -> this.providerProfitAve
         "$PROVIDER_PROFIT_AVE-$SD" -> this.providerProfitSD
+        "$REQUESTER_PROFIT_AVE-$AVE" -> this.requesterProfitAve
+        "$REQUESTER_PROFIT_AVE-$SD" -> this.requesterProfitSD
         "$WIN_BID_NUMBER-$AVE" -> this.winBidAve
         "$WIN_BID_NUMBER-$SD" -> this.winBidSD
         "$PROVIDER_RATE-$AVE" -> this.providerTimeRatioAve

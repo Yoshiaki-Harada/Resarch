@@ -9,6 +9,9 @@ interface BidDataMaker : DataMaker<Bid> {
     override fun run(config: Config): Bid
 }
 
+/**
+ * 要求用の入札を作成する
+ */
 object RequesterBidDataMakerImpl : BidDataMaker {
     override fun run(config: Config): Bid {
         val bundle = Random()
@@ -24,10 +27,10 @@ object RequesterBidDataMakerImpl : BidDataMaker {
     }
 }
 
-/*
-提供用の入札を作成する
-提供時間はproviderMin~providerMaxの乱数
-コストはproviderValueMin~providerValueMaxの乱数
+/**
+ * 提供用の入札を作成する
+ * 提供時間はproviderMin~providerMaxの乱数
+ * コストはproviderValueMin~providerValueMaxの乱数
  */
 object ProviderBidDataMakerProvideTimeImpl {
     fun run(config: Config, resource: Int): Bid {

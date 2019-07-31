@@ -1,9 +1,9 @@
 # Fdb version 3
-["dvipdf"] 1551091345 "formulation.dvi" "formulation.pdf" "formulation" 1551091346
-  "formulation.dvi" 1551091345 13668 308318e8c79623430e504e172615cba7 "latex"
+["dvipdf"] 1564543786 "formulation.dvi" "formulation.pdf" "formulation" 1564544070
+  "formulation.dvi" 1564543786 13728 7ef9c8b3d3118b9dec5b6b27429146f9 "latex"
   (generated)
   "formulation.pdf"
-["latex"] 1551091344 "formulation.tex" "formulation.dvi" "formulation" 1551091346
+["latex"] 1564543785 "formulation.tex" "formulation.dvi" "formulation" 1564544070
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlgothr-h.tfm" 1499983606 820 9021988cf1d2b8c57e9b58e925c6d855 ""
@@ -28,9 +28,9 @@
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1537778020 4475280 ad19b176f34f811085aaa5475ab22cf5 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "formulation.aux" 1551091345 8 a94a2480d3289e625eea47cd1b285758 ""
-  "formulation.tex" 1551079549 5473 bd3063a2c65153b21472ff886b876999 ""
+  "formulation.aux" 1564543786 8 a94a2480d3289e625eea47cd1b285758 ""
+  "formulation.tex" 1564543784 5447 52079fbfa3e37addc5424eddada5be43 ""
   (generated)
+  "formulation.aux"
   "formulation.log"
   "formulation.dvi"
-  "formulation.aux"

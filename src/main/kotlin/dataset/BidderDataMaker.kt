@@ -13,8 +13,8 @@ object RequesterDataMakerImpl : BidderDataMaker {
     }
 }
 
-/*
-providerResourceNumberで指定された数のリソースを提供する
+/**
+ * providerResourceNumberで指定された数のリソースを提供する
  */
 object ProviderDataMakerImpl : BidderDataMaker {
     override fun run(config: Config): List<Bidder> {

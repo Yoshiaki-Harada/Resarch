@@ -4,12 +4,12 @@
 \usepackage[sourcehan]{pxchfon}
 \usepackage{nccmath}
 \begin{document}
-利益最大化の目的関数
+利益最大化目的関数
+
 \begin{flalign*}
   % 目的関数
-  {\rm max} \quad &\sum_{j=1}^{J}\sum_{n=1}^{N}v_{j} \times y_{j,n} 
-  &-\sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times
-  TR_{i,n,r}\times x_{i,r,j,n} \\ 
+  {\rm max} \quad &\sum_{j=1}^{J}\sum_{n=1}^{N}v_{j}\times y_{j,n} \\
+  &-\sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times TR_{i,n,r}\times x_{i,r,j,n} \\ 
   % 提供側の容量制約
   {\rm s.t.} \quad &\sum_{j=1}^{J}\sum_{n=1}^{N}TR_{j,n,r}  \times x_{i,r,j,n}
   \leq TP_{i,r} \quad (\forall i, \forall r)  \\ 
@@ -17,9 +17,7 @@
     x_{i,r,j,n} = 0  &({\rm if} \ y_{j,n}=0) \\
     \sum_{i=1}^{I}\sum_{n=1}^{N} TR_{j,n,r} \times x_{i,r,j,n} \\ \quad \quad = TR_{j,n,r}
      &({\rm if} \ y_{j,n}=1) 
-  \end{cases}
-
-  \\
+  \end{cases} \\
   % 要求企業jの入札nのリソースrを提供するのは高々1企業とする制約
   &\sum_{i=1}^{I}x_{i,r,j,n} \leq 1  \quad (\forall r, \forall j , \forall n) \\ 
   % 要求企業jの入札のうち勝者となる入札は高々１つとする制約
@@ -31,7 +29,8 @@
   % 決定変数
   &x_{i,r,j,n},y_{j,n} \in {0,1} 
 \end{flalign*}
-コスト最小化（ペナルティ）の目的関数
+
+コスト最小化
 \begin{flalign*}
   % 目的関数
   {\rm min} \quad &\sum_{j=1}^{J} \alpha (1 - \sum_{n=1}^{N}y_{j,n}) + \sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times TR_{j,n,r}\times x_{i,r,j,n} \\ 
@@ -123,6 +122,7 @@
 \begin{align*}
  sumTR_{j,n} = \sum_{r=1}^{R}TR_{j,n,r} 
 \end{align*}
+
 \begin{align*}
   PAY_{i,r,j,n} = p_{i,r} \times TR_{j,n,r} 
 \end{align*}

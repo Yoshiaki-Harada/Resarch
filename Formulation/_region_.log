@@ -1,0 +1,508 @@
+This is e-upTeX, Version 3.14159265-p3.8.1-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=prv_formulation 2019.7.31)  31 JUL 2019 10:21
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**&prv_formulation /AUCTEXINPUT{ _region_.tex }
+(./_region_.tex
+No file _region_.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+(/Users/haradayoshiaki/.emacs.d/elpa/auctex-12.1.2/latex/preview.sty
+Package: preview 2017/04/24 12.1 (AUCTeX/preview-latex)
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/luatex85/luatex85.sty
+Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
+) (/Users/haradayoshiaki/.emacs.d/elpa/auctex-12.1.2/latex/prtightpage.def
+\PreviewBorder=\dimen131
+) (/Users/haradayoshiaki/.emacs.d/elpa/auctex-12.1.2/latex/prauctex.def
+No auxiliary output files.
+
+
+\hbadness=\count109
+\hfuzz=\dimen132
+(/Users/haradayoshiaki/.emacs.d/elpa/auctex-12.1.2/latex/prauctex.cfg)) (/Users/haradayoshiaki/.emacs.d/elpa/auctex-12.1.2/latex/prfootnotes.def)
+\pr@snippet=\count110
+\pr@box=\box44
+\pr@output=\toks21
+
+Preview: Fontsize 10pt
+)
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Light.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSerif-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Regular.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Bold.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Heavy.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+Package pxchfon Info: Font tribe is 'sourcehan':
+(pxchfon)                 SourceHanSans-Medium.otf.
+  !name(formulation.tex) !offset(-3) 
+./_region_.tex:12: Preview: Snippet 1 started.
+<-><->
+      
+l.12 \begin{flalign*}
+                     
+Not a real error.
+
+Preview: Tightpage -32891 -32891 32891 32891
+./_region_.tex:35: Preview: Snippet 1 ended.(18741546+0x26923924).
+<-><->
+      
+l.35 \end{flalign*}
+                   
+Not a real error.
+
+[1]
+./_region_.tex:38: Preview: Snippet 2 started.
+<-><->
+      
+l.38 \begin{flalign*}
+                     
+Not a real error.
+
+./_region_.tex:59: Preview: Snippet 2 ended.(16316702+0x24211936).
+<-><->
+      
+l.59 \end{flalign*}
+                   
+Not a real error.
+
+[2]
+./_region_.tex:61: Preview: Snippet 3 started.
+<-><->
+      
+l.61 \begin{flalign*}
+                     
+Not a real error.
+
+./_region_.tex:82: Preview: Snippet 3 ended.(16316702+0x24258053).
+<-><->
+      
+l.82 \end{flalign*}
+                   
+Not a real error.
+
+[3]
+./_region_.tex:85: Preview: Snippet 4 started.
+<-><->
+      
+l.85 \begin{align*}
+                   
+Not a real error.
+
+LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
+(Font)              scaled to size 9.6222pt on input line 93.
+LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
+(Font)              scaled to size 9.6222pt on input line 93.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 6.73553pt on input line 93.
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 4.8111pt on input line 93.
+./_region_.tex:93: Preview: Snippet 4 ended.(8060928+0x17165399).
+<-><->
+      
+l.93 \end{align*}
+                 
+Not a real error.
+
+[4]
+./_region_.tex:95: Preview: Snippet 5 started.
+<-><->
+      
+l.95 \begin{align*}
+                   
+Not a real error.
+
+./_region_.tex:97: Preview: Snippet 5 ended.(983040+0x16832362).
+<-><->
+      
+l.97 \end{align*}
+                 
+Not a real error.
+
+[5]
+./_region_.tex:98: Preview: Snippet 6 started.
+<-><->
+      
+l.98 \begin{align*}
+                   
+Not a real error.
+
+./_region_.tex:100: Preview: Snippet 6 ended.(983040+0x15120609).
+<-><->
+      
+l.100 \end{align*}
+                  
+Not a real error.
+
+[6]
+./_region_.tex:102: Preview: Snippet 7 started.
+<-><->
+      
+l.102 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:104: Preview: Snippet 7 ended.(983040+0x16832362).
+<-><->
+      
+l.104 \end{align*}
+                  
+Not a real error.
+
+[7]
+./_region_.tex:105: Preview: Snippet 8 started.
+<-><->
+      
+l.105 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:107: Preview: Snippet 8 ended.(983040+0x14538065).
+<-><->
+      
+l.107 \end{align*}
+                  
+Not a real error.
+
+[8]
+./_region_.tex:109: Preview: Snippet 9 started.
+<-><->
+      
+l.109 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:111: Preview: Snippet 9 ended.(983040+0x14548481).
+<-><->
+      
+l.111 \end{align*}
+                  
+Not a real error.
+
+[9]
+./_region_.tex:112: Preview: Snippet 10 started.
+<-><->
+      
+l.112 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:114: Preview: Snippet 10 ended.(983040+0x13427595).
+<-><->
+      
+l.114 \end{align*}
+                  
+Not a real error.
+
+[10]
+./_region_.tex:116: Preview: Snippet 11 started.
+<-><->
+      
+l.116 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:118: Preview: Snippet 11 ended.(983040+0x14548481).
+<-><->
+      
+l.118 \end{align*}
+                  
+Not a real error.
+
+[11]
+./_region_.tex:119: Preview: Snippet 12 started.
+<-><->
+      
+l.119 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:121: Preview: Snippet 12 ended.(983040+0x13591435).
+<-><->
+      
+l.121 \end{align*}
+                  
+Not a real error.
+
+[12]
+./_region_.tex:123: Preview: Snippet 13 started.
+<-><->
+      
+l.123 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:125: Preview: Snippet 13 ended.(1706269+0x17394315).
+<-><->
+      
+l.125 \end{align*}
+                  
+Not a real error.
+
+[13]
+./_region_.tex:126: Preview: Snippet 14 started.
+<-><->
+      
+l.126 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:128: Preview: Snippet 14 ended.(2029074+0x14214547).
+<-><->
+      
+l.128 \end{align*}
+                  
+Not a real error.
+
+[14]
+./_region_.tex:130: Preview: Snippet 15 started.
+<-><->
+      
+l.130 \begin{align*}
+                    
+Not a real error.
+
+./_region_.tex:132: Preview: Snippet 15 ended.(983040+0x14507776).
+<-><->
+      
+l.132 \end{align*}
+                  
+Not a real error.
+
+[15]
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 214 strings out of 488918
+ 3277 string characters out of 6081349
+ 138947 words of memory out of 5000000
+ 8497 multiletter control sequences out of 15000+600000
+ 11428 words of font info for 59 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 24i,16n,27p,221b,231s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on _region_.dvi (15 pages, 15964 bytes).

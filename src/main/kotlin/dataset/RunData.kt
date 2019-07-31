@@ -7,7 +7,7 @@ import java.io.File
 
 fun main(args: Array<String>) {
     val config = Config.fromJson("config")
-    val SUPPLY_DATA_NUMBER = 8
+    val SUPPLY_DATA_NUMBER = 1
     val DATASET_ITERATE = 10
 
     for (s in 0 until SUPPLY_DATA_NUMBER) {
@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
         for (i in 0 until DATASET_ITERATE) {
             val dir = File("$bidDir/$i").absoluteFile
             dir.mkdirs()
-            // データ生成
+            // データ生成 provider requester
             val bidders = ProviderDataMakerImpl.run(config).plus(RequesterDataMakerImpl.run(config))
             bidders.forEachIndexed { index, bidder ->
                 JsonWriter("$bidDir/$i/bidder$index").makeFile(BidderConverter.toJson(bidder))

@@ -1,6 +1,7 @@
-This is e-upTeX, Version 3.14159265-p3.8.1-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.9.24)  25 FEB 2019 19:42
+This is e-upTeX, Version 3.14159265-p3.8.1-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.9.24)  31 JUL 2019 12:29
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **formulation.tex
 (./formulation.tex
@@ -381,38 +382,37 @@ Package pxchfon Info: Font tribe is 'sourcehan':
 Package pxchfon Info: Font tribe is 'sourcehan':
 (pxchfon)                 SourceHanSans-Medium.otf.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 8.
+(Font)              scaled to size 6.73553pt on input line 9.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 4.8111pt on input line 8.
+(Font)              scaled to size 4.8111pt on input line 9.
 
-Overfull \hbox (41.9911pt too wide) detected at line 52
-[]
- []
-
-
-Overfull \hbox (42.6948pt too wide) detected at line 75
+Overfull \hbox (42.44482pt too wide) detected at line 55
 []
  []
 
 [1
 
 ]
+Overfull \hbox (43.14851pt too wide) detected at line 78
+[]
+ []
+
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 86.
+(Font)              scaled to size 9.6222pt on input line 89.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 86.
+(Font)              scaled to size 9.6222pt on input line 89.
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 86.
+(Font)              scaled to size 6.73553pt on input line 89.
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 4.8111pt on input line 86.
- [2] [3] (./formulation.aux) ) 
+(Font)              scaled to size 4.8111pt on input line 89.
+[2] [3] (./formulation.aux) ) 
 Here is how much of TeX's memory you used:
  4310 strings out of 493239
  62733 string characters out of 6144407
- 144669 words of memory out of 5000000
+ 141669 words of memory out of 5000000
  8312 multiletter control sequences out of 15000+600000
  8475 words of font info for 46 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  31i,14n,52p,440b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on formulation.dvi (3 pages, 13668 bytes).
+Output written on formulation.dvi (3 pages, 13728 bytes).

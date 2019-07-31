@@ -8,7 +8,9 @@ import model.Bidder
 import model.Option
 import writer.LpWriter
 
-
+/**
+ * コスト最小化-penaltyの定式化
+ */
 object CostMinPenaltyAuction : LpMaker {
 
     override fun makeLpFile(config: Config, obj: Object, bidders: List<Bidder>, vararg option: Option) {

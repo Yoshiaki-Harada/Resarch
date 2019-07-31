@@ -55,7 +55,7 @@ object AveTrade : DobuleSided {
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
                     requester.forEachIndexed { n, d ->
-                        if (d == 1.0) {
+                        if (0.8 < d && d < 1.2) {
                             val payment = payment(providers[i], requesters[j], n, r)
                             payments.add(payment)
                             // 提供側

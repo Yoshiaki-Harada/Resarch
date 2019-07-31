@@ -10,7 +10,9 @@ import writer.LpWriter
 import cplex.lpformat.Object as Obj
 
 
-/*ファイル名とAllayList<入札者>を受け取って定式化を行いLPファイルを作成する*/
+/**
+ * VCG用で試しに作ったやつ
+ */
 object SingleSidedAuction : LpMaker {
     override fun makeLpFile(config: Config, obj: cplex.lpformat.Object, bidders: List<Bidder>, vararg options: Option) {
         when (options.size) {
