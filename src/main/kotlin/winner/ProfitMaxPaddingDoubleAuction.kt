@@ -7,6 +7,7 @@ import cplex.lpformat.VarType
 import model.Bidder
 import model.Option
 import writer.LpWriter
+import kotlin.math.max
 
 /**
  * 利益最大化の定式化
@@ -17,16 +18,39 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         val lp = LpWriter("${config.lpDir}/${config.lpFile}")
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
+        val q = getQ(providers, requesters, config.resource)
         //目的関数
         writeObjFunction(lp, obj, providers, requesters)
         //制約条件
         lp.subto()
-        writeSubToProvide(lp, obj, providers, requesters)
+        writeSubToProvide(lp, obj, providers, requesters, q)
         writeSubToRelationXsndY(lp, obj, providers, requesters, config)
-        writeSubToBidX(lp, obj, providers, requesters, config)
         writeSubToBidY(lp, obj, providers, requesters)
+        writeSubToQ(lp, providers, requesters, q, config)
         writeBinVariable(lp, providers, requesters)
+        writeGeneralVariable(lp, providers, requesters)
         lp.end()
+    }
+
+    private fun getQ(providers: List<Bidder>, requesters: List<Bidder>, resource: Int): List<Double> {
+        val requesterQ = List(resource) { r ->
+            requesters.map { requester ->
+                requester.bids.map { bid ->
+                    bid.bundle[r]
+                }.max() ?: 0.0
+            }.max() ?: 0.0
+        }
+
+        val providerQ = List(resource) { r ->
+            providers.map { provider ->
+                provider.bids.map { bid ->
+                    bid.bundle[r]
+                }.max() ?: 0.0
+            }.max() ?: 0.0
+        }
+        return List(resource) { r ->
+            max(providerQ[r], requesterQ[r])
+        }
     }
 
     /**
@@ -50,9 +74,8 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
             provider.bids.forEachIndexed { r, resource ->
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
-                        //provider_iがresource_rをrequester_jに提供するとき1となる変数
                         //provider_iがresource_rをrequester_jの入札nに提供する時間x(正の整数)
-                        lp.minus(resource.getValue() * bid.bundle[r], "x", "$i$r$j$n")
+                        lp.minus(resource.getValue(), "x", "$i$r$j$n")
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
@@ -63,7 +86,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
 
     /**
      * 提供側の容量制約
-     *  s.t. \sum_{j=1}^{J}\sum_{n=1}^{N}TR_{j,n,r}  \times x_{i,r,j,n}
+     *  s.t. \sum_{j=1}^{J}\sum_{n=1}^{N} x_{i,r,j,n} + q_{i,r}
      * \leq TP_{i,r} (\forall i, \forall r)
      *
      * @param lp
@@ -71,16 +94,20 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
      * @param providers
      * @param requesters
      */
-    fun writeSubToProvide(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
+    fun writeSubToProvide(lp: LpWriter, obj: Object, providers: List<Bidder>, requesters: List<Bidder>, q: List<Double>) {
         //全てのresouceについて
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
-                lp.constrateName("provider $i,$r")
+                lp.constrateName("provider times $i,$r")
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
-                        lp.term(bid.bundle[r], "x", "$i$r$j$n")
+                        lp.term("x", "$i$r$j$n")
                     }
                 }
+
+                lp.plus()
+                lp.variable("q", "$i$r")
+
                 lp.constrait(Constrait.LEQ)
                 lp.number(resource.bundle[r])
                 lp.newline()
@@ -91,7 +118,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
     /**
      * \begin{cases}
      * x_{i,r,j,n} = 0  &({\rm if} \ y_{j,n}=0) \\
-     * \sum_{i=1}^{I}\sum_{n=1}^{N} TR_{j,n,r} \times x_{i,r,j,n} \\ \quad \quad = TR_{j,n,r}
+     * \sum_{i=1}^{I}\sum_{n=1}^{N} x_{i,r,j,n} \\ \quad \quad = TR_{j,n,r}
      * &({\rm if} \ y_{j,n}=1)
      * \end{cases}
 
@@ -111,7 +138,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                 //r[1]x_0100 + r[1]x_1100 >= 50
                 providers.forEachIndexed { i, provider ->
                     provider.bids.forEachIndexed { r, resource ->
-                        lp.constrateName("bundle,0,$i,$r,$j,$n")
+                        lp.constrateName("bundle,if 0,$i,$r,$j,$n")
                         lp.variable("y", "$j$n")
                         lp.constrait(Constrait.EQ)
                         lp.number(0.0)
@@ -123,14 +150,14 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                     }
                 }
                 for (r in 0 until config.resource) {
-                    lp.constrateName("bundle,1,$$r,$j,$n")
+                    lp.constrateName("bundle,if 1,$r,$j,$n")
                     lp.variable("y", "$j$n")
                     lp.constrait(Constrait.EQ)
                     lp.number(1.0)
                     lp.arrow()
                     providers.forEachIndexed { i, provider ->
                         //resource.bundle[r]
-                        lp.term(bid.bundle[r], "x", "$i$r$j$n")
+                        lp.term("x", "$i$r$j$n")
                     }
                     lp.constrait(Constrait.EQ)
                     lp.number(bid.bundle[r])
@@ -140,35 +167,26 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         }
     }
 
-    fun constraintQ(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>){
-        // 仮想的なQを求める
-        //それをどこかの提供企業が満たす
-
-    }
 
     /**
-     *  \sum_{n=1}^{N}x_{i,r,j,n} \leq 1  (\forall i, \forall r, \forall j)
+     * \sum_{i=1}^{I}q_{i,r}=Q_{r} (\forall r)
      *
      * @param lp
-     * @param obj
      * @param providers
      * @param requesters
      * @param config
      */
-    fun writeSubToBidX(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
-        providers.forEachIndexed { i, provider ->
-            for (r in 0..config.resource) {
-                requesters.forEachIndexed { j, requester ->
-                    lp.constrateName("bidX $i,$r,$j")
-                    provider.bids.forEachIndexed { n, bid ->
-                        lp.term("x", "$i$r$j$n")
-                    }
-                    lp.constrait(Constrait.LEQ)
-                    lp.number(1.0)
-                    lp.newline()
-                }
+    fun writeSubToQ(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>, q: List<Double>, config: Config) {
+        for (r in 0 until config.resource) {
+            lp.constrateName("Q $r")
+            providers.forEachIndexed { i, requester ->
+                lp.term("q", "$i$r")
             }
+            lp.constrait(Constrait.EQ)
+            lp.number(q[r])
+            lp.newline()
         }
+        lp.newline()
     }
 
     /**
@@ -181,7 +199,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
      */
     fun writeSubToBidY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
         requesters.forEachIndexed { j, requesters ->
-            lp.constrateName("bidY $j")
+            lp.constrateName("bidY$j")
             requesters.bids.forEachIndexed { n, bid ->
                 lp.term("y", "$j$n")
             }
@@ -192,7 +210,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
     }
 
     /**
-     *   x_{i,r,j,n},y_{j,n} \in {0,1}
+     *  y_{j,n} \in  {0,1}
      *
      * @param lp
      * @param providers
@@ -206,11 +224,21 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
             }
         }
         lp.newline()
+    }
+
+    /**
+     * x_{i,r,j,n} \in Z
+     *
+     * @param lp
+     * @param requesters
+     */
+    fun writeGeneralVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>) {
+        lp.varType(VarType.GEN)
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
-                        //provider_iがresource_rをrequester_jに提供するとき1となる変数
+                        //provider_iがresource_rをrequester_jに提供する時間を表す変数
                         lp.variable("x", "$i$r$j$n")
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
