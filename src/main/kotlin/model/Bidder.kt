@@ -3,6 +3,7 @@ package model
 
 class Bidder() {
     val bids: MutableList<Bid> = mutableListOf()
+    var id: Int? = null
 
     constructor(bid: Bid) : this() {
         bids.add(bid)

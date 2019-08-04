@@ -21,8 +21,6 @@ object Util {
         for (i in 0 until config.provider) {
             for (r in 0 until config.resource)
                 requesterBidSize.forEach {
-                    println("i: $i, r: $r")
-                    println("c: $c, c+it: " + (c + it).toString())
                     mutableList0.add(doubleArray.copyOfRange(c, c + it))
                     c += it
                 }
@@ -33,7 +31,6 @@ object Util {
         c = 0
         for (x in 0 until config.provider) {
             for (i in 0 until config.resource) {
-                println("listSize: ${mutableList0.size} c,last: $c ${c + config.requester}")
                 mutableList1.add(mutableList0.subList(c, c + config.requester))
                 c += config.requester
             }

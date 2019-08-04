@@ -20,7 +20,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         val q = getQ(providers, requesters, config.resource)
         //目的関数
-        writeObjFunction(lp, obj, providers, requesters)
+        writeObjFunction(lp, obj, providers, requesters, config.resource)
         //制約条件
         lp.subto()
         writeSubToProvide(lp, obj, providers, requesters, q)
@@ -28,7 +28,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         writeSubToBidY(lp, obj, providers, requesters)
         writeSubToQ(lp, providers, requesters, q, config)
         writeBinVariable(lp, providers, requesters)
-        writeGeneralVariable(lp, providers, requesters)
+        writeGeneralVariable(lp, providers, requesters, config.resource)
         lp.end()
     }
 
@@ -58,12 +58,13 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
      *  max \sum_{j=1}^{J}\sum_{n=1}^{N}v_{j} \times y_{j,n}
      *  -\sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times
      *  TR_{i,n,r}\times x_{i,r,j,n}
+     *  -\sum_{i=1}^{I}\sum_{r=1}^{R}c_{i,r}q_{i,r}
      * @param lp
      * @param obj
      * @param providers
      * @param requesters
      */
-    fun writeObjFunction(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
+    fun writeObjFunction(lp: LpWriter, obj: Object, providers: List<Bidder>, requesters: List<Bidder>, resource: Int) {
         lp.obj(obj)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
@@ -79,6 +80,11 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
+            }
+        }
+        providers.forEachIndexed { i, provider ->
+            provider.bids.forEachIndexed { r, resource ->
+                lp.minus(resource.getValue(), "q", "$i$r")
             }
         }
         lp.newline()
@@ -178,7 +184,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
      */
     fun writeSubToQ(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>, q: List<Double>, config: Config) {
         for (r in 0 until config.resource) {
-            lp.constrateName("Q $r")
+            lp.constrateName("Q$r")
             providers.forEachIndexed { i, requester ->
                 lp.term("q", "$i$r")
             }
@@ -232,7 +238,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
      * @param lp
      * @param requesters
      */
-    fun writeGeneralVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>) {
+    fun writeGeneralVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>, resource: Int) {
         lp.varType(VarType.GEN)
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
@@ -243,6 +249,12 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
+            }
+        }
+        providers.forEachIndexed { i, requester ->
+            for (r in 0 until resource) {
+                lp.variable("q", "$i$r")
+
             }
         }
         lp.newline()

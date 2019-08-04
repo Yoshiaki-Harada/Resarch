@@ -9,40 +9,42 @@ import result.Result
 import trade.Trade
 
 object PaddingMethod : Trade {
+
     override fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
-        // 最適かの判定
-        val status = cplex.status
-        println("status = $status")
-        // 目的関数値
-        val objValue = cplex.objValue
-        println("objValue = $objValue")
-
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
-        val xCplex = cplex.getValues(lp)
-
+        val cplexValue = cplex.getValues(lp)
         val providers = bidders.subList(0, config.provider)
         println("providerNumber:" + providers.size)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         println("requesterNumber:" + requesters.size)
-
         val sum = requesters.map { it.bids.size }.sum()
-        val y = xCplex.copyOfRange(0, sum)
-        println("y_size: ${y.size}")
-        val excludedXCplex = xCplex.copyOfRange(sum, xCplex.lastIndex + 1)
-        println("x_size:" + excludedXCplex.size)
+        val tempY = cplexValue.copyOfRange(0, sum)
+        val y = Util.convertDimension(tempY, requesters.map { it.bids.size })
+        val excludedXCplex = cplexValue.copyOfRange(sum, cplexValue.lastIndex - config.resource + 1)
         val x = Util.convertDimension4(excludedXCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
+        val tempQ = cplexValue.copyOfRange(cplexValue.lastIndex + 1 - config.provider * config.resource, cplexValue.lastIndex + 1)
+        val q = Util.convertDimension(tempQ, List(providers.size) { config.resource })
 
-        // 解の表示
+        y.forEachIndexed { index, doubles ->
+            println("y$index=${doubles.toList()}")
+        }
+
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
                     requester.forEachIndexed { n, d ->
-                        println("x_$i$r$j$n = $d")
+                        print("x_$i$r$j$n = $d, ")
                     }
                 }
             }
+            println()
         }
 
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        q.forEach {
+            println("q ${it.toList()}")
+        }
+
+
+        TODO()
     }
 }
