@@ -23,10 +23,10 @@ object ProfitMaxDoubleAuction : LpMaker {
         lp.subto()
         writeSubToProvide(lp, obj, providers, requesters)
         writeSubToRelationXsndY(lp, obj, providers, requesters, config)
-        //  writeSubToWinner(lp, obj, providers, requesters)
-        writeSubToBidX(lp, obj, providers, requesters, config)
         writeSubToBidY(lp, obj, providers, requesters)
         writeBinVariable(lp, providers, requesters)
+        writeGeneralVariable(lp, providers, requesters, config.resource)
+
         lp.end()
     }
 
@@ -51,9 +51,8 @@ object ProfitMaxDoubleAuction : LpMaker {
             provider.bids.forEachIndexed { r, resource ->
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
-                        //provider_iがresource_rをrequester_jに提供するとき1となる変数
                         //provider_iがresource_rをrequester_jの入札nに提供する時間x(正の整数)
-                        lp.minus(resource.getValue() * bid.bundle[r], "x", "$i$r$j$n")
+                        lp.minus(resource.getValue(), "x", "$i$r$j$n")
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
@@ -79,7 +78,7 @@ object ProfitMaxDoubleAuction : LpMaker {
                 lp.constrateName("provider $i,$r")
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
-                        lp.term(bid.bundle[r], "x", "$i$r$j$n")
+                        lp.term("x", "$i$r$j$n")
                     }
                 }
                 lp.constrait(Constrait.LEQ)
@@ -125,67 +124,17 @@ object ProfitMaxDoubleAuction : LpMaker {
                 }
 
                 for (r in 0 until config.resource) {
-                    lp.constrateName("bundle,1,$$r,$j,$n")
+                    lp.constrateName("bundle,if 1,$r,$j,$n")
                     lp.variable("y", "$j$n")
                     lp.constrait(Constrait.EQ)
                     lp.number(1.0)
                     lp.arrow()
                     providers.forEachIndexed { i, provider ->
                         //resource.bundle[r]
-                        lp.term(bid.bundle[r], "x", "$i$r$j$n")
+                        lp.term("x", "$i$r$j$n")
                     }
                     lp.constrait(Constrait.EQ)
                     lp.number(bid.bundle[r])
-                    lp.newline()
-                }
-            }
-        }
-    }
-
-    /**
-     *  要求企業jの入札nのリソースrを提供するのは高々1企業とする制約
-     * \sum_{i=1}^{I}x_{i,r,j,n} \leq 1  \quad (\forall r, \forall j , \forall n)
-     *
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
-     */
-    fun writeSubToWinner(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
-        requesters.forEachIndexed { j, requester ->
-            requester.bids.forEachIndexed { n, bid ->
-                bid.bundle.forEachIndexed { r, time ->
-                    lp.constrateName("winner $j,$n,$r")
-                    providers.forEachIndexed { i, provider ->
-                        lp.term("x", "$i$r$j$n")
-                    }
-                    lp.constrait(Constrait.LEQ)
-                    lp.number(1.0)
-                    lp.newline()
-                }
-            }
-        }
-    }
-
-    /**
-     *  \sum_{n=1}^{N}x_{i,r,j,n} \leq 1  (\forall i, \forall r, \forall j)
-     *
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
-     * @param config
-     */
-    fun writeSubToBidX(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
-        providers.forEachIndexed { i, provider ->
-            for (r in 0..config.resource) {
-                requesters.forEachIndexed { j, requester ->
-                    lp.constrateName("bidX $i,$r,$j")
-                    provider.bids.forEachIndexed { n, bid ->
-                        lp.term("x", "$i$r$j$n")
-                    }
-                    lp.constrait(Constrait.LEQ)
-                    lp.number(1.0)
                     lp.newline()
                 }
             }
@@ -227,18 +176,33 @@ object ProfitMaxDoubleAuction : LpMaker {
             }
         }
         lp.newline()
+    }
+
+    /**
+     * x_{i,r,j,n} \in Z
+     *
+     * @param lp
+     * @param requesters
+     */
+    fun writeGeneralVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>, resource: Int) {
+        lp.varType(VarType.GEN)
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
-                        //provider_iがresource_rをrequester_jに提供するとき1となる変数
+                        //provider_iがresource_rをrequester_jに提供する時間を表す変数
                         lp.variable("x", "$i$r$j$n")
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
             }
         }
+        providers.forEachIndexed { i, requester ->
+            for (r in 0 until resource) {
+                lp.variable("q", "$i$r")
+
+            }
+        }
         lp.newline()
     }
-
 }

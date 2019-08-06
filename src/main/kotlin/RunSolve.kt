@@ -6,6 +6,7 @@ import model.Bid
 import model.Bidder
 import model.Value
 import trade.padding_method.isOne
+import winner.ProfitMaxDoubleAuction
 import winner.ProfitMaxPaddingDoubleAuction
 
 fun main(args: Array<String>) {
@@ -133,4 +134,34 @@ fun main(args: Array<String>) {
     }
 
     val winRequesters = wins as List<Bidder>
+    //configの書き直し
+    config.lpFile = "Padding/winRequester"
+    config.requester = winRequesters.size
+
+    ProfitMaxDoubleAuction.makeLpFile(config, Object.MAX, providers.plus(winRequesters))
+    val cplex2 = LpImporter("LP/Padding/winRequeste").getCplex()
+
+    cplex2.solve()
+
+    val lp2 = cplex.LPMatrixIterator().next() as IloLPMatrix
+    val cplexValue2 = cplex.getValues(lp2)
+    val tempY2 = cplexValue2.copyOfRange(0, winRequesters.map { it.bids.size }.sum())
+    val y2 = Util.convertDimension(tempY2, requesters.map { it.bids.size })
+    val excludedXCplex2 = cplexValue.copyOfRange(winRequesters.map { it.bids.size }.sum(), cplexValue.lastIndex - config.resource + 1)
+    val x2 = Util.convertDimension4(excludedXCplex2, winRequesters.map { it.bids.size }, providers.map { it.bids.size }, config)
+    val tempQ2 = cplexValue.copyOfRange(cplexValue2.lastIndex + 1 - config.provider * config.resource, cplexValue2.lastIndex + 1)
+    val q2 = Util.convertDimension(tempQ2, List(providers.size) { config.resource })
+
+    data class A(val a: String)
+    // requester's r' sum d
+    // 決定変数が1の時に取引を行う
+    x2.forEachIndexed { i, provider ->
+        provider.forEachIndexed { r, resource ->
+            val quantity = resource.map { requester ->
+                requester.sum()
+            }.sum()
+
+        }
+    }
 }
+
