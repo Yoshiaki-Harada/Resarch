@@ -5,7 +5,7 @@ import impoter.LpImporter
 import model.Bid
 import model.Bidder
 import model.Value
-import trade.padding_method.isOne
+import trade.isOne
 import winner.ProfitMaxDoubleAuction
 import winner.ProfitMaxPaddingDoubleAuction
 
@@ -95,7 +95,17 @@ fun main(args: Array<String>) {
         println(it.toList())
     }
 
+
+    requesters.forEachIndexed { j, requester ->
+        requester.id = j
+    }
+
+    providers.forEachIndexed { i, provider ->
+        provider.id = i
+    }
+
     // 要求側の価格決定
+
 
     y.forEachIndexed { j, bids ->
         bids.forEachIndexed { n, d ->
@@ -149,19 +159,49 @@ fun main(args: Array<String>) {
     val y2 = Util.convertDimension(tempY2, requesters.map { it.bids.size })
     val excludedXCplex2 = cplexValue.copyOfRange(winRequesters.map { it.bids.size }.sum(), cplexValue.lastIndex - config.resource + 1)
     val x2 = Util.convertDimension4(excludedXCplex2, winRequesters.map { it.bids.size }, providers.map { it.bids.size }, config)
-    val tempQ2 = cplexValue.copyOfRange(cplexValue2.lastIndex + 1 - config.provider * config.resource, cplexValue2.lastIndex + 1)
-    val q2 = Util.convertDimension(tempQ2, List(providers.size) { config.resource })
 
-    data class A(val a: String)
     // requester's r' sum d
-    // 決定変数が1の時に取引を行う
+    // 決定変数が正の時に取引を行う
     x2.forEachIndexed { i, provider ->
         provider.forEachIndexed { r, resource ->
             val quantity = resource.map { requester ->
                 requester.sum()
             }.sum()
+            if (quantity > 0) {
+                providers.filter { it.id != i }.let { excludedProviders ->
+                    config.lpFile = "Padding/reqAuction\\{$i}"
+                    config.requester = excludedProviders.size
+                    ProfitMaxDoubleAuction.makeLpFile(config, Object.MAX, excludedProviders.plus(winRequesters))
+                    //solve
+                    val cplex = LpImporter("LP/Padding/reqAuction\\{$i}").getCplex()
+                    cplex.solve()
 
+                    // 支払い価格を導出する
+                    val vcg = quantity * providers[i].bids[r].getValue() + cplex2.objValue + cplex.objValue
+
+                    val payoff = getPayoff(i, r, quantity, providers, winRequesters, config)
+
+                    val reward = vcg - payoff
+                }
+            }
         }
     }
 }
 
+fun getPayoff(id: Int, resoruce: Int, quantity: Double, providers: List<Bidder>, winRequesters: List<Bidder>, config: Config): Double {
+    config.provider = providers.size
+    config.requester = winRequesters.size
+    config.lpFile = "Padding/vcg"
+    ProfitMaxPaddingDoubleAuction.makeLpFile(config, Object.MAX, providers.plus(winRequesters))
+
+    val cplex = LpImporter("Padding/vcg").getCplex()
+    cplex.solve()
+
+    config.provider = providers.size - 1
+    config.requester = winRequesters.size
+    config.lpFile = "Padding/payoff\\{$id}"
+    ProfitMaxPaddingDoubleAuction.makeLpFile(config, Object.MAX, providers.filter { it.id != id }.plus(winRequesters))
+    val cplexVcg = LpImporter("Padding/vcg").getCplex()
+
+    return providers[id].bids[resoruce].getValue() * quantity + cplex.objValue - cplexVcg.objValue
+}

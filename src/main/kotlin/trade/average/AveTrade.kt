@@ -79,6 +79,7 @@ object AveTrade : DobuleSided {
                 providerCals,
                 requesterCals,
                 providerBidResults,
-                requesterBidResults)
+                requesterBidResults
+        )
     }
 }

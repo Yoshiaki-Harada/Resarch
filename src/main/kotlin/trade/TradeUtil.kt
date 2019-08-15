@@ -77,12 +77,13 @@ fun calRequesterTrueBudgetDensity(requester: Bidder, bidIndex: Int, resource: In
     return (requester.bids[bidIndex].value.tValue * (requester.bids[bidIndex].bundle[resource] / requester.bids[bidIndex].bundle.sum())) / requester.bids[bidIndex].bundle[resource]
 }
 
+fun isOne(d: Double): Boolean {
+    return (0.9 < d && d < 1.1)
+}
 
-class ResultPre(
+data class ResultPre(
         val payments: MutableList<Double>,
         val providerCals: MutableList<BidderCal>,
         val requesterCals: MutableList<BidderCal>,
         val providerBidResults: MutableList<BidResult>,
-        val requesterBidResults: MutableList<BidResult>) {
-
-}
+        val requesterBidResults: MutableList<BidResult>)
