@@ -22,8 +22,8 @@ package result
  * @property requesterBidResults　要求側の入札の結果のリスト
  * @property beforeProviderAvailabilityRatioAve 提供側の取引前の稼働率の平均
  * @property afterProviderAvailabilityRatioAve  提供側の取引後の稼働率の平均
- * @property providerRewardDensityAve 提供したリソースの1Ts辺りの報酬額の平均
- * @property providerRewardDensitySD 提供したリソースの1Ts辺りの報酬額の分散
+ * @property providerRevenueDensityAve 提供したリソースの1Ts辺りの報酬額の平均
+ * @property providerRevenueDensitySD 提供したリソースの1Ts辺りの報酬額の分散
  */
 data class Result(val objectValue: Double,
                   val sumCost: Double,
@@ -40,11 +40,11 @@ data class Result(val objectValue: Double,
                   val requesterProfitSD: Double,
                   val requesterPayAve: Double,
                   val requesterPaySD: Double,
-                  val providerRewardAve: Double,
-                  val providerRewardSD: Double,
+                  val providerRevenueAve: Double,
+                  val providerRevenueSD: Double,
                   val providerBidResults: List<BidResult>,
                   val requesterBidResults: List<BidResult>,
                   val beforeProviderAvailabilityRatioAve: Double,
                   val afterProviderAvailabilityRatioAve: Double,
-                  val providerRewardDensityAve: Double,
-                  val providerRewardDensitySD: Double)
+                  val providerRevenueDensityAve: Double,
+                  val providerRevenueDensitySD: Double)

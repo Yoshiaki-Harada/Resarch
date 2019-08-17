@@ -78,8 +78,8 @@ object AvePenaltyCostMin : Trade {
                 rs.requesterBidResults,
                 providerResults.map { it.beforeAvailabilityRatio }.average(),
                 providerResults.map { it.afterProviderAvailabilityRatio }.average(),
-                rs.providerRewardDensity.average(),
-                rs.providerRewardDensity.sd()
+                rs.providerRevenueDensity.average(),
+                rs.providerRevenueDensity.sd()
         )
     }
 }

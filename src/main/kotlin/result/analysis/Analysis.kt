@@ -39,24 +39,28 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
 
 
     val con = Conclusion(
-            rs.map { it.sumCost }.average(),
-            rs.map { it.sumCost }.sd(),
-            rs.map { it.sumProfit }.average(),
-            rs.map { it.sumProfit }.sd(),
-            rs.map { it.providerProfitAve }.average(),
-            rs.map { it.providerProfitAve }.sd(),
-            rs.map { it.requesterProfitAve }.average(),
-            rs.map { it.requesterProfitAve }.sd(),
-            rs.map { it.winBidNUmber }.average(),
-            rs.map { it.winBidNUmber.toDouble() }.sd(),
-            rs.map { it.providerTimeRatioAve }.average(),
-            rs.map { it.providerTimeRatioAve }.sd(),
-            rs.map { it.requesterPayAve }.average(),
-            rs.map { it.requesterPayAve }.sd(),
-            rs.map { it.beforeProviderAvailabilityRatioAve }.average(),
-            rs.map { it.beforeProviderAvailabilityRatioAve }.sd(),
-            rs.map { it.afterProviderAvailabilityRatioAve }.average(),
-            rs.map { it.afterProviderAvailabilityRatioAve }.sd()
+            sumCostAve = rs.map { it.sumCost }.average(),
+            sumCostSD = rs.map { it.sumCost }.sd(),
+            sumProfitAve = rs.map { it.sumProfit }.average(),
+            sumProfitSD = rs.map { it.sumProfit }.sd(),
+            providerProfitAve = rs.map { it.providerProfitAve }.average(),
+            providerProfitSD = rs.map { it.providerProfitAve }.sd(),
+            requesterProfitAve = rs.map { it.requesterProfitAve }.average(),
+            requesterProfitSD = rs.map { it.requesterProfitAve }.sd(),
+            winBidAve = rs.map { it.winBidNUmber }.average(),
+            winBidSD = rs.map { it.winBidNUmber.toDouble() }.sd(),
+            providerTimeRatioAve = rs.map { it.providerTimeRatioAve }.average(),
+            providerTimeRatioSD = rs.map { it.providerTimeRatioAve }.sd(),
+            providerBeforeAvailabilityRatioAve = rs.map { it.beforeProviderAvailabilityRatioAve }.average(),
+            providerBeforeAvailabilityRatioSD = rs.map { it.beforeProviderAvailabilityRatioAve }.sd(),
+            providerAfterAvailabilityRatioAve = rs.map { it.afterProviderAvailabilityRatioAve }.average(),
+            providerAfterAvailabilityRatioSD = rs.map { it.afterProviderAvailabilityRatioAve }.sd(),
+            requesterPayAve = rs.map { it.requesterPayAve }.average(),
+            requesterPaySD = rs.map { it.requesterPayAve }.sd(),
+            providerRevenueAve = rs.map { it.providerRevenueAve }.average(),
+            providerRevenueSD = rs.map { it.providerRevenueAve }.sd(),
+            providerRevenueDensityAve = rs.map { it.providerRevenueDensityAve }.average(),
+            providerRevenueDensitySD = rs.map { it.providerRevenueDensityAve }.sd()
     )
     println("$dir/$auction")
     writer.JsonWriter("$resultDir/$dataSet/$auction").makeFile(ConclusionConverter.toJson(con))

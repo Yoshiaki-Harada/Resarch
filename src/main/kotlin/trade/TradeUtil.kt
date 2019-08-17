@@ -81,6 +81,17 @@ fun isOne(d: Double): Boolean {
     return (0.9 < d && d < 1.1)
 }
 
+/**
+ * 誤差が5%以内なら trueを返す
+ *
+ * @param d0
+ * @param d1
+ * @return
+ */
+fun nealyEqual(d0: Double, d1: Double): Boolean {
+    return (d0 * 0.95 < d1 && d1 < d0 * 1.05)
+}
+
 fun cost(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>): Double {
     var cost = 0.0
     providers.forEachIndexed { i, provider ->
@@ -128,5 +139,5 @@ data class ResultPre(
         val requesterCals: MutableList<BidderCal>,
         val providerBidResults: MutableList<BidResult>,
         val requesterBidResults: MutableList<BidResult>,
-        val providerRewards: MutableList<Double>,
-        val providerRewardDensity: MutableList<Double>)
+        val providerRevenue: MutableList<Double>,
+        val providerRevenueDensity: MutableList<Double>)

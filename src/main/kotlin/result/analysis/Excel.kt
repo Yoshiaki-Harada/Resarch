@@ -47,7 +47,9 @@ object Excel {
 
     private const val WIN_BID_NUMBER = "勝者となった要求数"
     private const val PROVIDER_RATE = "提供率"
-    private const val TRADE_PRICE = "取引価格"
+    private const val PROVIDER_REVENUE = "収入"
+    private const val PROVIDER_REVENUE_DENSITY = "1Ts当たりの収入額"
+    private const val REQUESTER_PAY = "支払い"
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
 
@@ -188,8 +190,12 @@ object Excel {
         "$WIN_BID_NUMBER-$SD" -> this.winBidSD
         "$PROVIDER_RATE-$AVE" -> this.providerTimeRatioAve
         "$PROVIDER_RATE-$SD" -> this.providerTimeRatioSD
-        "$TRADE_PRICE-$AVE" -> this.tradeAve
-        "$TRADE_PRICE-$SD" -> this.tradeSD
+        "$PROVIDER_REVENUE-$AVE" -> this.providerRevenueAve
+        "$PROVIDER_REVENUE-$SD" -> this.providerRevenueSD
+        "$PROVIDER_REVENUE_DENSITY-$AVE" -> this.providerRevenueDensityAve
+        "$PROVIDER_REVENUE_DENSITY-$SD" -> this.providerRevenueDensitySD
+        "$REQUESTER_PAY-$AVE" -> this.requesterPayAve
+        "$REQUESTER_PAY-$SD" -> this.requesterPaySD
         "$BEFORE_PROVIDER_AVAILABILITY_RATIO-$AVE" -> this.providerBeforeAvailabilityRatioAve
         "$BEFORE_PROVIDER_AVAILABILITY_RATIO-$SD" -> this.providerBeforeAvailabilityRatioSD
         "$AFTER_PROVIDER_AVAILABILITY_RATIO-$AVE" -> this.providerAfterAvailabilityRatioAve

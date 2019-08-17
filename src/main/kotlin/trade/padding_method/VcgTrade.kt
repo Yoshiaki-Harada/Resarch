@@ -13,19 +13,26 @@ import result.BidderCal
 import trade.ResultPre
 import trade.TradeUtil
 import trade.isOne
+import trade.nealyEqual
 import winner.ProfitMaxDoubleAuction
 import winner.ProfitMaxPaddingDoubleAuction
 
-
+/**
+ * TODO 売手が複数のリソースを提供する場合に収入決定部分がまだ対応できてない
+ *
+ * @property providers
+ * @property requesters
+ * @property default
+ */
 class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val default: Config) {
     var providerCals = mutableListOf<BidderCal>()
     var requesterCals = mutableListOf<BidderCal>()
     val providerBidResults = mutableListOf<BidResult>()
     val requesterBidResults = mutableListOf<BidResult>()
     val payments = mutableListOf<Double>()
-    val providerRewards = mutableListOf<Double>()
+    val providerRevenues = mutableListOf<Double>()
     // [provider_1の提供リソース_1の単位あたりの報酬額,provider_1の提供リソース_2の単位あたりの報酬額,・・・・・]
-    val providerRewardsDensity = mutableListOf<Double>()
+    val providerRevenuesDensity = mutableListOf<Double>()
 
     // 初期化
     init {
@@ -86,8 +93,8 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                 requesterCals,
                 providerBidResults,
                 requesterBidResults,
-                providerRewards,
-                providerRewardsDensity
+                providerRevenues,
+                providerRevenuesDensity
         )
     }
 
@@ -143,20 +150,38 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     requester.sum()
                 }.sum()
                 if (quantity > 0) {
-                    // TODO 限界まで提供しない企業の報酬額の決定アルゴリズムがまだわかっていない
-                    if (providers[i].bids[r].bundle[r] != quantity) {
+                    if (!nealyEqual(providers[i].bids[r].bundle[r], quantity)) {
                         println("solution $quantity, available quantity ${providers[i].bids[r].bundle[r]}")
                     }
 
                     // 前半のvcgプライス部分
-                    val configVCG = default.copy(lpFile = "Padding/reqAuction\\{$i}", provider = providers.size - 1, requester = winRequesters.size)
+                    val conf = default.copy(lpFile = "Padding/reqAuction\\{$i}", provider = providers.size, requester = winRequesters.size)
                     winRequesters.forEach {
                         it.bids.forEach { bid ->
                             println("bid value = ${bid.value.getValue()}, ${bid.bundle.toList()}")
                         }
                     }
 
-                    ProfitMaxDoubleAuction.makeLpFile(configVCG, Object.MAX, providers.filter { it.id != i }.plus(winRequesters))
+                    // 多分これで複数リソースへの対応はあっている(まだ上界値の方はあっていない気がする)
+                    val newProviders = providers.mapIndexed { providerIndex, bidder ->
+                        if (i == providerIndex) {
+                            val bids = bidder.bids.mapIndexed { index, resource ->
+                                if (r == index) {
+                                    println("前半のvcg部分 provider $i resource $r")
+                                    Bid(Value(0.0, 0.0), resource.bundle.map { 0.0 })
+                                } else {
+                                    resource
+                                }
+                            }
+
+                            Bidder().add(bids)
+                        } else {
+                            bidder
+                        }
+                    }
+                    ProfitMaxDoubleAuction.makeLpFile(conf, Object.MAX, newProviders.plus(winRequesters))
+
+//                    ProfitMaxDoubleAuction.makeLpFile(configVCG, Object.MAX, providers.filter { it.id != i }.plus(winRequesters))
                     val cplex = LpImporter("LP/Padding/reqAuction\\{$i}").getCplex()
                     cplex.solve()
 
@@ -168,19 +193,19 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     val payoff = getPayOff(i, r, supremum, winRequesters)
 
                     // 報酬額を決定する
-                    val reward = vcg - payoff
+                    val revenue = vcg - payoff
 
                     println("vcg - payoff = $vcg - $payoff")
 
                     println("provider_$i, resource_$r 's quantity = $quantity")
-                    println("provider_$i, resource_$r 's reward = $reward")
+                    println("provider_$i, resource_$r 's revenue = $revenue")
 
-                    providerCals[i].bids[r].addPayment(reward)
+                    providerCals[i].bids[r].addPayment(revenue)
                     providerCals[i].bids[r].addTime(quantity)
-                    providerCals[i].bids[r].addProfit(reward - quantity * providers[i].bids[r].value.tValue)
-                    providerBidResults.add(i, BidResult(arrayOf(i, r), reward, reward-quantity * providers[i].bids[r].value.tValue ))
-                    providerRewards.add(reward / trade)
-                    providerRewardsDensity.add(reward / quantity)
+                    providerCals[i].bids[r].addProfit(revenue - quantity * providers[i].bids[r].value.tValue)
+                    providerBidResults.add(BidResult(arrayOf(i, r), revenue, revenue - quantity * providers[i].bids[r].value.tValue))
+                    providerRevenues.add(revenue / trade)
+                    providerRevenuesDensity.add(revenue / quantity)
                 }
             }
         }
@@ -222,9 +247,26 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
     }
 
     private fun getSupremum(id: Int, resoruce: Int, quantity: Double, paddingObjValue: Double, requesters: List<Bidder>): Double {
-        val conf = default.copy(provider = providers.size - 1, requester = requesters.size, lpFile = "Padding/supremum\\{$id}")
+        val conf = default.copy(provider = providers.size, requester = requesters.size, lpFile = "Padding/supremum\\{$id}")
 
-        ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, providers.filter { it.id != id }.plus(requesters))
+        // ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, providers.filter { it.id != id }.plus(requesters))
+        val newProviders = providers.mapIndexed { providerIndex, bidder ->
+            if (id == providerIndex) {
+                val bids = bidder.bids.mapIndexed { index, resource ->
+                    if (resoruce == index) {
+                        Bid(Value(0.0, 0.0), resource.bundle.map { 0.0 })
+                    } else {
+                        resource
+                    }
+                }
+
+                Bidder().add(bids)
+            } else {
+                bidder
+            }
+        }
+        ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, newProviders.plus(requesters))
+
         val cplexVcg = LpImporter("LP/Padding/supremum\\{$id}").getCplex()
 
         cplexVcg.solve()
