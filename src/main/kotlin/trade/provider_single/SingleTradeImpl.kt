@@ -41,6 +41,8 @@ class SingleTradeImpl(val providers: List<Bidder>, val requesters: List<Bidder>,
         val providerBidResults = mutableListOf<BidResult>()
         val requesterBidResults = mutableListOf<BidResult>()
         val payments = mutableListOf<Double>()
+        val providerRewardsDensity = mutableListOf<Double>()
+
 
         //決定変数が1の時に取引を行う
         x.forEachIndexed { i, provider ->
@@ -66,11 +68,21 @@ class SingleTradeImpl(val providers: List<Bidder>, val requesters: List<Bidder>,
             }
         }
 
+        providerCals.forEachIndexed { i, it ->
+            val sumReward = it.bids.map { bid ->
+                bid.payment
+            }.sum()
+            providerRewardsDensity.add(sumReward / providers[i].bids.map { bid -> bid.bundle.sum() }.sum())
+        }
+
         return ResultPre(
                 payments,
                 providerCals,
                 requesterCals,
                 providerBidResults,
-                requesterBidResults)
+                requesterBidResults,
+                payments,
+                providerRewardsDensity
+        )
     }
 }

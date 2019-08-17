@@ -85,10 +85,14 @@ object PaddingMethod : Trade {
                 requesterResults.map { it.profit }.sd(),
                 rs.payments.average(),
                 rs.payments.sd(),
+                rs.providerRewards.average(),
+                rs.providerRewards.sd(),
                 rs.providerBidResults,
                 rs.requesterBidResults,
                 providerResults.map { it.beforeAvailabilityRatio }.average(),
-                providerResults.map { it.afterProviderAvailabilityRatio }.average()
+                providerResults.map { it.afterProviderAvailabilityRatio }.average(),
+                rs.providerRewardDensity.average(),
+                rs.providerRewardDensity.sd()
         )
     }
 }

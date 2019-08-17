@@ -23,6 +23,9 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
     val providerBidResults = mutableListOf<BidResult>()
     val requesterBidResults = mutableListOf<BidResult>()
     val payments = mutableListOf<Double>()
+    val providerRewards = mutableListOf<Double>()
+    // [provider_1の提供リソース_1の単位あたりの報酬額,provider_1の提供リソース_2の単位あたりの報酬額,・・・・・]
+    val providerRewardsDensity = mutableListOf<Double>()
 
     // 初期化
     init {
@@ -82,7 +85,9 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                 providerCals,
                 requesterCals,
                 providerBidResults,
-                requesterBidResults
+                requesterBidResults,
+                providerRewards,
+                providerRewardsDensity
         )
     }
 
@@ -112,7 +117,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     requesterCals[j].bids[n].addPayment(pay)
                     requesterCals[j].bids[n].addTime(requesters[j].bids[n].bundle.sum())
                     requesterCals[j].bids[n].addProfit(requesters[j].bids[n].value.tValue - pay)
-                    providerBidResults.add(j, BidResult(arrayOf(j, n), pay, pay - requesters[j].bids[n].value.tValue))
+                    providerBidResults.add(j, BidResult(arrayOf(j, n), pay, requesters[j].bids[n].value.tValue - pay))
                     payments.add(pay)
                 }
             }
@@ -130,13 +135,21 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
      */
     private fun providerRewards(objValue: Double, paddingObjValue: Double, x: List<List<List<DoubleArray>>>, winRequesters: List<Bidder>) {
         x.forEachIndexed { i, provider ->
+            var trade = 0
             provider.forEachIndexed { r, resource ->
                 val quantity = resource.map { requester ->
+                    if (requester.sum() > 0.1) trade += 1
+
                     requester.sum()
                 }.sum()
                 if (quantity > 0) {
+                    // TODO 限界まで提供しない企業の報酬額の決定アルゴリズムがまだわかっていない
+                    if (providers[i].bids[r].bundle[r] != quantity) {
+                        println("solution $quantity, available quantity ${providers[i].bids[r].bundle[r]}")
+                    }
+
                     // 前半のvcgプライス部分
-                    val configVCG = default.copy(lpFile = "Padding/reqAuction\\{$i}", profitRate = providers.size - 1, requester = winRequesters.size)
+                    val configVCG = default.copy(lpFile = "Padding/reqAuction\\{$i}", provider = providers.size - 1, requester = winRequesters.size)
                     winRequesters.forEach {
                         it.bids.forEach { bid ->
                             println("bid value = ${bid.value.getValue()}, ${bid.bundle.toList()}")
@@ -164,8 +177,10 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
 
                     providerCals[i].bids[r].addPayment(reward)
                     providerCals[i].bids[r].addTime(quantity)
-                    providerCals[i].bids[r].addProfit(quantity * providers[i].bids[r].value.tValue - reward)
-                    requesterBidResults.add(i, BidResult(arrayOf(i, r), reward, quantity * providers[i].bids[r].value.tValue - reward))
+                    providerCals[i].bids[r].addProfit(reward - quantity * providers[i].bids[r].value.tValue)
+                    providerBidResults.add(i, BidResult(arrayOf(i, r), reward, reward-quantity * providers[i].bids[r].value.tValue ))
+                    providerRewards.add(reward / trade)
+                    providerRewardsDensity.add(reward / quantity)
                 }
             }
         }
@@ -195,7 +210,6 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         cplex.solve()
 
         val conf2 = default.copy(provider = newProviders.size - 1, requester = winRequesters.size, lpFile = "Padding/payoff\\{$id}")
-
 
         newProviders.forEachIndexed { index, bidder ->
             bidder.id = index

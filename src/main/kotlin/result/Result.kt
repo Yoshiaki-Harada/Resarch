@@ -16,12 +16,14 @@ package result
  * @property providerTimeRatioSD   実際に提供した時間/提供可能時間の分散
  * @property requesterProfitAve 要求側利益の平均
  * @property requesterProfitSD  要求側利益の分散
- * @property tradeAve   取引価格の平均
- * @property tradeSD    取引価格の分散
+ * @property requesterPayAve   取引価格の平均
+ * @property requesterPaySD    取引価格の分散
  * @property providerBidResults 提供側の入札の結果のリスト
  * @property requesterBidResults　要求側の入札の結果のリスト
  * @property beforeProviderAvailabilityRatioAve 提供側の取引前の稼働率の平均
  * @property afterProviderAvailabilityRatioAve  提供側の取引後の稼働率の平均
+ * @property providerRewardDensityAve 提供したリソースの1Ts辺りの報酬額の平均
+ * @property providerRewardDensitySD 提供したリソースの1Ts辺りの報酬額の分散
  */
 data class Result(val objectValue: Double,
                   val sumCost: Double,
@@ -36,9 +38,13 @@ data class Result(val objectValue: Double,
                   val providerTimeRatioSD: Double,
                   val requesterProfitAve: Double,
                   val requesterProfitSD: Double,
-                  val tradeAve: Double,
-                  val tradeSD: Double,
+                  val requesterPayAve: Double,
+                  val requesterPaySD: Double,
+                  val providerRewardAve: Double,
+                  val providerRewardSD: Double,
                   val providerBidResults: List<BidResult>,
                   val requesterBidResults: List<BidResult>,
                   val beforeProviderAvailabilityRatioAve: Double,
-                  val afterProviderAvailabilityRatioAve: Double)
+                  val afterProviderAvailabilityRatioAve: Double,
+                  val providerRewardDensityAve: Double,
+                  val providerRewardDensitySD: Double)

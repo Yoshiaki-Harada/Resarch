@@ -127,4 +127,6 @@ data class ResultPre(
         val providerCals: MutableList<BidderCal>,
         val requesterCals: MutableList<BidderCal>,
         val providerBidResults: MutableList<BidResult>,
-        val requesterBidResults: MutableList<BidResult>)
+        val requesterBidResults: MutableList<BidResult>,
+        val providerRewards: MutableList<Double>,
+        val providerRewardDensity: MutableList<Double>)

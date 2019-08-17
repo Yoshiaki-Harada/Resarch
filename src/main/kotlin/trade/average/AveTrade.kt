@@ -44,6 +44,8 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
     override fun run(x: List<List<List<DoubleArray>>>): ResultPre {
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
+        val providerRewardsDensity = mutableListOf<Double>()
+
         // 初期化
         TradeUtil.initBidderCals(providerCals, providers)
         TradeUtil.initBidderCals(requesterCals, requesters)
@@ -75,12 +77,20 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
             }
         }
 
+        providerCals.forEachIndexed { i, it ->
+            val sumReward = it.bids.map { bid ->
+                bid.payment
+            }.sum()
+            providerRewardsDensity.add(sumReward / providers[i].bids.map { bid -> bid.bundle.sum() }.sum())
+        }
         return ResultPre(
                 payments,
                 providerCals,
                 requesterCals,
                 providerBidResults,
-                requesterBidResults
+                requesterBidResults,
+                payments,
+                providerRewardsDensity
         )
     }
 }

@@ -9,10 +9,12 @@ import impoter.LpImporter
 import trade.average.AveCostMin
 import trade.average.AvePenaltyCostMin
 import trade.average.AveProfitMax
+import trade.padding_method.PaddingMethod
 import trade.provider_single.SingleCostMin
 import winner.CostMinPenaltyAuction
 import winner.CostMinProviderAuction
 import winner.ProfitMaxDoubleAuction
+import winner.ProfitMaxPaddingDoubleAuction
 import writer.Saver
 
 /**
@@ -24,8 +26,9 @@ fun main(args: Array<String>) {
     val lpFileName = "lp"
     config.targetAuction.forEach {
         val (lpMaker, obj, trade) = when (it) {
-            "VCG" -> {
-                throw Exception("Auction: ${it}は存在しません")
+            "PaddingMethod" -> {
+                config.lpFile = lpFileName
+                Triple(ProfitMaxPaddingDoubleAuction, Object.MAX, PaddingMethod)
             }
             "コスト最小化" -> {
                 config.lpFile = lpFileName

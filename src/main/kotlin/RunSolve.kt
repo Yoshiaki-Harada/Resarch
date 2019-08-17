@@ -1,4 +1,5 @@
 import config.Config
+import converter.ResultConverter
 import cplex.lpformat.Object
 import impoter.LpImporter
 import model.Bid
@@ -9,7 +10,7 @@ import winner.ProfitMaxPaddingDoubleAuction
 
 fun main(args: Array<String>) {
 
-    val config = Config.fromJson("default-test")
+    val config = Config.fromJson("config-test")
 
     val bids0 = listOf<Bid>(
             Bid(Value(1.0, 0.0), listOf(2.0, 0.0)),
@@ -50,7 +51,8 @@ fun main(args: Array<String>) {
 
     cplex.solve()
 
-    PaddingMethod.run(cplex, bidders, config)
+    val rs = PaddingMethod.run(cplex, bidders, config)
+    println(ResultConverter.toJson(rs))
 }
 
 fun getPayoff(id: Int, resoruce: Int, quantity: Double, providers: List<Bidder>, winRequesters: List<Bidder>, config: Config): Double {
