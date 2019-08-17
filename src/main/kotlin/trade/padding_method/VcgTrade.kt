@@ -181,7 +181,6 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     }
                     ProfitMaxDoubleAuction.makeLpFile(conf, Object.MAX, newProviders.plus(winRequesters))
 
-//                    ProfitMaxDoubleAuction.makeLpFile(configVCG, Object.MAX, providers.filter { it.id != i }.plus(winRequesters))
                     val cplex = LpImporter("LP/Padding/reqAuction\\{$i}").getCplex()
                     cplex.solve()
 
@@ -212,6 +211,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
     }
 
     private fun getPayOff(id: Int, resoruceId: Int, supremum: Double, winRequesters: List<Bidder>): Double {
+        //  入札者を除くの代わりに提供リソースの量を0にする
         val newProviders = providers.map {
             if (it.id == id) {
                 Bidder().add(it.bids.mapIndexed { index, bids ->
@@ -248,8 +248,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
 
     private fun getSupremum(id: Int, resoruce: Int, quantity: Double, paddingObjValue: Double, requesters: List<Bidder>): Double {
         val conf = default.copy(provider = providers.size, requester = requesters.size, lpFile = "Padding/supremum\\{$id}")
-
-        // ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, providers.filter { it.id != id }.plus(requesters))
+        //  入札者を除くの代わりに提供リソースの量を0にする
         val newProviders = providers.mapIndexed { providerIndex, bidder ->
             if (id == providerIndex) {
                 val bids = bidder.bids.mapIndexed { index, resource ->
