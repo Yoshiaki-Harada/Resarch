@@ -21,7 +21,7 @@ object RequesterBidDataMakerImpl : BidDataMaker {
                 .toArray()
                 .toList()
         //予算の計算
-        val weight = Random().doubles(1, config.requesterValueMin, config.requesterValueMax).toArray().toList()[0]
+        val weight = Random().doubles(1, config.requesterValueMin, config.requesterValueMax).toArray().toList()[0].runDown()
         val value = Value(bundle.sum() * weight, 0.0)
         return Bid(value, bundle)
     }
@@ -38,6 +38,7 @@ object ProviderBidDataMakerProvideTimeImpl {
             Random().doubles(1, config.providerTimeMin, config.providerTimeMax)
                     .toArray()
                     .toList()[0]
+                    .runDown()
         }.mapIndexed { r, d ->
             //提供するリソースの種類であれば
             if (r == resource) {
@@ -54,3 +55,5 @@ object ProviderBidDataMakerProvideTimeImpl {
         return Bid(value, bundle)
     }
 }
+
+fun Double.runDown(): Double =this.toInt().toDouble()
