@@ -23,7 +23,7 @@ object Saver {
         // resultFile
         writer.JsonWriter("${dirName}/result").makeFile(ResultConverter.toJson(result))
         // configFile
-        writer.JsonWriter("${dirName}/config").makeFile(ConfigConverter.toJson(config))
+        writer.JsonWriter("${dirName}/default").makeFile(ConfigConverter.toJson(config))
         // lpFile
         val lpFile = File("${config.lpDir}/${config.lpFile}.lp").absoluteFile
         if (File("${dirName}/lp.lp").absoluteFile.delete())

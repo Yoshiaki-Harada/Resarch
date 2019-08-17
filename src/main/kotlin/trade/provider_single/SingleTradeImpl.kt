@@ -1,5 +1,6 @@
 package trade.provider_single
 
+import config.Config
 import model.Bidder
 import result.BidResult
 import result.BidderCal
@@ -8,7 +9,7 @@ import trade.SingleSided
 import trade.TradeUtil
 import trade.average.AveTrade
 
-object SingleTradeImpl : SingleSided {
+class SingleTradeImpl(val providers: List<Bidder>, val requesters: List<Bidder>, val default: Config) : SingleSided {
 
     /**
      * 取引価格は，提供側の希望価格
@@ -31,7 +32,7 @@ object SingleTradeImpl : SingleSided {
      * @param requesters
      * @return
      */
-    override fun run(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>): ResultPre {
+    override fun run(x: List<List<List<DoubleArray>>>): ResultPre {
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
         // 初期化
@@ -47,7 +48,7 @@ object SingleTradeImpl : SingleSided {
                 resource.forEachIndexed { j, requester ->
                     requester.forEachIndexed { n, d ->
                         if (0.8 < d && d < 1.2) {
-                            val payment = AveTrade.payment(providers[i], requesters[j], n, r)
+                            val payment = AveTrade(providers, requesters, default).payment(providers[i], requesters[j], n, r)
                             payments.add(payment)
                             // 提供側
                             providerCals[i].bids[r].addPayment(payment)

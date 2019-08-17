@@ -12,6 +12,9 @@ import sd
 import trade.Trade
 import trade.TradeUtil
 
+/**
+ *　要求が制約になっているので，満たせない場合解けない
+ */
 object AveCostMin : Trade {
     override
     fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
@@ -42,7 +45,7 @@ object AveCostMin : Trade {
         }
 
         // 利益の計算
-        val rs = AveTrade.run(x, providers, requesters)
+        val rs = AveTrade(providers,requesters,config).run(x)
 
         // 各企業のリソース提供時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }

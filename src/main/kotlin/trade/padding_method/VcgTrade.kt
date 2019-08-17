@@ -17,7 +17,7 @@ import winner.ProfitMaxDoubleAuction
 import winner.ProfitMaxPaddingDoubleAuction
 
 
-class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
+class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val default: Config) {
     var providerCals = mutableListOf<BidderCal>()
     var requesterCals = mutableListOf<BidderCal>()
     val providerBidResults = mutableListOf<BidResult>()
@@ -44,24 +44,21 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
         return winRequesters
     }
 
-    private fun solveWinRequestersProblem(winRequesters: List<Bidder>, config: Config): Result {
+    private fun solveWinRequestersProblem(winRequesters: List<Bidder>): Result {
+        val conf = default.copy(lpFile = "Padding/winRequesters", provider = providers.size, requester = winRequesters.size)
 
-        config.lpFile = "Padding/winRequester"
-
-        config.provider = providers.size
-        config.requester = winRequesters.size
-
-        ProfitMaxDoubleAuction.makeLpFile(config, Object.MAX, providers.plus(winRequesters))
-        val cplex = LpImporter("LP/Padding/winRequeste").getCplex()
+        ProfitMaxDoubleAuction.makeLpFile(conf, Object.MAX, providers.plus(winRequesters))
+        val cplex = LpImporter("LP/Padding/winRequesters").getCplex()
 
         cplex.solve()
 
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
         val cplexValue = cplex.getValues(lp)
         val tempY = cplexValue.copyOfRange(0, winRequesters.map { it.bids.size }.sum())
-        val y = Util.convertDimension(tempY, requesters.map { it.bids.size })
-        val excludedXCplex = cplexValue.copyOfRange(winRequesters.map { it.bids.size }.sum(), cplexValue.lastIndex - config.resource + 1)
-        val x = Util.convertDimension4(excludedXCplex, winRequesters.map { it.bids.size }, providers.map { it.bids.size }, config)
+        val y = Util.convertDimension(tempY, winRequesters.map { it.bids.size })
+        val excludedXCplex = cplexValue.copyOfRange(winRequesters.map { it.bids.size }.sum(), cplexValue.lastIndex + 1)
+        println("excludedXCplexSize ${excludedXCplex.size}")
+        val x = Util.convertDimension4(excludedXCplex, winRequesters.map { it.bids.size }, providers.map { it.bids.size }, default)
 
         return Result(x, y, cplex.objValue)
     }
@@ -72,13 +69,13 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
             val objValue: Double
     )
 
-    fun run(y: List<DoubleArray>, objValue: Double, config: Config): ResultPre {
-        requesterPayments(y, objValue, config)
+    fun run(y: List<DoubleArray>, objValue: Double): ResultPre {
+        requesterPayments(y, objValue)
 
         val winRequesters = getWinRequesters(y)
-        val result = solveWinRequestersProblem(winRequesters = winRequesters, config = config)
+        val result = solveWinRequestersProblem(winRequesters = winRequesters)
 
-        providerRewards(result.objValue, objValue, result.x, winRequesters, config)
+        providerRewards(result.objValue, objValue, result.x, winRequesters)
 
         return ResultPre(
                 payments,
@@ -89,14 +86,12 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
         )
     }
 
-
-    private fun decideRequesterPayment(requesterId: Int, bidId: Int, excludedRequesters: List<Bidder>, objValue: Double, config: Config): Double {
+    private fun decideRequesterPayment(requesterId: Int, bidId: Int, excludedRequesters: List<Bidder>, objValue: Double): Double {
         // iを除いたオークションの目的関数の値を得る
-        config.lpFile = "Padding/auction\\{$requesterId}"
-        config.requester = config.requester - 1
+        val conf = default.copy(lpFile = "Padding/auction\\{$requesterId}", requester = default.requester - 1)
 
         val bidders = providers.plus(excludedRequesters)
-        ProfitMaxPaddingDoubleAuction.makeLpFile(config, Object.MAX, bidders)
+        ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, bidders)
         val cplex = LpImporter("LP/Padding/auction\\{$requesterId}").getCplex()
         cplex.solve()
 
@@ -108,12 +103,12 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
         return pay
     }
 
-    private fun requesterPayments(y: List<DoubleArray>, objValue: Double, config: Config) {
+    private fun requesterPayments(y: List<DoubleArray>, objValue: Double) {
         y.forEachIndexed { j, bids ->
             bids.forEachIndexed { n, d ->
                 if (isOne(d)) {
                     // 支払い価格を求める
-                    val pay = decideRequesterPayment(j, n, requesters.filter { it.id != j }, objValue, config)
+                    val pay = decideRequesterPayment(j, n, requesters.filter { it.id != j }, objValue)
                     requesterCals[j].bids[n].addPayment(pay)
                     requesterCals[j].bids[n].addTime(requesters[j].bids[n].bundle.sum())
                     requesterCals[j].bids[n].addProfit(requesters[j].bids[n].value.tValue - pay)
@@ -133,7 +128,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
      * @param winRequesters
      * @param config
      */
-    private fun providerRewards(objValue: Double, paddingObjValue: Double, x: List<List<List<DoubleArray>>>, winRequesters: List<Bidder>, config: Config) {
+    private fun providerRewards(objValue: Double, paddingObjValue: Double, x: List<List<List<DoubleArray>>>, winRequesters: List<Bidder>) {
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
                 val quantity = resource.map { requester ->
@@ -141,19 +136,28 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
                 }.sum()
                 if (quantity > 0) {
                     // 前半のvcgプライス部分
-                    config.lpFile = "Padding/reqAuction\\{$i}"
-                    config.requester = provider.size - 1
-                    ProfitMaxDoubleAuction.makeLpFile(config, Object.MAX, providers.filter { it.id != i }.plus(winRequesters))
+                    val configVCG = default.copy(lpFile = "Padding/reqAuction\\{$i}", profitRate = providers.size - 1, requester = winRequesters.size)
+                    winRequesters.forEach {
+                        it.bids.forEach { bid ->
+                            println("bid value = ${bid.value.getValue()}, ${bid.bundle.toList()}")
+                        }
+                    }
+
+                    ProfitMaxDoubleAuction.makeLpFile(configVCG, Object.MAX, providers.filter { it.id != i }.plus(winRequesters))
                     val cplex = LpImporter("LP/Padding/reqAuction\\{$i}").getCplex()
                     cplex.solve()
+
+                    println("quantity * providers[i].bids[r].getValue() + objValue - cplex.objValue = $quantity * ${providers[i].bids[r].getValue()} + $objValue -${cplex.objValue}")
                     val vcg = quantity * providers[i].bids[r].getValue() + objValue - cplex.objValue
 
                     //  後半のpayoff部分
-                    val supremum = getSupremum(i, r, quantity, paddingObjValue, winRequesters, config)
-                    val payoff = getPayOff(i, r, supremum, winRequesters, config)
+                    val supremum = getSupremum(i, r, quantity, paddingObjValue, requesters)
+                    val payoff = getPayOff(i, r, supremum, winRequesters)
 
                     // 報酬額を決定する
                     val reward = vcg - payoff
+
+                    println("vcg - payoff = $vcg - $payoff")
 
                     println("provider_$i, resource_$r 's quantity = $quantity")
                     println("provider_$i, resource_$r 's reward = $reward")
@@ -167,7 +171,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
         }
     }
 
-    private fun getPayOff(id: Int, resoruceId: Int, supremum: Double, winRequesters: List<Bidder>, config: Config): Double {
+    private fun getPayOff(id: Int, resoruceId: Int, supremum: Double, winRequesters: List<Bidder>): Double {
         val newProviders = providers.map {
             if (it.id == id) {
                 Bidder().add(it.bids.mapIndexed { index, bids ->
@@ -183,30 +187,33 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>) {
                 it
             }
         }
-        config.provider = newProviders.size
-        config.requester = winRequesters.size
-        config.lpFile = "Padding/payoff-$id"
 
-        ProfitMaxDoubleAuction.makeLpFile(config, Object.MAX, newProviders.plus(winRequesters))
+        val conf1 = default.copy(provider = newProviders.size, requester = winRequesters.size, lpFile = "Padding/payoff-$id")
+
+        ProfitMaxDoubleAuction.makeLpFile(conf1, Object.MAX, newProviders.plus(winRequesters))
         val cplex = LpImporter("LP/Padding/payoff-$id").getCplex()
         cplex.solve()
 
-        config.provider = newProviders.size
-        config.requester = winRequesters.size
-        config.lpFile = "Padding/payoff\\{$id}"
-        ProfitMaxDoubleAuction.makeLpFile(config, Object.MAX, newProviders.filter { it.id != id }.plus(winRequesters))
+        val conf2 = default.copy(provider = newProviders.size - 1, requester = winRequesters.size, lpFile = "Padding/payoff\\{$id}")
+
+
+        newProviders.forEachIndexed { index, bidder ->
+            bidder.id = index
+        }
+        ProfitMaxDoubleAuction.makeLpFile(conf2, Object.MAX, newProviders.filter { it.id != id }.plus(winRequesters))
         val excludedCplex = LpImporter("LP/Padding/payoff\\{$id}").getCplex()
         excludedCplex.solve()
 
         return cplex.objValue - excludedCplex.objValue
     }
 
-    private fun getSupremum(id: Int, resoruce: Int, quantity: Double, paddingObjValue: Double, winRequesters: List<Bidder>, config: Config): Double {
-        config.provider = providers.size - 1
-        config.requester = winRequesters.size
-        config.lpFile = "Padding/supremum\\{$id}"
-        ProfitMaxPaddingDoubleAuction.makeLpFile(config, Object.MAX, providers.filter { it.id != id }.plus(winRequesters))
-        val cplexVcg = LpImporter("Padding/supremum\\{$id}").getCplex()
+    private fun getSupremum(id: Int, resoruce: Int, quantity: Double, paddingObjValue: Double, requesters: List<Bidder>): Double {
+        val conf = default.copy(provider = providers.size - 1, requester = requesters.size, lpFile = "Padding/supremum\\{$id}")
+
+        ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, providers.filter { it.id != id }.plus(requesters))
+        val cplexVcg = LpImporter("LP/Padding/supremum\\{$id}").getCplex()
+
+        cplexVcg.solve()
 
         return providers[id].bids[resoruce].getValue() * quantity + paddingObjValue - cplexVcg.objValue
     }

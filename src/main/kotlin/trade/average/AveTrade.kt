@@ -1,5 +1,6 @@
 package trade.average
 
+import config.Config
 import model.Bidder
 import result.BidResult
 import result.BidderCal
@@ -7,7 +8,7 @@ import trade.DobuleSided
 import trade.ResultPre
 import trade.TradeUtil
 
-object AveTrade : DobuleSided {
+class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val default: Config) : DobuleSided {
 
     // paymentを求める為の関数
     fun calRequesterBudgetDensity(requester: Bidder, bidIndex: Int, resource: Int): Double {
@@ -40,7 +41,7 @@ object AveTrade : DobuleSided {
      * @param requesters
      * @return
      */
-    override fun run(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>): ResultPre {
+    override fun run(x: List<List<List<DoubleArray>>>): ResultPre {
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
         // 初期化

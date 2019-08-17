@@ -44,7 +44,7 @@ object SingleCostMin : Trade {
         }
 
         // 取引を実行し利益等を計算する
-        val rs = SingleTradeImpl.run(x, providers, requesters)
+        val rs = SingleTradeImpl(providers, requesters, config).run(x)
 
         // 各企業のリソース提供時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }

@@ -6,7 +6,6 @@ import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
 import result.BidderResult
-import result.ProviderResult
 import result.Result
 import sd
 import trade.Trade
@@ -44,7 +43,7 @@ object AvePenaltyCostMin : Trade {
         }
 
         // 取引を実行し利益等を計算する
-        val rs = AveTrade.run(x, providers, requesters)
+        val rs = AveTrade(providers, requesters, config).run(x)
         // 各企業の総リソース提供時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
 

@@ -18,6 +18,13 @@ object ProfitMaxDoubleAuction : LpMaker {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         //目的関数
+
+        println("確認")
+        requesters.forEach {
+            it.bids.forEach { bid ->
+                println("bid value = ${bid.value.getValue()}, ${bid.bundle.toList()}")
+            }
+        }
         writeObjFunction(lp, obj, providers, requesters)
         //制約条件
         lp.subto()
@@ -44,6 +51,7 @@ object ProfitMaxDoubleAuction : LpMaker {
         lp.obj(obj)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
+                println("requester_$j,$n ${bid.getValue()}")
                 lp.term(bid.getValue(), "y", "$j$n")
             }
         }
@@ -197,12 +205,7 @@ object ProfitMaxDoubleAuction : LpMaker {
                 }
             }
         }
-        providers.forEachIndexed { i, requester ->
-            for (r in 0 until resource) {
-                lp.variable("q", "$i$r")
 
-            }
-        }
         lp.newline()
     }
 }

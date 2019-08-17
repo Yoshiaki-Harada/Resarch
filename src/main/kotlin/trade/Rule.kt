@@ -7,7 +7,7 @@ import model.Bidder
  *
  */
 interface Rule {
-    fun run(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>): ResultPre
+    fun run(x: List<List<List<DoubleArray>>>): ResultPre
 }
 
 /**
