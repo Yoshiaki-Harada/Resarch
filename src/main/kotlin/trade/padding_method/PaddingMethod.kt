@@ -2,6 +2,7 @@ package trade.padding_method
 
 import Util
 import config.Config
+import convert
 import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
@@ -10,7 +11,7 @@ import result.Result
 import sd
 import trade.Trade
 import trade.calProviderResult
-import trade.cost
+import trade.cost2
 import trade.isOne
 
 object PaddingMethod : Trade {
@@ -26,8 +27,9 @@ object PaddingMethod : Trade {
         val sum = requesters.map { it.bids.size }.sum()
         val tempY = cplexValue.copyOfRange(0, sum)
         val y = Util.convertDimension(tempY, requesters.map { it.bids.size })
-        val excludedXCplex = cplexValue.copyOfRange(sum, cplexValue.lastIndex - config.resource + 1)
-        val x = Util.convertDimension4(excludedXCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
+        val excludedXCplex = cplexValue.copyOfRange(sum, sum + config.provider * config.resource * config.requester * config.bidNumber)
+//        val x = Util.convertDimension4(excludedXCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
+        val x = convert(excludedXCplex, config)
         val tempQ = cplexValue.copyOfRange(cplexValue.lastIndex + 1 - config.provider * config.resource, cplexValue.lastIndex + 1)
         val q = Util.convertDimension(tempQ, List(providers.size) { config.resource })
 
@@ -49,12 +51,18 @@ object PaddingMethod : Trade {
         q.forEach {
             println("q ${it.toList()}")
         }
+        println("xsize = ${x.flatMap { it.flatMap { it.flatMap { it } } }.size}")
+        println("excludedXCplex = ${excludedXCplex.size}")
+        println("ysize = ${y.flatMap { it.toList() }.size}")
+        println("qsize = ${q.flatMap { it.toList() }.size}")
+        println("cplexValue = ${cplexValue.size}")
 
         providers.forEachIndexed { index, bidder ->
             bidder.id = index
         }
 
-        val trade = VcgTrade(providers, requesters, config)
+
+        val trade = VcgTrade(providers, requesters, config, x, q.map { it.toList() })
         val rs = trade.run(y, cplex.objValue)
 
         // 各企業の総リソース提供可能時間のリスト
@@ -69,9 +77,13 @@ object PaddingMethod : Trade {
 
         val sumProfit = rs.providerBidResults.map { it.profit }.sum().plus(rs.requesterBidResults.map { it.profit }.sum())
 
+        if (rs.payments.isNullOrEmpty()) {
+            println("**********取引は行われていません**********")
+            rs.payments.add(0.0)
+        }
         return Result(
                 objValue,
-                cost(x, providers, requesters),
+                cost2(x, providers, requesters),
                 sumProfit,
                 cplexValue,
                 tempY.filter { isOne(it) }.size,

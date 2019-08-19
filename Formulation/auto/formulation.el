@@ -12,6 +12,7 @@
     "amsmath"
     "otf"
     "pxchfon"
-    "nccmath"))
+    "nccmath"
+    "bm"))
  :latex)
 

@@ -62,6 +62,11 @@ object AveProfitMax : Trade {
 
         val sumProfit = rs.providerBidResults.map { it.profit }.sum().plus(rs.requesterBidResults.map { it.profit }.sum())
 
+        println("payments ${rs.payments}")
+        if (rs.payments.isNullOrEmpty()) {
+            println("**********取引は行われていません**********")
+            rs.payments.add(0.0)
+        }
         return Result(
                 objValue,
                 TradeUtil.cost(x, providers, requesters),

@@ -1,13 +1,23 @@
 # Fdb version 3
-["dvipdf"] 1564543786 "formulation.dvi" "formulation.pdf" "formulation" 1564544070
-  "formulation.dvi" 1564543786 13728 7ef9c8b3d3118b9dec5b6b27429146f9 "latex"
+["dvipdf"] 1566109931 "formulation.dvi" "formulation.pdf" "formulation" 1566109933
+  "formulation.dvi" 1566109931 17664 486a95c120989a706587262caf11d7f0 "latex"
   (generated)
   "formulation.pdf"
-["latex"] 1564543785 "formulation.tex" "formulation.dvi" "formulation" 1564544070
+["latex"] 1566109930 "formulation.tex" "formulation.dvi" "formulation" 1566109933
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1480098698 1120 1e8878807317373affa7f7bba4cf2f6a ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1480098698 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm" 1480098698 1496 c79f6914c6d39ffb3759967363d1be79 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm" 1480098698 1508 6e807ff901c35a5f1fde0ca275533df8 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm" 1480098701 1116 4e6ba9d7914baa6482fd69f67d126380 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1480098701 1332 f817c21a1ba54560425663374f1b651a ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1480098701 1336 3125ccb448c1a09074e3aa4a9832f130 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm" 1480098701 1524 554068197b70979a55370e6c6495f441 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlgothr-h.tfm" 1499983606 820 9021988cf1d2b8c57e9b58e925c6d855 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlgothr-v.tfm" 1499983606 540 a825d8b309b13c96a009b51029f3f3f0 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlminb-h.tfm" 1499983606 820 9021988cf1d2b8c57e9b58e925c6d855 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlminr-h.tfm" 1499983606 820 9021988cf1d2b8c57e9b58e925c6d855 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlminr-v.tfm" 1499983606 540 a825d8b309b13c96a009b51029f3f3f0 ""
   "/usr/local/texlive/2018/texmf-dist/tex/generic/ifptex/ifptex.sty" 1507321188 9988 5516d7c5df8e385af1b92214a0e09f35 ""
@@ -20,6 +30,7 @@
   "/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty" 1523134385 2591 6404d0c7d28505fb38ce0d86c2e28ae7 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/ncctools/nccmath.sty" 1530651749 14585 b9ec0dfe305551751c94c3d416a3bea2 ""
   "/usr/local/texlive/2018/texmf-dist/tex/latex/pxufont/pxufont.sty" 1499983606 4354 33d56896daa82fafd93b4b1944e1b311 ""
+  "/usr/local/texlive/2018/texmf-dist/tex/latex/tools/bm.sty" 1523050425 12626 7d9d99d0bbe65f44cc0bb90f67262000 ""
   "/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf-uptex/otf.sty" 1526248361 23252 65dc8171d5cb4a12c8e79939b901fa3a ""
   "/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf/ajmacros.sty" 1518389351 31125 5a8464041c2c686e2a09975c357a9c9a ""
   "/usr/local/texlive/2018/texmf-dist/tex/platex/pxchfon/pxchfon.sty" 1521151409 62698 8848018544ea2725b0756ab56a2727dc ""
@@ -28,9 +39,9 @@
   "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
   "/usr/local/texlive/2018/texmf-var/web2c/euptex/uplatex.fmt" 1537778020 4475280 ad19b176f34f811085aaa5475ab22cf5 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "formulation.aux" 1564543786 8 a94a2480d3289e625eea47cd1b285758 ""
-  "formulation.tex" 1564543784 5447 52079fbfa3e37addc5424eddada5be43 ""
+  "formulation.aux" 1566109931 8 a94a2480d3289e625eea47cd1b285758 ""
+  "formulation.tex" 1566109917 8131 5288738018ed5987e0662f8db8f639ac ""
   (generated)
-  "formulation.aux"
   "formulation.log"
   "formulation.dvi"
+  "formulation.aux"

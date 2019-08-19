@@ -99,7 +99,7 @@ object ProfitMaxDoubleAuction : LpMaker {
     /**
      * \begin{cases}
      * x_{i,r,j,n} = 0  &({\rm if} \ y_{j,n}=0) \\
-     * \sum_{i=1}^{I}\sum_{n=1}^{N} TR_{j,n,r} \times x_{i,r,j,n} \\ \quad \quad = TR_{j,n,r}
+     * \sum_{i=1}^{I}\sum_{n=1}^{N}  x_{i,r,j,n} \\ \quad \quad = TR_{j,n,r}
      * &({\rm if} \ y_{j,n}=1)
      * \end{cases}
 

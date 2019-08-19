@@ -37,6 +37,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/ifptex/ifptex.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/ifptex/ifptex.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/ncctools/nccmath.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/ncctools/nccmath.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/bm.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/bm.sty
 INPUT formulation.aux
 INPUT formulation.aux
 OUTPUT formulation.aux
@@ -47,6 +49,18 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlminr-h.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlminr-h.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlminb-h.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlminb-h.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlminb-h.tfm
 OUTPUT formulation.dvi
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlgothr-v.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/pxufont/zu-upnmlgothr-h.tfm

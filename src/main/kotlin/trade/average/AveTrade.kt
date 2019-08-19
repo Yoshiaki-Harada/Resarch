@@ -33,6 +33,12 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         return avePay * requester.bids[bidIndex].bundle[resource]
     }
 
+    fun payment2(provider: Bidder, requester: Bidder, bidIndex: Int, resource: Int, provideTs: Double) :Double{
+        val requesterValue = (requester.bids[bidIndex].bundle[resource] / requester.bids[bidIndex].bundle.sum()) * provider.bids[bidIndex].getValue()
+        val providerValue=provider.bids[resource].getValue() * provideTs
+        return (requesterValue+providerValue)/2
+    }
+
     /**
      * 取引価格はお互いの希望の半分
      *
@@ -53,7 +59,7 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         val requesterBidResults = mutableListOf<BidResult>()
         val payments = mutableListOf<Double>()
 
-        // 決定変数が1の時に取引を行う
+        // 決定変数が1の時に取引を行う TODO 計算の仕方を変えないといけない
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
@@ -68,7 +74,7 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                             providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r)))
                             // 要求側
                             requesterCals[j].bids[n].addPayment(payment)
-                            requesterCals[i].bids[n].addTime(requesters[j].bids[n].bundle[r])
+                            requesterCals[j].bids[n].addTime(requesters[j].bids[n].bundle[r])
                             requesterCals[j].bids[n].addProfit(TradeUtil.calRequesterProfit(payment, requesters[j], n, r))
                             requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calRequesterProfit(payment, requesters[j], n, r)))
                         }
@@ -83,6 +89,8 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
             }.sum()
             providerRewardsDensity.add(sumReward / providers[i].bids.map { bid -> bid.bundle.sum() }.sum())
         }
+
+
         return ResultPre(
                 payments,
                 providerCals,

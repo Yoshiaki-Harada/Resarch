@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.1-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.9.24)  31 JUL 2019 12:29
+This is e-upTeX, Version 3.14159265-p3.8.1-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.9.24)  18 AUG 2019 15:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -142,29 +142,37 @@ Package: ifptex 2017/10/04 v1.2c pTeX checker
 Package: nccmath 2006/01/20 v1.3 Additional Math Commands (NCC)
 \NCC@fracrulewidth=\dimen130
 )
-(./formulation.aux)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup5
+\symboldletters=\mathgroup6
+\symboldsymbols=\mathgroup7
+\symboldmincho=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+) (./formulation.aux)
 \openout1 = `formulation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 6.
+(Font)              scaled to size 9.6222pt on input line 7.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 6.
+(Font)              scaled to size 9.6222pt on input line 7.
 Package pxchfon Info: Font tribe is 'sourcehan':
 (pxchfon)                 SourceHanSerif-Regular.otf.
 Package pxchfon Info: Font tribe is 'sourcehan':
@@ -382,37 +390,48 @@ Package pxchfon Info: Font tribe is 'sourcehan':
 Package pxchfon Info: Font tribe is 'sourcehan':
 (pxchfon)                 SourceHanSans-Medium.otf.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 9.
+(Font)              scaled to size 6.73553pt on input line 10.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 4.8111pt on input line 9.
+(Font)              scaled to size 4.8111pt on input line 10.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
+(Font)              scaled to size 9.6222pt on input line 10.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
+(Font)              scaled to size 6.73553pt on input line 10.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
+(Font)              scaled to size 4.8111pt on input line 10.
 
-Overfull \hbox (42.44482pt too wide) detected at line 55
+Overfull \hbox (42.44482pt too wide) detected at line 56
 []
  []
 
 [1
 
 ]
-Overfull \hbox (43.14851pt too wide) detected at line 78
+Overfull \hbox (43.14851pt too wide) detected at line 79
 []
  []
 
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 89.
+(Font)              scaled to size 9.6222pt on input line 90.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 9.6222pt on input line 89.
+(Font)              scaled to size 9.6222pt on input line 90.
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 89.
+(Font)              scaled to size 6.73553pt on input line 90.
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 4.8111pt on input line 89.
-[2] [3] (./formulation.aux) ) 
-Here is how much of TeX's memory you used:
- 4310 strings out of 493239
- 62733 string characters out of 6144407
- 141669 words of memory out of 5000000
- 8312 multiletter control sequences out of 15000+600000
- 8475 words of font info for 46 fonts, out of 8000000 for 9000
- 929 hyphenation exceptions out of 8191
- 31i,14n,52p,440b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+(Font)              scaled to size 4.8111pt on input line 90.
+[2] [3]
+Overfull \hbox (54.55408pt too wide) detected at line 167
+[]
+ []
 
-Output written on formulation.dvi (3 pages, 13728 bytes).
+[4] (./formulation.aux) ) 
+Here is how much of TeX's memory you used:
+ 4400 strings out of 493239
+ 63755 string characters out of 6144407
+ 142881 words of memory out of 5000000
+ 8388 multiletter control sequences out of 15000+600000
+ 11772 words of font info for 58 fonts, out of 8000000 for 9000
+ 929 hyphenation exceptions out of 8191
+ 31i,20n,52p,440b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on formulation.dvi (4 pages, 17664 bytes).

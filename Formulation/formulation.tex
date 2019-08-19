@@ -3,6 +3,7 @@
 \usepackage[deluxe]{otf}
 \usepackage[sourcehan]{pxchfon}
 \usepackage{nccmath}
+\usepackage{bm}
 \begin{document}
 利益最大化目的関数
 
@@ -126,4 +127,61 @@
 \begin{align*}
   PAY_{i,r,j,n} = p_{i,r} \times TR_{j,n,r} 
 \end{align*}
+定式化
+\begin{flalign*}
+  % 目的関数
+  {\rm max} \quad &\sum_{j\in \bm{J}}\sum_{n\in\bm{N_{j}}}v_{j} \times y_{j,n} - \sum_{i\in\bm{I}}\sum_{r\in\bm{R}}\sum_{j\in\bm{J}}\sum_{n\in\bm{N_{j}}}c_{i,r} \times x_{i,r,j,n} \\ 
+  % 提供側の容量制約
+  {\rm s.t.} \quad &\sum_{j\in \bm{J}}\sum_{n\in\bm{N_{j}}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \\
+  &\begin{cases}
+    x_{i,r,j,n} = 0 \quad &({\rm if} \ y_{j,n}=0) \\
+    \sum_{j \in \bm{J}}\sum_{n \in \bm{N_{j}}} x_{i,r,j,n} = TR_{j,n,r}
+    \quad  &({\rm if} \ y_{j,n}=1) 
+  \end{cases}
+  \\
+  % 要求企業jの入札のうち勝者となる入札は高々１つとする制約
+  &\sum_{n \in \bm{N_{j}}}y_{j,n}  \leq 1 \quad (\forall j) \\
+  &x_{i,r,j,n}\in {0,1} \\
+  &y_{j,n} \in \bm{Z}
+\end{flalign*}
+
+\begin{flalign*}
+  % 目的関数
+  {\rm max} \quad &V(\bm{I},\bm{J} ,\bm{Q})=\sum_{j\in \bm{J}}\sum_{n\in\bm{N_{j}}}v_{j} \times y_{j,n} - \sum_{i\in\bm{I}}\sum_{r\in\bm{R}}\sum_{j\in\bm{J}}\sum_{n\in\bm{N_{j}}}c_{i,r} \times x_{i,r,j,n} \\ 
+  % 提供側の容量制約
+  {\rm s.t.} \quad &\sum_{j\in \bm{J}}\sum_{n\in\bm{N_{j}}}x_{i,r,j,n}
+  +\sum_{i\in\bm{I}}\sum_{r\in\bm{R}} q_{i,r}\leq TP_{i,r} \quad (\forall i, \forall r) \\
+  &\begin{cases}
+    x_{i,r,j,n} = 0 \quad &({\rm if} \ y_{j,n}=0) \\
+    \sum_{j \in \bm{J}}\sum_{n \in \bm{N_{j}}} x_{i,r,j,n} = TR_{j,n,r}
+    \quad  &({\rm if} \ y_{j,n}=1) 
+  \end{cases}
+  \\
+  % Qを満たすための制約
+  &\sum_{i\in\bm{I}} q_{i,r}=Q_{r} \\
+  % 要求企業jの入札のうち勝者となる入札は高々１つとする制約
+  &\sum_{n \in \bm{N_{j}}}y_{j,n}  \leq 1 \quad (\forall j) \\
+  &x_{i,r,j,n}\in {0,1} (\forall i,\forall r\forall j,\forall n )\\
+  &y_{j,n} \in \bm{Z} (\forall j,\forall n )
+  &q_{i,r} \in \bm{Z} (\forall i,\forall r )
+\end{flalign*}
+勝者となった入札のみを集めた問題
+\begin{flalign*}
+  % 目的関数
+  {\rm max} \quad &V(\bm{\tilde{I}},\bm{J})\sum_{j\in \bm{J}}\sum_{n\in\bm{N_{j}}}v_{j} \times y_{j,n} - \sum_{i\in\bm{\tilde{I}}}\sum_{r\in\bm{R}}\sum_{j\in\bm{J}}\sum_{n\in\bm{N_{j}}}c_{i,r} \times x_{i,r,j,n} \\ 
+  % 提供側の容量制約
+  {\rm s.t.} \quad &\sum_{j\in \bm{J}}\sum_{n\in\bm{N_{j}}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \\
+  &\begin{cases}
+    x_{i,r,j,n} = 0 \quad &({\rm if} \ y_{j,n}=0) \\
+    \sum_{j \in \bm{J}}\sum_{n \in \bm{N_{j}}} x_{i,r,j,n} = TR_{j,n,r}
+    \quad  &({\rm if} \ y_{j,n}=1) 
+  \end{cases}
+  \\
+  % 要求企業jの入札のうち勝者となる入札は高々１つとする制約
+  &\sum_{n \in \bm{N_{j}}}y_{j,n}  \leq 1 \quad (\forall j) \\
+  &x_{i,r,j,n}\in {0,1} \\
+  &y_{j,n} \in \bm{Z} \\ 
+  &y_{j,n}=0 (b_{j,n} \notin \bm{\tilde{B}})
+\end{flalign*}
+
 \end{document}

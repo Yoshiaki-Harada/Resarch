@@ -25,6 +25,7 @@ fun main(args: Array<String>) {
     val config = Config.fromJson("config")
     val lpFileName = "lp"
     config.targetAuction.forEach {
+        println("$it start")
         val (lpMaker, obj, trade) = when (it) {
             "PaddingMethod" -> {
                 config.lpFile = lpFileName
