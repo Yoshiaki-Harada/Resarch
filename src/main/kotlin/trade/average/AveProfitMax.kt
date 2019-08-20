@@ -68,29 +68,29 @@ object AveProfitMax : Trade {
             rs.payments.add(0.0)
         }
         return Result(
-                objValue,
-                TradeUtil.cost(x, providers, requesters),
-                sumProfit,
-                xCplex,
-                y.filter { it == 1.0 }.size,
-                providerResults,
-                requesterResults,
-                providerResults.map { it.profit }.average(),
-                providerResults.map { it.profit }.sd(),
-                providerResults.map { it.timeRatio }.average(),
-                providerResults.map { it.timeRatio }.sd(),
-                requesterResults.map { it.profit }.average(),
-                requesterResults.map { it.profit }.sd(),
-                rs.payments.average(),
-                rs.payments.sd(),
-                rs.payments.average(),
-                rs.payments.sd(),
-                rs.providerBidResults,
-                rs.requesterBidResults,
-                providerResults.map { it.beforeAvailabilityRatio }.average(),
-                providerResults.map { it.afterProviderAvailabilityRatio }.average(),
-                rs.providerRevenueDensity.average(),
-                rs.providerRevenueDensity.sd()
+                objectValue = objValue,
+                sumCost = TradeUtil.cost(x, providers, requesters),
+                sumProfit = sumProfit,
+                x = xCplex,
+                winBidNUmber = y.filter { it == 1.0 }.size,
+                providerResults = providerResults,
+                requesterResults = requesterResults,
+                providerProfitAve = providerResults.map { it.profit }.average(),
+                providerProfitSD = providerResults.map { it.profit }.sd(),
+                providerTimeRatioAve = providerResults.map { it.timeRatio }.average(),
+                providerTimeRatioSD = providerResults.map { it.timeRatio }.sd(),
+                requesterProfitAve = requesterResults.map { it.profit }.average(),
+                requesterProfitSD = requesterResults.map { it.profit }.sd(),
+                requesterPayAve = requesterResults.map { it.payment }.average(),
+                requesterPaySD = requesterResults.map { it.payment }.sd(),
+                providerRevenueAve = providerResults.map { it.payment }.average(), // 複数リソースが提供された時問題かも
+                providerRevenueSD = providerResults.map { it.payment }.sd(),
+                providerBidResults = rs.providerBidResults,
+                requesterBidResults = rs.requesterBidResults,
+                beforeProviderAvailabilityRatioAve = providerResults.map { it.beforeAvailabilityRatio }.average(),
+                afterProviderAvailabilityRatioAve = providerResults.map { it.afterProviderAvailabilityRatio }.average(),
+                providerRevenueDensityAve = rs.providerRevenueDensity.average(),
+                providerRevenueDensitySD = rs.providerRevenueDensity.sd()
         )
     }
 }
