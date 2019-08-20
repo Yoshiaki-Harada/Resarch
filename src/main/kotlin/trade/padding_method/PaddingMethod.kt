@@ -48,7 +48,7 @@ object PaddingMethod : Trade {
         }
 
         q.forEach {
-            println("q ${it.toList()}")
+            println("q ${it.sum()}")
         }
         println("xsize = ${x.flatMap { it.flatMap { it.flatMap { it } } }.size}")
         println("excludedXCplex = ${excludedXCplex.size}")
@@ -96,10 +96,10 @@ object PaddingMethod : Trade {
                 providerTimeRatioSD = providerResults.map { it.timeRatio }.sd(),
                 requesterProfitAve = requesterResults.map { it.profit }.average(),
                 requesterProfitSD = requesterResults.map { it.profit }.sd(),
-                requesterPayAve = rs.payments.average(),
-                requesterPaySD = rs.payments.sd(),
-                providerRevenueAve = rs.providerRevenue.average(),
-                providerRevenueSD = rs.providerRevenue.sd(),
+                requesterPayAve = requesterResults.map { it.payment }.average(),
+                requesterPaySD = requesterResults.map { it.payment }.sd(),
+                providerRevenueAve = providerResults.map { it.payment }.average(),
+                providerRevenueSD = providerResults.map { it.payment }.sd(),
                 providerBidResults = rs.providerBidResults,
                 requesterBidResults = rs.requesterBidResults,
                 beforeProviderAvailabilityRatioAve = providerResults.map { it.beforeAvailabilityRatio }.average(),

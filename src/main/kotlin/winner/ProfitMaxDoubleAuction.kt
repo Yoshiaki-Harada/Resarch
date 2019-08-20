@@ -52,7 +52,7 @@ object ProfitMaxDoubleAuction : LpMaker {
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
                 println("requester_$j,$n ${bid.getValue()}")
-                lp.term(bid.getValue(), "y", "$j$n")
+                lp.term(bid.getValue(), "y", "$j,$n")
             }
         }
         providers.forEachIndexed { i, provider ->
@@ -60,7 +60,7 @@ object ProfitMaxDoubleAuction : LpMaker {
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
                         //provider_iがresource_rをrequester_jの入札nに提供する時間x(正の整数)
-                        lp.minus(resource.getValue(), "x", "$i$r$j$n")
+                        lp.minus(resource.getValue(), "x", "$i,$r,$j,$n")
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
@@ -86,7 +86,7 @@ object ProfitMaxDoubleAuction : LpMaker {
                 lp.constrateName("provider $i,$r")
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
-                        lp.term("x", "$i$r$j$n")
+                        lp.term("x", "$i,$r,$j,$n")
                     }
                 }
                 lp.constrait(Constrait.LEQ)
@@ -120,11 +120,11 @@ object ProfitMaxDoubleAuction : LpMaker {
                 providers.forEachIndexed { i, provider ->
                     provider.bids.forEachIndexed { r, resource ->
                         lp.constrateName("bundle,0,$i,$r,$j,$n")
-                        lp.variable("y", "$j$n")
+                        lp.variable("y", "$j,$n")
                         lp.constrait(Constrait.EQ)
                         lp.number(0.0)
                         lp.arrow()
-                        lp.term("x", "$i$r$j$n")
+                        lp.term("x", "$i,$r,$j,$n")
                         lp.constrait(Constrait.EQ)
                         lp.number(0.0)
                         lp.newline()
@@ -133,13 +133,13 @@ object ProfitMaxDoubleAuction : LpMaker {
 
                 for (r in 0 until config.resource) {
                     lp.constrateName("bundle,if 1,$r,$j,$n")
-                    lp.variable("y", "$j$n")
+                    lp.variable("y", "$j,$n")
                     lp.constrait(Constrait.EQ)
                     lp.number(1.0)
                     lp.arrow()
                     providers.forEachIndexed { i, provider ->
                         //resource.bundle[r]
-                        lp.term("x", "$i$r$j$n")
+                        lp.term("x", "$i,$r,$j,$n")
                     }
                     lp.constrait(Constrait.EQ)
                     lp.number(bid.bundle[r])
@@ -161,7 +161,7 @@ object ProfitMaxDoubleAuction : LpMaker {
         requesters.forEachIndexed { j, requesters ->
             lp.constrateName("bidY $j")
             requesters.bids.forEachIndexed { n, bid ->
-                lp.term("y", "$j$n")
+                lp.term("y", "$j,$n")
             }
             lp.constrait(Constrait.LEQ)
             lp.number(1.0)
@@ -180,7 +180,7 @@ object ProfitMaxDoubleAuction : LpMaker {
         lp.varType(VarType.BIN)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
-                lp.variable("y", "$j$n")
+                lp.variable("y", "$j,$n")
             }
         }
         lp.newline()
@@ -199,7 +199,7 @@ object ProfitMaxDoubleAuction : LpMaker {
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
                         //provider_iがresource_rをrequester_jに提供する時間を表す変数
-                        lp.variable("x", "$i$r$j$n")
+                        lp.variable("x", "$i,$r,$j,$n")
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }

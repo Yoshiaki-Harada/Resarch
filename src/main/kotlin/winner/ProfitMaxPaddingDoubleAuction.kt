@@ -19,6 +19,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         val q = getQ(providers, requesters, config.resource)
+        println("Q $q")
         //目的関数
         writeObjFunction(lp, obj, providers, requesters, config.resource)
         //制約条件
@@ -68,7 +69,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         lp.obj(obj)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
-                lp.term(bid.getValue(), "y", "$j$n")
+                lp.term(bid.getValue(), "y", "$j,$n")
             }
         }
         providers.forEachIndexed { i, provider ->
@@ -76,15 +77,17 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
                         //provider_iがresource_rをrequester_jの入札nに提供する時間x(正の整数)
-                        lp.minus(resource.getValue(), "x", "$i$r$j$n")
+                        lp.minus(resource.getValue(), "x", "$i,$r,$j,$n")
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
             }
         }
+        lp.newline()
+
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
-                lp.minus(resource.getValue(), "q", "$i$r")
+                lp.minus(resource.getValue(), "q", "$i,$r")
             }
         }
         lp.newline()
@@ -107,12 +110,12 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                 lp.constrateName("provider times $i,$r")
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
-                        lp.term("x", "$i$r$j$n")
+                        lp.term("x", "$i,$r,$j,$n")
                     }
                 }
 
                 lp.plus()
-                lp.variable("q", "$i$r")
+                lp.variable("q", "$i,$r")
 
                 lp.constrait(Constrait.LEQ)
                 lp.number(resource.bundle[r])
@@ -145,11 +148,11 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                 providers.forEachIndexed { i, provider ->
                     provider.bids.forEachIndexed { r, resource ->
                         lp.constrateName("bundle,if 0,$i,$r,$j,$n")
-                        lp.variable("y", "$j$n")
+                        lp.variable("y", "$j,$n")
                         lp.constrait(Constrait.EQ)
                         lp.number(0.0)
                         lp.arrow()
-                        lp.term("x", "$i$r$j$n")
+                        lp.term("x", "$i,$r,$j,$n")
                         lp.constrait(Constrait.EQ)
                         lp.number(0.0)
                         lp.newline()
@@ -157,13 +160,13 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                 }
                 for (r in 0 until config.resource) {
                     lp.constrateName("bundle,if 1,$r,$j,$n")
-                    lp.variable("y", "$j$n")
+                    lp.variable("y", "$j,$n")
                     lp.constrait(Constrait.EQ)
                     lp.number(1.0)
                     lp.arrow()
                     providers.forEachIndexed { i, provider ->
                         //resource.bundle[r]
-                        lp.term("x", "$i$r$j$n")
+                        lp.term("x", "$i,$r,$j,$n")
                     }
                     lp.constrait(Constrait.EQ)
                     lp.number(bid.bundle[r])
@@ -186,7 +189,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         for (r in 0 until config.resource) {
             lp.constrateName("Q$r")
             providers.forEachIndexed { i, requester ->
-                lp.term("q", "$i$r")
+                lp.term("q", "$i,$r")
             }
             lp.constrait(Constrait.EQ)
             lp.number(q[r])
@@ -207,7 +210,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         requesters.forEachIndexed { j, requesters ->
             lp.constrateName("bidY$j")
             requesters.bids.forEachIndexed { n, bid ->
-                lp.term("y", "$j$n")
+                lp.term("y", "$j,$n")
             }
             lp.constrait(Constrait.LEQ)
             lp.number(1.0)
@@ -226,7 +229,7 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
         lp.varType(VarType.BIN)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
-                lp.variable("y", "$j$n")
+                lp.variable("y", "$j,$n")
             }
         }
         lp.newline()
@@ -245,15 +248,17 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
                 requesters.forEachIndexed { j, requester ->
                     requester.bids.forEachIndexed { n, bid ->
                         //provider_iがresource_rをrequester_jに提供する時間を表す変数
-                        lp.variable("x", "$i$r$j$n")
+                        lp.variable("x", "$i,$r,$j,$n")
                         if ((i + r + j + n) % 20 == 0) lp.newline()
                     }
                 }
             }
         }
+        lp.newline()
+
         providers.forEachIndexed { i, requester ->
             for (r in 0 until resource) {
-                lp.variable("q", "$i$r")
+                lp.variable("q", "$i,$r")
 
             }
         }

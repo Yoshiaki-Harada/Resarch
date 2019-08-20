@@ -189,6 +189,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     println("provider_$i, resource_$r 's quantity = $quantity")
                     println("provider_$i, resource_$r 's cost = ${quantity * providers[i].bids[r].value.tValue}")
                     println("provider_$i, resource_$r 's revenue = $revenue")
+                    println("provider_$i, resource_$r 's revenue / quantity= ${revenue / quantity}")
 
                     providerCals[i].bids[r].addPayment(revenue)
                     providerCals[i].bids[r].addTime(quantity)
@@ -238,9 +239,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
             if (id == providerIndex) {
                 val bids = bidder.bids.mapIndexed { index, resource ->
                     if (resoruce == index) {
-                        if (id == 2) {
-                            println("budle ${providers[2].bids[resoruce].bundle} value ${providers[2].bids[resoruce].getValue()}")
-                        }
+
                         Bid(Value(0.0, 0.0), resource.bundle.map { 0.0 })
                     } else {
                         resource

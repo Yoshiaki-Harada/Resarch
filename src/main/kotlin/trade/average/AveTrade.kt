@@ -44,7 +44,7 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
      * @return
      */
     override fun payment(provider: Bidder, requester: Bidder, bidIndex: Int, resource: Int, provideTs: Double): Double {
-        val requesterValue = (requester.bids[bidIndex].bundle[resource] / requester.bids[bidIndex].bundle.sum()) * requester.bids[bidIndex].getValue()
+        val requesterValue = (provideTs / requester.bids[bidIndex].bundle.sum()) * requester.bids[bidIndex].getValue()
         val providerValue = provider.bids[resource].getValue() * provideTs
         return (requesterValue + providerValue) / 2
     }
