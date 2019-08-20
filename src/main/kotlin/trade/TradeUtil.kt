@@ -92,23 +92,7 @@ fun nealyEqual(d0: Double, d1: Double): Boolean {
     return (d0 * 0.95 < d1 && d1 < d0 * 1.05)
 }
 
-fun cost(x: List<List<List<DoubleArray>>>, providers: List<Bidder>, requesters: List<Bidder>): Double {
-    var cost = 0.0
-    providers.forEachIndexed { i, provider ->
-        provider.bids.forEachIndexed { r, resource ->
-            requesters.forEachIndexed { j, requester ->
-                requester.bids.forEachIndexed { n, bid ->
-                    //provider_iがresource_rをrequester_jに提供するとき1となる変数
-                    //provider_iがresource_rをrequester_jの入札の要求resource_mに提供する時間x(正の整数)
-                    cost += resource.value.tValue * bid.bundle[r] * x[i][r][j][n]
-                }
-            }
-        }
-    }
-    return cost
-}
-
-fun cost2(x: List<List<List<List<Double>>>>, providers: List<Bidder>, requesters: List<Bidder>): Double {
+fun cost(x: List<List<List<List<Double>>>>, providers: List<Bidder>, requesters: List<Bidder>): Double {
     var cost = 0.0
     providers.forEachIndexed { i, provider ->
         provider.bids.forEachIndexed { r, resource ->

@@ -11,7 +11,7 @@ import result.Result
 import sd
 import trade.Trade
 import trade.calProviderResult
-import trade.cost2
+import trade.cost
 import trade.isOne
 
 object PaddingMethod : Trade {
@@ -28,7 +28,6 @@ object PaddingMethod : Trade {
         val tempY = cplexValue.copyOfRange(0, sum)
         val y = Util.convertDimension(tempY, requesters.map { it.bids.size })
         val excludedXCplex = cplexValue.copyOfRange(sum, sum + config.provider * config.resource * config.requester * config.bidNumber)
-//        val x = Util.convertDimension4(excludedXCplex, requesters.map { it.bids.size }, providers.map { it.bids.size }, config)
         val x = convert(excludedXCplex, config)
         val tempQ = cplexValue.copyOfRange(cplexValue.lastIndex + 1 - config.provider * config.resource, cplexValue.lastIndex + 1)
         val q = Util.convertDimension(tempQ, List(providers.size) { config.resource })
@@ -81,30 +80,34 @@ object PaddingMethod : Trade {
             println("**********取引は行われていません**********")
             rs.payments.add(0.0)
         }
+        // sumPay
+        // sumRevenue
         return Result(
-                objValue,
-                cost2(x, providers, requesters),
-                sumProfit,
-                cplexValue,
-                tempY.filter { isOne(it) }.size,
-                providerResults,
-                requesterResults,
-                providerResults.map { it.profit }.average(),
-                providerResults.map { it.profit }.sd(),
-                providerResults.map { it.timeRatio }.average(),
-                providerResults.map { it.timeRatio }.sd(),
-                requesterResults.map { it.profit }.average(),
-                requesterResults.map { it.profit }.sd(),
-                rs.payments.average(),
-                rs.payments.sd(),
-                rs.providerRevenue.average(),
-                rs.providerRevenue.sd(),
-                rs.providerBidResults,
-                rs.requesterBidResults,
-                providerResults.map { it.beforeAvailabilityRatio }.average(),
-                providerResults.map { it.afterProviderAvailabilityRatio }.average(),
-                rs.providerRevenueDensity.average(),
-                rs.providerRevenueDensity.sd()
+                objectValue = objValue,
+                sumCost = cost(x, providers, requesters),
+                sumProfit = sumProfit,
+                x = cplexValue,
+                winBidNUmber = tempY.filter { isOne(it) }.size,
+                providerResults = providerResults,
+                requesterResults = requesterResults,
+                providerProfitAve = providerResults.map { it.profit }.average(),
+                providerProfitSD = providerResults.map { it.profit }.sd(),
+                providerTimeRatioAve = providerResults.map { it.timeRatio }.average(),
+                providerTimeRatioSD = providerResults.map { it.timeRatio }.sd(),
+                requesterProfitAve = requesterResults.map { it.profit }.average(),
+                requesterProfitSD = requesterResults.map { it.profit }.sd(),
+                requesterPayAve = rs.payments.average(),
+                requesterPaySD = rs.payments.sd(),
+                providerRevenueAve = rs.providerRevenue.average(),
+                providerRevenueSD = rs.providerRevenue.sd(),
+                providerBidResults = rs.providerBidResults,
+                requesterBidResults = rs.requesterBidResults,
+                beforeProviderAvailabilityRatioAve = providerResults.map { it.beforeAvailabilityRatio }.average(),
+                afterProviderAvailabilityRatioAve = providerResults.map { it.afterProviderAvailabilityRatio }.average(),
+                providerRevenueDensityAve = rs.providerRevenueDensity.average(),
+                providerRevenueDensitySD = rs.providerRevenueDensity.sd(),
+                sumPay = rs.payments.sum(),
+                sumRevenue = rs.providerRevenue.sum()
         )
     }
 }

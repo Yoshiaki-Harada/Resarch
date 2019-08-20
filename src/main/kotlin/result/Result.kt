@@ -47,4 +47,6 @@ data class Result(val objectValue: Double,
                   val beforeProviderAvailabilityRatioAve: Double,
                   val afterProviderAvailabilityRatioAve: Double,
                   val providerRevenueDensityAve: Double,
-                  val providerRevenueDensitySD: Double)
+                  val providerRevenueDensitySD: Double,
+                  val sumPay: Double,
+                  val sumRevenue: Double)

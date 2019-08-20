@@ -47,8 +47,10 @@ object Excel {
     private const val WIN_BID_NUMBER = "勝者となった要求数"
     private const val PROVIDER_RATE = "提供率"
     private const val PROVIDER_REVENUE = "収入"
+    private const val PROVIDER_REVENUE_SUM = "総収入額"
     private const val PROVIDER_REVENUE_DENSITY = "収入(1Ts)"
     private const val REQUESTER_PAY = "支払い"
+    private const val REQUESTER_PAY_SUM = "総支払い額"
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
 
@@ -199,6 +201,10 @@ object Excel {
         "$BEFORE_PROVIDER_AVAILABILITY_RATIO-$SD" -> this.providerBeforeAvailabilityRatioSD
         "$AFTER_PROVIDER_AVAILABILITY_RATIO-$AVE" -> this.providerAfterAvailabilityRatioAve
         "$AFTER_PROVIDER_AVAILABILITY_RATIO-$SD" -> this.providerAfterAvailabilityRatioSD
+        "$PROVIDER_REVENUE_SUM-$AVE" -> this.sumRevenueAve
+        "$PROVIDER_REVENUE_SUM-$SD" -> this.sumRevenueSD
+        "$REQUESTER_PAY_SUM-$AVE" -> this.sumPayAve
+        "$REQUESTER_PAY_SUM-$SD" -> this.sumPaySD
         else -> {
             throw Exception("$str は存在しません")
         }

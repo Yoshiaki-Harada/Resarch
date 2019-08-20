@@ -60,7 +60,11 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
             providerRevenueAve = rs.map { it.providerRevenueAve }.average(),
             providerRevenueSD = rs.map { it.providerRevenueAve }.sd(),
             providerRevenueDensityAve = rs.map { it.providerRevenueDensityAve }.average(),
-            providerRevenueDensitySD = rs.map { it.providerRevenueDensityAve }.sd()
+            providerRevenueDensitySD = rs.map { it.providerRevenueDensityAve }.sd(),
+            sumPayAve = rs.map { it.sumPay }.average(),
+            sumPaySD = rs.map { it.sumPay }.sd(),
+            sumRevenueAve = rs.map { it.sumRevenue }.average(),
+            sumRevenueSD = rs.map { it.sumRevenue }.sd()
     )
     println("$dir/$auction")
     writer.JsonWriter("$resultDir/$dataSet/$auction").makeFile(ConclusionConverter.toJson(con))

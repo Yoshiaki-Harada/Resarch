@@ -7,7 +7,7 @@ import model.Bidder
  *
  */
 interface Rule {
-    fun run(x: List<List<List<DoubleArray>>>): ResultPre
+    fun run(x: List<List<List<List<Double>>>>): ResultPre
 }
 
 /**
@@ -23,5 +23,5 @@ interface SingleSided : Rule {
  *
  */
 interface DobuleSided : Rule {
-    fun payment(provider: Bidder, requester: Bidder, bidIndex: Int, resource: Int): Double
+    fun payment(provider: Bidder, requester: Bidder, bidIndex: Int, resource: Int, provideTs: Double): Double
 }

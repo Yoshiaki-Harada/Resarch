@@ -2,7 +2,6 @@ package trade.padding_method
 
 import Util
 import config.Config
-import convert
 import cplex.lpformat.Object
 import ilog.concert.IloLPMatrix
 import impoter.LpImporter
@@ -124,7 +123,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     requesterCals[j].bids[n].addPayment(pay)
                     requesterCals[j].bids[n].addTime(requesters[j].bids[n].bundle.sum())
                     requesterCals[j].bids[n].addProfit(requesters[j].bids[n].value.tValue - pay)
-                    providerBidResults.add(BidResult(arrayOf(j, n), pay, requesters[j].bids[n].value.tValue - pay))
+                    requesterBidResults.add(BidResult(arrayOf(j, n), pay, requesters[j].bids[n].value.tValue - pay))
                     payments.add(pay)
                 }
             }
@@ -149,6 +148,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
 
                     requester.sum()
                 }.sum()
+
                 if (quantity > 0) {
                     // 前半のvcgプライス部分
                     val conf = default.copy(lpFile = "Padding/reqAuction\\{$i}", provider = providers.size, requester = winRequesters.size)
@@ -181,7 +181,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     val supremum = getSupremum(i, r, quantity, paddingObjValue)
                     val payoff = getPayOff(i, r, supremum, winRequesters, cplex.objValue)
 
-                    // 報酬額を決定する
+                    // 収入の決定
                     val revenue = vcg - payoff
 
                     println("vcg - payoff = $vcg - $payoff")
@@ -194,7 +194,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     providerCals[i].bids[r].addTime(quantity)
                     providerCals[i].bids[r].addProfit(revenue - quantity * providers[i].bids[r].value.tValue)
                     providerBidResults.add(BidResult(arrayOf(i, r), revenue, revenue - quantity * providers[i].bids[r].value.tValue))
-                    providerRevenues.add(revenue / trade)
+                    providerRevenues.add(revenue)
                     providerRevenuesDensity.add(revenue / quantity)
                 }
             }
@@ -257,8 +257,6 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         val cplex = LpImporter("LP/Padding/supremum\\{$id}").getCplex()
         cplex.solve()
 
-        val qValue = q[id][resoruce]
-        val resourceValue = x[id][resoruce].map { it.sum() }.sum()
         val quantity = x[id][resoruce].map { it.sum() }.sum() + q[id][resoruce]
 
         println("quqntity = $quantity")

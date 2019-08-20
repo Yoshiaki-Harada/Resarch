@@ -53,15 +53,20 @@ fun List<Double>.sd(): Double {
     return Math.sqrt(this.map { Math.pow(it - this.average(), 2.0) }.sum() / this.size)
 }
 
+/**
+ * 1次元の配列を4次元のリストに変換
+ * 動的に入札数を変更させている時には使えない
+ *
+ * @param x
+ * @param config
+ * @return
+ */
 fun convert(x: DoubleArray, config: Config): List<List<List<List<Double>>>> {
     val xList = x.map { it.toBigDecimal().setScale(3, RoundingMode.HALF_UP).toDouble() }.toList()
     val l = xList.windowed(size = config.resource * config.requester * config.bidNumber, step = config.resource * config.requester * config.bidNumber)
-    val l2 = l.map {
-        println("l2の1要素${it.size}")
-        it.windowed(config.requester * config.bidNumber, config.requester * config.bidNumber).map {l->
+    return l.map {
+        it.windowed(config.requester * config.bidNumber, config.requester * config.bidNumber).map { l ->
             l.windowed(config.bidNumber, config.bidNumber)
-
         }
     }
-    return l2
 }

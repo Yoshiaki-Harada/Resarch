@@ -44,7 +44,7 @@ object AveCostMin : Trade {
         }
 
         // 利益の計算
-        val rs = AveTrade(providers, requesters, config).run(x)
+        val rs = AveTrade(providers, requesters, config).run(TODO())
 
         // 各企業のリソース提供時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
@@ -79,6 +79,8 @@ object AveCostMin : Trade {
                 rs.payments.sd(),
                 rs.providerBidResults,
                 rs.requesterBidResults,
+                TODO(),
+                TODO(),
                 TODO(),
                 TODO(),
                 TODO(),

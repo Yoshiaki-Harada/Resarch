@@ -7,7 +7,6 @@ import result.BidderCal
 import trade.ResultPre
 import trade.SingleSided
 import trade.TradeUtil
-import trade.average.AveTrade
 
 class SingleTradeImpl(val providers: List<Bidder>, val requesters: List<Bidder>, val default: Config) : SingleSided {
 
@@ -32,7 +31,7 @@ class SingleTradeImpl(val providers: List<Bidder>, val requesters: List<Bidder>,
      * @param requesters
      * @return
      */
-    override fun run(x: List<List<List<DoubleArray>>>): ResultPre {
+    override fun run(x: List<List<List<List<Double>>>>): ResultPre {
         var providerCals = mutableListOf<BidderCal>()
         var requesterCals = mutableListOf<BidderCal>()
         // 初期化
@@ -49,19 +48,20 @@ class SingleTradeImpl(val providers: List<Bidder>, val requesters: List<Bidder>,
             provider.forEachIndexed { r, resource ->
                 resource.forEachIndexed { j, requester ->
                     requester.forEachIndexed { n, d ->
-                        if (0.8 < d && d < 1.2) {
-                            val payment = AveTrade(providers, requesters, default).payment(providers[i], requesters[j], n, r)
+                        if (d > 0.01) {
+                            val payment = payment(providers[i], requesters[j], n, r)
                             payments.add(payment)
                             // 提供側
                             providerCals[i].bids[r].addPayment(payment)
-                            providerCals[i].bids[r].addProfit(TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r))
+                            providerCals[i].bids[r].addProfit(requesters[j].bids[n].value.tValue - payment)
                             providerCals[i].bids[r].addTime(requesters[j].bids[n].bundle[r])
-                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calProviderProfit(payment, providers[i], requesters[j], n, r)))
+                            providerBidResults.add(BidResult(arrayOf(i, j, n, r), payment, requesters[j].bids[n].value.tValue - payment))
                             // 要求側
                             requesterCals[j].bids[n].addPayment(payment)
-                            requesterCals[j].bids[n].addProfit(TradeUtil.calRequesterProfit(payment, requesters[j], n, r))
+                            val ratio = requesters[j].bids[n].bundle[r] / requesters[j].bids[n].bundle.sum()
+                            requesterCals[j].bids[n].addProfit(ratio * requesters[j].bids[n].value.tValue - payment)
                             requesterCals[i].bids[n].addTime(requesters[j].bids[n].bundle[r])
-                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, TradeUtil.calRequesterProfit(payment, requesters[j], n, r)))
+                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, ratio * requesters[j].bids[n].value.tValue - payment))
                         }
                     }
                 }

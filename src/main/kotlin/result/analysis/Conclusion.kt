@@ -21,4 +21,8 @@ data class Conclusion(val sumCostAve: Double,
                       val providerRevenueAve: Double,
                       val providerRevenueSD: Double,
                       val providerRevenueDensityAve: Double,
-                      val providerRevenueDensitySD: Double)
+                      val providerRevenueDensitySD: Double,
+                      val sumPayAve: Double,
+                      val sumPaySD: Double,
+                      val sumRevenueAve: Double,
+                      val sumRevenueSD: Double)
