@@ -60,6 +60,9 @@ object PaddingMethod : Trade {
             bidder.id = index
         }
 
+        requesters.forEachIndexed { index, bidder ->
+            bidder.id = index
+        }
 
         val trade = VcgTrade(providers, requesters, config, x, q.map { it.toList() })
         val rs = trade.run(y, cplex.objValue)

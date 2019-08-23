@@ -99,7 +99,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
 
     private fun decideRequesterPayment(requesterId: Int, bidId: Int, excludedRequesters: List<Bidder>, objValue: Double): Double {
         // iを除いたオークションの目的関数の値を得る
-        val conf = default.copy(lpFile = "Padding/auction\\{$requesterId}", requester = default.requester - 1)
+        val conf = default.copy(lpFile = "Padding/auction\\{$requesterId}")
 
         val bidders = providers.plus(excludedRequesters)
         ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, bidders)
@@ -114,12 +114,26 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         return pay
     }
 
+    //TODO decideRequesterPaymentが間違えている可能性が高い
     private fun requesterPayments(y: List<DoubleArray>, objValue: Double) {
         y.forEachIndexed { j, bids ->
             bids.forEachIndexed { n, d ->
                 if (isOne(d)) {
                     // 支払い価格を求める
-                    val pay = decideRequesterPayment(j, n, requesters.filter { it.id != j }, objValue)
+                    val newRequesters = requesters.mapIndexed { index, bidder ->
+                        if (bidder.id == j) {
+                            val bids = bidder.bids.map {
+                                val bundle = it.bundle.map {
+                                    0.0
+                                }
+                                Bid(Value(0.0, 0.0), bundle)
+                            }
+                            Bidder().add(bids)
+                        } else {
+                            bidder
+                        }
+                    }
+                    val pay = decideRequesterPayment(j, n, newRequesters, objValue)
                     requesterCals[j].bids[n].addPayment(pay)
                     requesterCals[j].bids[n].addTime(requesters[j].bids[n].bundle.sum())
                     requesterCals[j].bids[n].addProfit(requesters[j].bids[n].value.tValue - pay)

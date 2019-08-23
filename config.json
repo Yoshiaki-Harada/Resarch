@@ -7,18 +7,18 @@
   "lpDir": "LP",
   "penalty": 10000.0,
   "provider": 20,
-  "providerResourceNumber": 1,
+  "providerResourceNumber": 2,
   "providerTimeMax": 200.0,
   "providerTimeMin": 100.0,
-  "providerValueMax": 0.8,
-  "providerValueMin": 0.4,
+  "providerValueMax": 4.0,
+  "providerValueMin": 1.0,
   "period": 1000.0,
-  "requester": 20,
+  "requester": 10,
   "requesterTimeMax": 200.0,
   "requesterTimeMin": 0.0,
-  "requesterValueMax": 2.0,
-  "requesterValueMin": 1.0,
-  "resource": 3,
+  "requesterValueMax": 5.0,
+  "requesterValueMin": 3.0,
+  "resource": 6,
   "resultDir": "Result",
   "resultFile": "Result",
   "profitRate": 10,
@@ -27,7 +27,7 @@
     "利益最大化-平均"
   ],
   "targetData": [
-    "supply-400.0-500.0"
+    "supply-100.0-200.0"
   ],
   "targetDataIterate": 1,
   "items": [
