@@ -1,7 +1,6 @@
-# Bidフォルダはいらない
-/Bid
 /Result
 /LP
+/Bid
 *.iml
 .gradle
 /local.properties
