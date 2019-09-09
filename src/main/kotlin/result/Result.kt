@@ -28,7 +28,7 @@ package result
 data class Result(val objectValue: Double,
                   val sumCost: Double,
                   val sumProfit: Double,
-                  val x: DoubleArray,
+                  val x: List<Double>,
                   val winBidNUmber: Int,
                   val providerResults: List<BidderResult>,
                   val requesterResults: List<BidderResult>,

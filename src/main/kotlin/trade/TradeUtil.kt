@@ -2,10 +2,12 @@ package trade
 
 import config.Config
 import model.Bidder
+import org.nd4j.linalg.factory.Nd4j
 import result.BidCal
 import result.BidResult
 import result.BidderCal
 import result.ProviderResult
+
 
 object TradeUtil {
 
@@ -107,6 +109,12 @@ fun cost(x: List<List<List<List<Double>>>>, providers: List<Bidder>, requesters:
     return cost
 }
 
+fun ndf() {
+    val list = listOf<Double>(0.0, 1.0, 2.0, 3.0)
+    val m = Nd4j.create(list)
+    println(m.reshape(2, 2))
+    m.reshape(2, 2)
+}
 
 /**
  * providerの結果を出力する関数

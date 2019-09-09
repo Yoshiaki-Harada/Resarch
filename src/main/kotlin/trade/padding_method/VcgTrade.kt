@@ -17,7 +17,6 @@ import winner.ProfitMaxDoubleAuction
 import winner.ProfitMaxPaddingDoubleAuction
 
 /**
- * TODO 売手が複数のリソースを提供する場合に収入決定部分がまだ対応できてない
  *
  * @property providers
  * @property requesters
@@ -39,7 +38,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         TradeUtil.initBidderCals(requesterCals, requesters)
     }
 
-    private fun getWinRequesters(y: List<DoubleArray>): List<Bidder> {
+    private fun getWinRequesters(y: List<List<Double>>): List<Bidder> {
         val wins = mutableListOf<Bidder>()
         y.forEachIndexed { j, bids ->
             bids.forEachIndexed { n, d ->
@@ -56,7 +55,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
     private fun solveWinRequestersProblem(winRequesters: List<Bidder>): Result {
         val conf = default.copy(lpFile = "Padding/winRequesters", provider = providers.size, requester = winRequesters.size)
 
-        ProfitMaxDoubleAuction.makeLpFile(conf, Object.MAX, providers.plus(winRequesters))
+        ProfitMaxDoubleAuction(conf, Object.MAX, providers.plus(winRequesters)).makeLpFile()
         val cplex = LpImporter("LP/Padding/winRequesters").getCplex()
 
         cplex.solve()
@@ -78,7 +77,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
             val objValue: Double
     )
 
-    fun run(y: List<DoubleArray>, objValue: Double): ResultPre {
+    fun run(y: List<List<Double>>, objValue: Double): ResultPre {
         requesterPayments(y, objValue)
 
         val winRequesters = getWinRequesters(y)
@@ -102,7 +101,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         val conf = default.copy(lpFile = "Padding/auction\\{$requesterId}")
 
         val bidders = providers.plus(excludedRequesters)
-        ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, bidders)
+        ProfitMaxPaddingDoubleAuction(conf, Object.MAX, bidders).makeLpFile()
         val cplex = LpImporter("LP/Padding/auction\\{$requesterId}").getCplex()
         cplex.solve()
 
@@ -114,7 +113,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         return pay
     }
 
-    private fun requesterPayments(y: List<DoubleArray>, objValue: Double) {
+    private fun requesterPayments(y: List<List<Double>>, objValue: Double) {
         y.forEachIndexed { j, bids ->
             bids.forEachIndexed { n, d ->
                 if (isOne(d)) {
@@ -182,7 +181,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                             bidder
                         }
                     }
-                    ProfitMaxDoubleAuction.makeLpFile(conf, Object.MAX, newProviders.plus(winRequesters))
+                    ProfitMaxDoubleAuction(conf, Object.MAX, newProviders.plus(winRequesters)).makeLpFile()
 
                     val cplex = LpImporter("LP/Padding/reqAuction\\{$i}").getCplex()
                     cplex.solve()
@@ -237,7 +236,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
 
         val conf1 = default.copy(provider = newProviders.size, requester = winRequesters.size, lpFile = "Padding/payoff-$id")
 
-        ProfitMaxDoubleAuction.makeLpFile(conf1, Object.MAX, newProviders.plus(winRequesters))
+        ProfitMaxDoubleAuction(conf1, Object.MAX, newProviders.plus(winRequesters)).makeLpFile()
         val cplex = LpImporter("LP/Padding/payoff-$id").getCplex()
         cplex.solve()
 
@@ -262,7 +261,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                 bidder
             }
         }
-        ProfitMaxPaddingDoubleAuction.makeLpFile(conf, Object.MAX, newProviders.plus(requesters))
+        ProfitMaxPaddingDoubleAuction(conf, Object.MAX, newProviders.plus(requesters)).makeLpFile()
 
         val cplex = LpImporter("LP/Padding/supremum\\{$id}").getCplex()
         cplex.solve()

@@ -14,6 +14,17 @@ object Util {
         return list
     }
 
+    fun convertDimension(doubleList: List<Double>, indexDef: List<Int>): List<List<Double>> {
+        val mutableList = mutableListOf<List<Double>>()
+        var c = 0
+        indexDef.forEach { it ->
+            mutableList.add(doubleList.subList(c, c + it))
+            c += it
+        }
+        val list: List<List<Double>> = mutableList
+        return list
+    }
+
     fun convertDimension4(doubleArray: DoubleArray, requesterBidSize: List<Int>, providerBidSize: List<Int>, config: Config): List<List<List<DoubleArray>>> {
         val mutableList0 = mutableListOf<DoubleArray>()
         var c = 0
@@ -61,7 +72,7 @@ fun List<Double>.sd(): Double {
  * @param config
  * @return
  */
-fun convert(x: DoubleArray, config: Config): List<List<List<List<Double>>>> {
+fun convert(x: List<Double>, config: Config): List<List<List<List<Double>>>> {
     val xList = x.map { it.toBigDecimal().setScale(3, RoundingMode.HALF_UP).toDouble() }.toList()
     val l = xList.windowed(size = config.resource * config.requester * config.bidNumber, step = config.resource * config.requester * config.bidNumber)
     return l.map {
@@ -70,3 +81,6 @@ fun convert(x: DoubleArray, config: Config): List<List<List<List<Double>>>> {
         }
     }
 }
+
+
+fun Double.rounding() = this.toBigDecimal().setScale(3, RoundingMode.HALF_UP).toDouble()

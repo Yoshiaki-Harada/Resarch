@@ -6,7 +6,6 @@ import cplex.Solver
 import cplex.lpformat.Object
 import impoter.JsonImporter
 import impoter.LpImporter
-import trade.average.AveCostMin
 import trade.average.AvePenaltyCostMin
 import trade.average.AveProfitMax
 import trade.padding_method.PaddingMethod
@@ -26,108 +25,6 @@ fun main(args: Array<String>) {
     val lpFileName = "lp"
     config.targetAuction.forEach {
         println("$it start")
-        val (lpMaker, obj, trade) = when (it) {
-            "PaddingMethod" -> {
-                config.lpFile = lpFileName
-                Triple(ProfitMaxPaddingDoubleAuction, Object.MAX, PaddingMethod)
-            }
-            "コスト最小化" -> {
-                config.lpFile = lpFileName
-                Triple(CostMinProviderAuction, Object.MIN, AveCostMin)
-            }
-            "利益最大化-平均" -> {
-                config.lpFile = lpFileName
-                Triple(ProfitMaxDoubleAuction, Object.MAX, AveProfitMax)
-            }
-            "コスト最小化-ペナルティ-10000.0-平均" -> {
-                config.lpFile = lpFileName
-                config.penalty = 10000.0
-                Triple(CostMinPenaltyAuction, Object.MIN, AvePenaltyCostMin)
-            }
-            "提供単価最小化-ペナルティ-10000.0-profit10%" -> {
-                config.lpFile = lpFileName
-                config.profitRate = 10
-                // TODO 微妙なきがする
-                config.targetData = config.targetData.map { t ->
-                    if (t.contains("%")) {
-                        t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
-                    } else {
-                        "$t-profit${config.profitRate}%"
-                    }
-                }
-                config.penalty = 10000.0
-                Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
-            }
-            "提供単価最小化-ペナルティ-10000.0-profit20%" -> {
-                config.lpFile = lpFileName
-                config.profitRate = 20
-                config.targetData = config.targetData.map { t ->
-                    if (t.contains("%")) {
-                        t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
-                    } else {
-                        "$t-profit${config.profitRate}%"
-                    }
-                }
-                config.penalty = 10000.0
-                Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
-            }
-            "提供単価最小化-ペナルティ-10000.0-profit30%" -> {
-                config.lpFile = lpFileName
-                config.profitRate = 30
-                config.targetData = config.targetData.map { t ->
-                    if (t.contains("%")) {
-                        t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
-                    } else {
-                        "$t-profit${config.profitRate}%"
-                    }
-                }
-                config.penalty = 10000.0
-                Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
-            }
-            "提供単価最小化-ペナルティ-10000.0-profit40%" -> {
-                config.lpFile = lpFileName
-                config.profitRate = 40
-                config.targetData = config.targetData.map { t ->
-                    if (t.contains("%")) {
-                        t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
-                    } else {
-                        "$t-profit${config.profitRate}%"
-                    }
-                }
-                config.penalty = 10000.0
-                Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
-            }
-            "提供単価最小化-ペナルティ-10000.0-profit50%" -> {
-                config.lpFile = lpFileName
-                config.profitRate = 50
-                config.targetData = config.targetData.map { t ->
-                    if (t.contains("%")) {
-                        t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
-                    } else {
-                        "$t-profit${config.profitRate}%"
-                    }
-                }
-                config.penalty = 10000.0
-                Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
-            }
-            "提供単価最小化-ペナルティ-10000.0-profit60%" -> {
-                config.lpFile = lpFileName
-                config.profitRate = 60
-                config.targetData = config.targetData.map { t ->
-                    if (t.contains("%")) {
-                        t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
-                    } else {
-                        "$t-profit${config.profitRate}%"
-                    }
-                }
-                config.penalty = 10000.0
-                Triple(CostMinPenaltyAuction, Object.MIN, SingleCostMin)
-            }
-            else -> {
-                throw Exception("Auction: ${it}は存在しません")
-            }
-        }
-
         // 入札作成~結果出力
         config.targetData.map { data ->
             // iteが存在していれば繰り返す
@@ -136,7 +33,105 @@ fun main(args: Array<String>) {
                     val bidders = List(config.provider + config.requester) { j ->
                         BidderConverter.fromJson(JsonImporter("${config.bidDir}/$data/$i/bidder$j").getString())
                     }
-                    lpMaker.makeLpFile(config, obj, bidders)
+                    val (lpMaker, trade) = when (it) {
+                        "PaddingMethod" -> {
+                            config.lpFile = lpFileName
+                            Pair(ProfitMaxPaddingDoubleAuction(config = config, obj = Object.MAX, bidders = bidders), PaddingMethod)
+                        }
+                        "利益最大化-平均" -> {
+                            config.lpFile = lpFileName
+                            Pair(ProfitMaxDoubleAuction(config = config, obj = Object.MAX, bidders = bidders), AveProfitMax)
+                        }
+                        "コスト最小化-ペナルティ-10000.0-平均" -> {
+                            config.lpFile = lpFileName
+                            config.penalty = 10000.0
+                            Pair(CostMinPenaltyAuction(config = config, obj = Object.MAX, bidders = bidders), AvePenaltyCostMin)
+                        }
+                        "提供単価最小化-ペナルティ-10000.0-profit10%" -> {
+                            config.lpFile = lpFileName
+                            config.profitRate = 10
+                            // TODO 微妙なきがする
+                            config.targetData = config.targetData.map { t ->
+                                if (t.contains("%")) {
+                                    t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
+                                } else {
+                                    "$t-profit${config.profitRate}%"
+                                }
+                            }
+                            config.penalty = 10000.0
+                            Pair(CostMinPenaltyAuction(config = config, obj = Object.MAX, bidders = bidders), SingleCostMin)
+                        }
+                        "提供単価最小化-ペナルティ-10000.0-profit20%" -> {
+                            config.lpFile = lpFileName
+                            config.profitRate = 20
+                            config.targetData = config.targetData.map { t ->
+                                if (t.contains("%")) {
+                                    t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
+                                } else {
+                                    "$t-profit${config.profitRate}%"
+                                }
+                            }
+                            config.penalty = 10000.0
+                            Pair(CostMinPenaltyAuction(config = config, obj = Object.MAX, bidders = bidders), SingleCostMin)
+                        }
+                        "提供単価最小化-ペナルティ-10000.0-profit30%" -> {
+                            config.lpFile = lpFileName
+                            config.profitRate = 30
+                            config.targetData = config.targetData.map { t ->
+                                if (t.contains("%")) {
+                                    t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
+                                } else {
+                                    "$t-profit${config.profitRate}%"
+                                }
+                            }
+                            config.penalty = 10000.0
+                            Pair(CostMinPenaltyAuction(config = config, obj = Object.MAX, bidders = bidders), SingleCostMin)
+                        }
+                        "提供単価最小化-ペナルティ-10000.0-profit40%" -> {
+                            config.lpFile = lpFileName
+                            config.profitRate = 40
+                            config.targetData = config.targetData.map { t ->
+                                if (t.contains("%")) {
+                                    t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
+                                } else {
+                                    "$t-profit${config.profitRate}%"
+                                }
+                            }
+                            config.penalty = 10000.0
+                            Pair(CostMinPenaltyAuction(config = config, obj = Object.MAX, bidders = bidders), SingleCostMin)
+                        }
+                        "提供単価最小化-ペナルティ-10000.0-profit50%" -> {
+                            config.lpFile = lpFileName
+                            config.profitRate = 50
+                            config.targetData = config.targetData.map { t ->
+                                if (t.contains("%")) {
+                                    t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
+                                } else {
+                                    "$t-profit${config.profitRate}%"
+                                }
+                            }
+                            config.penalty = 10000.0
+                            Pair(CostMinPenaltyAuction(config = config, obj = Object.MAX, bidders = bidders), SingleCostMin)
+                        }
+                        "提供単価最小化-ペナルティ-10000.0-profit60%" -> {
+                            config.lpFile = lpFileName
+                            config.profitRate = 60
+                            config.targetData = config.targetData.map { t ->
+                                if (t.contains("%")) {
+                                    t.replace(Regex("profit\\d*%"), "profit${config.profitRate}%")
+                                } else {
+                                    "$t-profit${config.profitRate}%"
+                                }
+                            }
+                            config.penalty = 10000.0
+                            Pair(CostMinPenaltyAuction(config = config, obj = Object.MAX, bidders = bidders), SingleCostMin)
+                        }
+                        else -> {
+                            throw Exception("Auction: ${it}は存在しません")
+                        }
+                    }
+
+                    lpMaker.makeLpFile()
                     println("LPファイルの作成")
                     val cplex = Solver(LpImporter("${config.lpDir}/${config.lpFile}").getCplex()).solve()
                     println("勝者決定問題")
@@ -154,19 +149,7 @@ fun main(args: Array<String>) {
                 }
                 // iteが指定されなければ，繰り返さない
             } ?: run {
-                val bidders = List(config.provider + config.requester) { i ->
-                    BidderConverter.fromJson(JsonImporter("${config.bidDir}/$data/bidder$i").getString())
-                }
-                lpMaker.makeLpFile(config, obj, bidders)
-                val cplex = Solver(LpImporter("${config.lpDir}/${config.lpFile}").getCplex()).solve()
-                val result = trade.run(cplex, bidders, config)
-                // TODO: ここでやること？
-                if (data.contains("%")) {
-                    config.resultFile = "${data.replace(Regex("-profit\\d*%"), "")}/$it"
-                } else {
-                    config.resultFile = "$data/$it"
-                }
-                Saver.run(bidders, result, config)
+                throw Exception("ite is null")
             }
         }
     }

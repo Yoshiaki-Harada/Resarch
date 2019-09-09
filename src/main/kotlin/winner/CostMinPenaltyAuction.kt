@@ -5,18 +5,18 @@ import cplex.lpformat.Constrait
 import cplex.lpformat.Object
 import cplex.lpformat.VarType
 import model.Bidder
-import model.Option
 import writer.LpWriter
 
 /**
  * コスト最小化-penaltyの定式化
+ * TODO 整数変数yの導入
  */
-object CostMinPenaltyAuction : LpMaker {
+class CostMinPenaltyAuction(val config: Config, val obj: Object, val bidders: List<Bidder>) : LpMaker {
 
-    override fun makeLpFile(config: Config, obj: Object, bidders: List<Bidder>, vararg option: Option) {
-        val lp = LpWriter("${config.lpDir}/${config.lpFile}")
+    override fun makeLpFile() {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
+        val lp = LpWriter("${config.lpDir}/${config.lpFile}")
 
         // 目的関数
         writeObjFunction(lp, obj, providers, requesters, config)

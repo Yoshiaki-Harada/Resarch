@@ -5,34 +5,27 @@ import cplex.lpformat.Constrait
 import cplex.lpformat.Object
 import cplex.lpformat.VarType
 import model.Bidder
-import model.Option
 import writer.LpWriter
 
 /**
  * 利益最大化の定式化
- * 現状予算制約が破られることはないので記述していない(本当はすべき)
+ *         val lp = LpWriter("${config.lpDir}/${config.lpFile}")
  */
-object ProfitMaxDoubleAuction : LpMaker {
-    override fun makeLpFile(config: Config, obj: Object, bidders: List<Bidder>, vararg option: Option) {
-        val lp = LpWriter("${config.lpDir}/${config.lpFile}")
-        val providers = bidders.subList(0, config.provider)
-        val requesters = bidders.subList(config.provider, config.provider + config.requester)
-        //目的関数
+class ProfitMaxDoubleAuction(val config: Config, val obj: Object, val bidders: List<Bidder>) : LpMaker {
 
-        println("確認")
-        requesters.forEach {
-            it.bids.forEach { bid ->
-                println("bid value = ${bid.value.getValue()}, ${bid.bundle.toList()}")
-            }
-        }
-        writeObjFunction(lp, obj, providers, requesters)
+    val providers = bidders.subList(0, config.provider)
+    val requesters = bidders.subList(config.provider, config.provider + config.requester)
+    val lp = LpWriter("${config.lpDir}/${config.lpFile}")
+    override fun makeLpFile() {
+        //目的関数
+        writeObjFunction()
         //制約条件
         lp.subto()
-        writeSubToProvide(lp, obj, providers, requesters)
-        writeSubToRelationXsndY(lp, obj, providers, requesters, config)
-        writeSubToBidY(lp, obj, providers, requesters)
-        writeBinVariable(lp, providers, requesters)
-        writeGeneralVariable(lp, providers, requesters, config.resource)
+        writeSubToProvide()
+        writeSubToRelationXsndY()
+        writeSubToBidY()
+        writeBinVariable()
+        writeGeneralVariable()
 
         lp.end()
     }
@@ -42,12 +35,9 @@ object ProfitMaxDoubleAuction : LpMaker {
      *  max \sum_{j=1}^{J}\sum_{n=1}^{N}v_{j} \times y_{j,n}
      *  -\sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times
      *  TR_{i,n,r}\times x_{i,r,j,n}
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
+     *
      */
-    fun writeObjFunction(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
+    private fun writeObjFunction() {
         lp.obj(obj)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
@@ -74,12 +64,8 @@ object ProfitMaxDoubleAuction : LpMaker {
      *  s.t. \sum_{j=1}^{J}\sum_{n=1}^{N}TR_{j,n,r}  \times x_{i,r,j,n}
      * \leq TP_{i,r} (\forall i, \forall r)
      *
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
      */
-    fun writeSubToProvide(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
+    private fun writeSubToProvide() {
         //全てのresouceについて
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
@@ -102,14 +88,9 @@ object ProfitMaxDoubleAuction : LpMaker {
      * \sum_{i=1}^{I}\sum_{n=1}^{N}  x_{i,r,j,n} \\ \quad \quad = TR_{j,n,r}
      * &({\rm if} \ y_{j,n}=1)
      * \end{cases}
-
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
-     * @param config
+     *
      */
-    fun writeSubToRelationXsndY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
+    private fun writeSubToRelationXsndY() {
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
                 //条件分岐
@@ -152,12 +133,8 @@ object ProfitMaxDoubleAuction : LpMaker {
     /**
      *  \sum_{n=1}^{N}y_{j,n}  \leq 1 \quad (\forall j)
      *
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
      */
-    fun writeSubToBidY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
+    private fun writeSubToBidY() {
         requesters.forEachIndexed { j, requesters ->
             lp.constrateName("bidY $j")
             requesters.bids.forEachIndexed { n, bid ->
@@ -172,11 +149,8 @@ object ProfitMaxDoubleAuction : LpMaker {
     /**
      *   x_{i,r,j,n},y_{j,n} \in {0,1}
      *
-     * @param lp
-     * @param providers
-     * @param requesters
      */
-    fun writeBinVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>) {
+    private fun writeBinVariable() {
         lp.varType(VarType.BIN)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
@@ -189,10 +163,8 @@ object ProfitMaxDoubleAuction : LpMaker {
     /**
      * x_{i,r,j,n} \in Z
      *
-     * @param lp
-     * @param requesters
      */
-    fun writeGeneralVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>, resource: Int) {
+    private fun writeGeneralVariable() {
         lp.varType(VarType.GEN)
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->

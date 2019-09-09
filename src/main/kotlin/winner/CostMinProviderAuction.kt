@@ -1,18 +1,17 @@
 package winner
 
 import config.Config
-import cplex.lpformat.Object
-import model.Bidder
-import model.Option
-import writer.LpWriter
 import cplex.lpformat.Constrait
+import cplex.lpformat.Object
 import cplex.lpformat.VarType
+import model.Bidder
+import writer.LpWriter
 
 /**
  * ペナルティではなく制約としての定式化
  */
-object CostMinProviderAuction : LpMaker {
-    override fun makeLpFile(config: Config, obj: Object, bidders: List<Bidder>, vararg option: Option) {
+class CostMinProviderAuction(val config: Config, val obj: Object, val bidders: List<Bidder>) : LpMaker {
+    override fun makeLpFile() {
         val lp = LpWriter("${config.lpDir}/${config.lpFile}")
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)

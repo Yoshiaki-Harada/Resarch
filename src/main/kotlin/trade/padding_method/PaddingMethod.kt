@@ -9,6 +9,7 @@ import model.Bidder
 import result.BidderResult
 import result.LiarResult
 import result.Result
+import rounding
 import sd
 import trade.Trade
 import trade.calProviderResult
@@ -19,18 +20,16 @@ object PaddingMethod : Trade {
 
     override fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
-        val cplexValue = cplex.getValues(lp)
+        val cplexValue = cplex.getValues(lp).map { it.rounding() }
         val objValue = cplex.objValue
         val providers = bidders.subList(0, config.provider)
-        println("providerNumber:" + providers.size)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
-        println("requesterNumber:" + requesters.size)
         val sum = requesters.map { it.bids.size }.sum()
-        val tempY = cplexValue.copyOfRange(0, sum)
+        val tempY = cplexValue.subList(0, sum)
         val y = Util.convertDimension(tempY, requesters.map { it.bids.size })
-        val excludedXCplex = cplexValue.copyOfRange(sum, sum + config.provider * config.resource * config.requester * config.bidNumber)
+        val excludedXCplex = cplexValue.subList(sum, sum + config.provider * config.resource * config.requester * config.bidNumber)
         val x = convert(excludedXCplex, config)
-        val tempQ = cplexValue.copyOfRange(cplexValue.lastIndex + 1 - config.provider * config.resource, cplexValue.lastIndex + 1)
+        val tempQ = cplexValue.subList(cplexValue.lastIndex + 1 - config.provider * config.resource, cplexValue.lastIndex + 1)
         val q = Util.convertDimension(tempQ, List(providers.size) { config.resource })
         val lieProviderNumber = 1
         y.forEachIndexed { index, doubles ->
@@ -67,6 +66,17 @@ object PaddingMethod : Trade {
 
         val trade = VcgTrade(providers, requesters, config, x, q.map { it.toList() })
         val rs = trade.run(y, cplex.objValue)
+        this.getResult(
+                config = config,
+                objValue = objValue,
+                providers = providers,
+                requesters = requesters,
+                x = x,
+                y = y,
+                xCplex = cplexValue,
+                resultPre = rs,
+                lieProviderNumber = lieProviderNumber
+        )
 
         // 各企業の総リソース提供可能時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
@@ -114,7 +124,7 @@ object PaddingMethod : Trade {
                 sumRevenue = rs.providerRevenue.sum(),
                 liarResult = LiarResult(
                         providerProfitAve = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.average(),
-                        providerProfitSD = providerResults.filter { it.id  < lieProviderNumber }.map { it.profit }.sd(),
+                        providerProfitSD = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.sd(),
                         providerRevenueDensityAve = rs.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.average(),
                         providerRevenueDensitySD = rs.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.sd()
                 )

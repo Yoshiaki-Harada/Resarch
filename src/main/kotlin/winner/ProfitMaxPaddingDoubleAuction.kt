@@ -5,7 +5,6 @@ import cplex.lpformat.Constrait
 import cplex.lpformat.Object
 import cplex.lpformat.VarType
 import model.Bidder
-import model.Option
 import writer.LpWriter
 import kotlin.math.max
 
@@ -13,27 +12,29 @@ import kotlin.math.max
  * 利益最大化の定式化
  * 仮想的なQを考慮する
  */
-object ProfitMaxPaddingDoubleAuction : LpMaker {
-    override fun makeLpFile(config: Config, obj: Object, bidders: List<Bidder>, vararg option: Option) {
-        val lp = LpWriter("${config.lpDir}/${config.lpFile}")
-        val providers = bidders.subList(0, config.provider)
-        val requesters = bidders.subList(config.provider, config.provider + config.requester)
-        val q = getQ(providers, requesters, config.resource)
+class ProfitMaxPaddingDoubleAuction(val config: Config, val obj: Object, val bidders: List<Bidder>) : LpMaker {
+
+    private val providers = bidders.subList(0, config.provider)
+    private val requesters = bidders.subList(config.provider, config.provider + config.requester)
+    val lp = LpWriter("${config.lpDir}/${config.lpFile}")
+    private val q = getQ(config.resource)
+
+    override fun makeLpFile() {
         println("Q $q")
         //目的関数
-        writeObjFunction(lp, obj, providers, requesters, config.resource)
+        writeObjFunction()
         //制約条件
         lp.subto()
-        writeSubToProvide(lp, obj, providers, requesters, q)
-        writeSubToRelationXsndY(lp, obj, providers, requesters, config)
-        writeSubToBidY(lp, obj, providers, requesters)
-        writeSubToQ(lp, providers, requesters, q, config)
-        writeBinVariable(lp, providers, requesters)
-        writeGeneralVariable(lp, providers, requesters, config.resource)
+        writeSubToProvide()
+        writeSubToRelationXsndY()
+        writeSubToBidY()
+        writeSubToQ()
+        writeBinVariable()
+        writeGeneralVariable(config.resource)
         lp.end()
     }
 
-    private fun getQ(providers: List<Bidder>, requesters: List<Bidder>, resource: Int): List<Double> {
+    private fun getQ(resource: Int): List<Double> {
         val requesterQ = List(resource) { r ->
             requesters.map { requester ->
                 requester.bids.map { bid ->
@@ -60,12 +61,9 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
      *  -\sum_{i=1}^{I}\sum_{r=1}^{R}\sum_{j=1}^{J}\sum_{n=1}^{N}c_{i,r}\times
      *  TR_{i,n,r}\times x_{i,r,j,n}
      *  -\sum_{i=1}^{I}\sum_{r=1}^{R}c_{i,r}q_{i,r}
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
+     *
      */
-    fun writeObjFunction(lp: LpWriter, obj: Object, providers: List<Bidder>, requesters: List<Bidder>, resource: Int) {
+    private fun writeObjFunction() {
         lp.obj(obj)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
@@ -98,12 +96,8 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
      *  s.t. \sum_{j=1}^{J}\sum_{n=1}^{N} x_{i,r,j,n} + q_{i,r}
      * \leq TP_{i,r} (\forall i, \forall r)
      *
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
      */
-    fun writeSubToProvide(lp: LpWriter, obj: Object, providers: List<Bidder>, requesters: List<Bidder>, q: List<Double>) {
+    private fun writeSubToProvide() {
         //全てのresouceについて
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->
@@ -130,14 +124,9 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
      * \sum_{i=1}^{I}\sum_{n=1}^{N} x_{i,r,j,n} \\ \quad \quad = TR_{j,n,r}
      * &({\rm if} \ y_{j,n}=1)
      * \end{cases}
-
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
-     * @param config
+     *
      */
-    fun writeSubToRelationXsndY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>, config: Config) {
+    private fun writeSubToRelationXsndY() {
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
                 //条件分岐
@@ -180,12 +169,8 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
     /**
      * \sum_{i=1}^{I}q_{i,r}=Q_{r} (\forall r)
      *
-     * @param lp
-     * @param providers
-     * @param requesters
-     * @param config
      */
-    fun writeSubToQ(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>, q: List<Double>, config: Config) {
+    private fun writeSubToQ() {
         for (r in 0 until config.resource) {
             lp.constrateName("Q$r")
             providers.forEachIndexed { i, requester ->
@@ -201,12 +186,8 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
     /**
      *  \sum_{n=1}^{N}y_{j,n}  \leq 1 \quad (\forall j)
      *
-     * @param lp
-     * @param obj
-     * @param providers
-     * @param requesters
      */
-    fun writeSubToBidY(lp: LpWriter, obj: cplex.lpformat.Object, providers: List<Bidder>, requesters: List<Bidder>) {
+    private fun writeSubToBidY() {
         requesters.forEachIndexed { j, requesters ->
             lp.constrateName("bidY$j")
             requesters.bids.forEachIndexed { n, bid ->
@@ -221,11 +202,8 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
     /**
      *  y_{j,n} \in  {0,1}
      *
-     * @param lp
-     * @param providers
-     * @param requesters
      */
-    fun writeBinVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>) {
+    private fun writeBinVariable() {
         lp.varType(VarType.BIN)
         requesters.forEachIndexed { j, requester ->
             requester.bids.forEachIndexed { n, bid ->
@@ -238,10 +216,8 @@ object ProfitMaxPaddingDoubleAuction : LpMaker {
     /**
      * x_{i,r,j,n} \in Z
      *
-     * @param lp
-     * @param requesters
      */
-    fun writeGeneralVariable(lp: LpWriter, providers: List<Bidder>, requesters: List<Bidder>, resource: Int) {
+    private fun writeGeneralVariable(resource: Int) {
         lp.varType(VarType.GEN)
         providers.forEachIndexed { i, provider ->
             provider.bids.forEachIndexed { r, resource ->

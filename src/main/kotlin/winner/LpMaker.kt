@@ -8,5 +8,5 @@ interface LpMaker {
     /**
      * lpファイルはlpDir/lpfileに保存される
      */
-    fun makeLpFile(config: Config, obj: cplex.lpformat.Object, bidders: List<Bidder>, vararg option: Option)
+    fun makeLpFile()
 }

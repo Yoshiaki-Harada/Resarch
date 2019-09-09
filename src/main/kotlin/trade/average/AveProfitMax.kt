@@ -8,6 +8,7 @@ import model.Bidder
 import result.BidderResult
 import result.LiarResult
 import result.Result
+import rounding
 import sd
 import trade.Trade
 import trade.TradeUtil
@@ -24,7 +25,7 @@ object AveProfitMax : Trade {
         println("objValue = $objValue")
 
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
-        val xCplex = cplex.getValues(lp)
+        val xCplex = cplex.getValues(lp).map { it.rounding() }
 
         val providers = bidders.subList(0, config.provider)
         println("providerNumber:" + providers.size)
@@ -32,9 +33,9 @@ object AveProfitMax : Trade {
         println("requesterNumber:" + requesters.size)
 
         val sum = requesters.map { it.bids.size }.sum()
-        val y = xCplex.copyOfRange(0, sum)
+        val y = xCplex.subList(0, sum)
         println("y_size: ${y.size}")
-        val excludedXCplex = xCplex.copyOfRange(sum, xCplex.lastIndex + 1)
+        val excludedXCplex = xCplex.subList(sum, xCplex.lastIndex + 1)
         println("x_size:" + excludedXCplex.size)
         val x = convert(excludedXCplex, config)
         val lieProviderNumber = 1
@@ -103,6 +104,7 @@ object AveProfitMax : Trade {
                         providerProfitSD = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.sd(),
                         providerRevenueDensityAve = rs.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.average(),
                         providerRevenueDensitySD = rs.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.sd()
-                ))
+                )
+        )
     }
 }

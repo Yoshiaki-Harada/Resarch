@@ -7,6 +7,7 @@ import ilog.cplex.IloCplex
 import model.Bidder
 import result.BidderResult
 import result.Result
+import rounding
 import sd
 import trade.Trade
 import trade.TradeUtil
@@ -21,7 +22,7 @@ object SingleCostMin : Trade {
         //目的関数値
         val objValue = cplex.objValue
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
-        val xCplex = cplex.getValues(lp)
+        val xCplex = cplex.getValues(lp).map { it.rounding() }
         println("objValue = $objValue")
         val providers = bidders.subList(0, config.provider)
         println("providerNumber:" + providers.size)
@@ -29,8 +30,8 @@ object SingleCostMin : Trade {
         println("requesterNumber:" + requesters.size)
         val sum = requesters.map { it.bids.size }.sum()
         println(sum)
-        val y = xCplex.copyOfRange(0, sum)
-        val excludedXCplex = xCplex.copyOfRange(sum, xCplex.lastIndex + 1)
+        val y = xCplex.subList(0, sum)
+        val excludedXCplex = xCplex.subList(sum, xCplex.lastIndex + 1)
         println("x_size:" + excludedXCplex.size)
         val x = convert(excludedXCplex, config)
 
