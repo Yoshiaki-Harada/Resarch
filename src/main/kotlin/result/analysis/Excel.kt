@@ -42,6 +42,8 @@ object Excel {
      */
     private const val SUM_PROFIT = "総利益"
     private const val SUM_COST = "総コスト"
+    private const val SUM_PROFIT_INCLUDE_AUCTIONEER = "総利益(オークション主催者込み)"
+
     private const val PROVIDER_PROFIT_AVE = "提供企業側の利益の平均"
     private const val REQUESTER_PROFIT_AVE = "要求企業側の利益の平均"
     private const val WIN_BID_NUMBER = "勝者となった要求数"
@@ -53,6 +55,9 @@ object Excel {
     private const val REQUESTER_PAY_SUM = "総支払い額"
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
+
+    private const val LIE_REQUESTER_PROFIT_AVE = "虚偽申告-要求企業側の利益の平均"
+    private const val LIE_PROVIDER_REVENUE_DENSITY = "虚偽申告-収入(1Ts)"
 
     private const val AVE = "AVE."
     private const val SD = "S.D."
@@ -181,6 +186,8 @@ object Excel {
     fun Conclusion.getValue(item: String, kind: String): Double = when (val str = "$item-$kind") {
         "$SUM_PROFIT-$AVE" -> this.sumProfitAve
         "$SUM_PROFIT-$SD" -> this.sumProfitSD
+        "$SUM_PROFIT_INCLUDE_AUCTIONEER-$AVE" -> this.sumProfitIncludeAuctioneerAve
+        "$SUM_PROFIT_INCLUDE_AUCTIONEER-$SD" -> this.sumProfitIncludeAuctioneerSD
         "$SUM_COST-$AVE" -> this.sumCostAve
         "$SUM_COST-$SD" -> this.sumCostSD
         "$PROVIDER_PROFIT_AVE-$AVE" -> this.providerProfitAve
@@ -205,6 +212,10 @@ object Excel {
         "$PROVIDER_REVENUE_SUM-$SD" -> this.sumRevenueSD
         "$REQUESTER_PAY_SUM-$AVE" -> this.sumPayAve
         "$REQUESTER_PAY_SUM-$SD" -> this.sumPaySD
+        "$LIE_REQUESTER_PROFIT_AVE-$AVE" -> this.liarConclusion?.providerProfitAve ?: 0.0
+        "$LIE_REQUESTER_PROFIT_AVE-$SD" -> this.liarConclusion?.providerProfitSD ?: 0.0
+        "$LIE_PROVIDER_REVENUE_DENSITY-$AVE" -> this.liarConclusion?.providerRevenueDensityAve ?: 0.0
+        "$LIE_PROVIDER_REVENUE_DENSITY-$SD" -> this.liarConclusion?.providerRevenueDensitySD ?: 0.0
         else -> {
             throw Exception("$str は存在しません")
         }

@@ -7,6 +7,7 @@ import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
 import result.BidderResult
+import result.LiarResult
 import result.Result
 import sd
 import trade.Trade
@@ -31,7 +32,7 @@ object PaddingMethod : Trade {
         val x = convert(excludedXCplex, config)
         val tempQ = cplexValue.copyOfRange(cplexValue.lastIndex + 1 - config.provider * config.resource, cplexValue.lastIndex + 1)
         val q = Util.convertDimension(tempQ, List(providers.size) { config.resource })
-
+        val lieProviderNumber = 1
         y.forEachIndexed { index, doubles ->
             println("y$index=${doubles.toList()}")
         }
@@ -87,7 +88,7 @@ object PaddingMethod : Trade {
         // sumRevenue
         return Result(
                 objectValue = objValue,
-                sumCost = cost(x, providers, requesters),
+                sumCost = cost(x, providers, requesters),/*このxではなくP(I,J)のx*/
                 sumProfit = sumProfit,
                 x = cplexValue,
                 winBidNUmber = tempY.filter { isOne(it) }.size,
@@ -110,7 +111,13 @@ object PaddingMethod : Trade {
                 providerRevenueDensityAve = rs.providerRevenueDensity.average(),
                 providerRevenueDensitySD = rs.providerRevenueDensity.sd(),
                 sumPay = rs.payments.sum(),
-                sumRevenue = rs.providerRevenue.sum()
+                sumRevenue = rs.providerRevenue.sum(),
+                liarResult = LiarResult(
+                        providerProfitAve = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.average(),
+                        providerProfitSD = providerResults.filter { it.id  < lieProviderNumber }.map { it.profit }.sd(),
+                        providerRevenueDensityAve = rs.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.average(),
+                        providerRevenueDensitySD = rs.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.sd()
+                )
         )
     }
 }

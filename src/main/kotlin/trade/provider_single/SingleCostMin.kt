@@ -85,7 +85,8 @@ object SingleCostMin : Trade {
                 providerRevenueDensityAve = rs.providerRevenueDensity.average(),
                 providerRevenueDensitySD = rs.providerRevenueDensity.sd(),
                 sumPay = rs.requesterBidResults.filter { it.payment == 0.0 }.map { it.payment }.sum(),
-                sumRevenue = rs.providerRevenue.sum()
+                sumRevenue = rs.providerRevenue.sum(),
+                liarResult = null
         )
     }
 }

@@ -49,4 +49,16 @@ data class Result(val objectValue: Double,
                   val providerRevenueDensityAve: Double,
                   val providerRevenueDensitySD: Double,
                   val sumPay: Double,
-                  val sumRevenue: Double)
+                  val sumRevenue: Double,
+                  val liarResult: LiarResult?)
+
+/**
+ * 虚偽申告をした入札者の結果用のクラス
+ *
+ * @property providerProfitAve
+ * @property providerProfitSD
+ */
+data class LiarResult(val providerProfitAve: Double,
+                      val providerProfitSD: Double,
+                      val providerRevenueDensityAve: Double,
+                      val providerRevenueDensitySD: Double)

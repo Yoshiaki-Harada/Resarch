@@ -114,7 +114,6 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         return pay
     }
 
-    //TODO decideRequesterPaymentが間違えている可能性が高い
     private fun requesterPayments(y: List<DoubleArray>, objValue: Double) {
         y.forEachIndexed { j, bids ->
             bids.forEachIndexed { n, d ->
@@ -224,7 +223,6 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     if (index == resoruceId) {
                         // 金額を整数値に限定するかは保留
                         println("supremum $supremum")
-                        // 時間がおかしい？
                         println("Ts ${bids.bundle[index]}")
                         println("p_$id(I,J,Q) = ${supremum / bids.bundle[index]}")
                         Bid(Value(supremum / bids.bundle[index], 0.0), bids.bundle)
@@ -253,7 +251,6 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
             if (id == providerIndex) {
                 val bids = bidder.bids.mapIndexed { index, resource ->
                     if (resoruce == index) {
-
                         Bid(Value(0.0, 0.0), resource.bundle.map { 0.0 })
                     } else {
                         resource

@@ -84,7 +84,8 @@ object AveCostMin : Trade {
                 TODO(),
                 TODO(),
                 TODO(),
-                TODO()
+                TODO(),
+                null
         )
     }
 }

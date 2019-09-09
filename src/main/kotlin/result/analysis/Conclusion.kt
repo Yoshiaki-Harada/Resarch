@@ -25,4 +25,14 @@ data class Conclusion(val sumCostAve: Double,
                       val sumPayAve: Double,
                       val sumPaySD: Double,
                       val sumRevenueAve: Double,
-                      val sumRevenueSD: Double)
+                      val sumRevenueSD: Double,
+                      val sumProfitIncludeAuctioneerAve: Double,
+                      val sumProfitIncludeAuctioneerSD: Double,
+                      val liarConclusion: LiarConclusion?)
+
+data class LiarConclusion(
+        val providerProfitAve: Double,
+        val providerProfitSD: Double,
+        val providerRevenueDensityAve: Double,
+        val providerRevenueDensitySD: Double
+)

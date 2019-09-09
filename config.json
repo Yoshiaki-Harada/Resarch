@@ -6,7 +6,8 @@
   "lpFile": "LP/profitMax",
   "lpDir": "LP",
   "penalty": 10000.0,
-  "provider": 20,
+  "provider": 15,
+
   "providerResourceNumber": 2,
   "providerTimeMax": 200.0,
   "providerTimeMin": 100.0,
@@ -27,11 +28,12 @@
     "利益最大化-平均"
   ],
   "targetData": [
-    "supply-100.0-200.0"
+    "supply-100.0-200.0-lie10%"
   ],
-  "targetDataIterate": 1,
+  "targetDataIterate": 10,
   "items": [
     "総利益",
+    "総利益(オークション主催者込み)",
     "総コスト",
     "提供企業側の利益の平均",
     "要求企業側の利益の平均",
@@ -42,6 +44,8 @@
     "取引前稼働率",
     "取引後稼働率",
     "総支払い額",
-    "総収入額"
+    "総収入額",
+    "虚偽申告-要求企業側の利益の平均",
+    "虚偽申告-収入(1Ts)"
   ]
 }
