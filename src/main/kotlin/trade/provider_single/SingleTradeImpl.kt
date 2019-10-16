@@ -8,6 +8,7 @@ import trade.ResultPre
 import trade.SingleSided
 import trade.TradeUtil
 
+// TODO 決定変数が整数変数の場合に対応していない
 class SingleTradeImpl(val providers: List<Bidder>, val requesters: List<Bidder>, val default: Config) : SingleSided {
 
     /**

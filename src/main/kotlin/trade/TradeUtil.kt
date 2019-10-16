@@ -141,6 +141,19 @@ fun calProviderResult(provideTimes: List<Double>, rs: ResultPre, config: Config)
     }
 }
 
+// 結果出力用リストの初期化
+fun initBidderCals(bidderCals: MutableList<BidderCal>, bidders: List<Bidder>) {
+    println("bidders:" + bidders.size)
+    bidders.forEach {
+        val bidCal = BidderCal()
+        it.bids.forEach {
+            bidCal.bids.add(BidCal())
+        }
+        bidderCals.add(bidCal)
+    }
+}
+
+
 data class ResultPre(
         val payments: MutableList<Double>,
         val providerCals: MutableList<BidderCal>,

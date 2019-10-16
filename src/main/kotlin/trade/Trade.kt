@@ -28,7 +28,7 @@ interface Trade {
             resultPre: ResultPre,
             x: List<List<List<List<Double>>>>,
             y: List<List<Double>>,
-            xCplex: List<Double>,
+            solutions: List<Double>,
             lieProviderNumber: Int): Result {
 
         // 各企業の総リソース提供可能時間のリスト
@@ -51,7 +51,7 @@ interface Trade {
                 objectValue = objValue,
                 sumCost = cost(x, providers, requesters),/*このxではなくP(I,J)のx*/
                 sumProfit = sumProfit,
-                x = xCplex,
+                x = solutions,
                 winBidNUmber = y.flatMap { it }.filter { isOne(it) }.size,
                 providerResults = providerResults,
                 requesterResults = requesterResults,

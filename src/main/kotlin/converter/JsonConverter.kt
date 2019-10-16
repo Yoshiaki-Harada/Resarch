@@ -1,5 +1,6 @@
 package converter
 
+import com.google.gson.annotations.JsonAdapter
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import config.Config
