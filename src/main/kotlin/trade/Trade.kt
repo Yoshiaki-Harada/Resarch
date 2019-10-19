@@ -29,7 +29,8 @@ interface Trade {
             x: List<List<List<List<Double>>>>,
             y: List<List<Double>>,
             solutions: List<Double>,
-            lieProviderNumber: Int): Result {
+            lieProviderNumber: Int,
+            auctioneerProfit: Double): Result {
 
         // 各企業の総リソース提供可能時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
@@ -40,9 +41,9 @@ interface Trade {
         val requesterResults = resultPre.requesterCals.mapIndexed { j, it ->
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
-
-        val sumProfit = resultPre.providerBidResults.map { it.profit }.sum().plus(resultPre.requesterBidResults.map { it.profit }.sum())
-
+        print("reques")
+//        val sumProfit = resultPre.providerBidResults.map { it.profit }.sum().plus(resultPre.requesterBidResults.map { it.profit }.sum())
+        val sumProfit = providerResults.map { it.profit }.sum() + requesterResults.map { it.profit }.sum()
         if (resultPre.payments.isNullOrEmpty()) {
             println("**********取引は行われていません**********")
             resultPre.payments.add(0.0)
@@ -71,16 +72,21 @@ interface Trade {
                 afterProviderAvailabilityRatioAve = providerResults.map { it.afterProviderAvailabilityRatio }.average(),
                 providerRevenueDensityAve = resultPre.providerRevenueDensity.average(),
                 providerRevenueDensitySD = resultPre.providerRevenueDensity.sd(),
-                sumPay = resultPre.payments.sum(),
-                sumRevenue = resultPre.providerRevenue.sum(),
+                sumPay = providerResults.map { it.payment }.sum(),
+                sumRevenue = requesterResults.map { it.payment }.sum(),
                 liarResult = LiarResult(
-                        providerProfitAve = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.average(),
-                        providerProfitSD = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.sd(),
-                        providerRevenueDensityAve = resultPre.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.average(),
-                        providerRevenueDensitySD = resultPre.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.sd()
-                )
+                        providerProfitAve = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.average().nanTo0(),
+                        providerProfitSD = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.sd().nanTo0(),
+                        providerRevenueDensityAve = resultPre.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.average().nanTo0(),
+                        providerRevenueDensitySD = resultPre.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.sd().nanTo0()
+                ),
+                auctioneerProfit = auctioneerProfit
         )
     }
 }
 
+inline fun Double.nanTo0(): Double {
+    return if (this.isNaN()) 0.0
+    else this
+}
 

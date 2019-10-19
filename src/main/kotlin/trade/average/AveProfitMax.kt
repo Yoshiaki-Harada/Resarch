@@ -13,10 +13,8 @@ import trade.Trade
 object AveProfitMax : Trade {
     override
     fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
-
         val objValue = cplex.objValue
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
-
         val solutions = cplex.getValues(lp).map { it.rounding() }
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
@@ -25,7 +23,6 @@ object AveProfitMax : Trade {
         val y = Util.convertDimension(solutions.subList(0, sum), requesters.map { it.bids.size })
         // yを除いたsolutions
         val x = convert(solutions.subList(sum, solutions.lastIndex + 1), config)
-        val lieProviderNumber = 1
 
         providers.forEachIndexed { index, bidder ->
             bidder.id = index
@@ -48,11 +45,12 @@ object AveProfitMax : Trade {
                 objValue = objValue,
                 providers = providers,
                 requesters = requesters,
+                resultPre = rs,
                 x = x,
                 y = y,
                 solutions = solutions,
-                resultPre = rs,
-                lieProviderNumber = lieProviderNumber
+                lieProviderNumber = config.lieProviderNumber,
+                auctioneerProfit = rs.auctioneerProfit ?: 0.0
         )
     }
 }

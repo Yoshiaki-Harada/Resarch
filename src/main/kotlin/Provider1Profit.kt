@@ -5,6 +5,10 @@ import impoter.JsonImporter
 import result.analysis.Conclusion
 import result.analysis.LiarConclusion
 
+/**
+ * TODO 虚偽申告企業の結果出力
+ *
+ */
 fun main() {
     val config = Config.fromJson("config")
     config.targetData.forEach { dataset ->

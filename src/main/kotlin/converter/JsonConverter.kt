@@ -1,6 +1,5 @@
 package converter
 
-import com.google.gson.annotations.JsonAdapter
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import config.Config
@@ -18,7 +17,7 @@ import java.lang.reflect.Type
 interface JsonConverter<T> {
     val moshi: Moshi.Builder
         get() = Moshi.Builder()
-    val LENIENT_FACTORY: JsonAdapter.Factory
+    val LENIENT_FACTORY: com.squareup.moshi.JsonAdapter.Factory
         get() = object : JsonAdapter.Factory {
             override fun create(type: Type, annotations: Set<Annotation>, moshi: Moshi): JsonAdapter<*> {
                 return moshi.nextAdapter<Any>(this, type, annotations).lenient()
@@ -27,7 +26,6 @@ interface JsonConverter<T> {
 
     fun toJson(t: T): String
     fun fromJson(s: String): T
-
 }
 
 object ResultConverter : JsonConverter<Result> {

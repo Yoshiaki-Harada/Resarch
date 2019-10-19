@@ -38,11 +38,12 @@ object AvePenaltyCostMin : Trade {
                 objValue = objValue,
                 providers = providers,
                 requesters = requesters,
+                resultPre = rs,
                 x = x,
                 y = y,
                 solutions = solutions,
-                resultPre = rs,
-                lieProviderNumber = 0
+                lieProviderNumber = config.lieProviderNumber,
+                auctioneerProfit = 0.0
         )
     }
 }

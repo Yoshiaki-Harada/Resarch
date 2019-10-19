@@ -9,7 +9,7 @@ import trade.ResultPre
 import trade.TradeUtil
 
 class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val default: Config) : DobuleSided {
-
+    private val brokerageRate = 0.1
     /**
      * 取引価格はお互いの希望の半分
      *
@@ -35,8 +35,8 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
      * @return
      */
     override fun run(x: List<List<List<List<Double>>>>): ResultPre {
-        var providerCals = mutableListOf<BidderCal>()
-        var requesterCals = mutableListOf<BidderCal>()
+        val providerCals = mutableListOf<BidderCal>()
+        val requesterCals = mutableListOf<BidderCal>()
         val providerRevenueDensity = mutableListOf<Double>()
 
         // 初期化
@@ -45,7 +45,6 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         val providerBidResults = mutableListOf<BidResult>()
         val requesterBidResults = mutableListOf<BidResult>()
         val payments = mutableListOf<Double>()
-
         // 決定変数が正の時
         x.forEachIndexed { i, provider ->
             provider.forEachIndexed { r, resource ->
@@ -64,7 +63,7 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                             requesterCals[j].bids[n].addTime(requesters[j].bids[n].bundle[r])
                             val ratio = d / requesters[j].bids[n].bundle.sum()
                             requesterCals[j].bids[n].addProfit(ratio * requesters[j].bids[n].value.tValue - payment)
-                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, ratio * requesters[j].bids[n].value.tValue - payment))
+                            requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, ratio * requesters[j].bids[n].value.tValue * payment))
                         }
                     }
                 }
@@ -80,6 +79,24 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
             }
         }
 
+        // 主催者の利益の計算
+        var auctioneerProfit = 0.0
+        providerCals.forEachIndexed { i, it ->
+            it.bids.forEach {
+                val p = it.payment * brokerageRate
+                it.payment = it.payment * (1.0 + brokerageRate)
+                it.profit = it.profit - p
+                auctioneerProfit += p
+            }
+        }
+        requesterCals.forEach {
+            it.bids.map { b ->
+                val p = b.payment * brokerageRate
+                b.payment = b.payment * (1.0 - brokerageRate)
+                b.profit = b.profit - p
+                auctioneerProfit += p
+            }
+        }
 
         return ResultPre(
                 payments,
@@ -88,7 +105,8 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                 providerBidResults,
                 requesterBidResults,
                 payments,
-                providerRevenueDensity
+                providerRevenueDensity,
+                auctioneerProfit
         )
     }
 }

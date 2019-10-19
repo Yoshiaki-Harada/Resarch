@@ -7,8 +7,8 @@ import java.io.File
 
 fun main(args: Array<String>) {
     val config = Config.fromJson("config")
-    val SUPPLY_DATA_NUMBER = 10
-    val DATASET_ITERATE = 1
+    val SUPPLY_DATA_NUMBER = 1
+    val DATASET_ITERATE = 10
 
     for (s in 0 until SUPPLY_DATA_NUMBER) {
         val bidDir = "${config.bidDir}/supply-${config.providerTimeMin}-${config.providerTimeMax}"

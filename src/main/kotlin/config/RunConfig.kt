@@ -30,7 +30,9 @@ fun main(args: Array<String>) {
             listOf(),
             listOf(),
             0,
-            emptyList<String>()
+            emptyList<String>(),
+            1
+
     )
     writer.JsonWriter("config").makeFile(ConfigConverter.toJson(config))
 }

@@ -1,13 +1,12 @@
 {
   "auction": 2,
   "bidNumber": 3,
-  "bidDir": "Bid",
+  "bidDir": "Bid/Provider=20",
   "bidderFile": "Bid/supply-250.0-350.0/",
   "lpFile": "LP/profitMax",
   "lpDir": "LP",
   "penalty": 10000.0,
-  "provider": 15,
-
+  "provider": 20,
   "providerResourceNumber": 2,
   "providerTimeMax": 200.0,
   "providerTimeMin": 100.0,
@@ -23,14 +22,14 @@
   "resultDir": "Result",
   "resultFile": "Result",
   "profitRate": 10,
+  "lieProviderNumber": 0,
   "targetAuction": [
-    "PaddingMethod",
     "利益最大化-平均"
   ],
   "targetData": [
-    "supply-100.0-200.0-lie10%"
+    "supply-100.0-200.0"
   ],
-  "targetDataIterate": 10,
+  "targetDataIterate": 1,
   "items": [
     "総利益",
     "総利益(オークション主催者込み)",

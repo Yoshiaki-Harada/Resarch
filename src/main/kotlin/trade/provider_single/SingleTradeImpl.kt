@@ -83,7 +83,8 @@ class SingleTradeImpl(val providers: List<Bidder>, val requesters: List<Bidder>,
                 providerBidResults,
                 requesterBidResults,
                 payments,
-                providerRewardsDensity
+                providerRewardsDensity,
+                null
         )
     }
 }

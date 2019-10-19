@@ -77,7 +77,9 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
                         it.liarResult?.providerRevenueDensityAve ?: 0.0
                     }.sd()
 
-            )
+            ),
+            auctioneerProfitAve = rs.map { it.auctioneerProfit }.average(),
+            auctioneerProfitSD = rs.map { it.auctioneerProfit }.sd()
     )
     println("$dir/$auction")
     writer.JsonWriter("$resultDir/$dataSet/$auction").makeFile(ConclusionConverter.toJson(con))

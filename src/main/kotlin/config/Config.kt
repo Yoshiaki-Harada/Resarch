@@ -61,7 +61,8 @@ data class Config(var provider: Int, /*提供企業数*/
                   val targetAuction: List<String>,
                   var targetData: List<String>,
                   val targetDataIterate: Int?,
-                  val items: List<String>) {
+                  val items: List<String>,
+                  val lieProviderNumber: Int) {
     companion object {
         fun fromJson(filePath: String): Config {
             return ConfigConverter.fromJson(JsonImporter(filePath).getString())

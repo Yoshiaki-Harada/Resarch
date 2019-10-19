@@ -17,7 +17,7 @@ import winner.ProfitMaxPaddingDoubleAuction
 import writer.Saver
 
 /**
- * targetAuctionのオークションを，$targetDataと$ite分繰り返して行い結果を出力する
+ * $targetAuctionのオークションを，$bidDir/targetDataを$ite分繰り返して行い結果を出力する
  * 提供単価最小化に関しては，自動で$targetDataを$targetData-${profitRate}%と変換する
  */
 fun main(args: Array<String>) {

@@ -26,7 +26,6 @@ fun main() {
         }
         println("${decreaseRates.average()}     ${decreaseRates.sd()}")
     }
-
 }
 
 fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
@@ -75,8 +74,9 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
                     providerRevenueDensitySD = rs.map {
                         it.liarResult?.providerRevenueDensityAve ?: 0.0
                     }.sd()
-
-            )
+            ),
+            auctioneerProfitAve = 0.0,
+            auctioneerProfitSD = 0.0
     )
     println("$dir/$auction")
     writer.JsonWriter("$resultDir/$dataSet/$auction").makeFile(ConclusionConverter.toJson(con))

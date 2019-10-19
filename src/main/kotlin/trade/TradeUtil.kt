@@ -2,7 +2,6 @@ package trade
 
 import config.Config
 import model.Bidder
-import org.nd4j.linalg.factory.Nd4j
 import result.BidCal
 import result.BidResult
 import result.BidderCal
@@ -83,17 +82,6 @@ fun isOne(d: Double): Boolean {
     return (0.9 < d && d < 1.1)
 }
 
-/**
- * 誤差が5%以内なら trueを返す
- *
- * @param d0
- * @param d1
- * @return
- */
-fun nealyEqual(d0: Double, d1: Double): Boolean {
-    return (d0 * 0.95 < d1 && d1 < d0 * 1.05)
-}
-
 fun cost(x: List<List<List<List<Double>>>>, providers: List<Bidder>, requesters: List<Bidder>): Double {
     var cost = 0.0
     providers.forEachIndexed { i, provider ->
@@ -107,13 +95,6 @@ fun cost(x: List<List<List<List<Double>>>>, providers: List<Bidder>, requesters:
         }
     }
     return cost
-}
-
-fun ndf() {
-    val list = listOf<Double>(0.0, 1.0, 2.0, 3.0)
-    val m = Nd4j.create(list)
-    println(m.reshape(2, 2))
-    m.reshape(2, 2)
 }
 
 /**
@@ -161,4 +142,5 @@ data class ResultPre(
         val providerBidResults: MutableList<BidResult>,
         val requesterBidResults: MutableList<BidResult>,
         val providerRevenue: MutableList<Double>,
-        val providerRevenueDensity: MutableList<Double>)
+        val providerRevenueDensity: MutableList<Double>,
+        val auctioneerProfit: Double?)

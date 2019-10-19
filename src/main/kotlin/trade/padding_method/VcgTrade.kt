@@ -53,7 +53,8 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                 providerBidResults,
                 requesterBidResults,
                 providerRevenues,
-                providerRevenuesDensity
+                providerRevenuesDensity,
+                null
         )
     }
 

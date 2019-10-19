@@ -42,11 +42,12 @@ object SingleCostMin : Trade {
                 objValue = objValue,
                 providers = providers,
                 requesters = requesters,
+                resultPre = rs,
                 x = x,
                 y = y,
                 solutions = solutions,
-                resultPre = rs,
-                lieProviderNumber = 0
+                lieProviderNumber = 0,
+                auctioneerProfit = 0.0
         )
     }
 }

@@ -43,7 +43,6 @@ object Excel {
     private const val SUM_PROFIT = "総利益"
     private const val SUM_COST = "総コスト"
     private const val SUM_PROFIT_INCLUDE_AUCTIONEER = "総利益(オークション主催者込み)"
-
     private const val PROVIDER_PROFIT_AVE = "提供企業側の利益の平均"
     private const val REQUESTER_PROFIT_AVE = "要求企業側の利益の平均"
     private const val WIN_BID_NUMBER = "勝者となった要求数"
@@ -55,10 +54,10 @@ object Excel {
     private const val REQUESTER_PAY_SUM = "総支払い額"
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
-
+    private const val AUCTIONEER_PROFIT = "主催者の利益"
     private const val LIE_REQUESTER_PROFIT_AVE = "虚偽申告-要求企業側の利益の平均"
-    private const val LIE_PROVIDER_REVENUE_DENSITY = "虚偽申告-収入(1Ts)"
 
+    private const val LIE_PROVIDER_REVENUE_DENSITY = "虚偽申告-収入(1Ts)"
     private const val AVE = "AVE."
     private const val SD = "S.D."
 
@@ -135,8 +134,7 @@ object Excel {
 
                 // 平均値の値
                 config.targetData.forEachIndexed { dataIndex, data ->
-                    val d = data.split("-")
-                    sheet[DATA_COLUMN, AUCTION_ROW + 1 + dataIndex] = "[${d[1]}, ${d[2]}]"
+                    sheet[DATA_COLUMN, AUCTION_ROW + 1 + dataIndex] = data
                     config.targetAuction.forEachIndexed { auctionIndex, auction ->
                         sheet[DATA_COLUMN + 1 + auctionIndex, AUCTION_ROW + 1 + dataIndex] = conList[dataIndex][auctionIndex].getValue(item, AVE)
                     }
@@ -212,10 +210,13 @@ object Excel {
         "$PROVIDER_REVENUE_SUM-$SD" -> this.sumRevenueSD
         "$REQUESTER_PAY_SUM-$AVE" -> this.sumPayAve
         "$REQUESTER_PAY_SUM-$SD" -> this.sumPaySD
+        "$AUCTIONEER_PROFIT-$AVE" -> this.auctioneerProfitAve
+        "$AUCTIONEER_PROFIT-$AVE" -> this.auctioneerProfitSD
         "$LIE_REQUESTER_PROFIT_AVE-$AVE" -> this.liarConclusion?.providerProfitAve ?: 0.0
         "$LIE_REQUESTER_PROFIT_AVE-$SD" -> this.liarConclusion?.providerProfitSD ?: 0.0
         "$LIE_PROVIDER_REVENUE_DENSITY-$AVE" -> this.liarConclusion?.providerRevenueDensityAve ?: 0.0
         "$LIE_PROVIDER_REVENUE_DENSITY-$SD" -> this.liarConclusion?.providerRevenueDensitySD ?: 0.0
+
         else -> {
             throw Exception("$str は存在しません")
         }

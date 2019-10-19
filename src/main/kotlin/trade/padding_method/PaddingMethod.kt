@@ -27,7 +27,6 @@ object PaddingMethod : Trade {
 
         val tempQ = solutions.subList(solutions.lastIndex + 1 - config.provider * config.resource, solutions.lastIndex + 1)
         val q = Util.convertDimension(tempQ, List(providers.size) { config.resource })
-        val lieProviderNumber = 1
 
         providers.forEachIndexed { index, bidder ->
             bidder.id = index
@@ -45,11 +44,12 @@ object PaddingMethod : Trade {
                 objValue = objValue,
                 providers = providers,
                 requesters = requesters,
+                resultPre = rs,
                 x = x,
                 y = y,
                 solutions = solutions,
-                resultPre = rs,
-                lieProviderNumber = lieProviderNumber
+                lieProviderNumber = config.lieProviderNumber,
+                auctioneerProfit = rs.payments.sum() - rs.providerRevenue.sum()
         )
     }
 }
