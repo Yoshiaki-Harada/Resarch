@@ -3,22 +3,13 @@ package trade.provider_single
 import Util
 import config.Config
 import convert
-import ilog.concert.IloLPMatrix
-import ilog.cplex.IloCplex
 import model.Bidder
 import result.Result
-import rounding
 import trade.Trade
 
 
 object SingleCostMin : Trade {
-    override fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
-        //最適かの判定
-        val status = cplex.status
-        //目的関数値
-        val objValue = cplex.objValue
-        val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
-        val solutions = cplex.getValues(lp).map { it.rounding() }
+    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         val sum = requesters.map { it.bids.size }.sum()

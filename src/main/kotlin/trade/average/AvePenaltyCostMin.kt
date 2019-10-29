@@ -3,18 +3,12 @@ package trade.average
 import Util
 import config.Config
 import convert
-import ilog.concert.IloLPMatrix
-import ilog.cplex.IloCplex
 import model.Bidder
 import result.Result
-import rounding
 import trade.Trade
 
 object AvePenaltyCostMin : Trade {
-    override fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
-        val objValue = cplex.objValue
-        val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
-        val solutions = cplex.getValues(lp).map { it.rounding() }
+    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
 
@@ -44,7 +38,7 @@ object AvePenaltyCostMin : Trade {
                 solutions = solutions,
                 lieProviderNumber = config.lieProviderNumber,
                 auctioneerProfit = 0.0,
-                lieRequesterNUmber =config.lieRequesterNumber
+                lieRequesterNUmber = config.lieRequesterNumber
         )
     }
 }

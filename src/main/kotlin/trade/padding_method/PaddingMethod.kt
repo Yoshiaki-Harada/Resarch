@@ -3,19 +3,13 @@ package trade.padding_method
 import Util
 import config.Config
 import convert
-import ilog.concert.IloLPMatrix
-import ilog.cplex.IloCplex
 import model.Bidder
 import result.Result
-import rounding
 import trade.Trade
 
 object PaddingMethod : Trade {
 
-    override fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
-        val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
-        val solutions = cplex.getValues(lp).map { it.rounding() }
-        val objValue = cplex.objValue
+    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
 
@@ -37,7 +31,7 @@ object PaddingMethod : Trade {
         }
 
         val trade = VcgTrade(providers, requesters, config, x, q.map { it.toList() })
-        val rs = trade.run(y, cplex.objValue)
+        val rs = trade.run(y, objValue)
 
         return this.getResult(
                 config = config,

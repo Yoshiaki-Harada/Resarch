@@ -1,13 +1,16 @@
 package trade
 
 import config.Config
+import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
 import result.BidderResult
 import result.ProviderLiarResult
 import result.RequesterLiarResult
 import result.Result
+import rounding
 import sd
+import trade.padding_method.PaddingMethod
 
 interface Trade {
 
@@ -19,7 +22,24 @@ interface Trade {
      * @param config
      * @return
      */
-    fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result
+    fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
+        val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
+        val solutions = cplex.getValues(lp).map { it.rounding() }
+        cplex.objValue
+        return PaddingMethod.run(solutions, cplex.objValue, bidders, config)
+
+    }
+
+    /**
+     * すでにCplexで解いた結果をもう一度集計しなおす
+     *
+     * @param solutions
+     * @param objValue
+     * @param bidders
+     * @param config
+     * @return
+     */
+    fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result
 
     fun getResult(
             config: Config,
