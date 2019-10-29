@@ -66,13 +66,13 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
             sumProfitIncludeAuctioneerAve = rs.map { it.sumProfit + it.sumPay - it.sumRevenue }.average(),
             sumProfitIncludeAuctioneerSD = rs.map { it.sumProfit + it.sumPay - it.sumRevenue }.sd(),
             liarConclusion = LiarConclusion(
-                    providerProfitAve = rs.map { it.liarResult?.providerProfitAve ?: 0.0 }.average(),
-                    providerProfitSD = rs.map { it.liarResult?.providerProfitAve ?: 0.0 }.sd(),
+                    providerProfitAve = rs.map { it.providerLiarResult?.providerProfitAve ?: 0.0 }.average(),
+                    providerProfitSD = rs.map { it.providerLiarResult?.providerProfitAve ?: 0.0 }.sd(),
                     providerRevenueDensityAve = rs.map {
-                        it.liarResult?.providerRevenueDensityAve ?: 0.0
+                        it.providerLiarResult?.providerRevenueDensityAve ?: 0.0
                     }.average(),
                     providerRevenueDensitySD = rs.map {
-                        it.liarResult?.providerRevenueDensityAve ?: 0.0
+                        it.providerLiarResult?.providerRevenueDensityAve ?: 0.0
                     }.sd()
             ),
             auctioneerProfitAve = 0.0,

@@ -49,7 +49,8 @@ object PaddingMethod : Trade {
                 y = y,
                 solutions = solutions,
                 lieProviderNumber = config.lieProviderNumber,
-                auctioneerProfit = rs.payments.sum() - rs.providerRevenue.sum()
+                auctioneerProfit = rs.payments.sum() - rs.providerRevenue.sum(),
+                lieRequesterNUmber = config.lieRequesterNumber
         )
     }
 }

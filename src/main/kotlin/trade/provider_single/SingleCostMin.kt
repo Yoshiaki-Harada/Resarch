@@ -47,7 +47,8 @@ object SingleCostMin : Trade {
                 y = y,
                 solutions = solutions,
                 lieProviderNumber = 0,
-                auctioneerProfit = 0.0
+                auctioneerProfit = 0.0,
+                lieRequesterNUmber = 0
         )
     }
 }

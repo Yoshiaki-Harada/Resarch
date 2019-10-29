@@ -40,7 +40,7 @@ object Excel {
     /**
      * 評価指標
      */
-    private const val SUM_PROFIT = "総利益"
+    private const val SUM_PROFIT = "提供側と要求側の総利益"
     private const val SUM_COST = "総コスト"
     private const val SUM_PROFIT_INCLUDE_AUCTIONEER = "総利益(オークション主催者込み)"
     private const val PROVIDER_PROFIT_AVE = "提供企業側の利益の平均"
@@ -55,7 +55,7 @@ object Excel {
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
     private const val AUCTIONEER_PROFIT = "主催者の利益"
-    private const val LIE_REQUESTER_PROFIT_AVE = "虚偽申告-要求企業側の利益の平均"
+    private const val LIE_PROVIDER_PROFIT_AVE = "虚偽申告-提供企業側の利益の平均"
 
     private const val LIE_PROVIDER_REVENUE_DENSITY = "虚偽申告-収入(1Ts)"
     private const val AVE = "AVE."
@@ -148,7 +148,7 @@ object Excel {
                 sheet[DATA_COLUMN, SD_ROW + AUCTION_ROW] = SD
                 config.targetData.forEachIndexed { dataIndex, data ->
                     val d = data.split("-")
-                    sheet[DATA_COLUMN, SD_ROW + AUCTION_ROW + 1 + dataIndex] = "[${d[1]}, ${d[2]}]"
+                    sheet[DATA_COLUMN, SD_ROW + AUCTION_ROW + 1 + dataIndex] = data
                     config.targetAuction.forEachIndexed { auctionIndex, auction ->
                         sheet[DATA_COLUMN + 1 + auctionIndex, SD_ROW + AUCTION_ROW + 1 + dataIndex] = conList[dataIndex][auctionIndex].getValue(item, SD)
                     }
@@ -168,7 +168,7 @@ object Excel {
         val wb = XSSFWorkbook()
         val out = FileOutputStream("${fileName}.xlsx")
         sheetNames.forEach {
-            wb.createSheet(it)
+            wb.createSheet(it.replace("/","-"))
         }
         wb.write(out)
         out.close()
@@ -211,9 +211,9 @@ object Excel {
         "$REQUESTER_PAY_SUM-$AVE" -> this.sumPayAve
         "$REQUESTER_PAY_SUM-$SD" -> this.sumPaySD
         "$AUCTIONEER_PROFIT-$AVE" -> this.auctioneerProfitAve
-        "$AUCTIONEER_PROFIT-$AVE" -> this.auctioneerProfitSD
-        "$LIE_REQUESTER_PROFIT_AVE-$AVE" -> this.liarConclusion?.providerProfitAve ?: 0.0
-        "$LIE_REQUESTER_PROFIT_AVE-$SD" -> this.liarConclusion?.providerProfitSD ?: 0.0
+        "$AUCTIONEER_PROFIT-$SD" -> this.auctioneerProfitSD
+        "$LIE_PROVIDER_PROFIT_AVE-$AVE" -> this.liarConclusion?.providerProfitAve ?: 0.0
+        "$LIE_PROVIDER_PROFIT_AVE-$SD" -> this.liarConclusion?.providerProfitSD ?: 0.0
         "$LIE_PROVIDER_REVENUE_DENSITY-$AVE" -> this.liarConclusion?.providerRevenueDensityAve ?: 0.0
         "$LIE_PROVIDER_REVENUE_DENSITY-$SD" -> this.liarConclusion?.providerRevenueDensitySD ?: 0.0
 

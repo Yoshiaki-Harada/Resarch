@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
 
     val SUPPLY_DATASET_NUMBER = 1
     val DATASET_ITERATE = 10
-    val LieProviderNumber = 6 //人数
+    val LieRequesterNumber = 2 //人数
     val lieMap =
             mapOf(/*利益率 sValueの割合*/
                     "10%" to 0.1,
@@ -52,11 +52,11 @@ fun main(args: Array<String>) {
                     println("$bidDir/$i/bidder$index")
                 }
                 val copyBidders = bidders
-                        .subList(0, config.provider)
-                        .mapIndexed { bidIndex,bidder->
+                        .subList(config.provider, config.provider + config.requester)
+                        .mapIndexed { bidIndex, bidder ->
                             Bidder().add(
                                     bidder.bids.mapIndexed { index, it ->
-                                        if (bidIndex < LieProviderNumber) {
+                                        if (bidIndex < LieRequesterNumber) {
                                             Bid(Value(it.value.tValue, lieMap["$lie%"]!!.times(it.value.tValue)), it.bundle)
                                         } else {
                                             it
@@ -65,11 +65,12 @@ fun main(args: Array<String>) {
                             )
                         }
 
-                val afterBidders = copyBidders.plus(bidders.subList(config.provider, config.provider + config.requester))
-                val dir = File("${bidDir}-lie$lie%/$i").absoluteFile
+                val afterBidders = bidders.subList(0, config.provider).plus(copyBidders)
+                val dir = File("$bidDir/requesterLier=$LieRequesterNumber/supply-100.0-200.0-lie$lie%/$i/").absoluteFile
                 dir.mkdirs()
+                println("biddder size = ${afterBidders.size}")
                 afterBidders.forEachIndexed { index, bidder ->
-                    JsonWriter("$bidDir-lie$lie%/$i/bidder$index").makeFile(BidderConverter.toJson(bidder))
+                    JsonWriter("$bidDir/requesterLier=$LieRequesterNumber/supply-100.0-200.0-lie$lie%/$i/bidder$index").makeFile(BidderConverter.toJson(bidder))
                 }
             }
         }

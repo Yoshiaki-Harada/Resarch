@@ -4,7 +4,8 @@ import config.Config
 import ilog.cplex.IloCplex
 import model.Bidder
 import result.BidderResult
-import result.LiarResult
+import result.ProviderLiarResult
+import result.RequesterLiarResult
 import result.Result
 import sd
 
@@ -30,7 +31,8 @@ interface Trade {
             y: List<List<Double>>,
             solutions: List<Double>,
             lieProviderNumber: Int,
-            auctioneerProfit: Double): Result {
+            auctioneerProfit: Double,
+            lieRequesterNUmber: Int): Result {
 
         // 各企業の総リソース提供可能時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
@@ -74,13 +76,19 @@ interface Trade {
                 providerRevenueDensitySD = resultPre.providerRevenueDensity.sd(),
                 sumPay = providerResults.map { it.payment }.sum(),
                 sumRevenue = requesterResults.map { it.payment }.sum(),
-                liarResult = LiarResult(
+                providerLiarResult = ProviderLiarResult(
                         providerProfitAve = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.average().nanTo0(),
                         providerProfitSD = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.sd().nanTo0(),
                         providerRevenueDensityAve = resultPre.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.average().nanTo0(),
                         providerRevenueDensitySD = resultPre.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.sd().nanTo0()
                 ),
-                auctioneerProfit = auctioneerProfit
+                auctioneerProfit = auctioneerProfit,
+                requesterLiarResult = RequesterLiarResult(
+                        requesterProfitAve = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.profit }.average().nanTo0(),
+                        requesterProfitSD = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.profit }.sd().nanTo0(),
+                        requesterPayAve = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.payment }.average().nanTo0(),
+                        requesterPaySD = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.payment }.sd().nanTo0()
+                )
         )
     }
 }

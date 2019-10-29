@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex sci"] 1553180266 "sci.aux" "sci.bbl" "sci" 1553180322
+["bibtex sci"] 1553180266 "sci.aux" "sci.bbl" "sci" 1571909773
   "junsrt.bst" 0 -1 0 ""
   "sci.aux" 1553180321 3395 50096f3df8966c7d2fb86e6dafc84353 ""
   "sci.bib" 1553180252 1168 16a485b097d3719ad73de3513d72701a ""
   (generated)
   "sci.bbl"
   "sci.blg"
-["dvipdf"] 1553180321 "sci.dvi" "sci.pdf" "sci" 1553180322
+["dvipdf"] 1553180321 "sci.dvi" "sci.pdf" "sci" 1571909773
   "sci.dvi" 1553180321 31396 915cb57211e1e62a1c52d33d343dce5d "latex"
   (generated)
   "sci.pdf"
-["latex"] 1553180320 "sci.tex" "sci.dvi" "sci" 1553180322
+["latex"] 1553180320 "sci.tex" "sci.dvi" "sci" 1571909773
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -60,9 +60,9 @@
   "sci.aux" 1553180321 3395 50096f3df8966c7d2fb86e6dafc84353 ""
   "sci.bbl" 1553180266 994 54d26f4378cc5ec70b6b07015f387033 "bibtex sci"
   "sci.sty" 1552704626 5283 29597acb45b149be2f715ff483f8a513 ""
-  "sci.tex" 1553180318 22562 32a31de7890b3bc763cf3d0454a0ca5e ""
+  "sci.tex" 1557575672 22562 32a31de7890b3bc763cf3d0454a0ca5e ""
   "trade.pdf" 1553179730 63990 a5734e36da7ab0c8d2b167576aa873fe ""
   (generated)
   "sci.dvi"
-  "sci.log"
   "sci.aux"
+  "sci.log"
