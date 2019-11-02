@@ -1,7 +1,7 @@
 {
   "auction": 2,
   "bidNumber": 3,
-  "bidDir": "Bid/Provider=25",
+  "bidDir": "Bid",
   "bidderFile": "Bid/supply-250.0-350.0/",
   "lpFile": "LP/profitMax",
   "lpDir": "LP",
@@ -22,31 +22,29 @@
   "resultDir": "Result",
   "resultFile": "Result",
   "profitRate": 10,
-  "lieProviderNumber": 0,
-  "lieRequesterNumber": 2,
+  "lieProviderNumber": 1,
+  "lieRequesterNumber": 0,
   "targetAuction": [
+    "利益最大化-平均",
     "PaddingMethod"
   ],
   "targetData": [
-    "/supply-100.0-200.0"
+    "/Provider=25/providerLiar=1/supply-100.0-200.0",
+    "/Provider=25/providerLiar=1/supply-100.0-200.0-lie10%",
+    "/Provider=25/providerLiar=1/supply-100.0-200.0-lie20%",
+    "/Provider=25/providerLiar=1/supply-100.0-200.0-lie30%",
+    "/Provider=25/providerLiar=1/supply-100.0-200.0-lie40%"
   ],
-  "targetDataIterate": 10,
+  "targetDataIterate": 1,
   "items": [
-    "提供側と要求側の総利益",
     "総利益(オークション主催者込み)",
-    "総コスト",
     "主催者の利益",
     "提供企業側の利益の平均",
     "要求企業側の利益の平均",
     "勝者となった要求数",
-    "収入",
-    "支払い",
-    "収入(1Ts)",
-    "取引前稼働率",
-    "取引後稼働率",
     "総支払い額",
     "総収入額",
-    "虚偽申告-提供企業側の利益の平均",
-    "虚偽申告-収入(1Ts)"
+    "収入(1Ts)",
+    "虚偽申告-提供企業側の利益の平均"
   ]
 }
