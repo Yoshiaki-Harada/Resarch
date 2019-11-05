@@ -18,7 +18,7 @@ import java.io.FileOutputStream
  * @param args
  */
 fun main(args: Array<String>) {
-    val config = Config.fromJson("config-lie")
+    val config = Config.fromJson("config")
 
     //$resultDir/$dataset/$auction.json
 
@@ -27,9 +27,9 @@ fun main(args: Array<String>) {
             ConclusionConverter.fromJson(JsonImporter("${config.resultDir}/$data/$auction").getString())
         }
     }
-    Excel.outConclusionEachSheetDataset("${config.resultDir}/result-lie-sheet-dataset", config, conList)
+    Excel.outConclusionEachSheetDataset("${config.resultDir}/result-sheet-dataset", config, conList)
 
-    Excel.outConclusionEachSheetItem("${config.resultDir}/result--lie-sheet-item", config, conList)
+    Excel.outConclusionEachSheetItem("${config.resultDir}/result-sheet-item", config, conList)
 
 }
 
@@ -168,8 +168,8 @@ object Excel {
         val wb = XSSFWorkbook()
         val out = FileOutputStream("${fileName}.xlsx")
         sheetNames.forEach {
-//            wb.createSheet(it.replace("/","-"))
-            wb.createSheet(it.split("/").last())
+            wb.createSheet(it.replace("/","-"))
+//            wb.createSheet(it.split("/").last())
         }
         wb.write(out)
         out.close()

@@ -26,8 +26,7 @@ interface Trade {
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
         val solutions = cplex.getValues(lp).map { it.rounding() }
         cplex.objValue
-        return PaddingMethod.run(solutions, cplex.objValue, bidders, config)
-
+        return run(solutions, cplex.objValue, bidders, config)
     }
 
     /**
@@ -94,8 +93,8 @@ interface Trade {
                 afterProviderAvailabilityRatioAve = providerResults.map { it.afterProviderAvailabilityRatio }.average(),
                 providerRevenueDensityAve = resultPre.providerRevenueDensity.average(),
                 providerRevenueDensitySD = resultPre.providerRevenueDensity.sd(),
-                sumPay = providerResults.map { it.payment }.sum(),
-                sumRevenue = requesterResults.map { it.payment }.sum(),
+                sumPay = requesterResults.map { it.payment }.sum(),
+                sumRevenue = providerResults.map { it.payment }.sum(),
                 providerLiarResult = ProviderLiarResult(
                         providerProfitAve = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.average().nanTo0(),
                         providerProfitSD = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.sd().nanTo0(),

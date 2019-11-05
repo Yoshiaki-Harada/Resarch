@@ -1,7 +1,7 @@
 {
   "auction": 2,
   "bidNumber": 3,
-  "bidDir": "Bid/Provider=25",
+  "bidDir": "Bid/supply-100.0-200.0",
   "bidderFile": "Bid/supply-250.0-350.0/",
   "lpFile": "LP/profitMax",
   "lpDir": "LP",
@@ -23,14 +23,14 @@
   "resultFile": "Result",
   "profitRate": 10,
   "lieProviderNumber": 0,
-  "lieRequesterNumber": 2,
+  "lieRequesterNumber": 0,
   "targetAuction": [
     "PaddingMethod"
   ],
   "targetData": [
-    "/supply-100.0-200.0"
+    "/25"
   ],
-  "targetDataIterate": 10,
+  "targetDataIterate": 7,
   "items": [
     "提供側と要求側の総利益",
     "総利益(オークション主催者込み)",
