@@ -1,0 +1,19 @@
+{
+  "name": "adventar-gochiusa",
+  "version": "1.0.0",
+  "description": "Advent Calendar 2017-12-06",
+  "main": "index.js",
+  "repository": "git@github.com:af12066/adventar-gochiusa.git",
+  "author": "Takuma Hashimoto <ma16079@shibaura-it.ac.jp>",
+  "license": "CC-BY-SA-3.0",
+  "scripts": {
+    "test": "textlint src/*.md"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "textlint": "^9.1.1",
+    "textlint-rule-ja-no-abusage": "^1.2.1",
+    "textlint-rule-no-hankaku-kana": "^1.0.2",
+    "textlint-rule-no-mix-dearu-desumasu": "^3.0.3"
+  }
+}

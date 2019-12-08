@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper,fleqn]{ujreport}
+
+\usepackage{sotsuron}
+\usepackage{here}
+\usepackage{title}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{hyperref}
+
+\setlength{\topmargin}{-1.5cm} 
+\setlength{\textheight}{24cm}
+\setlength{\textwidth}{16cm}
+\setlength{\oddsidemargin}{4.6mm}
+\setlength{\evensidemargin}{4.6mm}
+\setlength{\footskip}{12.5mm}
+% 新しい環境の定義                                      
+\input{newenv}
+\begin{document}                                           
+\baselineskip = 6.8mm
+\pagestyle{plain}
+
+
+\input{title}
+%要旨
+\input{abstract_eng}
+\input{abstract_jap}
+
+%目次
+\pagenumbering{roman}
+\setcounter{page}{0}
+\tableofcontents
+
+%本文
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{main}
+
+% 謝辞
+\clearpage
+\input{thanks}
+
+% 参考文献
+\clearpage
+\renewcommand{\bibname}{参考文献}
+\bibliographystyle{junsrt}
+\bibliography{soturon} 
+
+\end{document}

@@ -1,0 +1,209 @@
+% subfloat.sty:    set sub-number within one float
+% Iwakuma Tetsuo (bear@hashi1.civil.tohoku.ac.jp)  8/7/1992
+%                                                10/10/1992
+\@definecounter{subfloatnumber}
+\def\@T@bLe{table}
+%\def\subfloatcap{-\alph{subfloatnumber}}
+\def\subfloatcap{Åi\alph{subfloatnumber}Åj}
+ 
+\def\subcaption{\@addtoreset{subfloatnumber}{\@captype}%
+\ifx\@captype\@T@bLe\relax\else\addtocounter{\@captype}{1}\fi%
+\def\the@subfloatnumber{\csname the\@captype\endcsname\subfloatcap}%
+\stepcounter{subfloatnumber}%
+\edef\@currentlabel{\csname the@subfloatnumber\endcsname}%
+\@dblarg{\@subcaption\@captype}}
+ 
+\long\def\@subcaption#1[#2]#3{\par\addcontentsline{\csname
+  ext@#1\endcsname}{#1}{\protect\numberline{\csname
+  the#1\endcsname\subfloatcap}{\ignorespaces #2}}\begingroup
+    \@parboxrestore
+    \small
+%    \@makecaption{\csname fnum@#1\endcsname\subfloatcap}%
+    \@makecaption{\subfloatcap}%
+         {\ignorespaces #3}\par
+    \endgroup%
+     \ifx\@captype\@T@bLe\relax\else\addtocounter{\@captype}{-1}\fi}
+
+\endinput
+% ----- example follows ----
+\documentstyle[subfloat]{article}
+\title{{\tt subfloat.sty}}
+\author{author}
+\date{Oct. 10, 1992}
+\unitlength=1mm
+\def\subpicture#1{\begin{picture}(50,7)(0,0)
+\put(0,0){\framebox(50,7){#1}}\end{picture}}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Subcaptions are specified by \verb+\subcaption{...}+.
+\item Always need to specify the main \verb+\caption{...}+.
+\item Figure captions are always located BELOW the figures, while
+table captions are ABOVE the tables including the main caption.
+\item Floatnumber system can be set by \verb+\subfloatcap+.
+\end{enumerate}
+
+In the case of figures, we need to set
+\begin{verbatim}
+\begin{figure}[h]
+  ......
+    \subcaption{First Figure}
+     \label{fig:1}
+  ......
+    \subcaption{Second Figure}
+     \label{fig:2}
+\caption{Three Subfigures}
+\label{fig:all}
+\end{figure}
+\end{verbatim}
+\clearpage
+
+Then typical outputs are shown in this page.
+\begin{figure}[t]
+  \begin{center}
+   \subpicture{First}
+    \subcaption{First Figure}
+     \label{fig:1}
+  \end{center}
+  \begin{minipage}[t]{.47\textwidth}
+   ~
+   \begin{center}
+    \subpicture{Second}
+     \subcaption{Second Figure}
+      \label{fig:2}
+   \end{center}
+  \end{minipage}
+  ~
+  \begin{minipage}[t]{.47\textwidth}
+   ~
+   \begin{center}
+    \subpicture{Third}
+     \subcaption{Third Figure}
+      \label{fig:3}
+   \end{center}
+  \end{minipage}
+\caption{Three Subfigures}
+\label{fig:all}
+\end{figure}
+
+\begin{figure}[b]
+  \begin{center}
+   \subpicture{Fourth}
+    \subcaption{Fourth Figure}
+     \label{fig:4}
+  \end{center}
+  \begin{minipage}[t]{.47\textwidth}
+   ~
+   \begin{center}
+    \subpicture{Fifth}
+     \subcaption{Fifth Figure}
+      \label{fig:5}
+   \end{center}
+  \end{minipage}
+  ~
+  \begin{minipage}[t]{.47\textwidth}
+   ~
+   \begin{center}
+    \subpicture{Sixth}
+     \subcaption{Sixth Figure}
+      \label{fig:6}
+   \end{center}
+  \end{minipage}
+\caption{The Next Three Subfigures}
+\label{fig:all2}
+\end{figure}
+Of course, you can refer to these figures individually. For example,
+\begin{verbatim}
+  {\bf Fig. \ref{fig:5}} shows that the results given in
+  {\bf Figs. \ref{fig:1}} and {\bf \ref{fig:2}} can be $\cdots$.
+\end{verbatim}
+will result in
+
+\vspace{2em}
+\fbox{\begin{minipage}{.75\textwidth}
+{\bf Fig. \ref{fig:5}} shows that the results given in
+{\bf Figs. \ref{fig:1}} and {\bf \ref{fig:2}} can be $\cdots$.
+\end{minipage}}
+
+\vspace{2em}
+The default of the numbering system is shown above, and can be
+changed by redefining \verb+\subfloatcap+. The examples of
+table environment in the next page use a new definition as
+\begin{verbatim}
+     \def\subfloatcap{-(\roman{subfloatnumber})}
+\end{verbatim}
+\clearpage
+
+\def\subfloatcap{-(\roman{subfloatnumber})}
+\begin{verbatim}
+\begin{table}[h]
+\caption{Three Subtables}
+\label{tab:all}
+  ......
+    \subcaption{First Table}
+     \label{tab:1}
+  ......
+    \subcaption{Second Table}
+     \label{tab:2}
+\end{table}
+{\bf Table. \ref{tab:1}} shows that $\cdots$ because $\cdots$ as
+shown in {\bf Tables \ref{tab:3}} and {\bf \ref{tab:6}}.
+\end{verbatim}
+\begin{table}[t]
+\caption{Three Subtables}
+\label{tab:all}
+  \begin{center}
+   \subpicture{First}
+    \subcaption{First Table}
+     \label{tab:1}
+  \end{center}
+  \begin{minipage}[t]{.47\textwidth}
+   ~
+   \begin{center}
+    \subpicture{Second}
+     \subcaption{Second Table}
+      \label{tab:2}
+   \end{center}
+  \end{minipage}
+  ~
+  \begin{minipage}[t]{.47\textwidth}
+   ~
+   \begin{center}
+    \subpicture{Third}
+     \subcaption{Third Table}
+      \label{tab:3}
+   \end{center}
+  \end{minipage}
+\end{table}
+
+\begin{table}[b]
+\caption{The Next Three Subtables}
+\label{tab:all2}
+  \begin{center}
+   \subpicture{Fourth}
+    \subcaption{Fourth Table}
+     \label{tab:4}
+  \end{center}
+  \begin{minipage}[t]{.47\textwidth}
+   ~
+   \begin{center}
+    \subpicture{Fifth}
+     \subcaption{Fifth Table}
+      \label{tab:5}
+   \end{center}
+  \end{minipage}
+  ~
+  \begin{minipage}[t]{.47\textwidth}
+   ~
+   \begin{center}
+    \subpicture{Sixth}
+     \subcaption{Sixth Table}
+      \label{tab:6}
+   \end{center}
+  \end{minipage}
+\end{table}
+{\bf Table. \ref{tab:1}} shows that $\cdots$ because $\cdots$ as
+shown in {\bf Tables \ref{tab:3}} and {\bf \ref{tab:6}}.
+
+\end{document}

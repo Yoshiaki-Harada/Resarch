@@ -1,0 +1,181 @@
+﻿%
+% title.sty        by catoo
+%                         平成６年２月１４日（月曜日）
+%                        （５講座：加藤穰）
+%
+%             arranged by 舛岡征浩 （CS-21 1997年1月20日）
+%
+% 使い方：
+% 
+% \年度{1996}
+% \提出者{舛岡 征浩}
+% \提出日{1997年2月14日}
+% \題目{吉本新喜劇におけるおおボケと転び方に関する研究}
+% \指導教官{桑原 和男 座長}
+% \審査教官A{桑原 和男 座長}
+% \審査教官B{西川 きよし 議員}
+%
+% \表紙
+%
+
+\newcommand{\年度}[1]{\def\@nendo{#1}}
+\newcommand{\提出者}[1]{\def\@teisyutusya{#1}}
+\newcommand{\提出日}[1]{\def\@teisyutubi{#1}}
+\newcommand{\題目}[1]{\def\@daimoku{#1}}
+\newcommand{\指導教員}[1]{\def\@shidou{#1}}
+%\newcommand{\審査教員A}[1]{\def\@shinsaA{#1}}
+%\newcommand{\審査教員B}[1]{\def\@shinsaB{#1}}
+%\newcommand{\審査教員C}[1]{\def\@shinsaC{#1}}
+%\newcommand{\審査教員D}[1]{\def\@shinsaD{#1}}
+
+\def\表紙{\begin{titlepage}
+\let\footnotesize\small \let\footnoterule\relax \setcounter{page}{0}
+\null
+\vfill
+\begin{center}
+
+{\Huge
+\begin{tabular}{p{4cm}}
+  \@nendo \hfill 年\hfill 度\null\\
+\end{tabular} \par}
+\vfil
+{\Huge
+\begin{tabular}{p{5cm}}
+%  修\hfill 士\hfill 論\hfill 文\null\\
+  卒\hfill 業\hfill 論\hfill 文\null\\
+\end{tabular} \par }
+%\vskip 6em by sakanaka
+\vskip 5em 
+
+%題目
+{\LARGE\bf %\gt
+{\@daimoku}\\
+\par }
+
+%\vskip 9em by sakanak
+\vskip 11em
+
+%所属
+%{\LARGE 神戸大学大学院自然科学研究科\\情報知能工学専攻} \par
+{\LARGE 神戸大学工学部情報知能工学科} \par
+\vskip 2em
+
+%提出者
+{\LARGE
+{\@teisyutusya}\\
+  \par }
+\vskip 2em
+
+%指導教員
+{\LARGE
+\begin{tabular}{p{10.7cm}}
+  \underline{指\hfill 導\hfill 教\hfill 員\hfill 　\hfill 　\hfill 　\hfill \makebox[6cm]{\@shidou}}\\ \\   
+%  \underline{審\hfill 査\hfill 教\hfill 員\hfill 　\hfill 主\hfill 査
+%    \hfill \makebox[6cm]{\@shinsaA}}\\ \\
+%  \hspace*{2.8cm} \underline{副\hfill 査\hfill 
+%    \makebox[6cm]{\@shinsaB}}\\ \\
+%  \hspace*{2.8cm} \underline{副\hfill 査\hfill 
+%    \makebox[6cm]{\@shinsaC}}\\ 
+%  \hspace*{2.8cm} \underline{副\hfill 査\hfill 
+%    \makebox[6cm]{\@shinsaD}}\\ 
+\end{tabular} \par }
+
+\vskip 4em
+{\LARGE \@teisyutubi } \par
+
+\end{center}
+\vfill
+\null
+\end{titlepage}
+}
+
+\def\ファイルの表紙{\begin{titlepage}
+\let\footnotesize\small \let\footnoterule\relax \setcounter{page}{0}
+\null
+\vfill
+\begin{center}
+
+\vskip 2em
+
+{\LARGE
+%  \@nendo 年度~~修士論文\\
+  \@nendo 年度~~卒業論文\\
+ \par}
+\vskip 6em
+\vfil
+
+{\LARGE\gt
+\begin{tabular}{cp{13cm}c}
+  & \centering\shortstack{\@daimoku} & \\
+\end{tabular} \par }
+%\vskip 15em  by sakanaka
+\vskip 15em
+\vfill
+{\Large
+\begin{tabular}{p{2.7cm}p{8cm}}
+  {\small 提\hfill 出\hfill 者\null} & 
+  \underline{ \makebox[5cm][c]{\@teisyutusya}}\\ \\
+  {\small 指\hfill 導\hfill 教\hfill 員\null} & 
+  \underline{ \makebox[5cm][c]{\@shidou}}\\ \\ \\
+  {\small 審\hfill 査\hfill 教\hfill 員\hfill 　\hfill 主\hfill 査\null} &
+  \underline{ \makebox[5cm][c]{\@shinsaA}}\\ \\
+  & \underline{ \makebox[5cm][c]{\@shinsaB}}\\ \\
+%  & \underline{ \makebox[5cm][c]{\@shinsaC}}\\
+\end{tabular} \par }
+\vskip 3em
+\vfill
+{\large \@teisyutubi } \par
+\vskip 3em
+
+%{\large 神戸大学大学院自然科学研究科情報知能工学専攻} \par
+{\large 神戸大学工学部情報知能工学科} \par
+\end{center}
+\vfill
+\null
+\end{titlepage}
+}
+
+\def\製本表紙{\begin{titlepage}
+\let\footnotesize\small \let\footnoterule\relax \setcounter{page}{0}
+\null
+\vfill
+\begin{center}
+
+{\Huge
+\begin{tabular}{p{4cm}}
+  \@nendo \hfill 年\hfill 度\null\\
+\end{tabular} \par}
+\vfil
+{\Huge
+\begin{tabular}{p{5cm}}
+  修\hfill 士\hfill 論\hfill 文\null\\
+\end{tabular} \par }
+\vskip 7em
+
+%題目
+{\LARGE\bf%\gt
+{\@daimoku}\\
+\par }
+
+\vskip 9em
+
+\vspace{48mm}
+
+%所属
+{\LARGE 神戸大学大学院自然科学研究科\\情報知能工学専攻} \par
+\vskip 2em
+
+%提出者
+{\LARGE
+{\@teisyutusya}\\
+  \par }
+%\vskip 4em
+
+\vskip 6em
+{\LARGE \@teisyutubi } \par
+
+\end{center}
+\vfill
+\null
+\end{titlepage}
+}

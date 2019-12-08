@@ -1,0 +1,35 @@
+% 縦線の定義
+\newcommand{\vle}{hskip0.3em\vrule height7pt depth1pt width0.4pt}
+
+% namelist 環境
+% namelist environment (Nelson H. F. Beebe)
+% form: \begin{namelist}{width}
+\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
+\newenvironment{namelist}[1]{%
+\begin{list}{}
+	{\let\makelabel\namelistlabel
+	\settowidth{\labelwidth}{#1}
+	\setlength{\leftmargin}{1.1\labelwidth}}
+}{%
+\end{list}}
+
+% multicolumn のときの文字の位置の設定
+\newcommand{\lw}[1]{\smash{\lower2.ex\hbox{#1}}}
+
+% 指数表現
+\newcommand{\pow}[1]{$\times 10^{#1}$}
+
+% 数式コマンド
+\newcommand{\al}{$\alpha$}
+
+\newcommand{\ten}{$\cdot$~}
+
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+
+%謝辞
+\newcommand{\shaji}[2]{\null\vfil
+\begin{center}
+{\huge\gt 謝\ 辞}
+\end{center}
+}
