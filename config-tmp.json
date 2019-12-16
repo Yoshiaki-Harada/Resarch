@@ -19,22 +19,19 @@
   "requesterValueMax": 5.0,
   "requesterValueMin": 3.0,
   "resource": 6,
-  "resultDir": "Result/",
+  "resultDir": "Result",
   "resultFile": "Result",
   "profitRate": 10,
   "lieProviderNumber": 0,
   "lieRequesterNumber": 0,
   "targetAuction": [
-    "利益最大化-平均",
     "PaddingMethod"
   ],
   "targetData": [
-    "/liar=1",
-    "/liar=2",
-    "/liar=3",
-    "/liar=4",
-    "/liar=5",
-    "/liar=6"
+    "liar=0",
+    "liar=1",
+    "liar=2",
+    "liar=3"
   ],
   "targetDataIterate": 1,
   "items": [

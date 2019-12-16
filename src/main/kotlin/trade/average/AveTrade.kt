@@ -9,7 +9,7 @@ import trade.ResultPre
 import trade.TradeUtil
 
 class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val default: Config) : DobuleSided {
-    private val brokerageRate = 0.1
+    private val brokerageRate = 0.0
     /**
      * 取引価格はお互いの希望の半分
      *

@@ -1,0 +1,24 @@
+\newpage
+\thispagestyle{empty}
+\begin{center}
+\mbox{\LARGE{\bf{A research of anomaly detection method}}}
+\mbox{\LARGE{\bf{in production facility networks by using Ant agents}}}
+
+\vspace*{2mm}
+\mbox{\Large{\bf{Hong Sungmyung}}}
+
+\vspace*{7mm}
+{\LARGE\bf Abstract}
+\end{center}
+
+In recent years, with the development of information and communication technologies, production facilities used in the factories are connected to the Internet, and it began to use production instructions and performance management. The risk of cyber-attacks by the Internet in the factories, which had not been taken into consideration, are regarded as a problems. However, it is difficult for cyber-attacks to completely prevent intrusions due to the sophistication and complexity of cyber-attacks, that's why early detection is important.
+
+In this research, we aim to detect anomalies caused by cyber-attacks, targeting factory production equipment networks. Focusing on the proposed method in the previous research, which a plurality of agents imitating the ant wandering over the network detect anomaly bottom-uply by the agent as a whole, apply to the production equipment network.As a proposed method, a method of dropping more pheromones when the agent reads a value largely deviated from its own reference value was prepared. We also proposed a method to prepare multiple agents with different movement rules to reduce the bias of the number of agents in the network. In order to confirm the effectiveness of the proposed method, we conducted an experiment assuming that a single facility in the network and abnormality occurred in multiple facilities, and got the following conclusions.
+
+\begin{itemize}
+\item In experiments assuming a case where an anomaly occurs in a single facility, we confirmed that it is able to detect a PLC in which an anomaly occurs by increasing the pheromone value of the PLC where the anomaly occurs and concentrating ant agents accordingly.
+
+\item We confirmed that compared to the case where an anomaly occurs in a single PLC, when anomaly occur in a plurality of PLCs, the pheromone value of the PLC in which the anomaly occurs is lower, but the value is higher than that in the PLC in which no anomaly occurs. It was also confirmed that anomaly can be distinguished by the number of agents.
+
+\item We confirmed that in the case where an anomaly occurs in multiple PLCs, in the situation where the second anomaly occurs after the first anomaly has occurred for a while, the slope of increase of the pheromone value of the later one become loose. It was also confirmed that it reached the same value after a certain time. 
+\end{itemize}

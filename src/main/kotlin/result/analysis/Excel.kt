@@ -27,9 +27,9 @@ fun main(args: Array<String>) {
             ConclusionConverter.fromJson(JsonImporter("${config.resultDir}/$data/$auction").getString())
         }
     }
-    Excel.outConclusionEachSheetDataset("${config.resultDir}/result-sheet-dataset", config, conList)
+    Excel.outConclusionEachSheetDataset("${config.resultDir}/result-lie-sheet-dataset", config, conList)
 
-    Excel.outConclusionEachSheetItem("${config.resultDir}/result-sheet-item", config, conList)
+    Excel.outConclusionEachSheetItem("${config.resultDir}/result-lie-sheet-item", config, conList)
 
 }
 

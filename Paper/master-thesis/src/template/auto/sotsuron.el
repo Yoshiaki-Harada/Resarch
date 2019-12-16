@@ -9,6 +9,7 @@
     "latex2e"
     "newenv"
     "title"
+    "abstract_eng"
     "abstract_jap"
     "main"
     "thanks"

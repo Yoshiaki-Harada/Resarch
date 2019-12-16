@@ -13,6 +13,8 @@ pandoc --filter pandoc-crossref \
   -M "crossrefYaml=${BUILD_DIR}/src/template/config.yml" \
   --top-level-division=chapter \
   ./*.md -o ./main.tex
+perl -0pi -e 's/\\\[\n\\begin\{align\}/\\begin\{align\}/m' main.tex
+perl -0pi -e 's/\\end\{align\}\n\\\]/\\end\{align\}/m' main.tex
 mv "${BUILD_DIR}/src/template/boilerplate.tex" "${BUILD_DIR}/src"
 cp -pR  "${BUILD_DIR}/src/template/abstract/`*`" "${BUILD_DIR}/src"
 cp -pR  "${BUILD_DIR}/src/template/title/`*`" "${BUILD_DIR}/src"
