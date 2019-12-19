@@ -1,14 +1,22 @@
-\documentclass[11pt,a4paper,fleqn]{ujreport}
+\documentclass[11pt,a4paper,fleqn,dvipdfmx]{ujreport}
 
 \usepackage{sotsuron}
 \usepackage{here}
 \usepackage{title}
-\usepackage[dvipdfmx]{graphicx}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{enumerate}
-\usepackage{hyperref}
-
+\usepackage{graphicx,color}
+\usepackage[hidelinks]{hyperref} % 目次や図表番号に対してハイパーリンクを生成。hidelinks で PDF のハイパーリンクの枠を消す（参考: http://0-chromosome.hatenablog.jp/entry/2015/04/10/175912 ）
+\usepackage{pxjahyper} % ハイパーリンクに日本語が含まれる場合に必要
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \setlength{\topmargin}{-1.5cm} 
 \setlength{\textheight}{24cm}
 \setlength{\textwidth}{16cm}
