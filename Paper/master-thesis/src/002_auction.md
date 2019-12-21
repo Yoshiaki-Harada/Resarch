@@ -184,7 +184,7 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
 $$
 \begin{align}
 	{\rm max}\quad &\sum_{j\in\boldsymbol{J}}\sum_{n \in \boldsymbol{N}}f_{j,n} \times x_{j,n}  \label{eq:ca-obj}\\  
-  {\rm s.t.} \quad &\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}} a_{j,n,r}\times x_{j,n}\leq 1 &(\forall r)　\label{eq:ca-sub-cap}\\
+  {\rm s.t.} \quad &\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}} a_{j,n,r}\times x_{j,n}\leq 1 &(\forall r)　\label{eq:ca-cap-sub}\\
                   &\sum_{n \in \boldsymbol{N}} x_{j,n}\leq 1  			&(\forall j)\\
                   &x_{j,n} \in \{0,1\}			&(\forall j,\forall n) 
 \end{align}
@@ -226,12 +226,12 @@ $$
 
 1. 入札作成
    + リソース提供企業はオークション主催者に入札を行う
-     + ***文字を使ってどのような入札を作成するかを説明する***
+     + ***文字を使ってどのような入札を作成するかを説明する．．．***
    + リソース提供企業はオークション主催者に入札を行う
-     + ***文字を使ってどのような入札を作成するかを説明する***
+     + ***文字を使ってどのような入札を作成するかを説明する．．．***
 2. オークション主催者はリソースの配分と，取引価格の決定する．
 
-+ ***図を使い入札の例を示す***
++ ***図を使い入札の例を示す．．．***
 
 #### 評価指標
 

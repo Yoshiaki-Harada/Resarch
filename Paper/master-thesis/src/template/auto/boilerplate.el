@@ -2,9 +2,9 @@
  "boilerplate"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-class-options
-                     '(("ujreport" "11pt" "a4paper" "fleqn" "dvipdfmx")))
+                     '(("ujreport" "11pt" "a4paper" "dvipdfmx")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("hyperref" "hidelinks")))
+                     '(("hyperref" "hidelinks") ("biblatex" "backend=biber" "sorting=none")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
@@ -19,22 +19,22 @@
     "abstract_eng"
     "abstract_jap"
     "main"
-    "thanks"
     "ujreport"
     "ujreport11"
     "sotsuron"
     "here"
     "amsmath"
+    "amssymb"
     "mathtools"
-    "enumerate"
     "graphicx"
     "color"
     "hyperref"
-    "pxjahyper")
+    "pxjahyper"
+    "biblatex")
    (TeX-add-symbols
     "maxwidth"
     "maxheight")
    (LaTeX-add-bibliographies
-    "soturon"))
+    "references"))
  :latex)
 
