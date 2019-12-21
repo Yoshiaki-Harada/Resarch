@@ -4,10 +4,7 @@ import config.Config
 import ilog.concert.IloLPMatrix
 import ilog.cplex.IloCplex
 import model.Bidder
-import result.BidderResult
-import result.ProviderLiarResult
-import result.RequesterLiarResult
-import result.Result
+import result.*
 import rounding
 import sd
 
@@ -63,8 +60,6 @@ interface Trade {
         val requesterResults = resultPre.requesterCals.mapIndexed { j, it ->
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
-        print("reques")
-//        val sumProfit = resultPre.providerBidResults.map { it.profit }.sum().plus(resultPre.requesterBidResults.map { it.profit }.sum())
         val sumProfit = providerResults.map { it.profit }.sum() + requesterResults.map { it.profit }.sum()
         if (resultPre.payments.isNullOrEmpty()) {
             println("**********取引は行われていません**********")
@@ -72,10 +67,9 @@ interface Trade {
         }
         return Result(
                 objectValue = objValue,
-                sumCost = cost(x, providers, requesters),/*このxではなくP(I,J)のx*/
-                sumProfit = sumProfit,
+                sumProfit = sumProfit,/*このxではなくP(I,J)のx*/
                 x = solutions,
-                winBidNUmber = y.flatMap { it }.filter { isOne(it) }.size,
+                winBidRatio = (y.flatten().filter { isOne(it) }.size).toDouble() / config.requester.toDouble(),
                 providerResults = providerResults,
                 requesterResults = requesterResults,
                 providerProfitAve = providerResults.map { it.profit }.average(),
@@ -96,20 +90,28 @@ interface Trade {
                 providerRevenueDensitySD = resultPre.providerRevenueDensity.sd(),
                 sumPay = requesterResults.map { it.payment }.sum(),
                 sumRevenue = providerResults.map { it.payment }.sum(),
-                providerLiarResult = ProviderLiarResult(
+                providerLiarsResult = ProviderLiarsResult(
                         providerProfitAve = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.average().nanTo0(),
                         providerProfitSD = providerResults.filter { it.id < lieProviderNumber }.map { it.profit }.sd().nanTo0(),
                         providerRevenueDensityAve = resultPre.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.average().nanTo0(),
                         providerRevenueDensitySD = resultPre.providerRevenueDensity.filterIndexed { index, providerResult -> index < lieProviderNumber }.sd().nanTo0()
                 ),
                 auctioneerProfit = auctioneerProfit,
-                requesterLiarResult = RequesterLiarResult(
+                requesterLiarsResult = RequesterLiarsResult(
                         requesterProfitAve = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.profit }.average().nanTo0(),
                         requesterProfitSD = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.profit }.sd().nanTo0(),
                         requesterPayAve = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.payment }.average().nanTo0(),
                         requesterPaySD = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.payment }.sd().nanTo0()
                 ),
-                calculationTimeMillis = endTimeMillis - startTimeMillis
+                calculationTimeMillis = endTimeMillis - startTimeMillis,
+                requesterLiarResult = RequesterLiarResult(
+                        profit = requesterResults[0].profit,
+                        pay = requesterResults[0].payment
+                ),
+                providerLiarResult = ProviderLiarResult(
+                        profit = providerResults[0].profit,
+                        reward = providerResults[0].payment
+                )
         )
     }
 }

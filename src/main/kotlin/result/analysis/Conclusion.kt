@@ -1,8 +1,6 @@
 package result.analysis
 
-data class Conclusion(val sumCostAve: Double,
-                      val sumCostSD: Double,
-                      val sumProfitAve: Double,
+data class Conclusion(val sumProfitAve: Double,
                       val sumProfitSD: Double,
                       val providerProfitAve: Double,
                       val providerProfitSD: Double,
@@ -33,8 +31,14 @@ data class Conclusion(val sumCostAve: Double,
                       val auctioneerProfitSD: Double)
 
 data class LiarConclusion(
+        val providersProfitAve: Double,
+        val providersProfitSD: Double,
+        val providersRevenueDensityAve: Double,
+        val providersRevenueDensitySD: Double,
         val providerProfitAve: Double,
         val providerProfitSD: Double,
-        val providerRevenueDensityAve: Double,
-        val providerRevenueDensitySD: Double
+        val requestersProfitAve: Double,
+        val requestersProfitSD: Double,
+        val requesterProfitAve: Double,
+        val requesterProfitSD: Double
 )

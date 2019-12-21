@@ -15,8 +15,8 @@ object Saver {
     /**
      * $resultDir/$resultFile に結果を出力する
      */
-    fun run(bidders: List<Bidder>, result: Result, config: Config) {
-        val dirName = "${config.resultDir}/${config.resultFile}"
+    fun run(bidders: List<Bidder>, result: Result, config: Config, targetAuction: String) {
+        val dirName = "${config.resultDir}${config.bidDir.replace("Bid", "")}/$targetAuction"
         println("Directory: $dirName")
         val dir = File("${dirName}").absoluteFile
         dir.mkdirs()

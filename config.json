@@ -1,7 +1,7 @@
 {
   "auction": 2,
   "bidNumber": 3,
-  "bidDir": "Bid/Provider=25",
+  "bidDir": "Bid/Provider=25/supply-100.0-200.0-lie20%",
   "bidderFile": "Bid/25/supply-250.0-350.0/",
   "lpFile": "LP/profitMax",
   "lpDir": "LP",
@@ -19,20 +19,20 @@
   "requesterValueMax": 5.0,
   "requesterValueMin": 3.0,
   "resource": 6,
-  "resultDir": "Result/supply-100.0-200.0/lieparcent",
+  "resultDir": "Result",
   "resultFile": "Result",
   "profitRate": 10,
-  "lieProviderNumber": 1,
+  "lieProviderNumber": 4,
   "lieRequesterNumber": 0,
   "targetAuction": [
-    "利益最大化-平均",
-    "PaddingMethod"
+    "利益最大化-平均"
   ],
   "targetData": [
-    "lie10%",
-    "lie20%",
-    "lie30%",
-    "lie40%"
+    "providerLier=1",
+    "providerLier=2",
+    "providerLier=3",
+    "providerLier=4",
+    "providerLier=5"
   ],
   "targetDataIterate": 1,
   "items": [

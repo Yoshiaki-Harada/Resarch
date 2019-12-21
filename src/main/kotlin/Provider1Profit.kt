@@ -1,9 +1,6 @@
 import config.Config
-import converter.ConclusionConverter
 import converter.ResultConverter
 import impoter.JsonImporter
-import result.analysis.Conclusion
-import result.analysis.LiarConclusion
 
 /**
  * TODO 虚偽申告企業の結果出力

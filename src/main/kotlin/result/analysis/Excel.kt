@@ -41,7 +41,6 @@ object Excel {
      * 評価指標
      */
     private const val SUM_PROFIT = "提供側と要求側の総利益"
-    private const val SUM_COST = "総コスト"
     private const val SUM_PROFIT_INCLUDE_AUCTIONEER = "総利益(オークション主催者込み)"
     private const val PROVIDER_PROFIT_AVE = "提供企業側の利益の平均"
     private const val REQUESTER_PROFIT_AVE = "要求企業側の利益の平均"
@@ -187,8 +186,6 @@ object Excel {
         "$SUM_PROFIT-$SD" -> this.sumProfitSD
         "$SUM_PROFIT_INCLUDE_AUCTIONEER-$AVE" -> this.sumProfitIncludeAuctioneerAve
         "$SUM_PROFIT_INCLUDE_AUCTIONEER-$SD" -> this.sumProfitIncludeAuctioneerSD
-        "$SUM_COST-$AVE" -> this.sumCostAve
-        "$SUM_COST-$SD" -> this.sumCostSD
         "$PROVIDER_PROFIT_AVE-$AVE" -> this.providerProfitAve
         "$PROVIDER_PROFIT_AVE-$SD" -> this.providerProfitSD
         "$REQUESTER_PROFIT_AVE-$AVE" -> this.requesterProfitAve
@@ -213,10 +210,10 @@ object Excel {
         "$REQUESTER_PAY_SUM-$SD" -> this.sumPaySD
         "$AUCTIONEER_PROFIT-$AVE" -> this.auctioneerProfitAve
         "$AUCTIONEER_PROFIT-$SD" -> this.auctioneerProfitSD
-        "$LIE_PROVIDER_PROFIT_AVE-$AVE" -> this.liarConclusion?.providerProfitAve ?: 0.0
-        "$LIE_PROVIDER_PROFIT_AVE-$SD" -> this.liarConclusion?.providerProfitSD ?: 0.0
-        "$LIE_PROVIDER_REVENUE_DENSITY-$AVE" -> this.liarConclusion?.providerRevenueDensityAve ?: 0.0
-        "$LIE_PROVIDER_REVENUE_DENSITY-$SD" -> this.liarConclusion?.providerRevenueDensitySD ?: 0.0
+        "$LIE_PROVIDER_PROFIT_AVE-$AVE" -> this.liarConclusion?.providersProfitAve ?: 0.0
+        "$LIE_PROVIDER_PROFIT_AVE-$SD" -> this.liarConclusion?.providersProfitSD ?: 0.0
+        "$LIE_PROVIDER_REVENUE_DENSITY-$AVE" -> this.liarConclusion?.providersRevenueDensityAve ?: 0.0
+        "$LIE_PROVIDER_REVENUE_DENSITY-$SD" -> this.liarConclusion?.providersRevenueDensitySD ?: 0.0
 
         else -> {
             throw Exception("$str は存在しません")

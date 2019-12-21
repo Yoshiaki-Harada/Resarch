@@ -7,7 +7,7 @@ package result
  * @property sumCost    総コスト
  * @property sumProfit  総利益
  * @property x  決定変数
- * @property winBidNUmber   勝者となった入札数(要求)
+ * @property winBidRation   勝者となった入札数(要求)
  * @property providerResults    提供側の結果のリスト
  * @property requesterResults   要求側の結果のリスト
  * @property providerProfitAve  提供側の結果の平均値
@@ -24,12 +24,13 @@ package result
  * @property afterProviderAvailabilityRatioAve  提供側の取引後の稼働率の平均
  * @property providerRevenueDensityAve 提供したリソースの1Ts辺りの報酬額の平均
  * @property providerRevenueDensitySD 提供したリソースの1Ts辺りの報酬額の分散
+ * @property requesterLiarsResult 嘘をつく要求企業群の結果
+ * @property providerLiarsResult 嘘をつく提供企業群の結果
  */
 data class Result(val objectValue: Double,
-                  val sumCost: Double,
                   val sumProfit: Double,
                   val x: List<Double>,
-                  val winBidNUmber: Int,
+                  val winBidRatio: Double,
                   val providerResults: List<BidderResult>,
                   val requesterResults: List<BidderResult>,
                   val providerProfitAve: Double,
@@ -50,10 +51,12 @@ data class Result(val objectValue: Double,
                   val providerRevenueDensitySD: Double,
                   val sumPay: Double,
                   val sumRevenue: Double,
-                  val providerLiarResult: ProviderLiarResult?,
+                  val providerLiarsResult: ProviderLiarsResult?,
                   val auctioneerProfit: Double,
-                  val requesterLiarResult: RequesterLiarResult?,
-                  val calculationTimeMillis: Long)
+                  val requesterLiarsResult: RequesterLiarsResult?,
+                  val calculationTimeMillis: Long,
+                  val requesterLiarResult: RequesterLiarResult,
+                  val providerLiarResult: ProviderLiarResult)
 
 /**
  * 虚偽申告をした入札者の結果用のクラス
@@ -61,12 +64,16 @@ data class Result(val objectValue: Double,
  * @property providerProfitAve
  * @property providerProfitSD
  */
-data class ProviderLiarResult(val providerProfitAve: Double = 0.0,
-                              val providerProfitSD: Double = 0.0,
-                              val providerRevenueDensityAve: Double = 0.0,
-                              val providerRevenueDensitySD: Double = 0.0)
+data class ProviderLiarsResult(val providerProfitAve: Double = 0.0,
+                               val providerProfitSD: Double = 0.0,
+                               val providerRevenueDensityAve: Double = 0.0,
+                               val providerRevenueDensitySD: Double = 0.0)
 
-data class RequesterLiarResult(val requesterProfitAve: Double = 0.0,
-                               val requesterProfitSD: Double = 0.0,
-                               val requesterPayAve: Double = 0.0,
-                               val requesterPaySD: Double = 0.0)
+data class RequesterLiarsResult(val requesterProfitAve: Double = 0.0,
+                                val requesterProfitSD: Double = 0.0,
+                                val requesterPayAve: Double = 0.0,
+                                val requesterPaySD: Double = 0.0)
+
+data class ProviderLiarResult(val profit: Double = 0.0, val reward: Double=0.0)
+
+data class RequesterLiarResult(val profit: Double = 0.0, val pay: Double=0.0)

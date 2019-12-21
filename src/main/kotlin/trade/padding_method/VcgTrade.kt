@@ -139,13 +139,13 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         x.forEachIndexed { i, provider ->
             var trade = 0
             provider.forEachIndexed { r, resource ->
-                val quantity = resource.map { requester ->
+                val time = resource.map { requester ->
                     if (requester.sum() > 0.1) trade += 1
 
                     requester.sum()
                 }.sum()
 
-                if (quantity > 0) {
+                if (time > 0) {
                     // 前半のvcgプライス部分
                     val conf = default.copy(lpFile = "Padding/reqAuction-{$i}", provider = providers.size, requester = winRequesters.size)
 
@@ -154,8 +154,8 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     val cplex = LpImporter("LP/Padding/reqAuction-{$i}").getCplex()
                     cplex.solve()
 
-                    println("quantity * providers[i].bids[r].getValue() + objValue - cplex.objValue = $quantity * ${providers[i].bids[r].getValue()} + $objValue -${cplex.objValue}")
-                    val vcg = quantity * providers[i].bids[r].getValue() + objValue - cplex.objValue
+                    println("quantity * providers[i].bids[r].getValue() + objValue - cplex.objValue = $time * ${providers[i].bids[r].getValue()} + $objValue -${cplex.objValue}")
+                    val vcg = time * providers[i].bids[r].getValue() + objValue - cplex.objValue
 
                     //  後半のpayoff部分
                     val supremum = getSupremum(i, r, paddingObjValue)
@@ -165,17 +165,17 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     val revenue = vcg - payoff
 
                     println("vcg - payoff = $vcg - $payoff")
-                    println("provider_$i, resource_$r 's quantity = $quantity")
-                    println("provider_$i, resource_$r 's cost = ${quantity * providers[i].bids[r].value.tValue}")
+                    println("provider_$i, resource_$r 's quantity = $time")
+                    println("provider_$i, resource_$r 's cost = ${time * providers[i].bids[r].value.tValue}")
                     println("provider_$i, resource_$r 's revenue = $revenue")
-                    println("provider_$i, resource_$r 's revenue / quantity= ${revenue / quantity}")
+                    println("provider_$i, resource_$r 's revenue / quantity= ${revenue / time}")
 
                     providerCals[i].bids[r].addPayment(revenue)
-                    providerCals[i].bids[r].addTime(quantity)
-                    providerCals[i].bids[r].addProfit(revenue - quantity * providers[i].bids[r].value.tValue)
-                    providerBidResults.add(BidResult(arrayOf(i, r), revenue, revenue - quantity * providers[i].bids[r].value.tValue))
+                    providerCals[i].bids[r].addTime(time)
+                    providerCals[i].bids[r].addProfit(revenue - time * providers[i].bids[r].value.tValue)
+                    providerBidResults.add(BidResult(arrayOf(i, r), revenue, revenue - time * providers[i].bids[r].value.tValue))
                     providerRevenues.add(revenue)
-                    providerRevenuesDensity.add(revenue / quantity)
+                    providerRevenuesDensity.add(revenue / time)
                 }
             }
         }
@@ -200,7 +200,6 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                 it
             }
         }
-
         val conf1 = default.copy(provider = providers.size, requester = winRequesters.size, lpFile = "Padding/payoff-$id")
 
         ProfitMaxDoubleAuction(conf1, Object.MAX, newProviders.plus(winRequesters)).makeLpFile()
@@ -215,9 +214,9 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         ProfitMaxPaddingDoubleAuction(conf, Object.MAX, excludeProviders(providers, id, resoruceId).plus(requesters)).makeLpFile()
         val cplex = LpImporter("LP/Padding/supremum-{$id}").getCplex()
         cplex.solve()
-        val quantity = x[id][resoruceId].map { it.sum() }.sum() + q[id][resoruceId]
-        println("quqntity = $quantity")
-        return providers[id].bids[resoruceId].getValue() * quantity + paddingObjValue - cplex.objValue
+        val time = x[id][resoruceId].map { it.sum() }.sum() + q[id][resoruceId]
+        println("quqntity = $time")
+        return providers[id].bids[resoruceId].getValue() * time + paddingObjValue - cplex.objValue
     }
 
     private fun excludeProviders(providers: List<Bidder>, providerId: Int, resourceId: Int) = providers.mapIndexed { pId, bidder ->

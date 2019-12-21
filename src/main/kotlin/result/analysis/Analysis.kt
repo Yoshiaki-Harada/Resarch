@@ -39,16 +39,14 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
 
 
     val con = Conclusion(
-            sumCostAve = rs.map { it.sumCost }.average(),
-            sumCostSD = rs.map { it.sumCost }.sd(),
             sumProfitAve = rs.map { it.sumProfit }.average(),
             sumProfitSD = rs.map { it.sumProfit }.sd(),
             providerProfitAve = rs.map { it.providerProfitAve }.average(),
             providerProfitSD = rs.map { it.providerProfitAve }.sd(),
             requesterProfitAve = rs.map { it.requesterProfitAve }.average(),
             requesterProfitSD = rs.map { it.requesterProfitAve }.sd(),
-            winBidAve = rs.map { it.winBidNUmber }.average(),
-            winBidSD = rs.map { it.winBidNUmber.toDouble() }.sd(),
+            winBidAve = rs.map { it.winBidRatio }.average(),
+            winBidSD = rs.map { it.winBidRatio.toDouble() }.sd(),
             providerTimeRatioAve = rs.map { it.providerTimeRatioAve }.average(),
             providerTimeRatioSD = rs.map { it.providerTimeRatioAve }.sd(),
             providerBeforeAvailabilityRatioAve = rs.map { it.beforeProviderAvailabilityRatioAve }.average(),
@@ -68,15 +66,20 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
             sumProfitIncludeAuctioneerAve = rs.map { it.sumProfit + it.auctioneerProfit }.average(),
             sumProfitIncludeAuctioneerSD = rs.map { it.sumProfit + it.auctioneerProfit }.sd(),
             liarConclusion = LiarConclusion(
-                    providerProfitAve = rs.map { it.providerLiarResult?.providerProfitAve ?: 0.0 }.average(),
-                    providerProfitSD = rs.map { it.providerLiarResult?.providerProfitAve ?: 0.0 }.sd(),
-                    providerRevenueDensityAve = rs.map {
-                        it.providerLiarResult?.providerRevenueDensityAve ?: 0.0
+                    providersProfitAve = rs.map { it.providerLiarsResult?.providerProfitAve ?: 0.0 }.average(),
+                    providersProfitSD = rs.map { it.providerLiarsResult?.providerProfitAve ?: 0.0 }.sd(),
+                    providersRevenueDensityAve = rs.map {
+                        it.providerLiarsResult?.providerRevenueDensityAve ?: 0.0
                     }.average(),
-                    providerRevenueDensitySD = rs.map {
-                        it.providerLiarResult?.providerRevenueDensityAve ?: 0.0
-                    }.sd()
-
+                    providersRevenueDensitySD = rs.map {
+                        it.providerLiarsResult?.providerRevenueDensityAve ?: 0.0
+                    }.sd(),
+                    providerProfitAve = rs.map { it.providerLiarResult.profit }.average(),
+                    providerProfitSD = rs.map { it.providerLiarResult.profit }.sd(),
+                    requestersProfitAve = rs.map { it.requesterLiarsResult?.requesterProfitAve ?: 0.0 }.average(),
+                    requestersProfitSD = rs.map { it.requesterLiarsResult?.requesterProfitAve ?: 0.0 }.sd(),
+                    requesterProfitAve = rs.map { it.requesterLiarResult.profit }.average(),
+                    requesterProfitSD = rs.map { it.requesterLiarResult.profit }.sd()
             ),
             auctioneerProfitAve = rs.map { it.auctioneerProfit }.average(),
             auctioneerProfitSD = rs.map { it.auctioneerProfit }.sd()
