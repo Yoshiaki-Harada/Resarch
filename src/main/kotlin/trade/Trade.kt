@@ -10,7 +10,6 @@ import result.RequesterLiarResult
 import result.Result
 import rounding
 import sd
-import trade.padding_method.PaddingMethod
 
 interface Trade {
 
@@ -22,11 +21,11 @@ interface Trade {
      * @param config
      * @return
      */
-    fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config): Result {
+    fun run(cplex: IloCplex, bidders: List<Bidder>, config: Config, startTimeMillis: Long): Result {
         val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
         val solutions = cplex.getValues(lp).map { it.rounding() }
         cplex.objValue
-        return run(solutions, cplex.objValue, bidders, config)
+        return run(solutions, cplex.objValue, bidders, config, startTimeMillis)
     }
 
     /**
@@ -38,7 +37,7 @@ interface Trade {
      * @param config
      * @return
      */
-    fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result
+    fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config, startTimeMillis: Long): Result
 
     fun getResult(
             config: Config,
@@ -51,7 +50,9 @@ interface Trade {
             solutions: List<Double>,
             lieProviderNumber: Int,
             auctioneerProfit: Double,
-            lieRequesterNUmber: Int): Result {
+            lieRequesterNUmber: Int,
+            startTimeMillis: Long,
+            endTimeMillis: Long): Result {
 
         // 各企業の総リソース提供可能時間のリスト
         val p = providers.map { it.bids.map { it.bundle.sum() }.sum() }
@@ -107,7 +108,8 @@ interface Trade {
                         requesterProfitSD = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.profit }.sd().nanTo0(),
                         requesterPayAve = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.payment }.average().nanTo0(),
                         requesterPaySD = requesterResults.filter { it.id < lieRequesterNUmber }.map { it.payment }.sd().nanTo0()
-                )
+                ),
+                calculationTimeMillis = endTimeMillis - startTimeMillis
         )
     }
 }

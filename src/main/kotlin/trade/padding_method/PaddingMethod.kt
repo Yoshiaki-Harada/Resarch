@@ -9,7 +9,7 @@ import trade.Trade
 
 object PaddingMethod : Trade {
 
-    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result {
+    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config, startTimeMillis: Long): Result {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
 
@@ -32,6 +32,7 @@ object PaddingMethod : Trade {
 
         val trade = VcgTrade(providers, requesters, config, x, q.map { it.toList() })
         val rs = trade.run(y, objValue)
+        val end = System.currentTimeMillis();
 
         return this.getResult(
                 config = config,
@@ -44,7 +45,9 @@ object PaddingMethod : Trade {
                 solutions = solutions,
                 lieProviderNumber = config.lieProviderNumber,
                 auctioneerProfit = rs.payments.sum() - rs.providerRevenue.sum(),
-                lieRequesterNUmber = config.lieRequesterNumber
+                lieRequesterNUmber = config.lieRequesterNumber,
+                startTimeMillis = startTimeMillis,
+                endTimeMillis = end
         )
     }
 }

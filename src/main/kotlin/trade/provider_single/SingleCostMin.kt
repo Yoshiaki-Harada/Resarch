@@ -9,7 +9,7 @@ import trade.Trade
 
 
 object SingleCostMin : Trade {
-    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result {
+    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config, startTimeMillis: Long): Result {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
         val sum = requesters.map { it.bids.size }.sum()
@@ -39,7 +39,9 @@ object SingleCostMin : Trade {
                 solutions = solutions,
                 lieProviderNumber = 0,
                 auctioneerProfit = 0.0,
-                lieRequesterNUmber = 0
+                lieRequesterNUmber = 0,
+                startTimeMillis =,
+                endTimeMillis =
         )
     }
 }

@@ -126,7 +126,7 @@ fun main(args: Array<String>) {
 
                     val rs = ResultConverter.fromJson(JsonImporter("${config.resultDir}/$data/$i/$it/result").getString())
 
-                    val result = trade.run(rs.x, rs.objectValue, bidders, config)
+                    val result = trade.run(rs.x, rs.objectValue, bidders, config, )
 
                     // TODO: ここでやること？
                     if (data.contains("%")) {

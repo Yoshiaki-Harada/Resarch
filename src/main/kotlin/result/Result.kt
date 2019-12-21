@@ -52,7 +52,8 @@ data class Result(val objectValue: Double,
                   val sumRevenue: Double,
                   val providerLiarResult: ProviderLiarResult?,
                   val auctioneerProfit: Double,
-                  val requesterLiarResult: RequesterLiarResult?)
+                  val requesterLiarResult: RequesterLiarResult?,
+                  val calculationTimeMillis: Long)
 
 /**
  * 虚偽申告をした入札者の結果用のクラス

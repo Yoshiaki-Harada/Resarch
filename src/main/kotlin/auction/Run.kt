@@ -144,9 +144,10 @@ fun main(args: Array<String>) {
 
                     lpMaker.makeLpFile()
                     println("LPファイルの作成")
+                    val start = System.currentTimeMillis();
                     val cplex = Solver(LpImporter("${con.lpDir}/${con.lpFile}").getCplex()).solve()
                     println("勝者決定問題")
-                    val result = trade.run(cplex, bidders, con)
+                    val result = trade.run(cplex, bidders, con, start)
                     println("オークション終了")
 
                     // TODO: ここでやること？

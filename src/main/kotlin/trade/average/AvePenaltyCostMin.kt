@@ -8,7 +8,7 @@ import result.Result
 import trade.Trade
 
 object AvePenaltyCostMin : Trade {
-    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result {
+    override fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config, startTimeMillis: Long): Result {
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
 
@@ -26,6 +26,7 @@ object AvePenaltyCostMin : Trade {
 
         // 取引を実行し利益等を計算する
         val rs = AveTrade(providers, requesters, config).run(x)
+        val end = System.currentTimeMillis();
 
         return this.getResult(
                 config = config,
@@ -38,7 +39,9 @@ object AvePenaltyCostMin : Trade {
                 solutions = solutions,
                 lieProviderNumber = config.lieProviderNumber,
                 auctioneerProfit = 0.0,
-                lieRequesterNUmber = config.lieRequesterNumber
+                lieRequesterNUmber = config.lieRequesterNumber,
+                startTimeMillis = startTimeMillis,
+                endTimeMillis = end
         )
     }
 }

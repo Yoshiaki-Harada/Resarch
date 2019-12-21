@@ -9,7 +9,7 @@ import trade.Trade
 
 object AveProfitMax : Trade {
     override
-    fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config): Result {
+    fun run(solutions: List<Double>, objValue: Double, bidders: List<Bidder>, config: Config, startTimeMillis: Long): Result {
 
         val providers = bidders.subList(0, config.provider)
         val requesters = bidders.subList(config.provider, config.provider + config.requester)
@@ -34,6 +34,7 @@ object AveProfitMax : Trade {
             println("**********取引は行われていません**********")
             rs.payments.add(0.0)
         }
+        val end = System.currentTimeMillis();
 
         return this.getResult(
                 config = config,
@@ -46,7 +47,9 @@ object AveProfitMax : Trade {
                 solutions = solutions,
                 lieProviderNumber = config.lieProviderNumber,
                 auctioneerProfit = rs.auctioneerProfit ?: 0.0,
-                lieRequesterNUmber = config.lieRequesterNumber
+                lieRequesterNUmber = config.lieRequesterNumber,
+                startTimeMillis = startTimeMillis,
+                endTimeMillis = end
         )
     }
 }
