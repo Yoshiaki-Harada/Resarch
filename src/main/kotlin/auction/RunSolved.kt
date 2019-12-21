@@ -43,7 +43,7 @@ fun main(args: Array<String>) {
                     val start = System.currentTimeMillis();
                     val result = trade.run(rs.x, rs.objectValue, bidders, config, start)
 
-                    Saver.run(bidders, result, config, it)
+                    Saver.run(bidders, result, config, it,data,ite )
                 }
                 // iteが指定されなければ，繰り返さない
             } ?: run {

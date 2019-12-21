@@ -51,7 +51,7 @@ fun main(args: Array<String>) {
                     val result = trade.run(cplex, bidders, config, start)
                     println("オークション終了")
 
-                    Saver.run(bidders, result, config, it)
+                    Saver.run(bidders, result, config, it, data, i)
                 }
                 // iteが指定されなければ，繰り返さない
             } ?: run {
