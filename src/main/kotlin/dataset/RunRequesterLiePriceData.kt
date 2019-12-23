@@ -32,47 +32,80 @@ fun main(args: Array<String>) {
                     "100%" to 1.0
             )
 
-    val config = Config.fromJson("config")
+    val config = Config.fromJson("config-dataset")
 
     // 提供割合の違いの繰り返し
-    for (s in 0 until SUPPLY_DATASET_NUMBER) {
-        var minSupply = config.providerTimeMin + s * 50.0
-        var maxSupply = config.providerTimeMax + s * 50.0
+//    for (s in 0 until SUPPLY_DATASET_NUMBER) {
+//        var minSupply = config.providerTimeMin + s * 50.0
+//        var maxSupply = config.providerTimeMax + s * 50.0
+//
+//        val bidDir = "Bid/Provider=25/basic"
+//
+//        for (p in 0 until 3) {
+//            var lie = 10 + 10 * p
+//
+//            // データセット数による繰り返し
+//            for (i in 0 until DATASET_ITERATE) {
+//                val bidders = mutableListOf<Bidder>()
+//                for (index in 0 until config.provider + config.requester) {
+//                    bidders.add(BidderConverter.fromJson(JsonImporter("$bidDir/$i/bidder$index").getString()))
+//                    println("$bidDir/$i/bidder$index")
+//                }
+//                val copyBidders = bidders
+//                        .subList(config.provider, config.provider + config.requester)
+//                        .mapIndexed { bidIndex, bidder ->
+//                            Bidder().add(
+//                                    bidder.bids.mapIndexed { index, it ->
+//                                        if (bidIndex < LieRequesterNumber) {
+//                                            Bid(Value(it.value.tValue, lieMap["$lie%"]!!.times(it.value.tValue)), it.bundle)
+//                                        } else {
+//                                            it
+//                                        }
+//                                    }
+//                            )
+//                        }
+//
+//                val afterBidders = bidders.subList(0, config.provider).plus(copyBidders)
+//                val dir = File("Bid/Provider=25/requester-lie-ratio/$lie%/$i").absoluteFile
+//                dir.mkdirs()
+//                println("biddder size = ${afterBidders.size}")
+//                afterBidders.forEachIndexed { index, bidder ->
+//                    JsonWriter("$dir/bidder$index").makeFile(BidderConverter.toJson(bidder))
+//                }
+//            }
+//        }
+//    }
+    val bidDir = "Bid/Provider=25/basic"
 
-        val bidDir = "Bid/Provider=25/supply-${minSupply}-${maxSupply}"
+    var lie = 20
 
-        for (p in 0 until lieMap.size) {
-            var lie = 10 + 10 * p
-
-            // データセット数による繰り返し
-            for (i in 0 until DATASET_ITERATE) {
-                val bidders = mutableListOf<Bidder>()
-                for (index in 0 until config.provider + config.requester) {
-                    bidders.add(BidderConverter.fromJson(JsonImporter("$bidDir/$i/bidder$index").getString()))
-                    println("$bidDir/$i/bidder$index")
+    // データセット数による繰り返し
+    for (i in 0 until DATASET_ITERATE) {
+        val bidders = mutableListOf<Bidder>()
+        for (index in 0 until config.provider + config.requester) {
+            bidders.add(BidderConverter.fromJson(JsonImporter("$bidDir/$i/bidder$index").getString()))
+            println("$bidDir/$i/bidder$index")
+        }
+        val copyBidders = bidders
+                .subList(config.provider, config.provider + config.requester)
+                .mapIndexed { bidIndex, bidder ->
+                    Bidder().add(
+                            bidder.bids.mapIndexed { index, it ->
+                                if (bidIndex < LieRequesterNumber) {
+                                    Bid(Value(it.value.tValue, lieMap["$lie%"]!!.times(it.value.tValue)), it.bundle)
+                                } else {
+                                    it
+                                }
+                            }
+                    )
                 }
-                val copyBidders = bidders
-                        .subList(config.provider, config.provider + config.requester)
-                        .mapIndexed { bidIndex, bidder ->
-                            Bidder().add(
-                                    bidder.bids.mapIndexed { index, it ->
-                                        if (bidIndex < LieRequesterNumber) {
-                                            Bid(Value(it.value.tValue, lieMap["$lie%"]!!.times(it.value.tValue)), it.bundle)
-                                        } else {
-                                            it
-                                        }
-                                    }
-                            )
-                        }
 
-                val afterBidders = bidders.subList(0, config.provider).plus(copyBidders)
-                val dir = File("$bidDir/requesterLier=$LieRequesterNumber/supply-100.0-200.0-lie$lie%/$i/").absoluteFile
-                dir.mkdirs()
-                println("biddder size = ${afterBidders.size}")
-                afterBidders.forEachIndexed { index, bidder ->
-                    JsonWriter("$bidDir/requesterLier=$LieRequesterNumber/supply-100.0-200.0-lie$lie%/$i/bidder$index").makeFile(BidderConverter.toJson(bidder))
-                }
-            }
+        val afterBidders = bidders.subList(0, config.provider).plus(copyBidders)
+        val dir = File("Bid/Provider=25/requester-lier-number/$LieRequesterNumber/$i").absoluteFile
+        dir.mkdirs()
+        println("biddder size = ${afterBidders.size}")
+        afterBidders.forEachIndexed { index, bidder ->
+            JsonWriter("$dir/bidder$index").makeFile(BidderConverter.toJson(bidder))
         }
     }
 }

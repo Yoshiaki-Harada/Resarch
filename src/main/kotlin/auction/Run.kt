@@ -22,7 +22,7 @@ fun main(args: Array<String>) {
     config.targetAuction.forEach {
         println("$it start")
         // 入札作成~結果出力
-        config.targetData.map { data ->
+        config.targetData.forEach { data ->
             // iteが存在していれば繰り返す
             config.targetDataIterate?.also { ite ->
                 for (i in 0 until ite) {
@@ -52,6 +52,7 @@ fun main(args: Array<String>) {
                     println("オークション終了")
 
                     Saver.run(bidders, result, config, it, data, i)
+                    cplex.end()
                 }
                 // iteが指定されなければ，繰り返さない
             } ?: run {

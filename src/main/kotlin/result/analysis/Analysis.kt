@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
             if (config.targetDataIterate == null) {
                 throw Exception("ite がnullです")
             }
-            run(it, config.resultDir, dataset, config.targetDataIterate!!)
+            run(it, config.resultDir, config.bidDir, dataset, config.targetDataIterate)
         }
     }
 }
@@ -30,11 +30,11 @@ fun main(args: Array<String>) {
  * @param dataSet
  * @param ite
  */
-fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
-    val dir = "$resultDir/$dataSet"
+fun run(auction: String, resultDir: String, bidDir: String, dataSet: String, ite: Int) {
+    val dirName = "${resultDir}${bidDir.replace("Bid", "")}/$dataSet"
 
     val rs = (0 until ite).toList().map {
-        ResultConverter.fromJson(JsonImporter("$dir/$it/$auction/result").getString())
+        ResultConverter.fromJson(JsonImporter("$dirName/$it/$auction/result").getString())
     }
 
 
@@ -84,7 +84,7 @@ fun run(auction: String, resultDir: String, dataSet: String, ite: Int) {
             auctioneerProfitAve = rs.map { it.auctioneerProfit }.average(),
             auctioneerProfitSD = rs.map { it.auctioneerProfit }.sd()
     )
-    println("$dir/$auction")
-    writer.JsonWriter("$resultDir/$dataSet/$auction").makeFile(ConclusionConverter.toJson(con))
+    println("$dirName/$auction")
+    writer.JsonWriter("$dirName/$auction").makeFile(ConclusionConverter.toJson(con))
 }
 

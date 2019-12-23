@@ -1,12 +1,12 @@
 {
   "auction": 2,
   "bidNumber": 3,
-  "bidDir": "Bid/Provider=25/supply-100.0-200.0-lie20%",
+  "bidDir": "Bid/Provider=25/provider-lier-number",
   "bidderFile": "Bid/25/supply-250.0-350.0/",
   "lpFile": "LP/profitMax",
   "lpDir": "LP",
   "penalty": 10000.0,
-  "provider": 30,
+  "provider": 25,
   "providerResourceNumber": 2,
   "providerTimeMax": 200.0,
   "providerTimeMin": 100.0,
@@ -29,10 +29,12 @@
     "利益最大化-平均"
   ],
   "targetData": [
-    "providerLier=2",
-    "providerLier=3",
-    "providerLier=4",
-    "providerLier=5"
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
   ],
   "targetDataIterate": 10,
   "items": [
