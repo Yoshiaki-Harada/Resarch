@@ -29,4 +29,4 @@ cp -pR  "${BUILD_DIR}/src/template/others/`*`" "${BUILD_DIR}/src"
 
 latexmk boilerplate
 mv ./boilerplate.pdf "${PROJECT_DIR}/dest/output.pdf"
-rm -rf "${BUILD_DIR}"
+mv ./main.tex "${PROJECT_DIR}/dest/main.tex"
