@@ -1,4 +1,4 @@
-﻿%
+%
 % title.sty        by catoo
 %                         平成６年２月１４日（月曜日）
 %                        （５講座：加藤穰）
@@ -25,7 +25,7 @@
 \newcommand{\指導教員}[1]{\def\@shidou{#1}}
 \newcommand{\審査教員A}[1]{\def\@shinsaA{#1}}
 \newcommand{\審査教員B}[1]{\def\@shinsaB{#1}}
-%\newcommand{\審査教員C}[1]{\def\@shinsaC{#1}}
+\newcommand{\審査教員C}[1]{\def\@shinsaC{#1}}
 %\newcommand{\審査教員D}[1]{\def\@shinsaD{#1}}
 
 \def\表紙{\begin{titlepage}
@@ -56,7 +56,6 @@
 \vskip 11em
 
 %所属
-%{\LARGE 神戸大学大学院自然科学研究科\\情報知能工学専攻} \par
 {\LARGE 神戸大学大学院システム情報学研究科\\システム科学専攻} \par
 \vskip 2em
 
@@ -70,12 +69,12 @@
 {\LARGE
 \begin{tabular}{p{10.7cm}}
   \underline{指\hfill 導\hfill 教\hfill 員\hfill 　\hfill 　\hfill 　\hfill \makebox[6cm]{\@shidou}}\\ \\   
-%  \underline{審\hfill 査\hfill 教\hfill 員\hfill 　\hfill 主\hfill 査
-%    \hfill \makebox[6cm]{\@shinsaA}}\\ \\
-%  \hspace*{2.8cm} \underline{副\hfill 査\hfill 
-%    \makebox[6cm]{\@shinsaB}}\\ \\
-%  \hspace*{2.8cm} \underline{副\hfill 査\hfill 
-%    \makebox[6cm]{\@shinsaC}}\\ 
+  \underline{審\hfill 査\hfill 教\hfill 員\hfill 　\hfill 主\hfill 査
+    \hfill \makebox[6cm]{\@shinsaA}}\\ \\
+  \hspace*{2.8cm} \underline{副\hfill 査\hfill 
+    \makebox[6cm]{\@shinsaB}}\\ \\
+  \hspace*{2.8cm} \underline{副\hfill 査\hfill 
+    \makebox[6cm]{\@shinsaC}}\\ 
 %  \hspace*{2.8cm} \underline{副\hfill 査\hfill 
 %    \makebox[6cm]{\@shinsaD}}\\ 
 \end{tabular} \par }
@@ -98,7 +97,8 @@
 \vskip 2em
 
 {\LARGE
-  \@nendo 年度~~修士論文\\
+%  \@nendo 年度~~修士論文\\
+  \@nendo 年度~~卒業論文\\
  \par}
 \vskip 6em
 \vfil

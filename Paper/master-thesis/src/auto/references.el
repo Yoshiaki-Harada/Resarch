@@ -17,6 +17,12 @@
     "WU2015"
     "Ghomi2019"
     "THEKINEN2017"
-    "CHIDA2019"))
+    "CHIDA2019"
+    "market"
+    "yokoo"
+    "google"
+    "yahoo"
+    "vickrey"
+    "suginouchi"))
  :bibtex)
 

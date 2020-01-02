@@ -30,6 +30,8 @@
     "color"
     "hyperref"
     "pxjahyper"
+    "longtable"
+    "booktabs"
     "biblatex")
    (TeX-add-symbols
     "maxwidth"
