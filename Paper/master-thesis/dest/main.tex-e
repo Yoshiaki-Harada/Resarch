@@ -6,7 +6,7 @@
 
 従来のモノづくり企業は垂直型経営が主流であった\cite{Suichoku}．垂直型経営とは設計，材料・部品の調達，製造，組立の一連のプロセスを自社でまかなう経営形態である．垂直型経営はノウハウを蓄積することが可能である，機密性を保てるなどのメリットがある．
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{center}\rule{1.0\linewidth}{0.5pt}\end{center}
 
 \begin{itemize}
 \tightlist
@@ -14,11 +14,11 @@
   \textbf{\emph{垂直型経営についてもう少し述べる．．．}}
 \end{itemize}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{center}\rule{1.0\linewidth}{0.5pt}\end{center}
 
 しかし，近年の製造業の顧客ニーズは多様化し，それにより製品品種の増加，製品ライフサイクルが短期化している．それによって，従来の垂直型経営における以下の課題点が浮き彫りになってきた．
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{center}\rule{1.0\linewidth}{0.5pt}\end{center}
 
 \begin{itemize}
 \tightlist
@@ -26,7 +26,7 @@
   \textbf{\emph{顧客ニースの多様化の背景を書く．．．}}
 \end{itemize}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{center}\rule{1.0\linewidth}{0.5pt}\end{center}
 
 \begin{itemize}
 \tightlist
@@ -53,7 +53,7 @@
 \hypertarget{ux30b7ux30a7ux30a2ux30eaux30f3ux30b0ux30a8ux30b3ux30ceux30dfux30fcux306eux767aux5c55}{%
 \section{シェアリング・エコノミーの発展}\label{ux30b7ux30a7ux30a2ux30eaux30f3ux30b0ux30a8ux30b3ux30ceux30dfux30fcux306eux767aux5c55}}
 
-近年IoT技術の発展を背景に，シェアリング・エコノミーが発展している．本節ではまずIoTについて説明を行い，その後，シェアリング・エコノミーについて述べる．
+IoT技術の発展を背景に，近年シェアリング・エコノミーが普及している．本節ではまずIoTについて説明を行い，その後，シェアリング・エコノミーについて述べる．
 
 \hypertarget{iotux306eux767aux5c55}{%
 \subsubsection{IoTの発展}\label{iotux306eux767aux5c55}}
@@ -123,7 +123,7 @@ IoT技術を活用することで人やモノの位置，稼働状況などの�
 
 製造業においてもシェアリング・エコノミーの考え方をとり入れることで，製造リソースをシェアリングすることで，従来の垂直統合の課題を克服し，企生産効率を高めることができる共生型モノづくりの実現を目指す動きが活発化している\cite{IVI}\cite{Hitachi-csmfg}．
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{center}\rule{1.0\linewidth}{0.5pt}\end{center}
 
 \begin{itemize}
 \tightlist
@@ -131,7 +131,7 @@ IoT技術を活用することで人やモノの位置，稼働状況などの�
   \textbf{\emph{IVIについてここで詳しく述べる．．．}}
 \end{itemize}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{center}\rule{1.0\linewidth}{0.5pt}\end{center}
 
 \hypertarget{ux5171ux751fux578bux30e2ux30ceux3065ux304fux308a}{%
 \section{共生型モノづくり}\label{ux5171ux751fux578bux30e2ux30ceux3065ux304fux308a}}
@@ -188,15 +188,15 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
 
 このようにクラウドソースドマニュファクチャリングにおいては様々な独立した企業が参加し，リソースを相互に融通することで，従来より効率的な生産システムが実現する．
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{center}\rule{1.0\linewidth}{0.5pt}\end{center}
 
 \begin{itemize}
 \tightlist
 \item
-  リソース融通方法に他にどんなものがあるかを述べる．
+  リソース融通方法に他にどんなものがあるかを述べる．．．
 \end{itemize}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{center}\rule{1.0\linewidth}{0.5pt}\end{center}
 
 \hypertarget{ux7814ux7a76ux76eeux7684}{%
 \section{研究目的}\label{ux7814ux7a76ux76eeux7684}}
@@ -230,7 +230,7 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
 \begin{figure}[H]
 \hypertarget{fig:csmfg}{%
 \centering
-\includegraphics[width=0.4\textwidth,height=\textheight]{/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/crowdsourced-manufacturing.png}
+\includegraphics[width=0.6\textwidth,height=\textheight]{/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/crowdsourced-manufacturing.png}
 \caption{Crowedsourced Manufacturing}\label{fig:csmfg}
 }
 \end{figure}
@@ -273,9 +273,9 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
 \hypertarget{ux30aaux30fcux30afux30b7ux30e7ux30f3ux3068ux306f}{%
 \subsection{オークションとは}\label{ux30aaux30fcux30afux30b7ux30e7ux30f3ux3068ux306f}}
 
-オークションは，分散化された意思決定下において，財の配分と取引価格を決めるルールのことを指す．近年周波数帯オークション，ネット広告オークションでの成功から更に注目が集まっている．
+オークションは，分散化された意思決定下において，財の配分と取引価格を決めるルールのことを指す\cite{market}．近年周波数帯オークション，ネット広告オークションでの成功から更に注目が集まっている\cite{yokoo}．
 
-オークションの説明に使用される用語を以下に示す．
+オークションの説明に使用される用語を以下に示す\cite{market}．
 
 \begin{itemize}
 \tightlist
@@ -365,7 +365,7 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
 \hypertarget{ux30aaux30fcux30afux30b7ux30e7ux30f3ux306eux5165ux672dux306bux95a2ux3059ux308bux5206ux985e}{%
 \subsection{オークションの入札に関する分類}\label{ux30aaux30fcux30afux30b7ux30e7ux30f3ux306eux5165ux672dux306bux95a2ux3059ux308bux5206ux985e}}
 
-次にオークションの入札を誰が行うかに着目した分類の説明を行う．
+次にオークションの入札を誰が行うかに着目した分類の説明を行う\cite{yokoo}．
 
 \hypertarget{ux30b7ux30f3ux30b0ux30ebux30aaux30fcux30afux30b7ux30e7ux30f3ux30b7ux30f3ux30b0ux30ebux30b5ux30a4ux30c9ux30aaux30fcux30afux30b7ux30e7ux30f3}{%
 \subsubsection{シングルオークション(シングルサイドオークション)}\label{ux30b7ux30f3ux30b0ux30ebux30aaux30fcux30afux30b7ux30e7ux30f3ux30b7ux30f3ux30b0ux30ebux30b5ux30a4ux30c9ux30aaux30fcux30afux30b7ux30e7ux30f3}}
@@ -425,17 +425,7 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
 \hypertarget{ux30d5ux30a1ux30fcux30b9ux30c8ux30d7ux30e9ux30a4ux30b9ux30aaux30fcux30afux30b7ux30e7ux30f3}{%
 \subsubsection{ファーストプライスオークション}\label{ux30d5ux30a1ux30fcux30b9ux30c8ux30d7ux30e9ux30a4ux30b9ux30aaux30fcux30afux30b7ux30e7ux30f3}}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{itemize}
-\tightlist
-\item
-  ファーストプライスオークションについて少し述べる
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-ファーストプライスオークションは以下の特徴を持つ．
+ファーストプライスオークションは，勝者となった入札者の入札値で取引を行うオークションである．オークション主催者に対して利益を考慮した値を入札値として提出する．ファーストプライスオークションを以下に示す．
 
 \begin{itemize}
 \tightlist
@@ -479,22 +469,13 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
   \end{itemize}
 \end{itemize}
 
-ファーストプライスオークションは入札値がそのまま取引価格となるので，財に対する真の評価値に利益を上乗せした値を入札値として申告することになる．このオークションはルールがシンプルであり，また自分の入札値で取引が行われることから透明性が求められるネット広告オークションに使用される．しかし耐戦略性を満たせず，支配戦略が存在しないので，入札戦略が複雑になるなどのデメリットが存在する．
+ファーストプライスオークションはオークションはルールがシンプルであり，また自分の入札値で取引が行われることから透明性が求められるネット広告オークションに使用される\cite{google}．しかし耐戦略性を満たせず，支配戦略が存在しないので，入札戦略が複雑になるなどのデメリットが存在する．
 
 \hypertarget{ux30bbux30abux30f3ux30c9ux30d7ux30e9ux30a4ux30b9ux30aaux30fcux30afux30b7ux30e7ux30f3}{%
 \subsubsection{セカンドプライスオークション}\label{ux30bbux30abux30f3ux30c9ux30d7ux30e9ux30a4ux30b9ux30aaux30fcux30afux30b7ux30e7ux30f3}}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{\emph{セカンドプライスオークションについて少し述べる}}
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-セカンドプライスオークションは以下の特徴を持つ．
+セカンドプライスオークションは，単一財オークションであり，耐戦略性を満たすオークションである．勝者の取引価格は，このオークションで勝者として留まれる最小(最大)の価格となっている．またこの価格をcritiical
+priceと呼ばれる．セカンドプライスオークションは以下の特徴を持つ．
 
 \begin{itemize}
 \tightlist
@@ -513,13 +494,6 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
     \end{itemize}
   \item
     一番入札値が高い入札者が勝者となり，その次に高い入札者の入札値(二位の価格)でその財を得ることができる(リバースオークションの場合は一番低い入札値の入札者が，その次に低い入札値で売ることができる)
-
-    \begin{itemize}
-    \tightlist
-    \item
-      勝者が支払うこの価格は，このオークションの勝者になれる最小の価格(critical
-      price)である
-    \end{itemize}
   \end{itemize}
 \item
   分類
@@ -545,7 +519,7 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
   \end{itemize}
 \end{itemize}
 
-セカンドプライスオークションは，二位の価格と財に対する真の評価値との差がオークションの勝者となった入札者の利益となる．このオークションは個人合理性・パレート効率性・耐戦略性を満たすことができる．現実の適用例としては，Yahooオークションなどが挙げられる．
+セカンドプライスオークションは，二位の価格と財に対する真の評価値との差がオークションの勝者となった入札者の利益となる．このオークションは個人合理性・パレート効率性・耐戦略性を満たすことができる．現実の適用例としては，Yahooオークションなどが挙げられる\cite{yahoo}．
 
 \hypertarget{ux30b6ux30e9ux30d0ux65b9ux5f0f}{%
 \subsubsection{ザラバ方式}\label{ux30b6ux30e9ux30d0ux65b9ux5f0f}}
@@ -561,24 +535,15 @@ Futureにおいてクラウドソースドマニュファクチャリングと�
 
 本節では提案する2種類の組合せダブルオークションに基づいたリソース配分手法の共通部分について説明をする．
 
-その準備としてまず，組合せオークションの代表的なオークションであるVCG(Vickrey--Clarke--Groves
-Auction)オークションのシングルサイドオークションの場合で説明をする．
+その準備としてまず，シングルサイド組合せオークションの代表的なオークションであるVCG(Vickrey--Clarke--Groves
+Auction)オークション\cite{vickrey}について説明をする．
 
 \hypertarget{vcgux30aaux30fcux30afux30b7ux30e7ux30f3vickreyclarkegroves-auction}{%
 \subsubsection{VCGオークション(Vickrey--Clarke--Groves
 Auction)}\label{vcgux30aaux30fcux30afux30b7ux30e7ux30f3vickreyclarkegroves-auction}}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{\emph{VCGオークショの説明を少し記述する}}
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-VCGオークションは以下の特徴を持つ．
+VCGオークションはセカンドプライスオークションを一般化し，財の組合せに対する入札に対応したものである．理論的に優れた性質(個人合理性・パレート効率性・耐戦略性)を持つことからKing
+of Mechanismsとも呼ばれる．VCGオークションは以下の特徴を持つ．
 
 \begin{itemize}
 \tightlist
@@ -636,9 +601,6 @@ VCGオークションは以下の特徴を持つ．
   \end{itemize}
 \end{itemize}
 
-VCGオークションはセカンドプライスオークションを一般化し，財の組合せに対する入札に対応したものである．理論的に優れた性質(個人合理性・パレート効率性・耐戦略性)を持つことからKing
-of Mechanismsとも呼ばれる．
-
 以下VCGオークション勝者決定問題，価格の決定方法にいついて詳しく説明し，その後で性質について詳しく説明する．ただし，買い手が入札の場合について説明する．
 
 \hypertarget{ux52ddux8005ux6c7aux5b9aux554fux984cux306eux5b9aux5f0fux5316}{%
@@ -646,12 +608,12 @@ of Mechanismsとも呼ばれる．
 
 VCGオークションの勝者を決める勝者決定問題は，組合せ最適化問題として定式化される．
 
-定式化に用いた記号の定義は以下の通りである．
+定式化に用いる記号の定義は以下の通りである．
 
 \begin{itemize}
 \tightlist
 \item
-  \(j\): 買い手\(j \in \boldsymbol{J}\)
+  \(j\): 買い手\(j\in \boldsymbol{J}\)
 \item
   \(n\): 買い手\(j\)の入札\(n \in \boldsymbol{N}\)
 \item
@@ -660,25 +622,27 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
   \(a_{j,n,r}\):買い手\(j\)の入札\(n\)に財\(r\)が含まれるとき1，含まれないとき0となる定数
 \item
   \(r\):オークションにかけられる財\(r \in \boldsymbol{R}\)
+\item
+  \(V(\boldsymbol{J})\):提供企業の集合が\(\boldsymbol{J}\)であるときの勝者決定問題の目的関数値
 \end{itemize}
 
-\begin{align}
-    {\rm max}\quad &\sum_{j\in\boldsymbol{J}}\sum_{n \in \boldsymbol{N}}f_{j,n} \times x_{j,n}  \label{eq:ca-obj}\\  
-  {\rm s.t.} \quad &\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}} a_{j,n,r}\times x_{j,n}\leq 1 &(\forall r)　\label{eq:ca-cap-sub}\\
+上記の記号を用いて勝者決定問題を定式化する． \begin{align}
+    {\rm max}\quad &V(\boldsymbol{J})=\sum_{j\in\boldsymbol{J}}\sum_{n \in \boldsymbol{N}}f_{j,n} \times x_{j,n}  \label{eq:vcg-obj}\\  
+  {\rm s.t.} \quad &\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}} a_{j,n,r}\times x_{j,n}\leq 1 &(\forall r)　\label{eq:vcg-cap-sub}\\
                   &\sum_{n \in \boldsymbol{N}} x_{j,n}\leq 1            &(\forall j)\\
                   &x_{j,n} \in \{0,1\}          &(\forall j,\forall n) 
 \end{align}
 
-決定変数は\(x_{j,n}\)であり，この値が1のとき入札者\(j\)の入札\(n\)が勝者となり入札に含れる財が落札され，この値が0のときに入札者\(j\)の入札\(n\)のは敗者となる．\(\eqref{eq:ca-obj}\)は目的関数であり，入札値の合計の最大化を表す．\(\eqref{eq:ca-cap-sub}\)は財を落札できるのは高々1入札者であることを表す制約である．これは財の容量制約を表す．
+決定変数は\(x_{j,n}\)であり，この値が1のとき入札者\(j\)の入札\(n\)が勝者となり入札に含れる財が落札され，この値が0のときに入札者\(j\)の入札\(n\)のは敗者となる．式\(\eqref{eq:vcg-obj}\)は目的関数であり，入札値の合計の最大化を表す．式\(\eqref{eq:vcg-cap-sub}\)は財を落札できるのは高々1入札者であることを表す制約である．これは財の容量制約を表す．
 
 \hypertarget{ux4fa1ux683cux306eux5f0f}{%
 \paragraph{価格の式}\label{ux4fa1ux683cux306eux5f0f}}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{\emph{VCGの価格決定式を書く．．}}
-\end{itemize}
+VCGオークションにおいて勝者となった\(j\)の入札\(n\)の支払い価格\(pay_{j}\)は以下のように定まる．
+\begin{align}
+pay_{j}  = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j)
+\end{align}
+\(V(\boldsymbol{J}\backslash j)\)は\(j\)を除いたオークションの勝者決定問題の目的関数値を表す．また，\(\{-f_{j,n}+V(\boldsymbol{J})\}\)は目的関数値から，支払いを決めようとする入札の入札値を除いた値である．よって\(pay_{j}\)は\(j\)の評価値に関わらず決定されている．
 
 \hypertarget{ux6027ux8ceaux306eux8a3cux660e}{%
 \paragraph{性質の証明}\label{ux6027ux8ceaux306eux8a3cux660e}}
@@ -689,7 +653,7 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
   \textbf{\emph{VCGが耐戦略性や個人合理性を示すことを説明する}}
 \end{itemize}
 
-従来の製造業における組合せオークションを応用した研究では，シングルサイドオークションが多く扱われてきた．しかし本研究のクラウドソースドマニュファクチャリングにおいては．リソース提供企業・リソース要求企業の双方の意思を反映させる為に，ダブルオークションを適用する．そうすることで，提供企業と要求企業の総利益が最大化される配分を求めることを可能とした．本研究で行う組合せダブルオークションは以下の特徴を持つ．
+従来の製造業における組合せオークションを応用した研究では，シングルサイドオークションが多く扱われてきた\cite{suginouchi}．しかし本研究のクラウドソースドマニュファクチャリングにおいては．リソース提供企業・リソース要求企業の双方の意思を反映させる為に，ダブルオークションを適用する．そうすることで，提供企業と要求企業の総利益が最大化される配分を求めることを可能とした．本研究で行う組合せダブルオークションは以下の特徴を持つ．
 
 \begin{itemize}
 \tightlist
@@ -740,7 +704,7 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
 \hypertarget{ux5171ux901aux306eux6d41ux308c}{%
 \section{共通の流れ}\label{ux5171ux901aux306eux6d41ux308c}}
 
-提案するリソース配分手法は大きく分けて2つの段階からなる．
+提案するリソース配分手法は，大きく分けて入札作成部分と，オークション主催者のリソース配分と取引価格決定部分の2つからなる．
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -751,7 +715,7 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
   \begin{itemize}
   \tightlist
   \item
-    リソース提供企業はオークション主催者に入札を行う
+    リソース提供企業はオークション主催者に入札を行う．
 
     \begin{itemize}
     \tightlist
@@ -759,7 +723,7 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
       \textbf{\emph{文字を使ってどのような入札を作成するかを説明する．．．}}
     \end{itemize}
   \item
-    リソース提供企業はオークション主催者に入札を行う
+    リソース提供企業はオークション主催者に入札を行う．
 
     \begin{itemize}
     \tightlist
@@ -768,10 +732,13 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
     \end{itemize}
   \end{itemize}
 \item
-  オークション主催者はリソースの配分と，取引価格の決定する
+  オークション主催者はリソースの配分と，取引価格の決定する．
 \end{enumerate}
 
-2の部分の具体的なアルゴリズムは次節以降で説明する．ここでは1について例を用いて説明する．
+\hypertarget{ux5165ux672dux4f5cux6210}{%
+\subsection{入札作成}\label{ux5165ux672dux4f5cux6210}}
+
+2の部分の具体的なアルゴリズムは次章以降で説明する．ここでは1の入札作成について例を用いて説明する．
 
 \begin{itemize}
 \tightlist
@@ -782,67 +749,67 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
 \hypertarget{ux8a55ux4fa1ux6307ux6a19}{%
 \subsection{評価指標}\label{ux8a55ux4fa1ux6307ux6a19}}
 
-本研究で提案する2つの手法の評価指標について述べる．
+本研究で提案するリソース配分手法の評価指標について述べる．オークションの観点の評価指標は以下の２つである．
 
 \begin{itemize}
 \tightlist
 \item
-  オークションの観点の評価指標
+  パレート効率性
 
   \begin{itemize}
   \tightlist
   \item
-    パレート効率性:総利益の値を評価する．
-  \item
-    耐戦略性
-
-    \begin{itemize}
-    \tightlist
-    \item
-      虚偽申告を行ったある1企業の利益を評価する．
-    \end{itemize}
+    総利益の値を評価する．
   \end{itemize}
 \item
-  クラウドソースドマニュファクチャリングの観点の評価指標
+  耐戦略性
 
   \begin{itemize}
   \tightlist
   \item
-    総提供企業利益
+    虚偽申告を行ったある1企業の利益を評価する．
+  \end{itemize}
+\end{itemize}
 
-    \begin{itemize}
-    \tightlist
-    \item
-      提供企業の利益の合計を評価する．
-    \end{itemize}
-  \item
-    総要求企業利益
+クラウドソースドマニュファクチャリングの観点の評価指標は以下の6つとする．
 
-    \begin{itemize}
-    \tightlist
-    \item
-      要求企業の利益の合計を評価する．
-    \end{itemize}
-  \item
-    1提供企業利益
-  \item
-    1要求企業利益
-  \item
-    提供企業の稼働率の変化
+\begin{itemize}
+\tightlist
+\item
+  総提供企業利益
 
-    \begin{itemize}
-    \tightlist
-    \item
-      リソースを提供する前と提供した後での稼働率の増加分について評価する．
-    \end{itemize}
+  \begin{itemize}
+  \tightlist
   \item
-    勝者となった要求の割合
+    提供企業の利益の合計を評価する．
+  \end{itemize}
+\item
+  総要求企業利益
 
-    \begin{itemize}
-    \tightlist
-    \item
-      全要求企業の内，勝者となった要求の割合について評価する．
-    \end{itemize}
+  \begin{itemize}
+  \tightlist
+  \item
+    要求企業の利益の合計を評価する．
+  \end{itemize}
+\item
+  1提供企業利益
+\item
+  1要求企業利益
+\item
+  提供企業の稼働率の変化
+
+  \begin{itemize}
+  \tightlist
+  \item
+    リソースを提供する前と提供した後での稼働率の増加分について評価する．
+  \end{itemize}
+\item
+  勝者となった要求の割合
+
+  \begin{itemize}
+  \tightlist
+  \item
+    全要求企業の内，勝者となった要求の割合について評価する．
   \end{itemize}
 \end{itemize}
 
@@ -851,41 +818,338 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
 \hypertarget{ux7d50ux8a00}{%
 \section{結言}\label{ux7d50ux8a00}}
 
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\emph{結言を述べる．．．}}
+\end{itemize}
+
 \hypertarget{ux624bux6cd5iux30d1ux30ecux30fcux30c8ux52b9ux7387ux6027ux3092ux6e80ux305fux3059ux624bux6cd5}{%
 \chapter{手法I:パレート効率性を満たす手法}\label{ux624bux6cd5iux30d1ux30ecux30fcux30c8ux52b9ux7387ux6027ux3092ux6e80ux305fux3059ux624bux6cd5}}
 
 \hypertarget{ux30a2ux30ebux30b4ux30eaux30baux30e0}{%
 \section{アルゴリズム}\label{ux30a2ux30ebux30b4ux30eaux30baux30e0}}
 
+手法I:パレート効率性を満たす手法のアルゴリズムについて説明する．
+
 \hypertarget{ux6982ux8981}{%
 \subsection{概要}\label{ux6982ux8981}}
 
-\hypertarget{ux5165ux672dux4f5cux6210}{%
-\subsection{入札作成}\label{ux5165ux672dux4f5cux6210}}
+以下に本手法のアルゴリズムの流れを示す．
 
-\hypertarget{ux52ddux8005ux6c7aux5b9a}{%
-\subsection{勝者決定}\label{ux52ddux8005ux6c7aux5b9a}}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  入札作成
+
+  \begin{itemize}
+  \item
+    リソース提供企業はオークション主催者に対して，入札を作成する．
+  \item
+    リソース要求企業はオークション主催者に対して，入札を作成する．
+  \end{itemize}
+\item
+  オークション主催者は，入札を元に勝者決定問題を解くことでリソース配分を決定する．
+\item
+  オークション主催者は，リソースの取引価格を決定する．
+\end{enumerate}
+
+1に関しては，前節の入札を作成をし，2，3について次節以降で説明する．説明に使用する記号の定義を以下に示す．
+
+\begin{itemize}
+\tightlist
+\item
+  \(i\):リソース提供企業(\(i \in \boldsymbol{I}\))
+\item
+  \(j\): リソース要求企業(\(j \in \boldsymbol{J}\))
+\item
+  \(r\):オークションにかけられるリソース(\(r \in \boldsymbol{R}\))
+\item
+  \(c_{i,r}\):提供企業\(i\)が提供するリソース\(r\)のコスト
+\item
+  \(TP_{i,r}\):提供企業\(i\)がリソース\(r\)を提供する時間
+\item
+  \(n\): 要求企業\(j\)の入札(\(n \in \boldsymbol{N}\))
+\item
+  \(v_{j,n}\):要求企業\(j\)の\(n\)番目の入札の評価値
+\item
+  \(TR_{j,n.r}\):要求企業\(j\)の\(n\)番目の入札においてリソース\(r\)を要求する時間
+\item
+  \(P(\boldsymbol{I},\boldsymbol{J})\):提供企業の集合が\(\boldsymbol{J}\)，要求企業の集合\(\boldsymbol{J}\)であるときの勝者決定問題
+\item
+  \(V(\boldsymbol{I},\boldsymbol{J})\):問題\(P(\boldsymbol{I},\boldsymbol{J})\)の目的関数値
+\item
+  \(trade_{i,r,j,n}\):提供企業\(i\)が要求企業\(j\)の勝者となった入札\(n\)に対してリソース\(r\)を\(x_{i,r,j,n}\){[}Ts{]}提供するときの取引価格
+\item
+  \(sumTR_{j,n,r}\):要求企業\(j\)が入札\(n\)におけるリソース要求時間の合計
+\end{itemize}
+
+\hypertarget{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}{%
+\subsection{リソース配分の決定}\label{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}}
+
+リソースの配分を決める勝者決定問題\(P(\boldsymbol{I},\boldsymbol{J})\)は組合せ最適化問題として定式化される．以下にその定式化を示す．
+
+\begin{align}
+  {\rm max}\quad  V(\boldsymbol{I},\boldsymbol{J})=&\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} \label{pij-obj}\\
+    {\rm s.t.} \quad &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \label{pij-subto-cap}\\
+  &\begin{cases}
+    x_{i,r,j,n} = 0 \quad (\forall i, \forall r)&({\rm if} \ y_{j,n}=0) \\
+    \sum_{j \in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}} TR_{j,n,r} \times x_{i,r,j,n} = TR_{j,n,r}
+    \quad  (\forall i, \forall r)&({\rm if} \ y_{j,n}=1) 
+  \end{cases}\label{pij-subto-bundle}\\
+    &\sum_{n\in \boldsymbol{N}}y_{j,n}  \leq 1 \quad (\forall j) \label{pij-subto-1winner}\\
+    &x_{i,r,j,n} \in \boldsymbol{Z}\label{pij-decision-x}\\
+    &y_{j,n} \in {0,1} \label{pij-decision-y}
+\end{align}
+
+決定変数は\(x_{i,r,j,n}\)と\(y_{j,n}\)である．\(x_{i,r,j,n}\)は企業\(i\)と企業\(j\)がリソース\(r\)を取引する量を表す整数変数であり，\(y_{j,n}\)は企業\(j\)の入札\(n\)が選ばれるとき1，選ばれない時0となる変数である．式\(\eqref{pij-obj}\)は目的関数であり，総利益最大化を表す．式\(\eqref{pij-subto-cap}\)は提供企業のリソースの容量制約を表す．式\(\eqref{pij-subto-bundle}\)は組合せ入札に関する制約であり，要求企業\(j\)の入札\(n\)が選ばれないときは，どのリソース要求も満たさないための制約，要求企業\(j\)の入札\(n\)が選ばれるときは，その入札のリソース要求を全て満たすための制約である．式\(\eqref{pij-subto-1winner}\)は勝者となる要求企業の入札は高々1つとする制約である．この組合せ最適化問題を解くことで勝者となる要求企業の入札と，それに対する提供リソースの配分を決定する．また，問題\(P(\boldsymbol{I},\boldsymbol{J})\)の最適解は総利益が最大化されているので，パレート効率な状態となっている．
 
 \hypertarget{ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}{%
 \subsection{取引価格決定}\label{ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}}
 
+前節のリソース配分を元に取引価格\(trade_{i,r,j,n}\)を決定する．手法Iの取引価格はお互いの評価値の平均の価格から決定され，以下の式で表される．
+\begin{align}
+trade_{i,r,j,n}=&\frac{c_{i,r}+\{v_{j,n}×\frac{TR_{j,n,r}}{sumTR_{j,n}}/TR_{j,n,r}\}}{2}\times x_{i,r,j,n} \label{1-trade}\\
+sumTR_{j,n} = &\sum_{r  \in R} TR_{j,n,r} \label{sumtime}
+\end{align}
+\(sumTR_{j,n,r}\)は要求企業\(j\)が入札\(n\)におけるリソース要求時間の合計である．よって式\(\eqref{1-trade}\)の\(v_{j,n}×\frac{TR_{j,n,r}}{sumTR_{j,n}}/TR_{j,n,r}\)はリソース\(r\)の1{[}Ts{]}分の予算を表す．従って式\(\eqref{1-trade}\)はお互いの評価値の平均で取引を行っていることとなる．
+
+\hypertarget{ux7279ux5fb4}{%
+\subsection{特徴}\label{ux7279ux5fb4}}
+
+手法Iは問題\(P(\boldsymbol{I},\boldsymbol{J})\)の最適解に従いリソースの配分を決めるので，パレート効率な配分が実現される．しかし取引価格は，お互いの評価値の平均をとるので，この価格は提供企業，要求企業ともにcritical
+priceとなっておらず耐戦略性を満たすことはできない．
+
 \hypertarget{ux7279ux6027ux8a55ux4fa1}{%
 \section{特性評価}\label{ux7279ux6027ux8a55ux4fa1}}
 
-\hypertarget{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}{%
-\subsection{提供企業数の変更}\label{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}}
+本節では計算機実験により手法Iの特性を評価する．問題\(P(\boldsymbol{I},\boldsymbol{J})\)の求解には数理計画ソルバーCPLEXを用いる．共通の実験条件を以下に示す．ただし{[}min,
+max{]}はminからmaxの一様乱数とする．
 
-\hypertarget{ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4}{%
-\subsection{要求企業数の変更}\label{ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4}}
+\begin{itemize}
+\tightlist
+\item
+  提供企業\(|\boldsymbol{J}|=25\)
 
-\hypertarget{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-1}{%
-\subsection{提供企業数の変更}\label{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-1}}
+  \begin{itemize}
+  \tightlist
+  \item
+    各企業2種類のリソースを遊休時間に提供する
+  \item
+    遊休時間\(TP_{i,r}\) {[}Ts{]}を{[}100, 200{]}で決定する
+  \item
+    コスト\(c_{i,r}\)は{[}2.0, 4.0{]} {[}円{]}とする
+  \end{itemize}
+\item
+  要求企業\(|\boldsymbol{I}|=10\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    各企業\(|\boldsymbol{N}|\)=3個の入札を作成
+  \item
+    R種類のリソースを各 {[}0, 200{]} {[}Ts{]}要求する
+  \item
+    予算\(v_{j,n}\)は合計要求時間と重み{[}3.0, 5.0{]}の積{[}円{]}とする
+  \end{itemize}
+\end{itemize}
 
 \hypertarget{ux63d0ux4f9bux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4}{%
 \subsection{1提供企業の虚偽申告率の変更}\label{ux63d0ux4f9bux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4}}
 
+本節では1提供企業の虚偽申告率を変更する実験を行う．手法Iは耐戦略性を満たせず，虚偽申告により利益を高められることを確認する．ここでの虚偽申告率とは，コストにある割合分上乗して入札値として申告するとした際の，その割合のことを指す．例えば，コストが10円，虚偽申告率が10\%の場合は11円と入札する．コストをふっかけることで利益を上げようとする企業を想定している．
+
+以下に本実験における実験条件を示す．
+
+\begin{itemize}
+\tightlist
+\item
+  1提供企業の虚偽申告率:0\%，10\%，20\%，30\%
+
+  \begin{itemize}
+  \tightlist
+  \item
+    虚偽申告が0\%のときは正直にコストを申告する．
+  \end{itemize}
+\item
+  試行回数:1回
+\end{itemize}
+
+\hypertarget{ux5b9fux9a13ux7d50ux679c}{%
+\subsubsection{実験結果}\label{ux5b9fux9a13ux7d50ux679c}}
+
+tbl.~\ref{tbl:m1-1-total-profit}\textasciitilde{}tbl.~\ref{tbl:m1-1-false-requester-total-profit}は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
+
+\hypertarget{tbl:m1-1-total-profit}{}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tbl:m1-1-total-profit}Total Profit in Method 1: A
+provider report false cost}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Total Profit & 9175.28 & 9175.22 & 9175.22 & 9049.41\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-1-providers-total-profit}{}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tbl:m1-1-providers-total-profit}Providers Total Profit:
+in Method 1: A provider report false cost}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Providers Total Profit & 4587.64 & 4613.49 & 4639.38 &
+4524.70\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-1-requesters-total-profit}{}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tbl:m1-1-requesters-total-profit}Requesters Total Profit
+in Method 1:A provider report false cost}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Requesters Total Profit & 4587.64 & 4561.72 & 4535.84 &
+4524.70\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-1-false-requester-total-profit}{}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tbl:m1-1-false-requester-total-profit}False reporting
+Requester Profit in Method 1: A provider report false
+cost}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Requester Profit & 112.47 & 139.30 & 227.77 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{ux8003ux5bdf}{%
+\subsubsection{考察}\label{ux8003ux5bdf}}
+
+tbl.~\ref{tbl:m1-1-false-requester-total-profit}において，虚偽申告率が20\%まで利益が増加している．20\%から30\%にかけて利益が下がったのは，申告したコストが高くなり，リソースの配分が変わり，オークションにおいて勝者となることができなくなってしまったからだと考える．よってオークションの敗者になるまで，虚偽申告を行うことで利益を上げることが可能なことがわかり，耐戦略性を満たすことができないことが確認できる．またtbl.~\ref{tbl:m1-1-total-profit}の虚偽申告率0から20\%総利益があまり変化がないにも関わらず，tbl.~\ref{tbl:m1-1-providers-total-profit}の総提供企業利益が増加し，tbl.~\ref{tbl:m1-1-requesters-total-profit}の総要求企業利益が減少している．従って虚偽申告により，利益が提供企業に移転していることが確認できる．
+
 \hypertarget{ux8981ux6c42ux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4}{%
 \subsection{1要求企業の虚偽申告率の変更}\label{ux8981ux6c42ux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4}}
+
+本節では1要求企業の虚偽申告率を変更する実験を行う．手法Iは耐戦略性を満たせず，虚偽申告により利益を高められることを確認する．ここでの虚偽申告率は，入札の予算に対して減額する割合とする．例えば，虚偽申告率が10\%のときは，予算が1000円の入札を900円と申告する．予算を過少申告することで，より安い価格でリソースを入手しようとする企業を想定する．
+
+以下に本実験における実験条件を示す．
+
+\begin{itemize}
+\tightlist
+\item
+  1要求企業の虚偽申告率:0\%，10\%，20\%，30\%
+
+  \begin{itemize}
+  \tightlist
+  \item
+    虚偽申告が0\%のときは正直に予算を申告する．
+  \end{itemize}
+\item
+  試行回数:1回
+\end{itemize}
+
+\hypertarget{ux7d50ux679c}{%
+\subsubsection{結果}\label{ux7d50ux679c}}
+
+tbl.~\ref{tbl:m1-2-total-profit}-tbl.~\ref{tbl:m1-2-false-requester-profit}は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
+
+\hypertarget{tbl:m1-2-total-profit}{}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tbl:m1-2-total-profit}Total Profit in Method 1: A
+requester report false budget}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Total Profit & 9175.28 & 9175.28 & 9175.28 & 9175.28\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-2-providers-total-profit}{}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tbl:m1-2-providers-total-profit}Total Providers Profit
+in Method 1: A requester report false budget}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Providers Total Profit & 4587.64 & 4492.88 & 4398.11 &
+4303.35\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-2-requesters-total-profit}{}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tbl:m1-2-requesters-total-profit}Total Providers Profit
+in Method 1: A requester report false budget}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Requesters Total Profit & 4587.64 & 4682.41 & 4777.17 &
+4871.93\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-2-false-requester-profit}{}
+\begin{longtable}[]{@{}lllll@{}}
+\caption{\label{tbl:m1-2-false-requester-profit}Total Providers Profit
+in Method 1: A requester report false budget}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Provider Profit & 412.8505 & 457.5463 & 573.548 &
+694.5275\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{ux8003ux5bdf-1}{%
+\subsubsection{考察}\label{ux8003ux5bdf-1}}
+
+tbl.~\ref{tbl:m1-2-false-requester-profit}より，申告率が増加するごとに利益が上がっていることが確認できる．よって手法Iが耐戦略性を満たせないことが確認できる．またtbl.~\ref{tbl:m1-2-total-profit}において，総利益は変化がないが，tbl.~\ref{tbl:m1-2-providers-total-profit}の提供企業利益は減少し，tbl.~\ref{tbl:m1-2-requesters-total-profit}の総要求企業利益は増加している，これより提供側に利益が移転していることがわかる．
 
 \hypertarget{ux865aux507dux7533ux544aux3092ux884cux3046ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}{%
 \subsection{虚偽申告を行う提供企業数の変更}\label{ux865aux507dux7533ux544aux3092ux884cux3046ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}}
@@ -911,6 +1175,9 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
 \hypertarget{ux5165ux672dux4f5cux6210-1}{%
 \subsection{入札作成}\label{ux5165ux672dux4f5cux6210-1}}
 
+\hypertarget{ux52ddux8005ux6c7aux5b9a}{%
+\subsection{勝者決定}\label{ux52ddux8005ux6c7aux5b9a}}
+
 \hypertarget{ux63d0ux4f9bux5074ux306eux52ddux8005ux3068ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}{%
 \subsection{提供側の勝者と取引価格決定}\label{ux63d0ux4f9bux5074ux306eux52ddux8005ux3068ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}}
 
@@ -920,14 +1187,14 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
 \hypertarget{ux7279ux6027ux8a55ux4fa1-1}{%
 \section{特性評価}\label{ux7279ux6027ux8a55ux4fa1-1}}
 
-\hypertarget{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-2}{%
-\subsection{提供企業数の変更}\label{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-2}}
+\hypertarget{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}{%
+\subsection{提供企業数の変更}\label{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}}
 
-\hypertarget{ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4-1}{%
-\subsection{要求企業数の変更}\label{ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4-1}}
+\hypertarget{ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4}{%
+\subsection{要求企業数の変更}\label{ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4}}
 
-\hypertarget{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-3}{%
-\subsection{提供企業数の変更}\label{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-3}}
+\hypertarget{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-1}{%
+\subsection{提供企業数の変更}\label{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-1}}
 
 \hypertarget{ux63d0ux4f9bux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4-1}{%
 \subsection{1提供企業の虚偽申告率の変更}\label{ux63d0ux4f9bux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4-1}}

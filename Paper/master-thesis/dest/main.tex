@@ -633,7 +633,7 @@ VCGオークションの勝者を決める勝者決定問題は，組合せ最�
                   &x_{j,n} \in \{0,1\}          &(\forall j,\forall n) 
 \end{align}
 
-決定変数は\(x_{j,n}\)であり，この値が1のとき入札者\(j\)の入札\(n\)が勝者となり入札に含れる財が落札され，この値が0のときに入札者\(j\)の入札\(n\)のは敗者となる．\(\eqref{eq:vcg-obj}\)は目的関数であり，入札値の合計の最大化を表す．\(\eqref{eq:vcg-cap-sub}\)は財を落札できるのは高々1入札者であることを表す制約である．これは財の容量制約を表す．
+決定変数は\(x_{j,n}\)であり，この値が1のとき入札者\(j\)の入札\(n\)が勝者となり入札に含れる財が落札され，この値が0のときに入札者\(j\)の入札\(n\)のは敗者となる．式\(\eqref{eq:vcg-obj}\)は目的関数であり，入札値の合計の最大化を表す．式\(\eqref{eq:vcg-cap-sub}\)は財を落札できるのは高々1入札者であることを表す制約である．これは財の容量制約を表す．
 
 \hypertarget{ux4fa1ux683cux306eux5f0f}{%
 \paragraph{価格の式}\label{ux4fa1ux683cux306eux5f0f}}
@@ -749,7 +749,7 @@ pay_{j}  = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j)
 \hypertarget{ux8a55ux4fa1ux6307ux6a19}{%
 \subsection{評価指標}\label{ux8a55ux4fa1ux6307ux6a19}}
 
-本研究で提案するリソース配分手法の評価指標について述べる．オークションの観点の評価指標は以下の２つとする．
+本研究で提案するリソース配分手法の評価指標について述べる．オークションの観点の評価指標は以下の２つである．
 
 \begin{itemize}
 \tightlist
@@ -855,17 +855,7 @@ pay_{j}  = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j)
   オークション主催者は，リソースの取引価格を決定する．
 \end{enumerate}
 
-\hypertarget{ux5165ux672dux4f5cux6210-1}{%
-\subsection{入札作成}\label{ux5165ux672dux4f5cux6210-1}}
-
-前節で説明をした入札を1で作成する．
-
-\hypertarget{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}{%
-\subsection{リソース配分の決定}\label{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}}
-
-リソースの配分を決める勝者決定問題は組合せ最適化問題として定式化される．またこの問題を\(P(\boldsymbol{I},\boldsymbol{J})\)とする．
-
-定式化に用いる記号の定義は以下の通りである．
+1に関しては，前節の入札を作成をし，2，3について次節以降で説明する．説明に使用する記号の定義を以下に示す．
 
 \begin{itemize}
 \tightlist
@@ -886,10 +876,21 @@ pay_{j}  = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j)
 \item
   \(TR_{j,n.r}\):要求企業\(j\)の\(n\)番目の入札においてリソース\(r\)を要求する時間
 \item
-  \(V(\boldsymbol{I},\boldsymbol{J})\):提供企業の集合が\(\boldsymbol{J}\)であるときの勝者決定問題の目的関数値
+  \(P(\boldsymbol{I},\boldsymbol{J})\):提供企業の集合が\(\boldsymbol{J}\)，要求企業の集合\(\boldsymbol{J}\)であるときの勝者決定問題
+\item
+  \(V(\boldsymbol{I},\boldsymbol{J})\):問題\(P(\boldsymbol{I},\boldsymbol{J})\)の目的関数値
+\item
+  \(trade_{i,r,j,n}\):提供企業\(i\)が要求企業\(j\)の勝者となった入札\(n\)に対してリソース\(r\)を\(x_{i,r,j,n}\){[}Ts{]}提供するときの取引価格
+\item
+  \(sumTR_{j,n,r}\):要求企業\(j\)が入札\(n\)におけるリソース要求時間の合計
 \end{itemize}
 
-上記の記号を用いて定式化を行う． \begin{align}
+\hypertarget{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}{%
+\subsection{リソース配分の決定}\label{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}}
+
+リソースの配分を決める勝者決定問題\(P(\boldsymbol{I},\boldsymbol{J})\)は組合せ最適化問題として定式化される．以下にその定式化を示す．
+
+\begin{align}
   {\rm max}\quad  V(\boldsymbol{I},\boldsymbol{J})=&\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} \label{pij-obj}\\
     {\rm s.t.} \quad &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \label{pij-subto-cap}\\
   &\begin{cases}
@@ -902,32 +903,253 @@ pay_{j}  = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j)
     &y_{j,n} \in {0,1} \label{pij-decision-y}
 \end{align}
 
-決定変数は\(x_{i,r,j,n}\)と\(y_{j,n}\)である．\(x_{i,r,j,n}\)は企業\(i\)と企業\(j\)がリソース\(r\)を取引する量を表す整数変数であり，\(y_{j,n}\)は企業\(j\)の入札\(n\)が選ばれるとき1，選ばれない時0となる変数である．\(\eqref{pij-obg}\)は目的関数であり，総利益最大化を表す．\(\eqref{pij-subto-cap}\)は提供企業のリソースの容量制約を表す．\(\eqref{pij-subto-bundle}\)は組合せ入札に関する制約であり，要求企業\(j\)の入札\(n\)が選ばれないときは，どのリソース要求も満たさないための制約，要求企業\(j\)の入札\(n\)が選ばれるときは，その入札のリソース要求を全て満たすための制約である．\(\eqref{pij-subto-1winner}\)は勝者となる要求企業の入札は高々1つとする制約である．この組合せ最適化問題を解くことで勝者となる要求企業の入札と，それに対する提供リソースの配分を決定する．また，問題\(P(\boldsymbol{I},\boldsymbol{J})\)の最適解は総利益が最大化されているので，パレート効率な状態となっている．
+決定変数は\(x_{i,r,j,n}\)と\(y_{j,n}\)である．\(x_{i,r,j,n}\)は企業\(i\)と企業\(j\)がリソース\(r\)を取引する量を表す整数変数であり，\(y_{j,n}\)は企業\(j\)の入札\(n\)が選ばれるとき1，選ばれない時0となる変数である．式\(\eqref{pij-obj}\)は目的関数であり，総利益最大化を表す．式\(\eqref{pij-subto-cap}\)は提供企業のリソースの容量制約を表す．式\(\eqref{pij-subto-bundle}\)は組合せ入札に関する制約であり，要求企業\(j\)の入札\(n\)が選ばれないときは，どのリソース要求も満たさないための制約，要求企業\(j\)の入札\(n\)が選ばれるときは，その入札のリソース要求を全て満たすための制約である．式\(\eqref{pij-subto-1winner}\)は勝者となる要求企業の入札は高々1つとする制約である．この組合せ最適化問題を解くことで勝者となる要求企業の入札と，それに対する提供リソースの配分を決定する．また，問題\(P(\boldsymbol{I},\boldsymbol{J})\)の最適解は総利益が最大化されているので，パレート効率な状態となっている．
 
 \hypertarget{ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}{%
 \subsection{取引価格決定}\label{ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}}
 
-前節のリソース配分を元に取引価格を決定する．手法Iの取引価格はお互いの評価値の平均の価格から決定される．具体的な式を用いて説明する．提供企業\(i\)が要求企業\(j\)の勝者となった入札\(n\)に対してリソース\(r\)を\(x_{i,r,j,n}\){[}Ts{]}提供するときの取引価格を\(trade_{i,r,j,n}\)とすると，\(trade_{i,r,j,n}\)は以下の式で決定される．
+前節のリソース配分を元に取引価格\(trade_{i,r,j,n}\)を決定する．手法Iの取引価格はお互いの評価値の平均の価格から決定され，以下の式で表される．
 \begin{align}
-𝑡𝑟𝑎𝑑𝑒_{i,𝑟,𝑗,𝑛}=&\frac{𝑐_{𝑖,𝑟}+\{𝑣_{𝑗,𝑛}×\frac{𝑇𝑅_{𝑗,𝑛,𝑟}}{𝑠𝑢𝑚𝑇𝑅_{𝑗,𝑛}}/𝑇𝑅_{𝑗,𝑛,𝑟}\}}{2}×𝑥_{𝑖,𝑟,𝑗,𝑛} \label{1-trade}\\
-𝑠𝑢𝑚𝑇𝑅_{𝑗,𝑛} = &\sum_{r  \in R} TR_{j,n,r} \label{sumtime}
+trade_{i,r,j,n}=&\frac{c_{i,r}+\{v_{j,n}×\frac{TR_{j,n,r}}{sumTR_{j,n}}/TR_{j,n,r}\}}{2}\times x_{i,r,j,n} \label{1-trade}\\
+sumTR_{j,n} = &\sum_{r  \in R} TR_{j,n,r} \label{sumtime}
 \end{align}
-\(sumTR_{j,n,r}\)は要求企業\(j\)が入札\(n\)におけるリソース要求時間の合計である．よって\(\eqref{1-trade}\)の\(𝑣_{𝑗,𝑛}×\frac{𝑇𝑅_{𝑗,𝑛,𝑟}}{𝑠𝑢𝑚𝑇𝑅_{𝑗,𝑛}}/𝑇𝑅_{𝑗,𝑛,𝑟}\)はリソース\(r\)の1{[}Ts{]}分の予算を表す．よって\(\eqref{1-trade}\)はお互いの評価値の平均で取引を行っていることとなる．
+\(sumTR_{j,n,r}\)は要求企業\(j\)が入札\(n\)におけるリソース要求時間の合計である．よって式\(\eqref{1-trade}\)の\(v_{j,n}×\frac{TR_{j,n,r}}{sumTR_{j,n}}/TR_{j,n,r}\)はリソース\(r\)の1{[}Ts{]}分の予算を表す．従って式\(\eqref{1-trade}\)はお互いの評価値の平均で取引を行っていることとなる．
 
 \hypertarget{ux7279ux5fb4}{%
 \subsection{特徴}\label{ux7279ux5fb4}}
 
-手法Iは問題\(P(\boldsymbol{I},\boldsymbol{J})\)の最適化に従いリソースの配分を決めるので，パレート効率な配分が実現される．しかし取引価格は，お互いの評価値の平均をとるので，この価格はcritical
+手法Iは問題\(P(\boldsymbol{I},\boldsymbol{J})\)の最適解に従いリソースの配分を決めるので，パレート効率な配分が実現される．しかし取引価格は，お互いの評価値の平均をとるので，この価格は提供企業，要求企業ともにcritical
 priceとなっておらず耐戦略性を満たすことはできない．
 
 \hypertarget{ux7279ux6027ux8a55ux4fa1}{%
 \section{特性評価}\label{ux7279ux6027ux8a55ux4fa1}}
 
+本節では計算機実験により手法Iの特性を評価する．問題\(P(\boldsymbol{I},\boldsymbol{J})\)の求解には数理計画ソルバーCPLEXを用いる．共通の実験条件を以下に示す．ただし{[}min,
+max{]}はminからmaxの一様乱数とする．
+
+\begin{itemize}
+\tightlist
+\item
+  提供企業\(|\boldsymbol{J}|=25\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    各企業2種類のリソースを遊休時間に提供する
+  \item
+    遊休時間\(TP_{i,r}\) {[}Ts{]}を{[}100, 200{]}で決定する
+  \item
+    コスト\(c_{i,r}\)は{[}2.0, 4.0{]} {[}円{]}とする
+  \end{itemize}
+\item
+  要求企業\(|\boldsymbol{I}|=10\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    各企業\(|\boldsymbol{N}|\)=3個の入札を作成
+  \item
+    R種類のリソースを各 {[}0, 200{]} {[}Ts{]}要求する
+  \item
+    予算\(v_{j,n}\)は合計要求時間と重み{[}3.0, 5.0{]}の積{[}円{]}とする
+  \end{itemize}
+\end{itemize}
+
 \hypertarget{ux63d0ux4f9bux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4}{%
 \subsection{1提供企業の虚偽申告率の変更}\label{ux63d0ux4f9bux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4}}
 
+本節では1提供企業の虚偽申告率を変更する実験を行う．手法Iは耐戦略性を満たせず，虚偽申告により利益を高められることを確認する．ここでの虚偽申告率とは，コストにある割合分上乗して入札値として申告するとした際の，その割合のことを指す．例えば，コストが10円，虚偽申告率が10\%の場合は11円と入札する．コストをふっかけることで利益を上げようとする企業を想定している．
+
+以下に本実験における実験条件を示す．
+
+\begin{itemize}
+\tightlist
+\item
+  1提供企業の虚偽申告率:0\%，10\%，20\%，30\%
+
+  \begin{itemize}
+  \tightlist
+  \item
+    虚偽申告が0\%のときは正直にコストを申告する．
+  \end{itemize}
+\item
+  試行回数:1回
+\end{itemize}
+
+\hypertarget{ux5b9fux9a13ux7d50ux679c}{%
+\subsubsection{実験結果}\label{ux5b9fux9a13ux7d50ux679c}}
+
+Table~\ref{tbl:m1-1-total-profit}\textasciitilde{}Table~\ref{tbl:m1-1-false-requester-total-profit}は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
+
+\hypertarget{tbl:m1-1-total-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-1-total-profit}Total Profit in Method 1: A
+provider report false cost}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Total Profit & 9175.28 & 9175.22 & 9175.22 & 9049.41\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-1-providers-total-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-1-providers-total-profit}Providers Total Profit:
+in Method 1: A provider report false cost}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Providers Total Profit & 4587.64 & 4613.49 & 4639.38 &
+4524.70\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-1-requesters-total-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-1-requesters-total-profit}Requesters Total Profit
+in Method 1:A provider report false cost}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Requesters Total Profit & 4587.64 & 4561.72 & 4535.84 &
+4524.70\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-1-false-requester-total-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-1-false-requester-total-profit}False reporting
+Requester Profit in Method 1: A provider report false
+cost}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Requester Profit & 112.47 & 139.30 & 227.77 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{ux8003ux5bdf}{%
+\subsubsection{考察}\label{ux8003ux5bdf}}
+
+Table~\ref{tbl:m1-1-false-requester-total-profit}において，虚偽申告率が20\%まで利益が増加している．20\%から30\%にかけて利益が下がったのは，申告したコストが高くなり，リソースの配分が変わり，オークションにおいて勝者となることができなくなってしまったからだと考える．よってオークションの敗者になるまで，虚偽申告を行うことで利益を上げることが可能なことがわかり，耐戦略性を満たすことができないことが確認できる．またTable~\ref{tbl:m1-1-total-profit}の虚偽申告率0から20\%総利益があまり変化がないにも関わらず，Table~\ref{tbl:m1-1-providers-total-profit}の総提供企業利益が増加し，Table~\ref{tbl:m1-1-requesters-total-profit}の総要求企業利益が減少している．従って虚偽申告により，利益が提供企業に移転していることが確認できる．
+
 \hypertarget{ux8981ux6c42ux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4}{%
 \subsection{1要求企業の虚偽申告率の変更}\label{ux8981ux6c42ux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4}}
+
+本節では1要求企業の虚偽申告率を変更する実験を行う．手法Iは耐戦略性を満たせず，虚偽申告により利益を高められることを確認する．ここでの虚偽申告率は，入札の予算に対して減額する割合とする．例えば，虚偽申告率が10\%のときは，予算が1000円の入札を900円と申告する．予算を過少申告することで，より安い価格でリソースを入手しようとする企業を想定する．
+
+以下に本実験における実験条件を示す．
+
+\begin{itemize}
+\tightlist
+\item
+  1要求企業の虚偽申告率:0\%，10\%，20\%，30\%
+
+  \begin{itemize}
+  \tightlist
+  \item
+    虚偽申告が0\%のときは正直に予算を申告する．
+  \end{itemize}
+\item
+  試行回数:1回
+\end{itemize}
+
+\hypertarget{ux7d50ux679c}{%
+\subsubsection{結果}\label{ux7d50ux679c}}
+
+Table~\ref{tbl:m1-2-total-profit}-Table~\ref{tbl:m1-2-false-requester-profit}は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
+
+\hypertarget{tbl:m1-2-total-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-2-total-profit}Total Profit in Method 1: A
+requester report false budget}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Total Profit & 9175.28 & 9175.28 & 9175.28 & 9175.28\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-2-providers-total-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-2-providers-total-profit}Total Providers Profit
+in Method 1: A requester report false budget}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Providers Total Profit & 4587.64 & 4492.88 & 4398.11 &
+4303.35\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-2-requesters-total-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-2-requesters-total-profit}Total Providers Profit
+in Method 1: A requester report false budget}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Requesters Total Profit & 4587.64 & 4682.41 & 4777.17 &
+4871.93\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-2-false-requester-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-2-false-requester-profit}Total Providers Profit
+in Method 1: A requester report false budget}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+Provider Profit & 412.8505 & 457.5463 & 573.548 &
+694.5275\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{ux8003ux5bdf-1}{%
+\subsubsection{考察}\label{ux8003ux5bdf-1}}
+
+Table~\ref{tbl:m1-2-false-requester-profit}より，申告率が増加するごとに利益が上がっていることが確認できる．よって手法Iが耐戦略性を満たせないことが確認できる．またTable~\ref{tbl:m1-2-total-profit}において，総利益は変化がないが，Table~\ref{tbl:m1-2-providers-total-profit}の提供企業利益は減少し，Table~\ref{tbl:m1-2-requesters-total-profit}の総要求企業利益は増加している，これより提供側に利益が移転していることがわかる．
 
 \hypertarget{ux865aux507dux7533ux544aux3092ux884cux3046ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}{%
 \subsection{虚偽申告を行う提供企業数の変更}\label{ux865aux507dux7533ux544aux3092ux884cux3046ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}}
@@ -950,8 +1172,8 @@ priceとなっておらず耐戦略性を満たすことはできない．
 \hypertarget{ux6982ux8981-1}{%
 \subsection{概要}\label{ux6982ux8981-1}}
 
-\hypertarget{ux5165ux672dux4f5cux6210-2}{%
-\subsection{入札作成}\label{ux5165ux672dux4f5cux6210-2}}
+\hypertarget{ux5165ux672dux4f5cux6210-1}{%
+\subsection{入札作成}\label{ux5165ux672dux4f5cux6210-1}}
 
 \hypertarget{ux52ddux8005ux6c7aux5b9a}{%
 \subsection{勝者決定}\label{ux52ddux8005ux6c7aux5b9a}}
