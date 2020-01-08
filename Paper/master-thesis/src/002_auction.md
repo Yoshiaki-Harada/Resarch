@@ -149,7 +149,7 @@
 
 その準備としてまず，シングルサイド組合せオークションの代表的なオークションであるVCG(Vickrey–Clarke–Groves Auction)オークション\cite{vickrey}について説明をする．
 
-#### VCGオークション(Vickrey–Clarke–Groves Auction)
+#### VCGオークション(Vickrey–Clarke–Groves Auction) \label{VCG}
 
 VCGオークションはセカンドプライスオークションを一般化し，財の組合せに対する入札に対応したものである．理論的に優れた性質(個人合理性・パレート効率性・耐戦略性)を持つことからKing of Mechanismsとも呼ばれる．VCGオークションは以下の特徴を持つ．
 

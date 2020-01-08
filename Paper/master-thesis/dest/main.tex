@@ -886,7 +886,8 @@ pay_{j}  = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j)
 \end{itemize}
 
 \hypertarget{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}{%
-\subsection{リソース配分の決定}\label{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}}
+\subsection{\texorpdfstring{リソース配分の決定
+\label{method1-resorce}}{リソース配分の決定 }}\label{ux30eaux30bdux30fcux30b9ux914dux5206ux306eux6c7aux5b9a}}
 
 リソースの配分を決める勝者決定問題\(P(\boldsymbol{I},\boldsymbol{J})\)は組合せ最適化問題として定式化される．以下にその定式化を示す．
 
@@ -919,7 +920,7 @@ sumTR_{j,n} = &\sum_{r  \in R} TR_{j,n,r} \label{sumtime}
 \subsection{特徴}\label{ux7279ux5fb4}}
 
 手法Iは問題\(P(\boldsymbol{I},\boldsymbol{J})\)の最適解に従いリソースの配分を決めるので，パレート効率な配分が実現される．しかし取引価格は，お互いの評価値の平均をとるので，この価格は提供企業，要求企業ともにcritical
-priceとなっておらず耐戦略性を満たすことはできない．
+priceとなっておらず耐戦略性を満たすことはできない．ただし同じような評価値を持つ企業が増加した場合，虚偽申告を行うと，オークションの敗者になる可能性が高くなる．従って同じような評価値を持つ企業が増加するほど正直な申告が支配戦略になっていく．
 
 \hypertarget{ux7279ux6027ux8a55ux4fa1}{%
 \section{特性評価}\label{ux7279ux6027ux8a55ux4fa1}}
@@ -979,7 +980,7 @@ max{]}はminからmaxの一様乱数とする．
 \hypertarget{ux5b9fux9a13ux7d50ux679c}{%
 \subsubsection{実験結果}\label{ux5b9fux9a13ux7d50ux679c}}
 
-Table~\ref{tbl:m1-1-total-profit}\textasciitilde{}Table~\ref{tbl:m1-1-false-requester-total-profit}は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
+Table~\ref{tbl:m1-1-total-profit}-Table~\ref{tbl:m1-1-false-requester-total-profit}は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
 
 \hypertarget{tbl:m1-1-total-profit}{}
 \begin{longtable}[H]{@{}lllll@{}}
@@ -1151,17 +1152,241 @@ Provider Profit & 412.8505 & 457.5463 & 573.548 &
 
 Table~\ref{tbl:m1-2-false-requester-profit}より，申告率が増加するごとに利益が上がっていることが確認できる．よって手法Iが耐戦略性を満たせないことが確認できる．またTable~\ref{tbl:m1-2-total-profit}において，総利益は変化がないが，Table~\ref{tbl:m1-2-providers-total-profit}の提供企業利益は減少し，Table~\ref{tbl:m1-2-requesters-total-profit}の総要求企業利益は増加している，これより提供側に利益が移転していることがわかる．
 
-\hypertarget{ux865aux507dux7533ux544aux3092ux884cux3046ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}{%
-\subsection{虚偽申告を行う提供企業数の変更}\label{ux865aux507dux7533ux544aux3092ux884cux3046ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4}}
-
-\hypertarget{ux865aux507dux7533ux544aux3092ux884cux3046ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4}{%
-\subsection{虚偽申告を行う要求企業数の変更}\label{ux865aux507dux7533ux544aux3092ux884cux3046ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4}}
-
 \hypertarget{ux63d0ux4f9bux5074ux304cux7533ux544aux3059ux308bux30b3ux30b9ux30c8ux306eux5e45ux306eux5909ux66f4}{%
 \subsection{提供側が申告するコストの幅の変更}\label{ux63d0ux4f9bux5074ux304cux7533ux544aux3059ux308bux30b3ux30b9ux30c8ux306eux5e45ux306eux5909ux66f4}}
 
+本節では，提供側が申告するコストの幅を変更する実験を行う．幅を変更したそれぞれの場合において，ある提供企業が虚偽申告率を変更した場合に利益がどのように変化するかを確認する．各企業が申告するコストの幅が狭くなる，つまり同じようなコストの企業が集まると正直な申告が支配戦略になることを確認する．
+
+\begin{itemize}
+\tightlist
+\item
+  コストを発生させる乱数の幅:2.5，2.0，1.5，1.0
+
+  \begin{itemize}
+  \tightlist
+  \item
+    コストを{[}1.75,4.25{]}，{[}2.0,4.0{]}，{[}2.25,3.75{]}，{[}2.5,3.5{]}で生成する．
+  \end{itemize}
+\item
+  試行回数:10回
+\end{itemize}
+
+\hypertarget{ux5b9fux9a13ux7d50ux679c-1}{%
+\subsubsection{実験結果}\label{ux5b9fux9a13ux7d50ux679c-1}}
+
+Table~\ref{tbl:m1-3-2.5-false-provider-profit}-Table~\ref{tbl:m1-3-1.0-false-provider-profit}は，それぞれコストの幅が2.5，2.0，1.5，1.0のときの虚偽申告提供企業の利益を表す．
+
+\hypertarget{tbl:m1-3-2.5-false-provider-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-3-2.5-false-provider-profit}False reporting
+Provider Profit in Method 1:cost range=2.5}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+AVE. & 173.07 & 194.66 & 184.64 & 143.98\tabularnewline
+S.D. & 97.60 & 104.51 & 124.04 & 124.09\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-3-2.0-false-provider-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-3-2.0-false-provider-profit}False reporting
+Provider Profit in Method 1:cost range=2.0}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+AVE. & 189.28 & 203.53 & 201.61 & 172.39\tabularnewline
+S.D. & 105.08 & 103.87 & 79.45 & 88.61\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-3-1.5-false-provider-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-3-1.5-false-provider-profit}False reporting
+Provider Profit in Method 1:cost range=1.5}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+AVE. & 208.02 & 209.98 & 158.56 & 84.83\tabularnewline
+S.D. & 89.21 & 116.48 & 125.35 & 88.38\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-3-1.0-false-provider-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-3-1.0-false-provider-profit}False reporting
+Provider Profit in Method 1:cost range=1.0}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+AVE. & 165.03 & 147.50 & 75.35 & 60.80\tabularnewline
+S.D. & 89.19 & 90.53 & 94.68 & 69.13\tabularnewline
+\bottomrule
+\end{longtable}
+
+Table~\ref{tbl:m1-3-2.5-false-provider-profit}-Table~\ref{tbl:m1-3-1.0-false-provider-profit}の結果を，正直にコストを申告した場合に対して虚偽申告を行った際の利益率の表に直したものをTable~\ref{tbl:m1-3-profit-rate}に示す．
+
+\hypertarget{tbl:m1-3-profit-rate}{}
+\begin{longtable}[H]{@{}llll@{}}
+\caption{\label{tbl:m1-3-profit-rate}Ratio of increased profit to the
+Profits for reporting truthful cost}\tabularnewline
+\toprule
+False reporting rate & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+cost range=2.5 & 12.5\% & 6.7\% & -16.8\%\tabularnewline
+cost range=2.0 & 7.5\% & 6.5\% & -6.1\%\tabularnewline
+cost range=1.5 & 0.9\% & -23.8\% & -59.2\%\tabularnewline
+cost range=1.0 & -10.6\% & -54.3\% & -63.2\%\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{ux8003ux5bdf-2}{%
+\subsubsection{考察}\label{ux8003ux5bdf-2}}
+
+Table~\ref{tbl:m1-3-profit-rate}より，コストの幅が2.5のときは虚偽申告率が20\%のときまで利益が増加しているが，コストの幅が1.5のときは利益が減少している．またコストの幅が1.0のときは，10\%の虚偽申告でも利益が減少しており，コストの幅が狭くなるごとに正直な申告が支配戦略に近づくことがわかる．
+
 \hypertarget{ux8981ux6c42ux4f01ux696dux304cux7533ux544aux3059ux308bux4e88ux7b97ux306eux5e45ux306eux5909ux66f4}{%
 \subsection{要求企業が申告する予算の幅の変更}\label{ux8981ux6c42ux4f01ux696dux304cux7533ux544aux3059ux308bux4e88ux7b97ux306eux5e45ux306eux5909ux66f4}}
+
+本節では，提供側が申告する予算の幅を変更する実験を行う．幅を変更したそれぞれの場合において，ある要求企業が虚偽申告率を変更した場合に利益がどのように変化するかを確認する．前節と同様に，同じような予算の企業が集まると正直な申告が支配戦略になることを確認する．
+
+\begin{itemize}
+\tightlist
+\item
+  コストを発生させる乱数の幅:2.5，2.0，1.5，1.0
+
+  \begin{itemize}
+  \tightlist
+  \item
+    コストを{[}2.75,5.25{]}，{[}3.0,5.0{]}，{[}3.25,4.75{]}，{[}3.5,4.5{]}で生成する．
+  \end{itemize}
+\item
+  試行回数:10回
+\end{itemize}
+
+\hypertarget{ux5b9fux9a13ux7d50ux679c-2}{%
+\subsubsection{実験結果}\label{ux5b9fux9a13ux7d50ux679c-2}}
+
+Table~\ref{tbl:m1-4-2.5-requester-profit}-Table~\ref{tbl:m1-4-1.0-requester-profit}は，それぞれ予算の幅が2.5，2.0，1.5，1.0のときの虚偽申告要求企業の利益を表す．
+
+\hypertarget{tbl:m1-4-2.5-requester-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-4-2.5-requester-profit}False reporting Requester
+Profit in Method 1:budget range=2.5}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+AVE. & 408.94 & 448.28 & 453.20 & 230.52\tabularnewline
+S.D. & 293.34 & 376.17 & 477.45 & 466.90\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-4-2.0-requester-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-4-2.0-requester-profit}False reporting Requester
+Profit in Method 1:budget range=2.0}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+AVE. & 355.23 & 398.52 & 291.70 & 171.81\tabularnewline
+S.D. & 244.25 & 354.22 & 366.58 & 351.41\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-4ux20131.5-requester-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-4ux20131.5-requester-profit}False reporting
+Requester Profit in Method 1:budget range=1.5}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+AVE. & 329.75 & 249.590 & 123.20 & 0\tabularnewline
+S.D. & 231.12 & 256.35 & 246.64 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{tbl:m1-4-1.0-requester-profit}{}
+\begin{longtable}[H]{@{}lllll@{}}
+\caption{\label{tbl:m1-4-1.0-requester-profit}False reporting Requester
+Profit in Method 1:budget range=1.0}\tabularnewline
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 0\% & 10\% & 20\% & 30\%\tabularnewline
+\midrule
+\endhead
+AVE. & 433.00 & 306.62 & 220.93 & 0\tabularnewline
+S.D. & 159.78 & 317.43 & 352.38 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+Table~\ref{tbl:m1-4-2.5-requester-profit}-Table~\ref{tbl:m1-4-1.0-requester-profit}の結果を，正直にコストを申告した場合に対して虚偽申告を行った際の利益率の表に直したものをTable~\ref{tbl:m1-3-profit-rate}に示す．
+
+\hypertarget{tbl:m1-4-profit-rate}{}
+\begin{longtable}[H]{@{}llll@{}}
+\caption{\label{tbl:m1-4-profit-rate}Ratio of increased profit to the
+Profits for reporting truthful budget}\tabularnewline
+\toprule
+False reporting rate & 10.0\% & 20.0\% & 30.0\%\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+False reporting rate & 10.0\% & 20.0\% & 30.0\%\tabularnewline
+\midrule
+\endhead
+range=2.5 & 9.6\% & 10.8\% & -49.1\%\tabularnewline
+range=2.0 & 12.2\% & -17.9\% & -41.1\%\tabularnewline
+range=1.5 & -24.3\% & -62.6\% & -100.0\%\tabularnewline
+range=1.0 & -29.2\% & -49.0\% & -100.0\%\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{ux8003ux5bdf-3}{%
+\subsubsection{考察}\label{ux8003ux5bdf-3}}
+
+Table~\ref{tbl:m1-4-profit-rate}より，予算の幅が2.5，2.0の時は虚偽申告により利益を高めることができていることがわかる．しかし予算の幅が1.5より狭くなると虚偽申告によって利益を高めることができなくなっている．これにより予算の幅狭くなるほど，正直な申告が支配戦略に近づくことが確認できる．
 
 \hypertarget{ux624bux6cd5iiux8010ux6226ux7565ux6027ux3092ux6e80ux305fux3059ux624bux6cd5}{%
 \chapter{手法II:耐戦略性を満たす手法}\label{ux624bux6cd5iiux8010ux6226ux7565ux6027ux3092ux6e80ux305fux3059ux624bux6cd5}}
@@ -1169,20 +1394,122 @@ Table~\ref{tbl:m1-2-false-requester-profit}より，申告率が増加するご�
 \hypertarget{ux30a2ux30ebux30b4ux30eaux30baux30e0-1}{%
 \section{アルゴリズム}\label{ux30a2ux30ebux30b4ux30eaux30baux30e0-1}}
 
+手法I:パレート効率性を満たす手法のアルゴリズムについて説明する．
+
 \hypertarget{ux6982ux8981-1}{%
 \subsection{概要}\label{ux6982ux8981-1}}
 
-\hypertarget{ux5165ux672dux4f5cux6210-1}{%
-\subsection{入札作成}\label{ux5165ux672dux4f5cux6210-1}}
+2章で述べたように，ダブルオークション環境において，オークション主催者を含めた個人合理性，パレート効率性，耐戦略性の全ての性質を満たすオークションは存在しない．もし耐戦略性を満たすVCGオークションをダブルオークション
+環境下に適用すると，オークション主催者の個人合理性が満たせなくなってしまう．つまり，売り手の報酬の合計が買い手の支払いの合計を上回ってしまう．
 
-\hypertarget{ux52ddux8005ux6c7aux5b9a}{%
-\subsection{勝者決定}\label{ux52ddux8005ux6c7aux5b9a}}
+このオークション主催者の個人合理性を満たせない欠点を克服する為に，提案されたのがPadding
+Methodと呼ばれる方法である．Padding
+Methodとは，仮想的な買い手を用意し，均衡価格を引き上げることで買い手の支払い額を高めることでオークション主催者の個人合理性を満たすことを可能にした方法である．この考え方を適用したのが手法II:耐戦略性を満たす手法である．こうすることで，耐戦略性を満たすことはできるが，仮想的な買い手が勝者となった財は実際には取引が行われないので，その分パレート効率性を犠牲にしてしまう．
 
-\hypertarget{ux63d0ux4f9bux5074ux306eux52ddux8005ux3068ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}{%
-\subsection{提供側の勝者と取引価格決定}\label{ux63d0ux4f9bux5074ux306eux52ddux8005ux3068ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}}
+説明に用いる記号を以下に定義する．
 
-\hypertarget{ux8981ux6c42ux5074ux306eux52ddux8005ux3068ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}{%
-\subsection{要求側の勝者と取引価格決定}\label{ux8981ux6c42ux5074ux306eux52ddux8005ux3068ux53d6ux5f15ux4fa1ux683cux6c7aux5b9a}}
+\begin{itemize}
+\tightlist
+\item
+  \(i\):リソース提供企業(\(i \in \boldsymbol{I}\))
+\item
+  \(j\): リソース要求企業(\(j \in \boldsymbol{J}\))
+\item
+  \(r\):オークションにかけられるリソース(\(r \in \boldsymbol{R}\))
+\item
+  \(c_{i,r}\):提供企業\(i\)が提供するリソース\(r\)のコスト
+\item
+  \(TP_{i,r}\):提供企業\(i\)がリソース\(r\)を提供する時間
+\item
+  \(n\): 要求企業\(j\)の入札(\(n \in \boldsymbol{N}\))
+\item
+  \(v_{j,n}\):要求企業\(j\)の\(n\)番目の入札の評価値
+\item
+  \(TR_{j,n.r}\):要求企業\(j\)の\(n\)番目の入札においてリソース\(r\)を要求する時間
+\item
+  \(\boldsymbol{Q}\):仮想的な買い手
+\item
+  \(P(\boldsymbol{I},\boldsymbol{J})\):提供企業の集合が\(\boldsymbol{J}\)，要求企業の集合\(\boldsymbol{J}\)であるときの勝者決定問題
+\item
+  \(P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\):提供企業の集合が\(\boldsymbol{J}\)，要求企業の集合\(\boldsymbol{J}\)，仮想的な買い手\(\boldsymbol{Q}\)を考慮した場合の勝者決定問題
+\item
+  \(V(\boldsymbol{I},\boldsymbol{J})\):問題\(P(\boldsymbol{I},\boldsymbol{J})\)の目的関数値
+\item
+  \(V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\):問題\(P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\)の目的関数値
+\item
+  \(\boldsymbol{\tilde{J}}\):\(P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\)において勝者となった要求企業の集合
+\end{itemize}
+
+以下に本手法のアルゴリズムの流れを示す．
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  入札作成
+
+  \begin{itemize}
+  \tightlist
+  \item
+    リソース提供企業はオークション主催者に対して，入札を作成する．
+  \item
+    リソース要求企業はオークション主催者に対して，入札を作成する．
+  \end{itemize}
+\item
+  提供側と要求側の入札を元にした勝者決定問題\(P(\boldsymbol{I},\boldsymbol{J})\)に対し，仮想的な買い手\(\boldsymbol{Q}\)を考慮した問題\(P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\)を定義する．
+\item
+  \(P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\)の最適解を求め，勝者となる入札を決める
+\item
+  \(P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\)において勝者となった要求企業に対して支払い\(pay_j\)を決定する
+\item
+  \(P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\)において勝者となった要求企業の集合を\(\boldsymbol{\tilde{J}}\)とし，問題\(P(\boldsymbol{I},\boldsymbol{\tilde{J}})\)を定義する
+\item
+  \(P(\boldsymbol{I},\boldsymbol{\tilde{J}})\)の最適解を求め，提供リソースの取引量を決める
+\item
+  \(P(\boldsymbol{I},\boldsymbol{\tilde{J}})\)において勝者となったリソース提供企業に対して収入\(revenue_{j,r}\)を決定する
+\end{enumerate}
+
+1が2章で説明をした入札を作成する部分，2-4が要求側の勝者と取引価格決定を決定する部分であり，5-7が提供企業の勝者と支払い価格を決める部分である．
+
+\hypertarget{ux8981ux6c42ux5074ux306eux52ddux8005ux3068ux652fux6255ux3044ux306eux6c7aux5b9a}{%
+\subsection{要求側の勝者と支払いの決定}\label{ux8981ux6c42ux5074ux306eux52ddux8005ux3068ux652fux6255ux3044ux306eux6c7aux5b9a}}
+
+まず勝者決定問題\(P(\boldsymbol{I},\boldsymbol{J})\)を作成する．これは\ref{method1-resorce}の定式化と同じである．以下に再掲する．問題\(P(\boldsymbol{I},\boldsymbol{J})\)に対して，仮想的な買い手\(\boldsymbol{Q}\)を考慮した問題を作成する．まず仮想的な買い手\(\boldsymbol{Q}\)について説明する．
+
+\hypertarget{ux4eeeux60f3ux7684ux306aux8cb7ux3044ux624bboldsymbolq}{%
+\subsubsection{\texorpdfstring{仮想的な買い手\(\boldsymbol{Q}\)}{仮想的な買い手\textbackslash boldsymbol\{Q\}}}\label{ux4eeeux60f3ux7684ux306aux8cb7ux3044ux624bboldsymbolq}}
+
+仮想的な買い手\(\boldsymbol{Q}\)は\(Q=\{Q_1,Q_2,Q_r…Q_{|\boldsymbol{R}|}\}\)で表現される．\(Q_r\)は\(\boldsymbol{Q}\)が要求するリソース\(r\)を要求する時間である．文献に従い以下のように定める．
+
+\begin{align}  
+{\rm max}\quad  V(\boldsymbol{I},\boldsymbol{J})=&\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} \\  
+{\rm s.t.} \quad &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r)\\
+&\begin{cases} x_{i,r,j,n} = 0 \quad (\forall i, \forall r)&({\rm if} \ y_{j,n}=0) \\  
+\sum_{j \in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}} TR_{j,n,r} \times x_{i,r,j,n} = TR_{j,n,r}    \quad  (\forall i, \forall r)&({\rm if} \ y_{j,n}=1) \end{cases}\\ 
+&\sum_{n\in \boldsymbol{N}}y_{j,n}  \leq 1 \quad (\forall j)\\   &x_{i,r,j,n} \in \boldsymbol{Z}\\    
+&y_{j,n} \in {0,1}
+\end{align}
+
+\hypertarget{pboldsymboliboldsymboljboldsymbolqux306eux4f5cux6210}{%
+\subsubsection{\texorpdfstring{\(P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\)の作成}{P(\textbackslash boldsymbol\{I\},\textbackslash boldsymbol\{J\},\textbackslash boldsymbol\{Q\})の作成}}\label{pboldsymboliboldsymboljboldsymbolqux306eux4f5cux6210}}
+
+\begin{align}
+Q_r^I&=\rm{max}⁡\{{TP_{i,r} |i \in \boldsymbol{I}}\} \\
+Q_r^J&=\rm{max}⁡\{TR_{j,n,r} |j \in \boldsymbol{J},n \in \boldsymbol{N}\} \\
+Q_r&=\rm{max}⁡\{Q_r^J,Q_r^I\}
+\end{align}
+
+\hypertarget{ux63d0ux4f9bux5074ux306eux52ddux8005ux3068ux5831ux916cux306eux6c7aux5b9a}{%
+\subsection{提供側の勝者と報酬の決定}\label{ux63d0ux4f9bux5074ux306eux52ddux8005ux3068ux5831ux916cux306eux6c7aux5b9a}}
+
+\hypertarget{ux7279ux5fb4-1}{%
+\subsection{特徴}\label{ux7279ux5fb4-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\emph{証明かな．．}}
+\end{itemize}
 
 \hypertarget{ux7279ux6027ux8a55ux4fa1-1}{%
 \section{特性評価}\label{ux7279ux6027ux8a55ux4fa1-1}}
@@ -1193,20 +1520,11 @@ Table~\ref{tbl:m1-2-false-requester-profit}より，申告率が増加するご�
 \hypertarget{ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4}{%
 \subsection{要求企業数の変更}\label{ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4}}
 
-\hypertarget{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-1}{%
-\subsection{提供企業数の変更}\label{ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-1}}
-
 \hypertarget{ux63d0ux4f9bux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4-1}{%
 \subsection{1提供企業の虚偽申告率の変更}\label{ux63d0ux4f9bux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4-1}}
 
 \hypertarget{ux8981ux6c42ux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4-1}{%
 \subsection{1要求企業の虚偽申告率の変更}\label{ux8981ux6c42ux4f01ux696dux306eux865aux507dux7533ux544aux7387ux306eux5909ux66f4-1}}
-
-\hypertarget{ux865aux507dux7533ux544aux3092ux884cux3046ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-1}{%
-\subsection{虚偽申告を行う提供企業数の変更}\label{ux865aux507dux7533ux544aux3092ux884cux3046ux63d0ux4f9bux4f01ux696dux6570ux306eux5909ux66f4-1}}
-
-\hypertarget{ux865aux507dux7533ux544aux3092ux884cux3046ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4-1}{%
-\subsection{虚偽申告を行う要求企業数の変更}\label{ux865aux507dux7533ux544aux3092ux884cux3046ux8981ux6c42ux4f01ux696dux6570ux306eux5909ux66f4-1}}
 
 \hypertarget{ux63d0ux4f9bux5074ux304cux7533ux544aux3059ux308bux30b3ux30b9ux30c8ux306eux5e45ux306eux5909ux66f4-1}{%
 \subsection{提供側が申告するコストの幅の変更}\label{ux63d0ux4f9bux5074ux304cux7533ux544aux3059ux308bux30b3ux30b9ux30c8ux306eux5e45ux306eux5909ux66f4-1}}
