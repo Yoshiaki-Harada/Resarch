@@ -3,6 +3,7 @@
  (lambda ()
    (TeX-add-symbols
     '("shaji" 2)
+    '("secref" 1)
     '("pow" 1)
     '("lw" 1)
     '("namelistlabel" 1)

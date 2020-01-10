@@ -10,7 +10,7 @@
 
 本研究の対象であるクラウドソースドマニュファクチャリングに，オークションを適用したモデル図を[@fig:csmfg]に示す．
 
-![Crowedsourced Manufacturing](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/crowdsourced-manufacturing.png){#fig:csmfg width=60%}
+![Crowedsourced Manufacturing](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/crowdsourced-manufacturing.png){#fig:csmfg width=80%}
 
 リソースの提供側とリソースの要求側，そしてオークション主催者が存在する．それぞれの主体について説明する．
 
@@ -197,17 +197,35 @@ $$
 
 ##### 価格の式
 
-VCGオークションにおいて勝者となった$j$の入札$n$の支払い価格$pay_{j}$は以下のように定まる．
+VCGオークションにおいて勝者となった$j$の入札$n$の支払い$pay_{j}$は以下のように定まる．
 $$
 \begin{align}
-pay_{j}  = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j)
+pay_{j}  = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j) \label{eq:vcg-pay}
 \end{align}
 $$
-$V(\boldsymbol{J}\backslash  j)$は$j$を除いたオークションの勝者決定問題の目的関数値を表す．また，$\{-f_{j,n}+V(\boldsymbol{J})\}$は目的関数値から，支払いを決めようとする入札の入札値を除いた値である．よって$pay_{j}$は$j$の評価値に関わらず決定されている．
+$V(\boldsymbol{J}\backslash  j)$は$j$を除いたオークションの勝者決定問題の目的関数値を表す．また，$\{-f_{j,n}+V(\boldsymbol{J})\}$は目的関数値から，支払いを決めようとする入札の入札値を除いた値である．よって$pay_{j}$は$j$の評価値に関わらず決定されている．$\eqref{eq:vcg-pay}$で決定される支払いが耐戦略性，個人合理性を示すことを[@fig:vcg-pay]を用いて説明する．
 
-##### 性質の証明
+![VCG Payment](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-2/vcg-pay.png){#fig:vcg-pay width=70%}
 
-+ ***VCGが耐戦略性や個人合理性を示すことを説明する*** 
+まず耐戦略性を満たすことを証明する．ここで買い手$j$の入札$n$の真の評価値を$t_{j,n}$とする．
+
+まず過少申告を行う場合を考える
+
+虚偽申告を行なって，$f_{j,n}$($pay_j<f_{j,n}<t_{j,n}$)と申告した場合を考える．[@fig:vcg-pay]より$pay_j$は変わらず，利益は変わらない．
+
+虚偽申告を行って，$f_{j,n}(f_{j,n}<pay_j<t_{j,n})$と申告した場合を考える．[@fig:vcg-pay]より$f_{j,n}$が小さくなると$P(\boldsymbol{J}\backslash{j})$の割当が$P(\boldsymbol{J})$でも選ばれるようになり，買い手$j$は勝者となることができなくなってしまう．
+
+次に過大申告を行う場合を考える．
+
+もし買い手$j$の評価値$t_{j,n}$の入札が勝者となれる場合に，虚偽申告を行って，$f_{j,n}(f_{j,n}>t_{j,n})$としても，[@fig:vcg-pay]より$pay_j$は変わらず，利益は変わらない．
+
+買い手$j$が勝者となれない場合に，虚偽申告を行うときを考える．もしある入札を$w_{j,n}>t_{j,n}$とするとオークションの勝者になれるとする．そのときの勝者決定問題の目的関数値を$V_w(\boldsymbol{J})$とする．その様子を[@fig:vcg-pay-2]に示す．
+
+![vcg-pay-2](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-2/vcg-pay-2.png){#fig:vcg-pay-2 width=70%}
+
+$pay_j$は[@fig:vcg-pay-2]のように決定されるが，その値がどの$j$の入札の真の評価値$t_{j,n} (\forall N)$よりも高くなっている．つまり利益が負になり，損をする結果となる．もし$pay_j$より評価値が高い入札の評価値$t_{j,n}$があれば，$V_w(\boldsymbol{J})-w_j,n+t_j,n$が$V_w{\boldsymbol{J}\backslash{\{j\}}}$より大きくなり，勝者となれていたはずである．
+
+以上のより正直に評価値を申告するときが一番利益が高くなる．つまり耐戦略性を満たす．そして，虚偽の申告をしない限り利益が負になることがないので個人合理性を満たす．また$pay_j$は買い手$j$がオークションの勝者となれる最小の価格となっている．耐戦略性を満たすオークションは自身がオークションの勝者に留まれる最小の価格を支払う．そしてこの価格をクリティカルプライスとも呼ぶ．
 
 従来の製造業における組合せオークションを応用した研究では，シングルサイドオークションが多く扱われてきた\cite{suginouchi}．しかし本研究のクラウドソースドマニュファクチャリングにおいては．リソース提供企業・リソース要求企業の双方の意思を反映させる為に，ダブルオークションを適用する．そうすることで，提供企業と要求企業の総利益が最大化される配分を求めることを可能とした．本研究で行う組合せダブルオークションは以下の特徴を持つ．
 

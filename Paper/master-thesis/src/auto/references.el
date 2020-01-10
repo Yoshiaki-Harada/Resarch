@@ -23,6 +23,8 @@
     "google"
     "yahoo"
     "vickrey"
-    "suginouchi"))
+    "suginouchi"
+    "Samimi2016"
+    "Chu2009"))
  :bibtex)
 
