@@ -133,7 +133,7 @@ $$
 $$
 問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$は問題$P(\boldsymbol{I},\boldsymbol{J})$の$\boldsymbol{J}$を$\boldsymbol{\tilde{J}}$で置き換え，制約式$\eqref{subto-loser}$を追加したものとなっている．問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の最適解を求めることで，提供企業の勝者，つまり各提供企業が提供するリソースの時間を決定する．よって問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$で敗者となった入札は，$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$で選ばれることはないので，仮想的な買い手$\boldsymbol{Q}$の分のリソースは取引は行われないが，利用されることもなくなってしまう．また提供企業数が増加すると，この仮想的な買い手$\boldsymbol{Q}$によって利用されないリソースの割合が全体の提供リソースに対して減少するので，小さくなると考えられる．
 
-#### 報酬の決定
+#### 報酬の決定\label{sec:m2-reward}
 
 問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解を元に，売り手$i$がリソース$r$を$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}$ [Ts]提供することで得られる報酬$revenue_{i,r}$を$\eqref{m2-reward}$で決定する．
 $$
@@ -142,22 +142,27 @@ revenue_{i,r}=\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} 
 \label{m2-reward}
 \end{align}
 $$
-$\eqref{m2-reward}$のの報酬決定方法が耐戦略性を示すことについて説明する．そこでまず$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})-V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の部分について説明する．ただしこの部分を
-
-$revenue_{i,r}’$とおく．
-
+$\eqref{m2-reward}$のの報酬決定方法が耐戦略性を示すことについて説明する．そこで$\eqref{m2-reward}$の前半部分と後半部分をそれぞれ以下のようにおく．
+$$
+\begin{align}
+revenue_{i,r}’=&\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})-V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})\\
+ex_{i,r}=&V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})
+\end{align}
+$$
 $revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において提供企業$i$がリソース$r$を提供できる最大の価格(コストと時間の積)である．$revenue_{i,r}’$は，問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の売り手側においてVCGメカニズムと同様の価格決定方法で求めている．$revenue_{i,r}’$について[@fig:m2-revenue-1]を用いて説明する．
 
 ![revenue-1](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-4/revenue-1.png){#fig:m2-revenue-1}
 
 [@fig:m2-revenue-1]より，もし$revenue_{i,r}’$より大きくなるように，$c_{i,r}$を申告してしまうと，問題$P(\boldsymbol{I},\boldsymbol{J})$の解は，問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の解に変わり，提供企業$i$はリソース$r$を提供できなくなってしまう．何故なら$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の方が，$revenue_{i,r}’$より大きくなるように$c_{i,r}$を申告した$V(\boldsymbol{I},\boldsymbol{\tilde{J}})$より大きくなるからである．よって$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において，提供企業$i$がリソース$r$を提供できる最大の価格(コストと時間の積)である．$revenue_{i,r}’$において，提供企業$i$の評価値が使用されていないことも[@fig:m2-revenue-1]より確認できる．また$revenue_{i,r}’$は，$c_{i,r}$よりコストが高い企業が，安い順に$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}} x_{i,r,j,n}$[Ts]分リソースを提供したコストの和となっている．その提供企業の集合を$\boldsymbol{I'}$とする．
 
-次に$V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$について説明する．この$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$は問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において売手$i$がリソース$r$を提供する為の最大のコストである．つまり，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において提供企業$i$が，リソース$r$を提供できる最大の価格を求め，それを提供時間[Ts]で割ったものである．$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$は$revenue_{i,r}’$と同様の方法で求めることができる．ここで問題$P(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\boldsymbol{J})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$に考えると，それぞれの解は先程定義した提供企業集合$\boldsymbol{I’}$のうち$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が提供している部分の解が異なることになる．
+次に$ex_{i,r}$について説明する．この$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$は問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において売手$i$がリソース$r$を提供する為の最大のコストである．つまり，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において提供企業$i$が，リソース$r$を提供できる最大の価格を求め，それを提供時間[Ts]で割ったものである．$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$は$revenue_{i,r}’$と同様の方法で求めることができる．ここで問題$P(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\boldsymbol{J})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$に考えると，それぞれの解は先程定義した提供企業集合$\boldsymbol{I’}$のうち$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が提供している部分の解が異なることになる．
 
 よって$u=\sum_{\{i \in  \tilde{I}| c_{i,r}<p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\}}\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}$とおくと，
 $$
 \begin{align}
-V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})=revenue_{i,r}’-p_{i,r} \times u \label{extra}
+ex_{i,r}
+=&V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}}) \\
+=&revenue_{i,r}’-p_{i,r} \times u \label{extra}
 \end{align}
 $$
 となる．$\eqref{extra}$は，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において，$revenue_{i,r}’$から計算されたコストを申告すると，提供企業$i$の勝者となれない時間分のコストを引くことになる．
@@ -307,8 +312,6 @@ $$
 
 #### 実験結果
 
-#### 考察
-
 [@tbl:m2-4-total-provider-profit]に総提供企業利益を示し，[@tbl:m2-4-provider-profit]に1企業あたりの利益の平均値を示す．[@tbl:m2-4-surplus-profit]に余剰利益を示す．
 
 | Range | 2.5     | 2.0     | 1.5     | 1.0     |
@@ -346,4 +349,50 @@ $$
 
 #### 実験結果
 
-ちょっとわからんので，施行回数増やしたやつをサーバで行う．
+[@tbl:m2-5-total-provider-profit]-[@tbl:m2-5-surplus-profit]に総提供企業利益，総要求企業利益，1提供企業あたりの利益の平均値，余剰利益を示す．
+
+| Range | 2.5     | 2.0     | 1.5     | 1.0     |
+| ----- | ------- | ------- | ------- | ------- |
+| AVE.  | 3176.27 | 2793.80 | 2069.44 | 1950.83 |
+| S.D.  | 1163.93 | 902.33  | 687.54  | 629.26  |
+
+:Total Requester Profit in Methd2 {#tbl:m2-5-total-requester-profit} 
+
+| Range | 2.5     | 2.0     | 1.5     | 1.0     |
+| ----- | ------- | ------- | ------- | ------- |
+| AVE.  | 317.627 | 279.380 | 206.944 | 195.083 |
+| S.D.  | 116.393 | 90.233  | 68.754  | 62.926  |
+
+:Requester Profit in Method 2 {#tbl:m2-5-requester-profit}
+
+| Rate | 2.5     | 2.0     | 1.5     | 1.0     |
+| ---- | ------- | ------- | ------- | ------- |
+| AVE. | 2573.33 | 2858.49 | 2593.19 | 2188.87 |
+| S.D. | 781.67  | 919.96  | 698.38  | 660.86  |
+
+:Surplus Profit {#tbl:m2-4-surplus-profit}  {#tbl:m2-5-surplus-profit}
+
+#### 考察
+
+[@tbl:m2-5-total-requester-profit]，[@tbl:m2-5-requester-profit]より，申告する予算をの幅を狭くするごとに，総提供企業利益，1提供企業の利益が減少していることがわかる．それに伴い，余剰利益が増加すると考えられたが，[@tbl:m2-5-surplus-profit]より，余剰利益は減少しなかった．この理由について詳しく考察をする．
+
+[@tbl:m2-5-total-provider-profit]に総提供企業利益
+
+| Range | 2.5     | 2.0     | 1.5     | 1.0     |
+| ----- | ------- | ------- | ------- | ------- |
+| AVE.  | 2618.77 | 2536.34 | 2970.47 | 3271.82 |
+| S.D.  | 717.20  | 450.48  | 539.37  | 475.90  |
+
+:Total Provider Profit in Method2 {#tbl:m2-5-total-provider-profit}
+
+[@tbl:m2-5-total-provider-profit]予算の幅が増加すると，総提供企業利益が増加していることがわかる．総要求企業利益の増加の方が大きく余剰利益が増加しなかったと考える．
+
+さらに，[@tbl:m2-5-availability]にリソース提供前に対するリソース提供後の稼働率の増加率を示す．
+
+| Range          | 2.5    | 2      | 1.5    | 1      |
+| -------------- | ------ | ------ | ------ | ------ |
+| Incerase Ratio | 42.06% | 42.72% | 44.70% | 48.83% |
+
+:Increase Ratio of Availability in Method 2 {#tbl:m2-5-availability}
+
+[@tbl:m2-5-availability]より，稼働率の増加率も増加している．これより提供できているリソースの時間が増加していることがわかる．申告する予算の幅が広いときであると，より要求時間よりも1[Ts]あたりの予算が大きい入札が優先選ばれていたが，申告する予算の幅が狭くなると，1[Ts]あたりの予算の差が狭くなっていき，狭い時と比べて要求時間が長い入札が選ばれるようになったからである．よって提供側の報酬は相手の予算よりも，提供時間に依存すると考えられる．これは\secref{suc:m2-reward}の$\eqref{m2-reward}$のrevenue_{i,r}’$の部分からもわかる．
