@@ -82,7 +82,13 @@ fun run(auction: String, resultDir: String, bidDir: String, dataSet: String, ite
                     requesterProfitSD = rs.map { it.requesterLiarResult.profit }.sd()
             ),
             auctioneerProfitAve = rs.map { it.auctioneerProfit }.average(),
-            auctioneerProfitSD = rs.map { it.auctioneerProfit }.sd()
+            auctioneerProfitSD = rs.map { it.auctioneerProfit }.sd(),
+            sumRequesterProfitAve = rs.map { it.sumRequesterProfit }.average(),
+            sumRequesterProfitSD = rs.map { it.sumRequesterProfit }.sd(),
+            sumProviderProfitAve = rs.map { it.sumProviderProfit }.average(),
+            sumProviderProfitSD = rs.map { it.sumProviderProfit }.sd(),
+            surplusProfitAve = rs.map { it.auctioneerProfit }.average(),
+            surplusProfitSD = rs.map { it.auctioneerProfit }.sd()
     )
     println("$dirName/$auction")
     writer.JsonWriter("$dirName/$auction").makeFile(ConclusionConverter.toJson(con))

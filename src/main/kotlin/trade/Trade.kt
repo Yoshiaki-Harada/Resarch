@@ -60,10 +60,20 @@ interface Trade {
         val requesterResults = resultPre.requesterCals.mapIndexed { j, it ->
             BidderResult(j, it.bids.map { it.payment }.sum(), it.bids.map { it.profit }.sum())
         }
+
         val sumProfit = providerResults.map { it.profit }.sum() + requesterResults.map { it.profit }.sum()
         if (resultPre.payments.isNullOrEmpty()) {
             println("**********取引は行われていません**********")
             resultPre.payments.add(0.0)
+        }
+        val providerResourceResults = resultPre.providerCals.mapIndexed { provider, bidderCal ->
+            val resourceList = mutableListOf<ResourceResult>()
+            bidderCal.bids.forEachIndexed { resource, bidCal ->
+                if (providers[provider].bids[resource].getValue() > 0.0) {
+                    resourceList.add(ResourceResult(resource, bidCal.time, bidCal.profit, bidCal.payment))
+                }
+            }
+            ProviderResourceResult(provider, resourceList)
         }
         return Result(
                 objectValue = objValue,
@@ -111,7 +121,10 @@ interface Trade {
                 providerLiarResult = ProviderLiarResult(
                         profit = providerResults[0].profit,
                         reward = providerResults[0].payment
-                )
+                ),
+                sumRequesterProfit = requesterResults.map { it.profit }.sum(),
+                sumProviderProfit = providerResults.map { it.profit }.sum(),
+                providerResourceResults = providerResourceResults
         )
     }
 }

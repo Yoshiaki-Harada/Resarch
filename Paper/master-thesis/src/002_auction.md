@@ -10,7 +10,7 @@
 
 本研究の対象であるクラウドソースドマニュファクチャリングに，オークションを適用したモデル図を[@fig:csmfg]に示す．
 
-![Crowedsourced Manufacturing](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/crowdsourced-manufacturing.png){#fig:csmfg width=80%}
+![Crowedsourced Manufacturing](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/crowdsourced-manufacturing.png){#fig:csmfg width=90%}
 
 リソースの提供側とリソースの要求側，そしてオークション主催者が存在する．それぞれの主体について説明する．
 

@@ -20,17 +20,19 @@ import java.io.FileOutputStream
 fun main(args: Array<String>) {
     val config = Config.fromJson("config")
 
-    //$resultDir/$dataset/$auction.json
-
     val conList = config.targetData.map { data ->
+        val dirName = "${config.resultDir}/${config.bidDir.replace("Bid", "")}/$data"
         config.targetAuction.map { auction ->
-            ConclusionConverter.fromJson(JsonImporter("${config.resultDir}/$data/$auction").getString())
+            ConclusionConverter.fromJson(JsonImporter("$dirName/$auction").getString())
         }
     }
     Excel.outConclusionEachSheetDataset("${config.resultDir}/result-lie-sheet-dataset", config, conList)
 
     Excel.outConclusionEachSheetItem("${config.resultDir}/result-lie-sheet-item", config, conList)
 
+    config.targetAuction.forEachIndexed { index, s ->
+        Excel.outConclusionEachSheetItemForMasterThesis("${config.resultDir}/result-characteristic-$s", config, conList, index)
+    }
 }
 
 /**
@@ -42,9 +44,11 @@ object Excel {
      */
     private const val SUM_PROFIT = "提供側と要求側の総利益"
     private const val SUM_PROFIT_INCLUDE_AUCTIONEER = "総利益(オークション主催者込み)"
+    private const val SUM_PROVIDER_PROFIT = "総提供企業利益"
+    private const val SUM_REQUESTER_PROFIT = "総要求企業利益"
     private const val PROVIDER_PROFIT_AVE = "提供企業側の利益の平均"
     private const val REQUESTER_PROFIT_AVE = "要求企業側の利益の平均"
-    private const val WIN_BID_NUMBER = "勝者となった要求数"
+    private const val WIN_BID_NUMBER = "勝者となった要求の割合"
     private const val PROVIDER_RATE = "提供率"
     private const val PROVIDER_REVENUE = "収入"
     private const val PROVIDER_REVENUE_SUM = "総収入額"
@@ -54,9 +58,11 @@ object Excel {
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
     private const val AUCTIONEER_PROFIT = "主催者の利益"
-    private const val LIE_PROVIDER_PROFIT_AVE = "虚偽申告-提供企業側の利益の平均"
-
+    private const val LIE_PROVIDERS_PROFIT = "虚偽申告-提供企業群の利益の平均"
+    private const val LIE_PROVIDER_PROFIT = "虚偽申告提供企業の利益"
+    private const val LIE_REQUESTER_PROFIT = "虚偽申告要求企業の利益"
     private const val LIE_PROVIDER_REVENUE_DENSITY = "虚偽申告-収入(1Ts)"
+    private const val SURPLUS_PROFIT = "余剰利益"
     private const val AVE = "AVE."
     private const val SD = "S.D."
 
@@ -101,15 +107,15 @@ object Excel {
     }
 
     /**
-     * | Ave.    | Auctin1 | Auction2 |
-     * | [a, b]  | VALUE   | VALUE
-     * | [c, d]  | VALUE   | VALUE
+     * | Ave.| Auctin1 | Auction2 |
+     * |  a  | VALUE   | VALUE
+     * |  b  | VALUE   | VALUE
      *
      *
      *
-     * | S.D.    | Auctin1 | Auction2 |
-     * | [a, b]  | VALUE   | VALUE
-     * | [c, d]  | VALUE   | VALUE
+     * | S.D.| Auctin1 | Auction2 |
+     * |  a  | VALUE   | VALUE
+     * |  b  | VALUE   | VALUE
      *
      * sheet itemA,  itemB...
      * @param file
@@ -157,6 +163,30 @@ object Excel {
         }
     }
 
+    fun outConclusionEachSheetItemForMasterThesis(file: String, config: Config, conList: List<List<Conclusion>>, auctionIndex: Int) {
+        val DATA_ROW = 0
+        val AVE_ROW = DATA_ROW + 1
+        val SD_ROW = AVE_ROW + 1
+        val LABEL_COLUMN = 0
+        initExcel(file, config.items)
+
+        KExcel.open("$file.xlsx").use { workbook ->
+            config.items.forEachIndexed { itemIndex, item ->
+                val sheet = workbook[itemIndex]
+
+                sheet[LABEL_COLUMN, AVE_ROW] = AVE
+                sheet[LABEL_COLUMN, SD_ROW] = SD
+
+                config.targetData.forEachIndexed { dataIndex, data ->
+                    sheet[LABEL_COLUMN + 1 + dataIndex, DATA_ROW] = data
+                    sheet[LABEL_COLUMN + 1 + dataIndex, AVE_ROW] = conList[dataIndex][auctionIndex].getValue(item, AVE)
+                    sheet[LABEL_COLUMN + 1 + dataIndex, SD_ROW] = conList[dataIndex][auctionIndex].getValue(item, SD)
+                }
+            }
+            KExcel.write(workbook, "$file.xlsx")
+        }
+    }
+
     /**
      * 作成するexcelのファイル名と作成するsheet名のリストを受け取る
      *
@@ -167,7 +197,7 @@ object Excel {
         val wb = XSSFWorkbook()
         val out = FileOutputStream("${fileName}.xlsx")
         sheetNames.forEach {
-            wb.createSheet(it.replace("/","-"))
+            wb.createSheet(it.replace("/", "-"))
 //            wb.createSheet(it.split("/").last())
         }
         wb.write(out)
@@ -184,6 +214,10 @@ object Excel {
     fun Conclusion.getValue(item: String, kind: String): Double = when (val str = "$item-$kind") {
         "$SUM_PROFIT-$AVE" -> this.sumProfitAve
         "$SUM_PROFIT-$SD" -> this.sumProfitSD
+        "$SUM_PROVIDER_PROFIT-$AVE" -> this.sumProviderProfitAve
+        "$SUM_PROVIDER_PROFIT-$SD" -> this.sumProviderProfitSD
+        "$SUM_REQUESTER_PROFIT-$AVE" -> this.sumRequesterProfitAve
+        "$SUM_REQUESTER_PROFIT-$SD" -> this.sumRequesterProfitSD
         "$SUM_PROFIT_INCLUDE_AUCTIONEER-$AVE" -> this.sumProfitIncludeAuctioneerAve
         "$SUM_PROFIT_INCLUDE_AUCTIONEER-$SD" -> this.sumProfitIncludeAuctioneerSD
         "$PROVIDER_PROFIT_AVE-$AVE" -> this.providerProfitAve
@@ -210,11 +244,16 @@ object Excel {
         "$REQUESTER_PAY_SUM-$SD" -> this.sumPaySD
         "$AUCTIONEER_PROFIT-$AVE" -> this.auctioneerProfitAve
         "$AUCTIONEER_PROFIT-$SD" -> this.auctioneerProfitSD
-        "$LIE_PROVIDER_PROFIT_AVE-$AVE" -> this.liarConclusion?.providersProfitAve ?: 0.0
-        "$LIE_PROVIDER_PROFIT_AVE-$SD" -> this.liarConclusion?.providersProfitSD ?: 0.0
+        "$LIE_PROVIDERS_PROFIT-$AVE" -> this.liarConclusion?.providersProfitAve ?: 0.0
+        "$LIE_PROVIDERS_PROFIT-$SD" -> this.liarConclusion?.providersProfitSD ?: 0.0
+        "$LIE_PROVIDER_PROFIT-$AVE" -> this.liarConclusion?.providerProfitAve ?: 0.0
+        "$LIE_PROVIDER_PROFIT-$SD" -> this.liarConclusion?.providerProfitSD ?: 0.0
+        "$LIE_REQUESTER_PROFIT-$AVE" -> this.liarConclusion?.requesterProfitAve ?: 0.0
+        "$LIE_REQUESTER_PROFIT-$SD" -> this.liarConclusion?.requesterProfitSD ?: 0.0
         "$LIE_PROVIDER_REVENUE_DENSITY-$AVE" -> this.liarConclusion?.providersRevenueDensityAve ?: 0.0
         "$LIE_PROVIDER_REVENUE_DENSITY-$SD" -> this.liarConclusion?.providersRevenueDensitySD ?: 0.0
-
+        "$SURPLUS_PROFIT-$AVE" -> this.surplusProfitAve
+        "$SURPLUS_PROFIT-$SD" -> this.surplusProfitSD
         else -> {
             throw Exception("$str は存在しません")
         }

@@ -18,7 +18,7 @@ object Util {
         val mutableList = mutableListOf<List<Double>>()
         var c = 0
         indexDef.forEach { it ->
-            mutableList.add(doubleList.subList(c, c + it))
+            mutableList.add(doubleList.subList(c, c + it).map { it.toBigDecimal().setScale(3, RoundingMode.HALF_UP).toDouble() })
             c += it
         }
         val list: List<List<Double>> = mutableList

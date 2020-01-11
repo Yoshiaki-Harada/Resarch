@@ -66,11 +66,14 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         ProfitMaxPaddingDoubleAuction(conf, Object.MAX, bidders).makeLpFile()
         val cplex = LpImporter("LP/Padding/auction-{$requesterId}").getCplex()
         cplex.solve()
+        val lp = cplex.LPMatrixIterator().next() as IloLPMatrix
 
         // 支払い価格を導出する
-        println("${requesters[requesterId].bids[bidId].getValue()}, ${cplex.objValue} $objValue")
+        println("---------Calculate Requester$requesterId Payment---------")
+        getRequesterLog(cplex.getValues(lp), excludedRequesters)
+        println("Budget: ${requesters[requesterId].bids[bidId].getValue()}, V(I,J-{j},Q)=${cplex.objValue} V(I,J,Q)=$objValue")
         val pay = requesters[requesterId].bids[bidId].getValue() - (objValue - cplex.objValue)
-        println("requester$requesterId,$bidId payment = $pay")
+        println("Requester:$requesterId  Bid:$bidId payment = $pay")
         cplex.end()
         return pay
     }
@@ -224,6 +227,20 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         return providers[id].bids[resoruceId].getValue() * time + paddingObjValue - objValue
     }
 
+    private fun excludeRequesters(requesters: List<Bidder>, requesterId: Int) = requesters.mapIndexed { index, bidder ->
+        if (bidder.id == requesterId) {
+            val bids = bidder.bids.map {
+                val bundle = it.bundle.map {
+                    0.0
+                }
+                Bid(Value(0.0, 0.0), bundle)
+            }
+            Bidder().add(bids)
+        } else {
+            bidder
+        }
+    }
+
     private fun excludeProviders(providers: List<Bidder>, providerId: Int, resourceId: Int) = providers.mapIndexed { pId, bidder ->
         if (providerId == pId) {
             val bids = bidder.bids.mapIndexed { rId, resource ->
@@ -239,17 +256,15 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
         }
     }
 
-    private fun excludeRequesters(requesters: List<Bidder>, requesterId: Int) = requesters.mapIndexed { index, bidder ->
-        if (bidder.id == requesterId) {
-            val bids = bidder.bids.map {
-                val bundle = it.bundle.map {
-                    0.0
+    private fun getRequesterLog(cplexValue: DoubleArray, winRequesters: List<Bidder>) {
+        val tempY = cplexValue.toList().subList(0, winRequesters.map { it.bids.size }.sum())
+        val y = Util.convertDimension(tempY, winRequesters.map { it.bids.size })
+        y.forEachIndexed { j, bids ->
+            bids.forEachIndexed { n, d ->
+                if (isOne(d)) {
+                    println("Requester$j Bid$n is Win")
                 }
-                Bid(Value(0.0, 0.0), bundle)
             }
-            Bidder().add(bids)
-        } else {
-            bidder
         }
     }
 }

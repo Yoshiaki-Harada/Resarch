@@ -31,7 +31,7 @@ data class Result(val objectValue: Double,
                   val sumProfit: Double,
                   val x: List<Double>,
                   val winBidRatio: Double,
-                  val providerResults: List<BidderResult>,
+                  val providerResults: List<ProviderResult>,
                   val requesterResults: List<BidderResult>,
                   val providerProfitAve: Double,
                   val providerProfitSD: Double,
@@ -56,7 +56,10 @@ data class Result(val objectValue: Double,
                   val requesterLiarsResult: RequesterLiarsResult?,
                   val calculationTimeMillis: Long,
                   val requesterLiarResult: RequesterLiarResult,
-                  val providerLiarResult: ProviderLiarResult)
+                  val providerLiarResult: ProviderLiarResult,
+                  val sumRequesterProfit: Double,
+                  val sumProviderProfit: Double,
+                  val providerResourceResults: List<ProviderResourceResult>)
 
 /**
  * 虚偽申告をした入札者の結果用のクラス
@@ -74,6 +77,9 @@ data class RequesterLiarsResult(val requesterProfitAve: Double = 0.0,
                                 val requesterPayAve: Double = 0.0,
                                 val requesterPaySD: Double = 0.0)
 
-data class ProviderLiarResult(val profit: Double = 0.0, val reward: Double=0.0)
+data class ProviderLiarResult(val profit: Double = 0.0, val reward: Double = 0.0)
 
-data class RequesterLiarResult(val profit: Double = 0.0, val pay: Double=0.0)
+data class RequesterLiarResult(val profit: Double = 0.0, val pay: Double = 0.0)
+
+data class ResourceResult(val id: Int, val time: Double, val profit: Double, val reward: Double)
+data class ProviderResourceResult(val provider: Int, val resources: List<ResourceResult>)
