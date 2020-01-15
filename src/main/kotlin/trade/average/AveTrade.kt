@@ -61,6 +61,7 @@ class AveTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                             // 要求側
                             requesterCals[j].bids[n].addPayment(payment)
                             requesterCals[j].bids[n].addTime(requesters[j].bids[n].bundle[r])
+                            requesterCals[j].bids[n].addValue(requesters[j].bids[n].getValue())
                             val ratio = d / requesters[j].bids[n].bundle.sum()
                             requesterCals[j].bids[n].addProfit(ratio * requesters[j].bids[n].value.tValue - payment)
                             requesterBidResults.add(BidResult(arrayOf(i, j, n, r), payment, ratio * requesters[j].bids[n].value.tValue * payment))

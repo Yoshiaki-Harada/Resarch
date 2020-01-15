@@ -124,7 +124,10 @@ interface Trade {
                 ),
                 sumRequesterProfit = requesterResults.map { it.profit }.sum(),
                 sumProviderProfit = providerResults.map { it.profit }.sum(),
-                providerResourceResults = providerResourceResults
+                providerResourceResults = providerResourceResults,
+                changeAvailability = providerResults.map { it.afterProviderAvailabilityRatio - it.beforeAvailabilityRatio }.average(),
+                winBudgetAve = resultPre.requesterCals.map { it.bids }.flatMap { it.filter { bid -> bid.profit != 0.0 } }.map { it.value }.average(),
+                winBudgetSD = resultPre.requesterCals.map { it.bids }.flatMap { it.filter { bid -> bid.profit != 0.0 } }.map { it.value }.sd()
         )
     }
 }

@@ -39,7 +39,7 @@ fun main() {
                             })
                 }
         val afterBidders = lieProviders.plus(lieRequesters)
-        val dirName = "Bid/real-case/lie-data/$i"
+        val dirName = "Bid/real-case/req4-pro6/lie-data/$i"
         val dir = File(dirName).absoluteFile
         dir.mkdirs()
         afterBidders.forEachIndexed { index, bidder ->

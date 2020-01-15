@@ -123,6 +123,7 @@ class VcgTrade(val providers: List<Bidder>, val requesters: List<Bidder>, val de
                     requesterCals[j].bids[n].addPayment(pay)
                     requesterCals[j].bids[n].addTime(requesters[j].bids[n].bundle.sum())
                     requesterCals[j].bids[n].addProfit(requesters[j].bids[n].value.tValue - pay)
+                    requesterCals[j].bids[n].addValue(requesters[j].bids[n].getValue())
                     requesterBidResults.add(BidResult(arrayOf(j, n), pay, requesters[j].bids[n].value.tValue - pay))
                     payments.add(pay)
                 }

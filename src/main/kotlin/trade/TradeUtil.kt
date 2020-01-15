@@ -88,3 +88,4 @@ data class ResultPre(
         val providerRevenue: MutableList<Double>,
         val providerRevenueDensity: MutableList<Double>,
         val auctioneerProfit: Double?)
+

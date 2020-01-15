@@ -36,11 +36,11 @@
    + リソース提供企業はオークション主催者に対して，入札を作成する．
    + リソース要求企業はオークション主催者に対して，入札を作成する．
 2. 提供側と要求側の入札を元にした勝者決定問題$P(\boldsymbol{I},\boldsymbol{J})$に対し，仮想的な買い手$\boldsymbol{Q}$を考慮した問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を定義する．
-3. $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の最適解を求め，勝者となる入札を決める
-4. $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となった要求企業に対して支払い$pay_j$を決定する
-5. $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となった要求企業の集合を$\boldsymbol{\tilde{J}}$とし，また敗者となった入札の決定変数を0とした問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$を定義する
-6. $P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の最適解を求め，提供リソースの取引量を決める
-7.  $P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において勝者となったリソース提供企業に対して収入$revenue_{j,r}$を決定する
+3. $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の最適解を求め，勝者となる入札を決める．
+4. $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となった要求企業に対して支払い$pay_j$を決定する．
+5. $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となった要求企業の集合を$\boldsymbol{\tilde{J}}$とし，また敗者となった入札の決定変数を0とした問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$を定義する．
+6. $P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の最適解を求め，提供リソースの取引量を決める．
+7.  $P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において勝者となったリソース提供企業に対して収入$revenue_{j,r}$を決定する．
 
 1が2章で説明をした入札を作成する部分，2-4が要求側の勝者と取引価格決定を決定する部分であり，5-7が提供企業の勝者と支払い価格を決める部分である．
 
@@ -96,9 +96,7 @@ $$
 $$
 問題$P(\boldsymbol{I},\boldsymbol{J})$と問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の異なる部分について説明をする．
 
-まずどの提供企業が$\boldsymbol {Q}$にリソース決定変数$q_{i,r}$を用意する．そして$\boldsymbol{Q}$の要求を満たすための制約$\eqref{subto-q}$が追加される．
-
-それによって$P(\boldsymbol{I},\boldsymbol{J})$の提供企業の容量制約が$\eqref{2-subto-time}$から$\eqref{pijq-subto-time}$になる．そして$\boldsymbol{Q}$を満たした分のコストが目的関数に考慮されることで，$P(\boldsymbol{I},\boldsymbol{J})$の$\eqref{2-pij-obj}$が$\eqref{pijq-obj}$になる．
+まずどの提供企業が$\boldsymbol {Q}$にリソース決定変数$q_{i,r}$を用意する．そして$\boldsymbol{Q}$の要求を満たすための制約$\eqref{subto-q}$が追加される．それによって$P(\boldsymbol{I},\boldsymbol{J})$の提供企業の容量制約が$\eqref{2-subto-time}$から$\eqref{pijq-subto-time}$になる．そして$\boldsymbol{Q}$を満たした分のコストが目的関数に考慮されることで，$P(\boldsymbol{I},\boldsymbol{J})$の$\eqref{2-pij-obj}$が$\eqref{pijq-obj}$になる．
 
 この問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を解くことで，まず勝者となる要求企業の入札を決定する(3)．
 

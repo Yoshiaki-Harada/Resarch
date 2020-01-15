@@ -88,7 +88,10 @@ fun run(auction: String, resultDir: String, bidDir: String, dataSet: String, ite
             sumProviderProfitAve = rs.map { it.sumProviderProfit }.average(),
             sumProviderProfitSD = rs.map { it.sumProviderProfit }.sd(),
             surplusProfitAve = rs.map { it.auctioneerProfit }.average(),
-            surplusProfitSD = rs.map { it.auctioneerProfit }.sd()
+            surplusProfitSD = rs.map { it.auctioneerProfit }.sd(),
+            //TODO 本当はここでやるべきではない
+            availabilityChangeAve = rs.map { it.afterProviderAvailabilityRatioAve - it.beforeProviderAvailabilityRatioAve }.average(),
+            availabilityChangeSD = rs.map { it.afterProviderAvailabilityRatioAve - it.beforeProviderAvailabilityRatioAve }.sd()
     )
     println("$dirName/$auction")
     writer.JsonWriter("$dirName/$auction").makeFile(ConclusionConverter.toJson(con))

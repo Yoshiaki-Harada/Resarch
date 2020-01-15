@@ -26,9 +26,9 @@ fun main(args: Array<String>) {
             ConclusionConverter.fromJson(JsonImporter("$dirName/$auction").getString())
         }
     }
-    Excel.outConclusionEachSheetDataset("${config.resultDir}/result-lie-sheet-dataset", config, conList)
+    Excel.outConclusionEachSheetDataset("${config.resultDir}/result-sheet-dataset", config, conList)
 
-    Excel.outConclusionEachSheetItem("${config.resultDir}/result-lie-sheet-item", config, conList)
+    Excel.outConclusionEachSheetItem("${config.resultDir}/result-sheet-item", config, conList)
 
     config.targetAuction.forEachIndexed { index, s ->
         Excel.outConclusionEachSheetItemForMasterThesis("${config.resultDir}/result-characteristic-$s", config, conList, index)
@@ -57,6 +57,7 @@ object Excel {
     private const val REQUESTER_PAY_SUM = "総支払い額"
     private const val BEFORE_PROVIDER_AVAILABILITY_RATIO = "取引前稼働率"
     private const val AFTER_PROVIDER_AVAILABILITY_RATIO = "取引後稼働率"
+    private const val CHANGE_PROVIDER_AVAILABILITY_RATIO = "稼働率の変化率"
     private const val AUCTIONEER_PROFIT = "主催者の利益"
     private const val LIE_PROVIDERS_PROFIT = "虚偽申告-提供企業群の利益の平均"
     private const val LIE_PROVIDER_PROFIT = "虚偽申告提供企業の利益"
@@ -254,6 +255,8 @@ object Excel {
         "$LIE_PROVIDER_REVENUE_DENSITY-$SD" -> this.liarConclusion?.providersRevenueDensitySD ?: 0.0
         "$SURPLUS_PROFIT-$AVE" -> this.surplusProfitAve
         "$SURPLUS_PROFIT-$SD" -> this.surplusProfitSD
+        "$CHANGE_PROVIDER_AVAILABILITY_RATIO-$AVE" -> this.availabilityChangeAve
+        "$CHANGE_PROVIDER_AVAILABILITY_RATIO-$SD" -> this.availabilityChangeSD
         else -> {
             throw Exception("$str は存在しません")
         }

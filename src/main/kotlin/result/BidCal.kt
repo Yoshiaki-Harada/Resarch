@@ -8,6 +8,7 @@ class BidCal {
     var payment = 0.0
     var profit = 0.0
     var time = 0.0
+    var value = 0.0
 
     fun addPayment(p: Double) {
         this.payment += p
@@ -21,4 +22,7 @@ class BidCal {
         this.time += t
     }
 
+    fun addValue(v: Double) {
+        this.value = v
+    }
 }

@@ -59,7 +59,10 @@ data class Result(val objectValue: Double,
                   val providerLiarResult: ProviderLiarResult,
                   val sumRequesterProfit: Double,
                   val sumProviderProfit: Double,
-                  val providerResourceResults: List<ProviderResourceResult>)
+                  val providerResourceResults: List<ProviderResourceResult>,
+                  val changeAvailability: Double = 0.0,
+                  val winBudgetAve: Double = 0.0,
+                  val winBudgetSD: Double = 0.0)
 
 /**
  * 虚偽申告をした入札者の結果用のクラス
