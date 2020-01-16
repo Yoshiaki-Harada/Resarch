@@ -1,6 +1,10 @@
 package writer
 
-import cplex.lpformat.*
+import cplex.lpformat.Calculation
+import cplex.lpformat.Constrait
+import cplex.lpformat.Object
+import cplex.lpformat.VarType
+import java.io.BufferedWriter
 import java.io.File
 
 /**
@@ -15,9 +19,16 @@ class LpWriter(val filename: String) {
             println("$filename を削除しました")
     }
 
+    fun getBufferedWriter() = file.bufferedWriter()
+
     fun obj(obj: Object) {
         //出来れば一回しか書き込めないエラー処理
         file.appendText(obj.str + "\n")
+    }
+
+    fun obj(obj: Object, writer: BufferedWriter) {
+        //出来れば一回しか書き込めないエラー処理
+        writer.write(obj.str + "\n")
     }
 
     fun subto() {
@@ -25,42 +36,43 @@ class LpWriter(val filename: String) {
             file.appendText("subject to" + "\n")
     }
 
+    fun subto(writer: BufferedWriter) {
+        if (isNotContain("subject to"))
+            writer.write("subject to" + "\n")
+    }
+
     fun constrait(cons: Constrait) {
         file.appendText(cons.str + " ")
+    }
+
+    fun constrait(cons: Constrait, writer: BufferedWriter) {
+        writer.write(cons.str + " ")
     }
 
     fun constrateName(name: String) {
         file.appendText("$name: ")
     }
 
-    fun bounds() {
-        //文字列"bounds"がなければ追記できるような場合分けを書きたい
-        if (isNotContain("bounds"))
-            file.appendText("bounds" + "\n")
-    }
-
-    fun bounds(bounds: Bounds) {
-        //文字列"bounds"がなければ追記できるような場合分けを書きたい
-        if (isNotContain("bounds"))
-            file.appendText("bounds" + "\n")
-        file.appendText(bounds.str + "\n")
+    fun constrateName(name: String, writer: BufferedWriter) {
+        writer.write("$name: ")
     }
 
     fun varType(varTypeType: VarType) {
         file.appendText(varTypeType.str + "\n")
     }
 
+    fun varType(varTypeType: VarType, writer: BufferedWriter) {
+        writer.write(varTypeType.str + "\n")
+    }
+
     fun end() {
         file.appendText("end")
     }
 
-    fun leftBracket() {
-        file.appendText("(")
+    fun end(writer: BufferedWriter) {
+        writer.write("end")
     }
 
-    fun rightBracket() {
-        file.appendText(")")
-    }
 
     fun term(double: Double, variable: String, suffix: String) {
         when {
@@ -69,8 +81,19 @@ class LpWriter(val filename: String) {
         }
     }
 
+    fun term(double: Double, variable: String, suffix: String, writer: BufferedWriter) {
+        when {
+            double >= 0 -> writer.write(" + $double $variable$suffix ")
+            double < 0 -> writer.write(" $double $variable$suffix ")
+        }
+    }
+
     fun minus(double: Double, variable: String, suffix: String) {
         file.appendText(" - $double $variable$suffix ")
+    }
+
+    fun minus(double: Double, variable: String, suffix: String, writer: BufferedWriter) {
+        writer.write(" - $double $variable$suffix ")
     }
 
     fun number(double: Double) {
@@ -80,12 +103,19 @@ class LpWriter(val filename: String) {
         }
     }
 
-    fun pureNumber(double: Double) {
-        file.appendText(" $double ")
+    fun number(double: Double, writer: BufferedWriter) {
+        when {
+            double >= 0 -> writer.write(" +$double ")
+            double < 0 -> writer.write(" $double ")
+        }
     }
 
     fun term(variable: String, suffix: String) {
         file.appendText(" +$variable$suffix ")
+    }
+
+    fun term(variable: String, suffix: String, writer: BufferedWriter) {
+        writer.write(" +$variable$suffix ")
     }
 
 
@@ -93,25 +123,24 @@ class LpWriter(val filename: String) {
         file.appendText(" $variable$suffix ")
     }
 
+    fun variable(variable: String, suffix: String, writer: BufferedWriter) {
+        writer.write(" $variable$suffix ")
+    }
+
     fun minus() {
         file.appendText(" " + Calculation.MINUS.str + " ")
+    }
+
+    fun minus(writer: BufferedWriter) {
+        writer.write(" " + Calculation.MINUS.str + " ")
     }
 
     fun plus() {
         file.appendText(" " + Calculation.PLUS.str + " ")
     }
 
-    fun mul(variable: String, suffix: String) {
-        file.appendText(Calculation.MULTI.str + " $variable$suffix ")
-    }
-
-
-    fun mul(double: Double, variable1: String, suffix1: String, variable2: String, suffix2: String) {
-        file.appendText("+ " + double.toString() + " $variable1$suffix1 " + Calculation.MULTI.str + " $variable2$suffix2 ")
-    }
-
-    fun mul(variable1: String, suffix1: String, variable2: String, suffix2: String) {
-        file.appendText("+ [ $variable1$suffix1 " + Calculation.MULTI.str + " $variable2$suffix2 ] ")
+    fun plus(writer: BufferedWriter) {
+        writer.write(" " + Calculation.PLUS.str + " ")
     }
 
     fun isNotContain(str: String): Boolean {
@@ -129,8 +158,15 @@ class LpWriter(val filename: String) {
         file.appendText("->")
     }
 
+    fun arrow(writer: BufferedWriter) {
+        writer.write("->")
+    }
+
     fun newline() {
         file.appendText("\n")
     }
 
+    fun newline(writer: BufferedWriter) {
+        writer.write("\n")
+    }
 }
