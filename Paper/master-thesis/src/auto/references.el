@@ -30,8 +30,11 @@
     "yokoo"
     "google"
     "yahoo"
+    "zaraba"
+    "cliff1997zero"
     "vickrey"
     "suginouchi"
+    "Ohseto2000"
     "Samimi2016"
     "Chu2009"))
  :bibtex)
