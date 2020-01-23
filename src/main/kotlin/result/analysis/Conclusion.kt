@@ -36,7 +36,9 @@ data class Conclusion(val sumProfitAve: Double,
                       val surplusProfitAve: Double,
                       val surplusProfitSD: Double,
                       val availabilityChangeAve: Double,
-                      val availabilityChangeSD: Double)
+                      val availabilityChangeSD: Double,
+                      val winBudgetAve: Double,
+                      val winBudgetSD: Double)
 
 data class LiarConclusion(
         val providersProfitAve: Double,

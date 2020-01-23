@@ -91,7 +91,9 @@ fun run(auction: String, resultDir: String, bidDir: String, dataSet: String, ite
             surplusProfitSD = rs.map { it.auctioneerProfit }.sd(),
             //TODO 本当はここでやるべきではない
             availabilityChangeAve = rs.map { it.afterProviderAvailabilityRatioAve - it.beforeProviderAvailabilityRatioAve }.average(),
-            availabilityChangeSD = rs.map { it.afterProviderAvailabilityRatioAve - it.beforeProviderAvailabilityRatioAve }.sd()
+            availabilityChangeSD = rs.map { it.afterProviderAvailabilityRatioAve - it.beforeProviderAvailabilityRatioAve }.sd(),
+            winBudgetAve = rs.map { it.winBudgetAve }.average(),
+            winBudgetSD = rs.map { it.winBudgetAve }.sd()
     )
     println("$dirName/$auction")
     writer.JsonWriter("$dirName/$auction").makeFile(ConclusionConverter.toJson(con))

@@ -64,6 +64,9 @@ object Excel {
     private const val LIE_REQUESTER_PROFIT = "虚偽申告要求企業の利益"
     private const val LIE_PROVIDER_REVENUE_DENSITY = "虚偽申告-収入(1Ts)"
     private const val SURPLUS_PROFIT = "余剰利益"
+    private const val WIN_BID_BUDGET = "勝者となった入札の予算の平均値"
+
+
     private const val AVE = "AVE."
     private const val SD = "S.D."
 
@@ -257,6 +260,8 @@ object Excel {
         "$SURPLUS_PROFIT-$SD" -> this.surplusProfitSD
         "$CHANGE_PROVIDER_AVAILABILITY_RATIO-$AVE" -> this.availabilityChangeAve
         "$CHANGE_PROVIDER_AVAILABILITY_RATIO-$SD" -> this.availabilityChangeSD
+        "$WIN_BID_BUDGET-$AVE" -> this.winBudgetAve
+        "$WIN_BID_BUDGET-$SD" -> this.winBudgetSD
         else -> {
             throw Exception("$str は存在しません")
         }
