@@ -18,7 +18,7 @@ import java.io.FileOutputStream
  * @param args
  */
 fun main(args: Array<String>) {
-    val config = Config.fromJson("config")
+    val config = Config.fromJson("config-result")
 
     val conList = config.targetData.map { data ->
         val dirName = "${config.resultDir}/${config.bidDir.replace("Bid", "")}/$data"

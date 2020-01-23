@@ -77,7 +77,7 @@ interface Trade {
         }
         return Result(
                 objectValue = objValue,
-                sumProfit = sumProfit,/*このxではなくP(I,J)のx*/
+                sumProfit = sumProfit,
                 x = solutions,
                 winBidRatio = (y.flatten().filter { isOne(it) }.size).toDouble() / config.requester.toDouble(),
                 providerResults = providerResults,

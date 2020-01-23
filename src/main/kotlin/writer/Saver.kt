@@ -21,7 +21,12 @@ object Saver {
         val dir = File("${dirName}").absoluteFile
         dir.mkdirs()
         // resultFile
-        writer.JsonWriter("${dirName}/result").makeFile(ResultConverter.toJson(result))
+        kotlin.runCatching {
+            writer.JsonWriter("${dirName}/result").makeFile(ResultConverter.toJson(result))
+        }.onFailure {
+            println("targetIte $targretIte")
+            val file = File("targetIte-$targretIte").absoluteFile
+        }
         // configFile
         writer.JsonWriter("${dirName}/default").makeFile(ConfigConverter.toJson(config))
         // lpFile

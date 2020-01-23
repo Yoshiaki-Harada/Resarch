@@ -10,7 +10,7 @@ import sd
  * 繰り返した結果の平均と標準偏差を求めるためのmain関数
  */
 fun main(args: Array<String>) {
-    val config = Config.fromJson("config")
+    val config = Config.fromJson("config-result")
     config.targetData.forEach { dataset ->
         config.targetAuction.forEach {
             if (config.targetDataIterate == null) {
