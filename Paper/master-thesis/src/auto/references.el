@@ -31,7 +31,7 @@
     "google"
     "yahoo"
     "zaraba"
-    "cliff1997zero"
+    "cliff"
     "vickrey"
     "suginouchi"
     "Ohseto2000"
