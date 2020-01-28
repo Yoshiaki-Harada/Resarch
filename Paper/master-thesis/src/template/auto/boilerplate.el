@@ -4,7 +4,7 @@
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("ujreport" "11pt" "a4paper" "dvipdfmx")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("hyperref" "hidelinks") ("biblatex" "backend=biber" "sorting=none")))
+                     '(("hyperref" "hidelinks") ("caption" "width=15cm") ("biblatex" "backend=biber" "sorting=none")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
@@ -30,6 +30,7 @@
     "color"
     "hyperref"
     "pxjahyper"
+    "caption"
     "longtable"
     "booktabs"
     "biblatex")

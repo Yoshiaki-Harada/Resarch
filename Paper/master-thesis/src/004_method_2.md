@@ -1,27 +1,19 @@
 # 手法II:耐戦略性を満たす手法
 
-本章では耐戦略性を満たす手法IIのアルゴリズムについて説明を行い，その後計算機実験による特性評価を行う．
+本章では耐戦略性を満たす手法IIのアルゴリズムについて説明を提案し，その後計算機実験による特性評価を行う．
 
 ## アルゴリズム
 
-手法I:パレート効率性を満たす手法のアルゴリズムについて説明する．
+パレート効率性を満たす手法Iのアルゴリズムについて説明する．
 
 ### 概要
 
-2章で述べたように，ダブルオークション環境において，オークション主催者を含めた個人合理性，パレート効率性，耐戦略性の全ての性質を満たすオークションは存在しない．もし耐戦略性を満たすVCGオークションをダブルオークション 環境下に適用すると，オークション主催者の個人合理性が満たせなくなってしまう．つまり，売り手の報酬の合計が買い手の支払いの合計を上回ってしまう．
+\ref{double-auction}節で述べたように，ダブルオークション環境において，オークション主催者を含めた個人合理性，パレート効率性，耐戦略性の全ての性質を満たすオークションは存在しない．もし耐戦略性を満たすVCGオークションをダブルオークション 環境下に適用すると，オークション主催者の個人合理性が満たせなくなってしまう．つまり，売り手の報酬の合計が買い手の支払いの合計を上回ってしまう．
 
-そこで提案されたのがPadding Methodである\cite{Chu2009}．Padding Methodとは仮想的な買い手を用意し均衡価格を引き上げる，つまり買い手の支払い額を高めることでオークション主催者の個人合理性を満たすことを可能にした方法である．この考え方を適用したのが耐戦略性を満たす手法IIである．手法IIは耐戦略性を満たすことはできるが，仮想的な買い手が勝者となった財は実際には取引が行われないので，その分パレート効率性を犠牲にしてしまう．
+そこで提案されたのがPadding Methodである\cite{Chu2009}．Padding Methodとは仮想的な買い手を用意し均衡価格を引き上げる，つまり買い手の支払い額を高めることでオークション主催者の個人合理性を満たすことを可能にした方法である．この考え方を適用した耐戦略性を満たす手法を提案し，手法IIと呼ぶ．手法IIは耐戦略性を満たすことはできるが，仮想的な買い手が勝者となった財は実際には取引が行われないので，その分パレート効率性を犠牲にしてしまう．
 
-まず説明に使用する記号の定義を以下に示す．
+記号の定義は\secref{symbol}節と同様のものを用いる．さらに使用する記号の定義を以下に示す．
 
-+ $i$: リソース提供企業($i \in \boldsymbol{I}$)
-+ $j$:  リソース要求企業($j \in \boldsymbol{J}$)
-+ $r$: オークションにかけられるリソース($r \in \boldsymbol{R}$)
-+ $c_{i,r}$: 提供企業$i$が提供するリソース$r$のコスト
-+ $TP_{i,r}$: 提供企業$i$がリソース$r$を提供する時間
-+ $n$:  要求企業$j$の$n$番目の入札($n \in \boldsymbol{N}$)
-+ $v_{j,n}$: 要求企業$j$の$n$番目の入札の評価値
-+ $TR_{j,n.r}$: 要求企業$j$の$n$番目の入札においてリソース$r$を要求する時間
 + $\boldsymbol{Q}$: 仮想的な買い手
 + $P(\boldsymbol{I},\boldsymbol{J})$: 提供企業の集合が$\boldsymbol{J}$，要求企業の集合$\boldsymbol{J}$であるときの勝者決定問題
 + $V(\boldsymbol{I},\boldsymbol{J})$: 問題$P(\boldsymbol{I},\boldsymbol{J})$の目的関数値
@@ -98,9 +90,9 @@ $$
 
 まずどの提供企業が$\boldsymbol {Q}$にリソース決定変数$q_{i,r}$を用意する．そして$\boldsymbol{Q}$の要求を満たすための制約$\eqref{subto-q}$が追加される．それによって$P(\boldsymbol{I},\boldsymbol{J})$の提供企業の容量制約が$\eqref{2-subto-time}$から$\eqref{pijq-subto-time}$になる．そして$\boldsymbol{Q}$を満たした分のコストが目的関数に考慮されることで，$P(\boldsymbol{I},\boldsymbol{J})$の$\eqref{2-pij-obj}$が$\eqref{pijq-obj}$になる．この問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を解くことで，まず勝者となる要求企業の入札を決定する．
 
-### 支払い額の決定
+### 支払い額の決定\label{sec:m2-pay}
 
-STEP3の支払い額の決定について説明する．仮想的な買い手$\boldsymbol{Q}$を考慮した状態で，\ref{VCG}において説明したVCGオークションと同様の方法で価格を決定する．勝者となった提供企業$j$の入札$n$の支払いは以下の式で決定される．
+STEP3の支払い額の決定について説明する．仮想的な買い手$\boldsymbol{Q}$を考慮した状態で，\secref{VCG}において説明したVCGオークションと同様の方法で価格を決定する．すなわち勝者となった提供企業$j$の入札$n$の支払いは以下の式で決定される．
 $$
 \begin{align}
 pay_j=-\{V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})-v_{j,n}\}+V(\boldsymbol{I},\boldsymbol{J}\backslash\{j\},\boldsymbol{Q}) \label{m2-pay}
@@ -134,19 +126,11 @@ $$
 問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解を元に，売り手$i$がリソース$r$を$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}$ [Ts]提供することで得られる報酬$revenue_{i,r}$を$\eqref{m2-reward}$で決定する．
 $$
 \begin{align}
-revenue_{i,r}=\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})-V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})\\-\{V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})\}
+revenue_{i,r}=\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})-V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}}) \notag \\ - \{V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})\}
 \label{m2-reward}
 \end{align}
 $$
----
-
-式番号が両方つかないように修正する
-
----
-
-
-
-$\eqref{m2-reward}$のの報酬決定方法が耐戦略性を満たすことについて説明する．そこで$\eqref{m2-reward}$の前半部分と後半部分をそれぞれ以下のようにおく．
+$\eqref{m2-reward}$の報酬決定方法が耐戦略性を満たすことについて説明する．そこで$\eqref{m2-reward}$の前半部分と後半部分をそれぞれ以下のようにおく．
 $$
 \begin{align}
 revenue_{i,r}’=&\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})-V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})\\
@@ -175,11 +159,17 @@ $$
 
 ### 特徴
 
-手法II:耐戦略性を満たす手法は，以上で示したように耐戦略性を満たすことができる．しかし仮想的な買い手$\boldsymbol{Q}$の分のリソースはどの要求企業にも提供できなくなるので無駄になってしまい，パレート効率性を満たすことができない．一方で提供企業数が増えると仮想的な買い手$\boldsymbol{Q}$によって無駄になってしまうリソースの割合が減少し，パレート効率な状態に近づくと考えられる．また手法IIは提供企業の支払いの合計と，提供側の報酬の合計が等しくなるとは限らず，提供企業の支払いの合計と提供側の報酬の合計余剰の差である余剰利益が発生する．この利益はクラウドソースドマニュファクチャリング内で閉じているので総利益に加算する．
+\secref{sec:m2-pay}，\secref{sec:m2-reward}で示したように提案した手法IIは耐戦略性を満たす．しかし仮想的な買い手$\boldsymbol{Q}$の分のリソースはどの要求企業にも提供できなくなるので無駄になってしまい，パレート効率性を満たすことができない．一方で提供企業数が増えると仮想的な買い手$\boldsymbol{Q}$によって無駄になってしまうリソースの割合が減少し，パレート効率な状態に近づくと考えられる．また手法IIは提供企業の支払いの合計と，提供側の報酬の合計が等しくなるとは限らず，提供企業の支払いの合計と提供側の報酬の合計余剰の差である余剰利益が発生する．この利益はクラウドソースドマニュファクチャリング内で閉じているので総利益に加算する．
 
 ## 特性評価
 
-本項では手法IIにおいて特性評価を行う．実験条件は\secref{exp-condition}と同様である．
+本節では手法IIに関する特性評価を行う．実験条件は\secref{exp-condition}と同様である．次項以降では以下の項目について変更を行った実験を行い，結果ならびに考察を述べる．
+
++ 提供企業数の変更 
++ 1提供企業の虚偽申告率の変更
++ 1要求企業の虚偽申告率の変更
++ 提供側が申告するコストの幅の変更 
++ 要求企業が申告する予算の幅の変更 
 
 ### 提供企業数の変更 
 
@@ -195,30 +185,30 @@ $$
 [@tbl:m2-1-pareto-total-profit]にパレート効率な状態の総利益，[@tbl:m2-1-total-profit]に手法IIの総利益を示す．
 
 | Provider  Number | 15      | 20       | 25       | 30       |
-| ---------------- | ------- | -------- | -------- | -------- |
+| ---------------- | :-------: | :--------: | :--------: | :--------: |
 | AVE.             | 8007.79 | 10857.46 | 13721.85 | 14706.66 |
 | S.D.             | 877.31  | 416.03   | 531.84   | 487.50   |
 
 :Pareto efficient total profit {#tbl:m2-1-pareto-total-profit}
 
 | Provider  Number | 15      | 20      | 25       | 30       |
-| ---------------- | ------- | ------- | -------- | -------- |
+| ---------------- | :-------: | :-------: | :--------: | :--------: |
 | AVE.             | 6600.43 | 9457.75 | 12586.24 | 13785.36 |
 | S.D.             | 650.81  | 340.77  | 559.70   | 723.15   |
 
-:Total profit in MethodII {#tbl:m2-1-total-profit}
+:Total profit in Method II {#tbl:m2-1-total-profit}
 
 [@tbl:m2-1-pareto-total-profit]と[@tbl:m2-1-total-profit]より，パレート効率な総利益に対する手法IIの総利益の減少割合を示す[@tbl:m2-1-profit-decreased]を作成する．
 
 | Provider  Number | 15     | 20     | 25    | 30    |
-| ---------------- | ------ | ------ | ----- | ----- |
+| ---------------- | :------: | :------: | :-----: | :-----: |
 | Decrese Rate     | 17.57% | 12.89% | 8.28% | 6.26% |
 
-:Ratio of decreased total profit in MethodII to pareto efficient total profit  {#tbl:m2-1-profit-decreased}
+:Ratio of decreased total profit in Method II to pareto efficient total profit  {#tbl:m2-1-profit-decreased}
 
 #### 考察
 
-[@tbl:m2-1-profit-decreased]より提供企業数が15人のときは，パレート効率な状態の総利益より，17.57%減少してしまっているのに対して，提供企業数が30人のときは，6.25%の減少で留まっている．よって提供企業数が増加すると，仮想的な買い手$\boldsymbol{Q}$によって無駄になってしまうリソースの量が減少し，総利益はパレート効率な状態に近づくことが確認できた．
+[@tbl:m2-1-profit-decreased]より提供企業数が15のときは，パレート効率な状態の総利益より，17.57%減少してしまっているのに対して，提供企業数が30のときは，6.25%の減少で留まっている．よって提供企業数が増加すると，仮想的な買い手$\boldsymbol{Q}$によって無駄になってしまうリソースの量が減少し，総利益はパレート効率な状態に近づくことが確認できた．
 
 ### 1提供企業の虚偽申告率の変更 
 
@@ -232,39 +222,39 @@ $$
 
 #### 実験結果
 
-[@tbl:m2-2-total-profit]-[@tbl:m2-2-false-provider-profit]は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
+[@tbl:m2-2-total-profit]〜[@tbl:m2-2-false-provider-profit]は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
 
 | False rate   | 0%      | 10%     | 20%     | 30%     |
-| ------------ | ------- | ------- | ------- | ------- |
+| ------------ | :-------: | :-------: | :-------: | :-------: |
 | Total Profit | 8654.35 | 8651.31 | 8651.31 | 8559.37 |
 
-: Total profit in MethodII: A provider report false cost {#tbl:m2-2-total-profit}
+: Total profit in Method II: A provider report false cost {#tbl:m2-2-total-profit}
 
 | False rate           | 0%      | 10%     | 20%     | 30%     |
-| -------------------- | ------- | ------- | ------- | ------- |
+| -------------------- | :-------: | :-------: | :-------: | :-------: |
 | Total Provier Profit | 3204.51 | 3257.36 | 3328.47 | 3353.17 |
 
-: Total provider profit in MethodII: A provider report false cost {#tbl:m2-2-total-provider-profit}
+: Total provider profit in Method II: A provider report false cost {#tbl:m2-2-total-provider-profit}
 
 | False rate             | 0%       | 10%      | 20%      | 30%      |
-| ---------------------- | -------- | -------- | -------- | -------- |
+| ---------------------- | :--------: | :--------: | :--------: | :--------: |
 | Total Requester Profit | 3126.378 | 3119.517 | 3105.653 | 2995.902 |
 
-: Total  requester profit in MethodII: A provider report false cost {#tbl:m2-2-total-requester-profit}
+: Total  requester profit in Method II: A provider report false cost {#tbl:m2-2-total-requester-profit}
 
 | False rate     | 0%    | 10%   | 20%   | 30%  |
-| -------------- | ----- | ----- | ----- | ---- |
+| -------------- | :-----: | :-----: | :-----: |:----: |
 | Provier Profit | 94.98 | 91.94 | 91.94 | 0.00 |
 
-: The false reporting requester profit in MethodII: A provider report false cost {#tbl:m2-2-false-provider-profit}
+: The false reporting requester profit in Method II: A provider report false cost {#tbl:m2-2-false-provider-profit}
 
 #### 考察
 
 [@tbl:m2-2-false-provider-profit]より，正直な申告を行ったときの利益は94.98であり，虚偽申告を行ったときの利益91.94，91.94，0.00より高いことがわかる．よって耐戦略性を満たすことが確認できる．
 
-しかし[@tbl:m2-2-total-provider-profit]より1提供企業の虚偽申告率が増加することで総提供企業利益が増加していることが確認できる．これは手法IIの報酬額の決定方法\eqref{m2-reward}が他企業の提供企業利益から決定されるので，虚偽申告企業の影響で他の提供企業の利益を高めてしまっているからである．
+しかし[@tbl:m2-2-total-provider-profit]より1提供企業の虚偽申告率が増加することで総提供企業利益が増加していることが確認できる．これは手法IIの報酬額の決定方法である$\eqref{m2-reward}$が他企業の提供企業利益から決定されるので，虚偽申告企業の影響で他の提供企業の利益を高めてしまっているからである．
 
-また[@tbl:m2-2-total-profit]より虚偽申告率が増加すると総利益の値が320.41から3353.17まで減少してしまっている．耐戦略を満たすオークションは真の評価値を正直に申告することが支配戦略であるので本来虚偽申告企業は発生しないが，もし発生してしまうと，総利益は減少してしまう．
+また[@tbl:m2-2-total-profit]より虚偽申告率が増加すると総利益の値が3204.51から3353.17まで減少してしまっている．耐戦略性を満たすオークションは真の評価値を正直に申告することが支配戦略であるので本来虚偽申告企業は発生しないが，もし発生してしまうと，総利益は減少してしまう．
 
 ### 1要求企業の虚偽申告率の変更 
 
@@ -278,41 +268,41 @@ $$
 
 #### 実験結果
 
-[@tbl:m2-3-total-profit]-[@tbl:m2-3-requesters-total-profit]は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
+[@tbl:m2-3-total-profit]〜[@tbl:m2-3-requesters-total-profit]は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
 
 | False rate   | 0%      | 10%     | 20%     | 30%     |
-| ------------ | ------- | ------- | ------- | ------- |
+| ------------ | :-------: | :-------: | :-------: | :-------: |
 | Total Profit | 8654.35 | 8654.35 | 8654.35 | 8106.60 |
 
-: Total profit  in MethodII: A requester report false budget {#tbl:m2-3-total-profit}
+: Total profit  in Method II: A requester report false budget {#tbl:m2-3-total-profit}
 
 | False rate             | 0%      | 10%     | 20%     | 30%     |
-| ---------------------- | ------- | ------- | ------- | ------- |
+| ---------------------- | :-------: | :-------: | :-------: | :-------: |
 | Total Providers Profit | 3204.51 | 3204.51 | 3204.51 | 2883.22 |
 
 :Total providers profit  in Method 1: A requester report false budget {#tbl:m2–3providers-total-profit}
 
 | False rate              | 0%      | 10%     | 20%     | 30%     |
-| ----------------------- | ------- | ------- | ------- | ------- |
+| ----------------------- | :-------: | :-------: | :-------: | :-------: |
 | Total Requesters Profit | 3126.38 | 3126.38 | 2832.30 | 2180.29 |
 
-: Total providers profit  in Method 1: A requester report false budget {#tbl:m2-3-requesters-total-profit}
+: Total providers profit  in Method II: A requester report false budget {#tbl:m2-3-requesters-total-profit}
 
 | False rate              | 0%     | 10%    | 20%    | 30%  |
-| ----------------------- | ------ | ------ | ------ | ---- |
+| ----------------------- | :------: | :------: | :------: | :----: |
 | Total Requesters Profit | 468.09 | 468.09 | 468.09 | 0.00 |
 
-: Total providers profit  in Method 1: A requester report false budget {#tbl:m2-3-false-requester-profit}
+: Total providers profit  in Method II: A requester report false budget {#tbl:m2-3-false-requester-profit}
 
 #### 考察
 
 [@tbl:m2-3-requesters-total-profit]より虚偽申告率が0%から20%までは同じ利益468.09であり，30%のとき利益が0となっており，耐戦略性を満たしていることが確認できた．またこのことから手法IIの支払い額が自身の評価値に依存していないことも確認できる．
 
-総利益，総提供企業利益に関して虚偽申告率が0%から20%まで変化がないのは，虚偽申告による問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$と$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解に対しては影響がなかったからである．総要求企業利益が虚偽申告率が10%から20%のときに，減少している．この理由は\eqref{m2-pay}において，虚偽申告率が10%から20%になるときの$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の減少幅より，$V(\boldsymbol{I},\boldsymbol{J}\backslash \{j\},\boldsymbol{Q})$の減少幅の方が小さく，支払い額が増加してしまう要求企業が存在したからだと考える．
+総利益，総提供企業利益に関して虚偽申告率が0%から20%まで変化がないのは，虚偽申告による問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$と$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解に対しては影響がなかったからである．総要求企業利益が虚偽申告率が10%から20%のときに，減少している．この理由は$\eqref{m2-pay}$において，虚偽申告率が10%から20%になるときの$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の減少幅より，$V(\boldsymbol{I},\boldsymbol{J}\backslash \{j\},\boldsymbol{Q})$の減少幅の方が小さく，支払い額が増加してしまう要求企業が存在したからだと考える．
 
-この部分について，要求企業$2$の支払い額の決定時の結果を用いて説明する．虚偽申告を行った要求企業を要求企業$1$とする．このとき要求企業$2$の勝者となった入札の予算は2449.17であった．要求企業$1$の虚偽申告率が10%のときは$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4571.30$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4128.26$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の勝者に要求企業$1$の入札が選ばれていた．要求企業$0$の虚偽申告率が20%のときは，$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4381.77$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4038.80$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$において要求企業$1$の入札は敗者となっていた．その結果$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の減少分は89.46となり，$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$減少分189.53より小さい値となった．その結果支払い額が要求企業$1$虚偽申告率が10%のときより増加してしまった．
+この理由について，要求企業$2$の支払い額の決定時の結果を用いて説明する．虚偽申告を行った要求企業を要求企業$1$とする．このとき要求企業$2$の勝者となった入札の予算は2449.17であった．要求企業$1$の虚偽申告率が10%のときは$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4571.30$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4128.26$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の勝者に要求企業$1$の入札が選ばれていた．要求企業$0$の虚偽申告率が20%のときは，$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4381.77$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4038.80$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$において要求企業$1$の入札は敗者となっていた．その結果$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の減少分は89.46となり，$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$減少分189.53より小さい値となった．その結果支払い額が要求企業$1$虚偽申告率が10%のときより増加してしまった．
 
-1要求企業の虚偽申告率の変更した実験と同様に，虚偽申告企業は発生し得ないが，もし発生してしまうと[@tbl:m2-3-total-profit]より総利益は減少してしまう．
+以上より1要求企業の虚偽申告率の変更した実験と同様に，虚偽申告企業は発生し得ないが，もし発生してしまうと[@tbl:m2-3-total-profit]より総利益は減少してしまう．
 
 ### 提供側が申告するコストの幅の変更 
 
@@ -327,25 +317,25 @@ $$
 [@tbl:m2-4-total-provider-profit]に総提供企業利益を示し，[@tbl:m2-4-provider-profit]に1企業あたりの利益の平均値を示す．[@tbl:m2-4-surplus-profit]に余剰利益を示す．
 
 | Range | 2.5     | 2.0     | 1.5     | 1.0     |
-| ----- | ------- | ------- | ------- | ------- |
+| :-----: | :-------: | :-------: | :-------: | :-------: |
 | AVE.  | 3101.13 | 2536.34 | 1463.70 | 1456.30 |
 | S.D.  | 1152.16 | 450.48  | 301.13  | 391.94  |
 
-:Total Provider profit in MethodII:Change cost range {#tbl:m2-4-total-provider-profit}
+:Total Provider profit in Method II:Change cost range {#tbl:m2-4-total-provider-profit}
 
 |      | 2.5    | 2.0    | 1.5   | 1.0   |
-| ---- | ------ | ------ | ----- | ----- |
+| ---- | :------: | :------: | :-----: | :-----: |
 | AVE. | 124.05 | 101.45 | 58.55 | 58.25 |
 | S.D. | 46.09  | 18.02  | 12.05 | 15.68 |
 
-:A requester profit in MethodII:Change cost range {#tbl:m2-4-provider-profit}
+:A requester profit in Method II:Change cost range {#tbl:m2-4-provider-profit}
 
 |      | 2.5     | 2.0     | 1.5     | 1.0     |
-| ---- | ------- | ------- | ------- | ------- |
+| ---- | :-------: | :-------: | :-------: | :-------: |
 | AVE. | 2695.97 | 2858.49 | 3018.05 | 3410.49 |
 | S.D. | 1094.76 | 919.96  | 859.63  | 904.73  |
 
-:Surplus profit in MethodII:Change cost range {#tbl:m2-4-surplus-profit}
+:Surplus profit in Method II:Change cost range {#tbl:m2-4-surplus-profit}
 
 #### 考察
 
@@ -353,7 +343,7 @@ $$
 
 ### 要求企業が申告する予算の幅の変更 
 
-本項では前節同様に，手法IIの価格決定方法の特性を確認する為に，要求側の申告するコストの幅を変更する実験を行う．$\eqref{m2-pay}$より手法IIの提供企業の報酬は，他企業のコストに依存した式になっているので，コストの幅が小さくなるごとに，要求企業の支払いが増加し提供企業の利益は減少すると考えられる．その影響で余剰利益が変化すると考えらるので，余剰利益の確認をする．
+本項では前項と同様に手法IIの価格決定方法の特性を確認するために，要求側の申告するコストの幅を変更する実験を行う．$\eqref{m2-pay}$より手法IIの提供企業の報酬は，他企業のコストに依存した式になっているので，コストの幅が小さくなるごとに，要求企業の支払いが増加し提供企業の利益は減少すると考えられる．その影響で余剰利益が変化すると考えらるので，余剰利益の確認をする．
 
 - コストを発生させる乱数の幅: 2.5，2.0，1.5，1.0
   - コストを[2.75,5.25]，[3.0,5.0]，[3.25,4.75]，[3.5,4.5]で生成する．
@@ -361,24 +351,24 @@ $$
 
 #### 実験結果
 
-[@tbl:m2-5-total-provider-profit]-[@tbl:m2-5-surplus-profit]に総提供企業利益，総要求企業利益，1提供企業あたりの利益の平均値，余剰利益を示す．
+[@tbl:m2-5-total-requester-profit]-[@tbl:m2-5-surplus-profit]に総提供企業利益，総要求企業利益，1提供企業あたりの利益の平均値，余剰利益を示す．
 
 | Range | 2.5     | 2.0     | 1.5     | 1.0     |
-| ----- | ------- | ------- | ------- | ------- |
+| ----- | :-------: | :-------: | :-------: | :-------: |
 | AVE.  | 3176.27 | 2793.80 | 2069.44 | 1950.83 |
 | S.D.  | 1163.93 | 902.33  | 687.54  | 629.26  |
 
 :Total requester profit in Methd2: Change budget range {#tbl:m2-5-total-requester-profit} 
 
 | Range | 2.5     | 2.0     | 1.5     | 1.0     |
-| ----- | ------- | ------- | ------- | ------- |
+| ----- | :-------: | :-------: | :-------: | :-------: |
 | AVE.  | 317.627 | 279.380 | 206.944 | 195.083 |
 | S.D.  | 116.393 | 90.233  | 68.754  | 62.926  |
 
-:A requester profit in MethodII: Change budget range {#tbl:m2-5-requester-profit}
+:A requester profit in Method II: Change budget range {#tbl:m2-5-requester-profit}
 
 | Rate | 2.5     | 2.0     | 1.5     | 1.0     |
-| ---- | ------- | ------- | ------- | ------- |
+| ---- | :-------: | :-------: | :-------: | :-------: |
 | AVE. | 2573.33 | 2858.49 | 2593.19 | 2188.87 |
 | S.D. | 781.67  | 919.96  | 698.38  | 660.86  |
 
@@ -391,21 +381,21 @@ $$
 [@tbl:m2-5-total-provider-profit]に総提供企業利益を示す．
 
 | Range | 2.5     | 2.0     | 1.5     | 1.0     |
-| ----- | ------- | ------- | ------- | ------- |
+| ----- | :-------: | :-------: | :-------: | :-------: |
 | AVE.  | 2618.77 | 2536.34 | 2970.47 | 3271.82 |
 | S.D.  | 717.20  | 450.48  | 539.37  | 475.90  |
 
-:Total provider profit in MethodII: Change budget range {#tbl:m2-5-total-provider-profit}
+:Total provider profit in Method II: Change budget range {#tbl:m2-5-total-provider-profit}
 
 [@tbl:m2-5-total-provider-profit]予算の幅が増加すると，総提供企業利益が増加していることがわかる．この結果から余剰利益が増加しなかった理由が総要求企業利益の増加の方が総要求企業利益の減少より大きくなったからだと考える．
 
 さらに[@tbl:m2-5-availability]にリソース提供前に対するリソース提供後の稼働率の増加率を示す．
 
 | Range          | 2.5    | 2      | 1.5    | 1      |
-| -------------- | ------ | ------ | ------ | ------ |
+| -------------- | :------: | :------: | :------: | :------: |
 | Incerase Ratio | 42.06% | 42.72% | 44.70% | 48.83% |
 
-:Increase ratio of availability in MethodII: Change budget range {#tbl:m2-5-availability}
+:Increase ratio of availability in Method II: Change budget range {#tbl:m2-5-availability}
 
 [@tbl:m2-5-availability]より稼働率の増加率も増加しており，提供できているリソースの時間が増加していることがわかる．申告する予算の幅が広いときであると，より要求時間よりも1[Ts]あたりの予算が大きい入札が選ばれていたが，申告する予算の幅が狭くなると1[Ts]あたりの予算の差が狭くなっていき要求時間が長い入札が選ばれるようになったからである．よって提供側の報酬額は相手の予算よりも提供時間に依存すると考えられる．つまり予算が高いが要求時間が短い入札より，予算が低くて要求時間が長い入札の方が提供企業側の利益としては高くなる．これは\secref{sec:m2-reward}の$\eqref{m2-reward}$の$revenue_{i,r}’$からもわかる．
 

@@ -21,7 +21,7 @@ perl -0pi -e 's/\\end\{align\}\n\\\]/\\end\{align\}/mg' main.tex #align環境が
 perl -pi -e "s/fig.~/Fig.~/g" main.tex #pandocのymlが効かなかった
 perl -pi -e "s/tbl.~/Table~/g" main.tex #pandocのymlが効かなかった
 sed -i -e "s|\begin{figure}|\begin{figure}[H]|g" main.tex #図の位置を固定する
-sed -i -e "s|\begin{longtable}\[\]|\begin{longtable}\[H\]|g" main.tex #表の位置を指定する
+sed -i -e "s|\begin{longtable}\[\]|\begin{longtable}\[H\]|g" main.tex #表の位置を指定する     
 sed -i -e "s|rule{0.5|rule{1.0|" main.tex # 横線の長さを長くする
 perl -pi -e "s/\\\\\\(\\\\eqref/式\\\\\\(\\\\eqref/g" main.tex # 式()としたい
 
@@ -32,5 +32,5 @@ cp -pR  "${BUILD_DIR}/src/template/others/`*`" "${BUILD_DIR}/src"
 
 latexmk boilerplate
 mv ./boilerplate.pdf "${PROJECT_DIR}/dest/output.pdf"
-mv ./main.tex "${PROJECT_DIR}/dest/main.tex"
+mv ./main.tex "${PROJECT_DIR}/dest"
 rm -rf "${BUILD_DIR}"
