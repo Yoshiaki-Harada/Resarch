@@ -1,16 +1,16 @@
-# 手法II:耐戦略性を満たす手法
+# 手法II: 耐戦略性を満たす手法
 
 本章では耐戦略性を満たす手法IIのアルゴリズムについて説明を提案し，その後計算機実験による特性評価を行う．
 
 ## アルゴリズム
 
-パレート効率性を満たす手法Iのアルゴリズムについて説明する．
+耐戦略性を満たす手法IIのアルゴリズムについて説明する．
 
 ### 概要
 
-\ref{double-auction}節で述べたように，ダブルオークション環境において，オークション主催者を含めた個人合理性，パレート効率性，耐戦略性の全ての性質を満たすオークションは存在しない．もし耐戦略性を満たすVCGオークションをダブルオークション 環境下に適用すると，オークション主催者の個人合理性が満たせなくなってしまう．つまり，売り手の報酬の合計が買い手の支払いの合計を上回ってしまう．
+\ref{double-auction}節で述べたように，ダブルオークション環境においてオークション主催者を含めた個人合理性，パレート効率性，耐戦略性の全ての性質を満たすオークションは存在しない．もし耐戦略性を満たすVCGオークションをダブルオークション 環境下に適用すると，オークション主催者の個人合理性が満たせなくなってしまう．つまり売り手の報酬の合計が買い手の支払いの合計を上回ってしまう．
 
-そこで提案されたのがPadding Methodである\cite{Chu2009}．Padding Methodとは仮想的な買い手を用意し均衡価格を引き上げる，つまり買い手の支払い額を高めることでオークション主催者の個人合理性を満たすことを可能にした方法である．この考え方を適用した耐戦略性を満たす手法を提案し，手法IIと呼ぶ．手法IIは耐戦略性を満たすことはできるが，仮想的な買い手が勝者となった財は実際には取引が行われないので，その分パレート効率性を犠牲にしてしまう．
+そこで提案されたのがPadding Methodである\cite{Chu2009}．Padding Methodとは仮想的な買い手を用意し均衡価格を引き上げる，つまり買い手の支払い額を高めることでオークション主催者の個人合理性を満たすことを可能にした方法である．この考え方を適用した耐戦略性を満たす手法を提案し手法IIと呼ぶ．手法IIは耐戦略性を満たすことはできるが，仮想的な買い手が勝者となった財は実際には取引が行われないので，その分パレート効率性を犠牲にしてしまう．
 
 記号の定義は\secref{symbol}節と同様のものを用いる．さらに使用する記号の定義を以下に示す．
 
@@ -24,21 +24,31 @@
 + $revenue_{i,r}$: 提供企業$i$がリソース$r$を提供することによって得られる報酬
 + $p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$: 問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において売手$i$がリソース$r$を提供する為の最大のコスト
 
-以下に本手法のアルゴリズムの流れを示す．
+以下に本手法のアルゴリズムの流れを示す．なお**STEP1**は手法Iの**STEP1**入札作成(\secref{make-bid})と同一となる．
 
-+ STEP1: 入札を作成する．
-  + リソース提供企業はオークション主催者に対して入札を作成する．
-  + リソース要求企業はオークション主催者に対して入札を作成する．
-+ STEP2: 提供側と要求側の入札を元にした勝者決定問題$P(\boldsymbol{I},\boldsymbol{J})$に対し，仮想的な買い手$\boldsymbol{Q}$を考慮した問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を定義し，最適解を求めることで勝者となる入札を決める．
-+ STEP3: $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となった要求企業に対して支払い$pay_j$を決定する．
-+ STEP4: $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となった要求企業の集合を$\boldsymbol{\tilde{J}}$とし，また敗者となった入札の決定変数を0とした問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$を定義し，最適解を求めることで提供側の勝者(提供量)を決定する．
-+ STEP5: $P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において勝者となったリソース提供企業に対して収入$revenue_{j,r}$を決定する．
+<!-- tex --> 
 
-STEP1では\secref{make-bid}で説明をした入札を作成する．STEP2，STEP3が要求側の勝者と取引価格決定を決定する部分であり，STEP4，STEP5が提供企業の勝者と支払い価格を決める部分である．
+\begin{description}
+
+\item[STEP1:]リソース提供企業とリソース要求企業は入札を作成する．
+
+\item[STEP2:]提供側と要求側の入札を元にした勝者決定問題$P(\boldsymbol{I},\boldsymbol{J})$に対し，仮想的な買い手$\boldsymbol{Q}$を考慮した問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を定義し，最適解を求めることで勝者となる入札を決める．
+
+\item[STEP3:] $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となった要求企業に対して支払い$pay_j$を決定する．
+
+\item[STEP4:] $P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となった要求企業の集合を$\boldsymbol{\tilde{J}}$とし，また敗者となった入札の決定変数を0とした問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$を定義し，最適解を求めることで提供側の勝者(提供量)を決定する．
+
+\item[STEP5:]$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において勝者となったリソース提供企業に対して収入$revenue_{j,r}$を決定する．
+
+\end{description}
+
+ <!-- tex -->
+
+**STEP2**，**STEP3** が要求側の勝者と取引価格 決定を決定する部分であり，**STEP4**，**STEP5** が提供企業の勝者と支払い価格を決める部分である．それぞれについて次項以降で説明する．
 
 ### 要求側の勝者の決定
 
-まずSTEP2の要求側の勝者の決定について説明する．まず勝者決定問題$P(\boldsymbol{I},\boldsymbol{J})$を作成する．これは\secref{method1-resorce}の定式化と同じである．以下に再掲する
+**STEP2**の要求側の勝者の決定について説明する．まず勝者決定問題$P(\boldsymbol{I},\boldsymbol{J})$を作成する．これは\secref{method1-resorce}の定式化と同じであり，以下に再掲する
 $$
 \begin{align}  
 {\rm max}\quad  V(\boldsymbol{I},\boldsymbol{J})=&\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} \label{2-pij-obj}\\  
@@ -49,13 +59,11 @@ $$
 &y_{j,n} \in {0,1}
 \end{align}
 $$
-問題$P(\boldsymbol{I},\boldsymbol{J})$に対して，仮想的な買い手$\boldsymbol{Q}$を考慮した問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を作成する．その際に考慮する仮想的な買い手$\boldsymbol{Q}$について説明する．
+ここで手法IIでは，問題$P(\boldsymbol{I},\boldsymbol{J})$に対し仮想的な買い手$\boldsymbol{Q}$を考慮した問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を作成する．その際に考慮する仮想的な買い手$\boldsymbol{Q}$について説明する．
 
 #### 仮想的な買い手$\boldsymbol{Q}$
 
 提供企業仮想的な買い手$\boldsymbol{Q}$は$Q=\{Q_1,Q_2,Q_r…Q_{|\boldsymbol{R}|}\}$で表現される．$Q_r$は$\boldsymbol{Q}$が要求するリソース$r$を要求する時間であり，以下のように定める\cite{Chu2009}．
-
-
 $$
 \begin{align}
 Q_r^I&=\max \{TP_{i,r} |i \in \boldsymbol{I}\} \label{max-provider}\\
@@ -88,25 +96,25 @@ $$
 $$
 問題$P(\boldsymbol{I},\boldsymbol{J})$と問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の異なる部分について説明をする．
 
-まずどの提供企業が$\boldsymbol {Q}$にリソース決定変数$q_{i,r}$を用意する．そして$\boldsymbol{Q}$の要求を満たすための制約$\eqref{subto-q}$が追加される．それによって$P(\boldsymbol{I},\boldsymbol{J})$の提供企業の容量制約が$\eqref{2-subto-time}$から$\eqref{pijq-subto-time}$になる．そして$\boldsymbol{Q}$を満たした分のコストが目的関数に考慮されることで，$P(\boldsymbol{I},\boldsymbol{J})$の$\eqref{2-pij-obj}$が$\eqref{pijq-obj}$になる．この問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を解くことで，まず勝者となる要求企業の入札を決定する．
+決定変数$q_{i,r}$は提供企業$i$が仮想的な買い手$\boldsymbol {Q}$に提供するリソース$r$の量を表す整数変数である．そして$\boldsymbol{Q}$の要求を満たすための制約$\eqref{subto-q}$が追加される．それによって$P(\boldsymbol{I},\boldsymbol{J})$の提供企業の容量制約が$\eqref{2-subto-time}$から$\eqref{pijq-subto-time}$になる．そして$\boldsymbol{Q}$を満たした分のコストが目的関数に考慮されることで$P(\boldsymbol{I},\boldsymbol{J})$の$\eqref{2-pij-obj}$が$\eqref{pijq-obj}$になる．この問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を解くことでまず勝者となる要求企業の入札を決定する．
 
 ### 支払い額の決定\label{sec:m2-pay}
 
-STEP3の支払い額の決定について説明する．仮想的な買い手$\boldsymbol{Q}$を考慮した状態で，\secref{VCG}において説明したVCGオークションと同様の方法で価格を決定する．すなわち勝者となった提供企業$j$の入札$n$の支払いは以下の式で決定される．
+**STEP3**の支払い額の決定について説明する．仮想的な買い手$\boldsymbol{Q}$を考慮した状態で，\secref{VCG}において説明したVCGオークションと同様の方法で価格を決定する．すなわち勝者となった提供企業$j$の入札$n$の支払いは以下の式で決定される．
 $$
 \begin{align}
 pay_j=-\{V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})-v_{j,n}\}+V(\boldsymbol{I},\boldsymbol{J}\backslash\{j\},\boldsymbol{Q}) \label{m2-pay}
 \end{align}
 $$
-$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})-v_{j,n}$は目的関数値から勝者となった要求企業$j$の入札$n$の予算を除いた値となっている．さらに，$V(\boldsymbol{I},\boldsymbol{J}\backslash\{j\},\boldsymbol{Q})$は要求企業$j$を除いた問題の目的関数値となっている．よって$\eqref{m2-pay}$はVCGオークションと同様にこの値は要求企業$j$の予算に依存しておらず，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となる為の最小の価格，つまりcritical priceとなっている．したがって提供企業側の耐戦略性を満たす．また$\boldsymbol{Q}$によって支払い額が引き上がるのは$\boldsymbol{Q}$が予算0であるが満たさなければならないので，コストの安いリソースが$\boldsymbol{Q}$に消費されてしまい，残りの要求企業は価格の高いリソースが割当てられてしまうからと捉えることができる．
+$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})-v_{j,n}$は目的関数値から勝者となった要求企業$j$の入札$n$の予算を除いた値となっている．さらに$V(\boldsymbol{I},\boldsymbol{J}\backslash\{j\},\boldsymbol{Q})$は要求企業$j$を除いた問題の目的関数値となっている．よって$\eqref{m2-pay}$はVCGオークションと同様にこの値は要求企業$j$の予算に依存しておらず，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となる為の最小の価格，つまりcritical priceとなっており，提供企業側の耐戦略性を満たす．また$\boldsymbol{Q}$によって支払い額が引き上がるのは$\boldsymbol{Q}$が予算0であるが満たさなければならないので，コストの安いリソースが$\boldsymbol{Q}$に消費されてしまい，残りの要求企業は価格の高いリソースが割当てられてしまうからと捉えることができる．
 
 ### 提供側の勝者の決定
 
-STEP4の提供企業の勝者を決める部分について説明する．
+**STEP4**の提供企業の勝者を決める部分について説明する．
 
 #### 問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の定式化
 
-勝者となった要求企業の集合$\boldsymbol{\tilde{J}}$を定義し，また敗者となった入札の決定変数を0とした新たな問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$を定義する(4)．
+勝者となった要求企業の集合$\boldsymbol{\tilde{J}}$を定義し，また敗者となった入札の決定変数を0とした新たな問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$を定義する．
 $$
 \begin{align}  
 {\rm max}\quad V(\boldsymbol{I},\boldsymbol{\tilde{J}})=&\sum_{j\in \boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n}\\  
@@ -119,7 +127,7 @@ $$
 &y_{j,n} \in {0,1}
 \end{align}
 $$
-問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$は問題$P(\boldsymbol{I},\boldsymbol{J})$の$\boldsymbol{J}$を$\boldsymbol{\tilde{J}}$で置き換え，制約式$\eqref{subto-loser}$を追加したものとなっている．問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の最適解を求めることで，提供企業の勝者つまり各提供企業が提供するリソースの時間を決定する．よって問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$で敗者となった入札は$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$で選ばれることはないので，仮想的な買い手$\boldsymbol{Q}$の分のリソースは取引は行われないが，利用されることもなくなってしまう．また提供企業数が増加するとこの仮想的な買い手$\boldsymbol{Q}$によって利用されないリソースの割合が全体の提供リソースに対して減少するので，$\boldsymbol{Q}$の影響は小さくなると考えられる．
+問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$は問題$P(\boldsymbol{I},\boldsymbol{J})$の$\boldsymbol{J}$を$\boldsymbol{\tilde{J}}$で置き換え，制約式$\eqref{subto-loser}$を追加したものとなっている．問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の最適解を求めることで，提供企業の勝者つまり各提供企業が提供するリソースの時間を決定する．よって問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$で敗者となった入札は$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$で選ばれることはないので，仮想的な買い手$\boldsymbol{Q}$の分のリソースは取引は行われないが利用されることもなくなってしまう．また提供企業数が増加するとこの仮想的な買い手$\boldsymbol{Q}$によって利用されないリソースの割合が全体の提供リソースに対して減少するので，$\boldsymbol{Q}$の影響は小さくなると考えられる．
 
 ### 報酬額の決定\label{sec:m2-reward}
 
