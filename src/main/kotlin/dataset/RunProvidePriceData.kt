@@ -56,8 +56,7 @@ fun main(args: Array<String>) {
                             Bidder().add(
                                     it.bids.map {
                                         Bid(Value(it.value.tValue, profitMap["$profit%"]!!.times(it.value.tValue)), it.bundle)
-                                    }
-                            )
+                                    })
                         }
 
                 val afterBidders = copyBidders.plus(bidders.subList(config.provider, config.provider + config.requester))
