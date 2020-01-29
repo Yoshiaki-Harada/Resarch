@@ -71,7 +71,7 @@ Q_r^J&=\max \{TR_{j,n,r} |j \in \boldsymbol{J},n \in \boldsymbol{N}\} \label{max
 Q_r&=\max \{Q_r^J,Q_r^I\} \label{max-time}
 \end{align}
 $$
-$\eqref{max-provider}$は1提供企業が提供するリソース$r$の最大提供時間を表す．$\eqref{max-requester}$は1要求企業が要求するリソース$r$の最大要求時間を表す．よって$\eqref{max-time}$は1企業が提供または要求するリソース$r$の最大の時間を表す．仮想的な買い手$\boldsymbol{Q}$はこのように定まり，予算は0であるが満たさなければならない1要求企業として扱う．こうすることで均衡価格を引き上げることができる．この$\boldsymbol{Q}$を考慮した問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を定義する．
+$\eqref{max-provider}$は1提供企業が提供するリソース$r$の最大提供時間を表す．$\eqref{max-requester}$は1要求企業が要求するリソース$r$の最大要求時間を表す．よって$\eqref{max-time}$は1企業が提供または要求するリソース$r$の最大の時間を表す．仮想的な買い手$\boldsymbol{Q}$はこのように定まり予算は0であるが満たさなければならない1要求企業として扱う．こうすることで均衡価格を引き上げることができる．この$\boldsymbol{Q}$を考慮した問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$を定義する．
 
 #### 問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の定式化
 
@@ -106,7 +106,7 @@ $$
 pay_j=-\{V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})-v_{j,n}\}+V(\boldsymbol{I},\boldsymbol{J}\backslash\{j\},\boldsymbol{Q}) \label{m2-pay}
 \end{align}
 $$
-$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})-v_{j,n}$は目的関数値から勝者となった要求企業$j$の入札$n$の予算を除いた値となっている．さらに$V(\boldsymbol{I},\boldsymbol{J}\backslash\{j\},\boldsymbol{Q})$は要求企業$j$を除いた問題の目的関数値となっている．よって$\eqref{m2-pay}$はVCGオークションと同様にこの値は要求企業$j$の予算に依存しておらず，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となる為の最小の価格，つまりcritical priceとなっており，提供企業側の耐戦略性を満たす．また$\boldsymbol{Q}$によって支払い額が引き上がるのは$\boldsymbol{Q}$が予算0であるが満たさなければならないので，コストの安いリソースが$\boldsymbol{Q}$に消費されてしまい，残りの要求企業は価格の高いリソースが割当てられてしまうからと捉えることができる．
+$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})-v_{j,n}$は目的関数値から勝者となった要求企業$j$の入札$n$の予算を除いた値となっている．さらに$V(\boldsymbol{I},\boldsymbol{J}\backslash\{j\},\boldsymbol{Q})$は要求企業$j$を除いた問題の目的関数値となっている．よって$\eqref{m2-pay}$はVCGオークションと同様にこの値は要求企業$j$の予算に依存しておらず，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において勝者となる為の最小の価格，つまりcritical priceとなっており提供企業側の耐戦略性を満たす．また$\boldsymbol{Q}$によって支払い額が引き上がるのは$\boldsymbol{Q}$が予算0であるが満たさなければならないので，コストの安いリソースが$\boldsymbol{Q}$に消費されてしまい，残りの要求企業は価格の高いリソースが割当てられてしまうからと捉えることができる．
 
 ### 提供側の勝者の決定
 
@@ -145,15 +145,15 @@ revenue_{i,r}’=&\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i
 extra_{i,r}=&V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})
 \end{align}
 $$
-$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において提供企業$i$がリソース$r$を提供できる最大の価格(コストと時間の積)であり，売り手側においてVCGメカニズムと同様の価格決定方法で求めている．$revenue_{i,r}’$について[@fig:m2-revenue-1]を用いて説明する．
+$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において提供企業$i$がリソース$r$を提供できる最大の価格(コストと時間の積)であり，売り手側においてVCGメカニズムと同様の価格決定方法で求めている．$revenue_{i,r}’$について[@fig:m2-revenue-1]を用いて説明する．ただし横軸は金額を表す．
 
 ![revenue-1](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-4/revenue-1.png){#fig:m2-revenue-1 width=70%}
 
-[@fig:m2-revenue-1]より，もし$revenue_{i,r}’$より大きくなるように$c_{i,r}$を申告してしまうと問題$P(\boldsymbol{I},\boldsymbol{J})$の解は問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の解に変わり，提供企業$i$はリソース$r$を提供できなくなってしまう．何故なら$revenue_{i,r}’$より大きくなるように$c_{i,r}$を申告すると$V(\boldsymbol{I},\boldsymbol{\tilde{J}})>V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$となるからである．よって$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において，提供企業$i$がリソース$r$を提供できる最大の価格である．また$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$には提供企業$i$のリソース$r$の予算は含まれておらず$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})$にも提供企業$i$のリソース$r$の予算含まれていないので，$revenue_{i,r}’$において提供企業$i$のリソース$r$の評価値が使用されていない．
+[@fig:m2-revenue-1]より，もし$revenue_{i,r}’$より大きくなるように$c_{i,r}$を申告してしまうと$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})>V(\boldsymbol{I},\boldsymbol{\tilde{J}})$となり問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解は問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の解に変わり，提供企業$i$はリソース$r$を提供できなくなってしまう．よって$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において，提供企業$i$がリソース$r$を提供できる最大の価格である．また$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$には提供企業$i$のリソース$r$の予算は含まれておらず$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})$にも提供企業$i$のリソース$r$の予算含まれていないので，$revenue_{i,r}’$において提供企業$i$のリソース$r$の評価値が使用されていない．
 
 また問題$P(\boldsymbol{I},\boldsymbol{J})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$において勝者となる要求側の入札は変わらないので$revenue_{i,r}’$は$c_{i,r}$よりコストが高い企業が安い順に$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}} x_{i,r,j,n}$[Ts]分リソースを提供したコストの和となっている．その提供企業の集合を$\boldsymbol{I'}$とする．
 
-次に$extra_{i,r}$について説明する．$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$は問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において売手$i$がリソース$r$を提供する為の最大のコストである．つまり問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$における提供企業$i$がリソース$r$のcritical priceを提供時間[Ts]で割ったものである．ここで問題$P(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\boldsymbol{\tilde{J}})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$では勝者となる要求側の入札は変わらないので，先ほど定義した提供企業集合$\boldsymbol{I’}$のうち$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が提供している部分の解が異なる($p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が存在しなければ解は等しくなる)．
+次に$extra_{i,r}$について説明する．$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$は問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において売手$i$がリソース$r$を提供する為の最大のコストである．つまり問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$における提供企業$i$のリソース$r$におけるcritical priceを提供時間[Ts]で割ったものである．ここで問題$P(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\boldsymbol{\tilde{J}})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$では勝者となる要求側の入札は変わらないので，先ほど定義した提供企業集合$\boldsymbol{I’}$のうち$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が提供している部分の解が異なる($p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が存在しなければ解は等しくなる)．
 
 よって$u=\sum_{\{i \in  \tilde{I}| c_{i,r}<p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\}}\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}$とおくと，
 $$
@@ -163,9 +163,9 @@ extra_{i,r}
 =&revenue_{i,r}’-p_{i,r} \times u \label{extra} 
 \end{align}
 $$
-となる．$\eqref{extra}$は，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において$revenue_{i,r}’$から計算されたコストを申告すると，提供企業$i$の勝者となれない時間分のコストを引くことになる．
+となる．$\eqref{extra}$は，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において，$revenue_{i,r}’$から計算されたコストを申告すると提供企業$i$が勝者となれない時間分のコストを引くことになる．
 
-以上より$\eqref{m2-reward}$は，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$と問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の両方で$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}} x_{i,r,j,n}$[Ts]を提供できる最大の価格を求めている．つまりcritical priceになっており，提供企業側においても耐戦略性が成り立つ．
+以上より$\eqref{m2-reward}$は，問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$と問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の両方で$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}} x_{i,r,j,n}$[Ts]を提供できる最大の価格を求めている．つまりcritical priceになっており提供企業側においても耐戦略性が成り立つ．
 
 ### 手法IIの持つ特徴
 
@@ -208,7 +208,7 @@ $$
 
 :Total profit in Method II {#tbl:m2-1-total-profit}
 
-[@tbl:m2-1-pareto-total-profit]と[@tbl:m2-1-total-profit]よりパレート効率な総利益に対する手法IIの総利益の減少割合を[@tbl:m2-1-profit-decreased]を示す．
+[@tbl:m2-1-pareto-total-profit]と[@tbl:m2-1-total-profit]よりパレート効率な総利益に対する手法IIの総利益の減少割合を[@tbl:m2-1-profit-decreased]に示す．
 
 | Number of Provider | 15     | 20     | 25    | 30    |
 | ---------------- | :------: | :------: | :-----: | :-----: |
@@ -222,7 +222,7 @@ $$
 
 ### 1提供企業の虚偽申告率の変更 
 
-手法IIが耐戦略性を満たすことを確認する．手法IIは耐戦略性を満たすが，本実験では意図的に1提供企業の虚偽申告率を変更させる実験を行い，正直な評価値の申告が支配戦略となることを確認する．また虚偽申告による影響も確認する．
+手法IIは耐戦略性を満たすが，本実験では意図的に1提供企業の虚偽申告率を変更させる実験を行い，正直な評価値の申告が支配戦略となることを確認する．また虚偽申告による影響も確認する．
 
 以下に本実験における実験条件を示す．
 
@@ -265,11 +265,11 @@ $$
 
 しかし[@tbl:m2-2-total-provider-profit]より1提供企業の虚偽申告率が増加することで総提供企業利益が増加していることが確認できる．これは手法IIの報酬額の決定方法である$\eqref{m2-reward}$が他企業の提供企業利益から決定されるので，虚偽申告企業の影響で他の提供企業の利益を高めてしまっているからである．
 
-また[@tbl:m2-2-total-profit]より虚偽申告率が増加すると総利益の値が3204.51から3353.17まで減少してしまっている．これは本実験では意図的に虚偽申告企業を発生させているので，虚偽申告の影響によりリソースの割当が変わり総利益が減少している．
+また[@tbl:m2-2-total-profit]より虚偽申告率が増加すると総利益の値が3204.51から3353.17まで減少してしまっている．本実験では意図的に虚偽申告企業を発生させているので，虚偽申告の影響によりリソースの割当が変わり総利益が減少している．
 
 ### 1要求企業の虚偽申告率の変更 
 
-手法IIが耐戦略性を満たすことを確認する．手法IIは耐戦略性を満たすが，意図的に1要求企業の虚偽申告率を変更させる実験を行い，正直な評価値の申告が支配戦略になることを確認する．また虚偽申告による影響も確認する．
+手法IIは耐戦略性を満たすが，意図的に1要求企業の虚偽申告率を変更させる実験を行い，正直な評価値の申告が支配戦略になることを確認する．また虚偽申告による影響も確認する．
 
 以下に本実験における実験条件を示す．
 
@@ -310,11 +310,11 @@ $$
 
 [@tbl:m2-3-false-requester-profit]より虚偽申告率が0%から20%までは同じ利益468.09であり，30%のとき利益が0となっており，耐戦略性を満たしていることが確認できた．予算が変わっても利益が変わらないことから手法IIの支払い額が自身の評価値に依存していないことも確認できる．
 
-総利益，総提供企業利益に関して虚偽申告率が0%から20%まで変化がないのは，虚偽申告による問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$と$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解に対しては影響がなかったからである．総要求企業利益[@tbl:m2-3-total-profit]が虚偽申告率が10%から20%のときに減少している．この理由は，$\eqref{m2-pay}$において虚偽申告率が10%から20%になるときの$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の減少幅より，$V(\boldsymbol{I},\boldsymbol{J}\backslash \{j\},\boldsymbol{Q})$の減少幅の方が小さく，支払い額が増加してしまう要求企業が存在したからだと考える．
+総利益，総提供企業利益に関して虚偽申告率が0%から20%まで変化がないのは，虚偽申告による問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$と$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解に対しては影響がなかったからである．総要求企業利益[@tbl:m2-3-total-profit]が虚偽申告率が10%から20%のときに減少している．この理由は，$\eqref{m2-pay}$において虚偽申告率が10%から20%になるときの$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の減少幅より$V(\boldsymbol{I},\boldsymbol{J}\backslash \{j\},\boldsymbol{Q})$の減少幅の方が小さく，支払い額が増加してしまう要求企業が存在したためと考える．
 
-この理由について要求企業$2$の支払い額の決定時の結果を用いて説明する．虚偽申告を行った要求企業を要求企業$1$とする．このとき要求企業$2$の勝者となった入札の予算は2449.17であった．要求企業$1$の虚偽申告率が10%のときは$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4571.30$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4128.26$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の勝者に要求企業$1$の入札が選ばれていた．要求企業$0$の虚偽申告率が20%のときは$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4381.77$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4038.80$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$において要求企業$1$の入札は敗者となっていた．その結果$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の減少分は89.46となり，$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$減少分189.53より小さい値となった．その結果支払い額が要求企業$1$虚偽申告率が10%のときより増加してしまった．
+この理由について要求企業$2$の支払い額の決定時の結果を用いて説明する．虚偽申告を行った要求企業を要求企業$1$とする．このとき要求企業$2$の勝者となった入札の予算は2449.17であった．要求企業$1$の虚偽申告率が10%のときは$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4571.30$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4128.26$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の勝者に要求企業$1$の入札が選ばれていた．要求企業$0$の虚偽申告率が20%のときは$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4381.77$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4038.80$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$において要求企業$1$の入札は敗者となっていた．その結果$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の減少分は89.46となり$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$減少分189.53より小さい値となった．その結果支払い額が要求企業$1$虚偽申告率が10%のときより増加してしまった．
 
-以上より1要求企業の虚偽申告率の変更した実験と同様に，虚偽申告企業は発生し得ないが，もし発生してしまうと[@tbl:m2-3-total-profit]より総利益は減少してしまう．
+以上より前項の実験と同様に本実験が意図的に虚偽申告企業を発生させているので，[@tbl:m2-3-total-profit]のように総利益は減少してしまう．
 
 ### 提供側が申告するコストの幅の変更 
 
@@ -351,11 +351,11 @@ $$
 
 #### 考察
 
-[@tbl:m2-4-total-provider-profit]，[@tbl:m2-4-provider-profit]より，コストの幅が狭くなるに連れ，総提供企業利益は3101.13から1456.30まで減少し，1提供企業利益も124.05から58.25に減少していることが確認できた．手法IIでは$\eqref{m2-reward}$より報酬が他の提供企業のコストによって決まるので，同じようなコストの企業が集まると報酬が低くなり利益が減少する傾向にある．また[@tbl:m2-4-surplus-profit]よりコストの幅が狭くなると余剰利益が増加していることが確認できる．これは余剰利益が総支払い額と総報酬額の差であるからである．
+[@tbl:m2-4-total-provider-profit]，[@tbl:m2-4-provider-profit]より，コストの幅が狭くなるに連れ総提供企業利益は3101.13から1456.30まで減少し，1提供企業利益も124.05から58.25に減少していることが確認できた．手法IIでは$\eqref{m2-reward}$より報酬が他の提供企業のコストによって決まるので，同じようなコストの企業が集まると報酬が低くなり利益が減少する傾向にある．また[@tbl:m2-4-surplus-profit]よりコストの幅が狭くなると余剰利益が増加していることが確認できる．これは余剰利益が総支払い額と総報酬額の差であるからである．
 
 ### 要求企業が申告する予算の幅の変更 
 
-本項では，前項と同様に手法IIの価格決定方法の特性を確認するために要求側の申告するコストの幅を変更する実験を行う．$\eqref{m2-pay}$より，手法IIの提供企業の報酬は他企業のコストに依存した式になっているので，コストの幅が小さくなるごとに，要求企業の支払いが増加し提供企業の利益は減少すると考えられる．その影響で余剰利益が変化すると考えられこの確認を行う．
+本項では，前項と同様に手法IIの価格決定方法の特性を確認するために要求側の申告するコストの幅を変更する実験を行う．$\eqref{m2-pay}$より，手法IIの提供企業の報酬は他企業のコストに依存した式になっているので，コストの幅が小さくなるごとに要求企業の支払いが増加し提供企業の利益は減少すると考えられる．その影響で余剰利益が変化すると考えられこの確認を行う．
 
 - コストを発生させる乱数の幅: 2.5，2.0，1.5，1.0
   - コストを[2.75,5.25]，[3.0,5.0]，[3.25,4.75]，[3.5,4.5]で生成する．
@@ -399,7 +399,7 @@ $$
 
 :Total provider profit in Method II: Change budget range {#tbl:m2-5-total-provider-profit}
 
-[@tbl:m2-5-total-provider-profit]予算の幅が増加すると総提供企業利益が増加していることがわかる．この結果から余剰利益が増加しなかった理由が総要求企業利益の増加の方が総要求企業利益の減少より大きくなったためと考える．
+[@tbl:m2-5-total-provider-profit]予算の幅が増加すると総提供企業利益が増加していることが分かる．この結果から余剰利益が増加しなかった理由が総要求企業利益の増加の方が総要求企業利益の減少より大きくなったためと考える．
 
 さらに[@tbl:m2-5-availability]にリソース提供前に対するリソース提供後の稼働率の増加率を示す．
 
@@ -409,11 +409,11 @@ $$
 
 :Increase ratio of availability in Method II: Change budget range {#tbl:m2-5-availability}
 
-[@tbl:m2-5-availability]より，稼働率の増加率も増加しており提供できているリソースの時間が増加していることがわかる．申告する予算の幅が広いときは，要求時間よりも1[Ts]あたりの予算が大きい入札が選ばれていたが，申告する予算の幅が狭くなると1[Ts]あたりの予算の差が狭くなっていき要求時間が長い入札が選ばれるようになったからである．よって提供側の報酬額は相手の予算よりも提供時間に依存すると考えられる．つまり予算が高いが要求時間が短い入札より，予算が低くて要求時間が長い入札の方が提供企業側の利益としては高くなる．これは\secref{sec:m2-reward}の$\eqref{m2-reward}$の$revenue_{i,r}’$からも分かる．
+[@tbl:m2-5-availability]より，稼働率の増加率も増加しており提供できているリソースの時間が増加していることが分かる．申告する予算の幅が広いときは，要求時間よりも1[Ts]あたりの予算が大きい入札が選ばれていたが，申告する予算の幅が狭くなると1[Ts]あたりの予算の差が狭くなっていき要求時間が長い入札が選ばれるようになったからである．よって提供側の報酬額は相手の予算よりも提供時間に依存すると考えられる．つまり予算が高いが要求時間が短い入札より，予算が低くて要求時間が長い入札の方が提供企業側の利益としては高くなる．これは\secref{sec:m2-reward}の$\eqref{m2-reward}$の$revenue_{i,r}’$からも分かる．
 
 ## まとめ
 
-本章ではパレート効率性を満たす手法IIのアルゴリズムの説明と特性評価を行った．耐戦略性を満たすことが計算機実験においても確認できた．手法IIの支払い額，報酬額の決定が同じ側の他の企業に依存するので，予算やコストなど入札値の幅を変更すると大きく利益が変わることが確認できた．また提供企業数が増加するごとに総利益がパレート効率な状態に近づくことも確認ができた．
+本章ではパレート効率性を満たす手法IIのアルゴリズムの説明と特性評価を行った．耐戦略性を満たすことが計算機実験においても確認できた．手法IIの支払い額，報酬額の決定が同じ側の他の企業に依存するので，予算やコストなど入札値の幅が狭くなると1企業あたりの利益が減少することが確認できた．また提供企業数が増加するごとに総利益がパレート効率な状態に近づくことも確認ができた．
 
 
 

@@ -26,7 +26,7 @@ fun main() {
                 .mapIndexed { bidIndex, bidder ->
                     Bidder().add(
                             bidder.bids.map {
-                                Bid(Value(it.value.tValue, createRandomValue(0.0, 0.3).times(it.value.tValue)), it.bundle)
+                                Bid(Value(it.value.tValue, createRandomValue(0.0, 0.1).times(it.value.tValue)), it.bundle)
                             })
                 }
 
@@ -39,7 +39,7 @@ fun main() {
                             })
                 }
         val afterBidders = lieProviders.plus(lieRequesters)
-        val dirName = "Bid/real-case/req5-pro5/requester-budget/3.5-4.5/lie-data/$i"
+        val dirName = "Bid/real-case/req5-pro5/req1.0-1.0/lie-data/$i"
         val dir = File(dirName).absoluteFile
         dir.mkdirs()
         afterBidders.forEachIndexed { index, bidder ->
