@@ -46,7 +46,7 @@
 
 この**STEP1**の入札作成は手法IIと共通である．作成され入札の例を[@fig:example-bid]に示す．
 
-![Example of bids](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-3/bid-example.png){#fig:example-bid width=90%}
+![Example of bids](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-3/bid-example.png){#fig:example-bid width=70%}
 
 提供企業$1$はリソース1をコスト0.1[円]で150[Ts]提供し，リソース2をコスト0.2円で100[Ts]提供していることを表す．同様に，提供企業$2$はリソース2をコスト0.5[円]で200[Ts]提供する．要求企業$1$は入札$1$において予算150円で，リソース$2$とリソースを50[Ts]要求している．同様に要求企業$2$は入札$1$において予算200で，リソース1を100[Ts]，リソース2を50[Ts]要求する入札を作成している．
 
