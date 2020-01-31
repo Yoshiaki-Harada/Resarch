@@ -52,7 +52,7 @@
 $$
 \begin{align}  
 {\rm max}\quad  V(\boldsymbol{I},\boldsymbol{J})=&\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} \label{2-pij-obj}\\  
-{\rm s.t.} \quad &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r)\label{2-subto-time}\\
+{\rm s.t.} \hspace{55pt} &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r)\label{2-subto-time}\\
 &\begin{cases} x_{i,r,j,n} = 0 \quad (\forall i, \forall r)&({\rm if} \ y_{j,n}=0) \\  
 \sum_{j \in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}} TR_{j,n,r} \times x_{i,r,j,n} = TR_{j,n,r}    \quad  (\forall i, \forall r)&({\rm if} \ y_{j,n}=1) \end{cases}\\ 
 &\sum_{n\in \boldsymbol{N}}y_{j,n}  \leq 1 \quad (\forall j)\\   &x_{i,r,j,n} \in \boldsymbol{Z}\\    
@@ -78,8 +78,8 @@ $\eqref{max-provider}$は1提供企業が提供するリソース$r$の最大提
 問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の定式化を以下に示す．
 $$
 \begin{align}
-  {\rm max} \quad &V(\boldsymbol{I},\boldsymbol{J} ,\boldsymbol{Q})=\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}c_{i,r} \times q_{i,r} \label{pijq-obj}\\ 
-  {\rm s.t.} \quad &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}
+  {\rm max} \quad V(\boldsymbol{I},\boldsymbol{J} ,\boldsymbol{Q})=&\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}c_{i,r} \times q_{i,r} \label{pijq-obj}\\ 
+  {\rm s.t.} \hspace{13pt} &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}
   +\sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}} q_{i,r}\leq TP_{i,r} \quad (\forall i, \forall r) \label{pijq-subto-time}\\
   &\begin{cases}
     x_{i,r,j,n} = 0 \quad (\forall i,\forall r) \quad &({\rm if} \ y_{j,n}=0) \\
@@ -118,9 +118,9 @@ $V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})-v_{j,n}$は目的関数値か�
 $$
 \begin{align}  
 {\rm max}\quad V(\boldsymbol{I},\boldsymbol{\tilde{J}})=&\sum_{j\in \boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n}\\  
-{\rm s.t.} \quad &\sum_{j\in \boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r)\\
-&\begin{cases} x_{i,r,j,n} = 0 \quad (\forall i, \forall r)&({\rm if} \ y_{j,n}=0) \\  
-\sum_{j \in \boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}} TR_{j,n,r} \times x_{i,r,j,n} = TR_{j,n,r}    \quad  (\forall i, \forall r)&({\rm if} \ y_{j,n}=1) \end{cases}\\ 
+{\rm s.t.} \hspace{57pt} &\sum_{j\in \boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r)\\
+&\begin{cases} x_{i,r,j,n} = 0 \ (\forall i, \forall r)&({\rm if} \ y_{j,n}=0) \\  
+\sum_{j \in \boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}} TR_{j,n,r} \times x_{i,r,j,n} = TR_{j,n,r} (\forall i, \forall r)&({\rm if} \ y_{j,n}=1) \end{cases}\\ 
 &\sum_{n\in \boldsymbol{N}}y_{j,n}  \leq 1 \quad (\forall j)\\  
 &y_{j,n}=0 \quad ({\rm if} \ y_{j,n}=0 \ {\rm in}  \ P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}))\label{subto-loser}\\
 &x_{i,r,j,n} \in \boldsymbol{Z}\\    

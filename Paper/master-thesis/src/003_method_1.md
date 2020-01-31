@@ -55,16 +55,16 @@
 **STEP2**において，リソースの配分を決める勝者決定問題$P(\boldsymbol{I},\boldsymbol{J})$は組合せ最適化問題として定式化される．以下にその定式化を示す．
 $$
 \begin{align}
-  {\rm max}\quad  V(\boldsymbol{I},\boldsymbol{J})=&\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} \label{pij-obj}\\
-	{\rm s.t.} \quad &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \label{pij-subto-cap}\\
-  &\begin{cases}
-    x_{i,r,j,n} = 0 \quad (\forall i, \forall r)&({\rm if} \ y_{j,n}=0) \\
-    \sum_{j \in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}} TR_{j,n,r} \times x_{i,r,j,n} = TR_{j,n,r}
-    \quad  (\forall i, \forall r)&({\rm if} \ y_{j,n}=1) 
-  \end{cases}\label{pij-subto-bundle}\\
-    &\sum_{n\in \boldsymbol{N}}y_{j,n}  \leq 1 \quad (\forall j) \label{pij-subto-1winner}\\
-    &x_{i,r,j,n} \in \boldsymbol{Z}\label{pij-decision-x}\\
-    &y_{j,n} \in {0,1} \label{pij-decision-y}
+    {\rm max}\quad  V(\boldsymbol{I},\boldsymbol{J})=&\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}v_{j} \times y_{j,n} - \sum_{i\in\boldsymbol{I}}\sum_{r\in\boldsymbol{R}}\sum_{j\in\boldsymbol{J}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} \label{pij-obj}\\
+    {\rm s.t.} \hspace{55pt} &\sum_{j\in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n} \leq TP_{i,r} \quad (\forall i, \forall r) \label{pij-subto-cap}\\
+    &\begin{cases}
+      x_{i,r,j,n} = 0 \quad (\forall i, \forall r)&({\rm if} \ y_{j,n}=0) \\
+      \sum_{j \in \boldsymbol{J}}\sum_{n\in\boldsymbol{N}} TR_{j,n,r} \times x_{i,r,j,n} = TR_{j,n,r}
+      \quad  (\forall i, \forall r)&({\rm if} \ y_{j,n}=1) 
+    \end{cases}\label{pij-subto-bundle}\\
+      &\sum_{n\in \boldsymbol{N}}y_{j,n}  \leq 1 \quad (\forall j) \label{pij-subto-1winner}\\
+      &x_{i,r,j,n} \in \boldsymbol{Z}\label{pij-decision-x}\\
+      &y_{j,n} \in {0,1} \label{pij-decision-y}
 \end{align}
 $$
 
