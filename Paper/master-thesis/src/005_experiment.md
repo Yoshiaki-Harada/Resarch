@@ -169,14 +169,14 @@
 
 :Total requesters profit: cost range = 1.0 {#tbl:total-requesters-profit-cost-1.0}
 
-| budget range | Method I | Method II |          |
-| ------------ | -------- | --------- | -------- |
-| 1            | AVE.     | 19866.35  | 10664.43 |
-| S.D.         | 1361.02  | 1665.16   |          |
-| 1.5          | AVE.     | 17958.01  | 8704.66  |
-| S.D.         | 1596.76  | 2094.60   |          |
-| 2            | AVE.     | 17033.66  | 8525.64  |
-| S.D.         | 975.22   | 1885.99   |          |
+| budget range |      | Method I | Method II |
+| ------------ | ---- | -------- | --------- |
+| 1            | AVE. | 19866.35 | 10664.43  |
+|              | S.D. | 1361.02  | 1665.16   |
+| 1.5          | AVE. | 17958.01 | 8704.66   |
+|              | S.D. | 1596.76  | 2094.6    |
+| 2            | AVE. | 17033.66 | 8525.64   |
+|              | S.D. | 975.22   | 1885.99   |
 
 :Total requesters profit: cost range = 1.5 {#tbl:total-requesters-profit-cost-1.5}
 
