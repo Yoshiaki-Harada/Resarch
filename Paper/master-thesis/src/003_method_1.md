@@ -44,11 +44,11 @@
   + 勝者となる入札は1つとする．
   + 必要なリソースの組合せに対してリソースの入札を作成する．
 
-この**STEP1**の入札作成は手法IIと共通である．作成され入札の例を[@fig:example-bid]に示す．
+なおこの**STEP1**の入札作成は第4章で示す手法IIと共通である．作成される入札の例を[@fig:example-bid]に示す．
 
-![Example of bids](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-3/bid-example.png){#fig:example-bid width=70%}
+![Example of bids](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-3/bid-example.png){#fig:example-bid width=50%}
 
-提供企業$1$はリソース1をコスト0.1[円]で150[Ts]提供し，リソース2をコスト0.2円で100[Ts]提供していることを表す．同様に，提供企業$2$はリソース2をコスト0.5[円]で200[Ts]提供する．要求企業$1$は入札$1$において予算150円で，リソース$2$とリソースを50[Ts]要求している．同様に要求企業$2$は入札$1$において予算200で，リソース1を100[Ts]，リソース2を50[Ts]要求する入札を作成している．
+提供企業$1$はリソース1をコスト0.1[円]で125[Ts]提供し，リソース2をコスト0.2円で100[Ts]提供していることを表す．同様に，提供企業$2$はリソース2をコスト0.5[円]で200[Ts]提供する．要求企業$1$は入札$1$において予算100円でリソース$1$を150[Ts]，リソース$2$を50[Ts]要求している．同様に要求企業$2$は入札$1$において予算200で，リソース1を10[Ts]，リソース2を50[Ts]要求する入札を作成している．
 
 ### リソース配分の決定 \label{method1-resorce}
 
@@ -99,6 +99,7 @@ $sumTR_{j,n,r}$は要求企業$j$が入札$n$におけるリソース要求時�
   + 各企業$|\boldsymbol{N}|$=3個の入札を作成
   + R種類のリソースを各 [0, 200] [Ts]要求する
   + 予算$v_{j,n}$は合計要求時間と重み[3.0, 5.0]の積[円]とする
++ 施行回数:10回
 
 次項以降では以下の項目について変更を行った実験を行い，結果ならびに考察を述べる．
 
@@ -109,46 +110,80 @@ $sumTR_{j,n,r}$は要求企業$j$が入札$n$におけるリソース要求時�
 
 ### 1提供企業の虚偽申告率の変更
 
-本稿では1提供企業の虚偽申告率を変更する実験を行う．手法Iは耐戦略性を満たせず虚偽申告により利益を高められることを確認する．ここでの虚偽申告率とは，コストにある割合分上乗して入札値として申告するとした際のその割合のことを指す．例えばコストが10円，虚偽申告率が10%の場合は11円と入札する．コストを過剰申告することで利益を上げようとする企業を想定する．以下に本実験における実験条件を示す．
+本項では1提供企業の虚偽申告率を変更する実験を行う．手法Iは耐戦略性を満たせず虚偽申告により利益を高められることを確認する．ここでの虚偽申告率とは，コストにある割合分上乗して入札値として申告するとした際のその割合のことを指す．例えばコストが10円，虚偽申告率が10%の場合は11円と入札する．コストを過剰申告することで利益を上げようとする企業を想定する．以下に本実験における実験条件を示す．
 
 + 1提供企業の虚偽申告率: 0%，10%，20%，30%
   + 虚偽申告が0%のときは正直にコストを申告する．
-+ 試行回数: 1回
-  + ある1試行における虚偽申告企業の利益を見るために1試行とした．
 
 #### 実験結果
 
 [@tbl:m1-1-total-profit]〜[@tbl:m1-1-false-requester-total-profit]はそれぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
 
-| False rate   | 0%      | 10%     | 20%     | 30%     |
-| ------------ | :-------: | :-------: | :-------: | :-------: |
-| Total Profit | 9175.28 | 9175.22 | 9175.22 | 9049.41 |
+| False rate |   0%    |   10%   |   20%   |   30%   |
+| ---------- | :-----: | :-----: | :-----: | :-----: |
+| AVE.       | 9163.08 | 9161.58 | 9143.00 | 9120.51 |
+| S.D.       | 803.90  | 801.65  | 823.46  | 818.44  |
 
 : Total profit  in Method I: A provider report false cost {#tbl:m1-1-total-profit}
 
-| False rate             | 0%      | 10%     | 20%     | 30%     |
-| ---------------------- | :-------: | :-------: | :-------: | :-------: |
-| Providers Total Profit | 4587.64 | 4613.49 | 4639.38 | 4524.70 |
+| False rate |   0%    |   10%   |   20%   |   30%   |
+| ---------- | :-----: | :-----: | :-----: | :-----: |
+| AVE.       | 4581.54 | 4604.66 | 4608.72 | 4603.13 |
+| S.D.       | 401.95  | 398.28  | 418.54  | 417.12  |
 
-: Providers total profit: in Method I: A provider report false cost {#tbl:m1-1-providers-total-profit}
+: Total providers profit: in Method I: A provider report false cost {#tbl:m1-1-providers-total-profit}
 
-| False rate              | 0%      | 10%     | 20%     | 30%     |
-| ----------------------- | :-------: | :-------: | :-------: | :-------: |
-| Requesters Total Profit | 4587.64 | 4561.72 | 4535.84 | 4524.70 |
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | :-------: | :-------: | :-------: | :-------: |
+| AVE.       | 4581.54 | 4556.91 | 4534.28 | 4517.39 |
+| S.D.       | 401.95  | 403.69  | 405.27  | 402.32  |
 
-: Requesters total profit in Method I: A  provider report false cost  {#tbl:m1-1-requesters-total-profit}
+: Total requesters profit in Method I: A  provider report false cost  {#tbl:m1-1-requesters-total-profit}
 
-| False rate       | 0%     | 10%    | 20%    | 30%  |
-| ---------------- | :------: | :------: | :------: | :----: |
-| Requester Profit | 112.47 | 139.30 | 227.77 | 0    |
+| False rate |   0%   |  10%   |  20%   |  30%   |
+| ---------- | :----: | :----: | :----: | :----: |
+| AVE.       | 189.28 | 203.53 | 201.61 | 172.39 |
+| S.D.       | 105.08 | 103.87 | 79.45  | 88.61  |
 
 :The false reporting provider profit in Method I: A provider report false cost {#tbl:m1-1-false-requester-total-profit}
 
 #### 考察
 
-[@tbl:m1-1-false-requester-total-profit]において，偽申告提供企業の利益は虚偽申告率が0%のとき112.47であるが20%のときに227.77であり，虚偽申告率が20%まで利益が増加している．20%から30%にかけて利益が下がったのは，申告したコストが高くなりリソースの配分が変わってしまいオークションにおいて勝者となることができなくなってしまったためと考える．よってオークションの敗者になるまで，虚偽申告を行うことで利益を上げることが可能であり，耐戦略性を満たせないことが確認できる．また[@tbl:m1-1-total-profit]の虚偽申告率0から20%まで総利益があまり変化がないにも関わらず，[@tbl:m1-1-providers-total-profit]の総提供企業利益が増加し[@tbl:m1-1-requesters-total-profit]の総要求企業利益が減少していることから，虚偽申告提供企業に利益が移動していることが確認できる．
+[@tbl:m1-1-false-requester-total-profit]より，虚偽申告を行った提供企業は虚偽申告率が0%のときの189.28であるが，虚偽申告率が10%のとき203.53，虚偽申告率が20%のとき201.61と虚偽申告率が0%のときの利益より高くなっている．よって正直な評価値の申告が支配戦略になっておらず耐戦略性を満たすことができない．
 
-また[@tbl:m1-1-total-profit]より，総利益は虚偽申告率が0%のときが最も高い9175.28であり，虚偽申告率が30%のときが最も低い9049.41である．このように虚偽申告企業が存在してしまうとパレート効率な状態を導けなくなることが確認できる．
+[@tbl:m1-1-total-profit]より，虚偽申告率が増加するにつれ総利益の値は減少しており，虚偽申告が行われるとパレート効率な状態を導けない可能性があることがわかる．
+
+虚偽申告の影響によって[@tbl:m1-1-providers-total-profit]において総提供企業利益は増加しているのに対し，[@tbl:m1-1-requesters-total-profit]より総要求企業利益は減少してしまっている．このことから虚偽申告提供企業に利益が移動してしまっていると考えられる．
+
+虚偽申告の影響をより詳しく考察を行うために[@tbl:m1-1-total-profit-one-trial]〜[@tbl:m1-1-false-requester-total-profit-one-trial]にある1試行における総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
+
+| False rate   |   0%    |   10%   |   20%   |   30%   |
+| ------------ | :-----: | :-----: | :-----: | :-----: |
+| Total Profit | 9175.28 | 9175.22 | 9175.22 | 9049.41 |
+
+: Total profit  in Method I: A provider report false cost, one trial {#tbl:m1-1-total-profit-one-trial}
+
+| False rate             |   0%    |   10%   |   20%   |   30%   |
+| ---------------------- | :-----: | :-----: | :-----: | :-----: |
+| Total providers Profit | 4587.64 | 4613.49 | 4639.38 | 4524.70 |
+
+: Total providers profit: in Method I: A provider report false cost, one trial {#tbl:m1-1-providers-total-profit-one-trial}
+
+| False rate              |   0%    |   10%   |   20%   |   30%   |
+| ----------------------- | :-----: | :-----: | :-----: | :-----: |
+| Requesters Total Profit | 4587.64 | 4561.72 | 4535.84 | 4524.70 |
+
+: Total requesters profit in Method I: A  provider report false cost, one trial {#tbl:m1-1-requesters-total-profit-one-trial}
+
+| False rate       |   0%   |  10%   |  20%   | 30%  |
+| ---------------- | :----: | :----: | :----: | :--: |
+| Requester Profit | 112.47 | 139.30 | 227.77 |  0   |
+
+:The false reporting provider profit in Method I: A provider report false cost, one trial {#tbl:m1-1-false-requester-total-profit-one-trial}
+
+[@tbl:m1-1-false-requester-total-profit-one-trial]において，偽申告提供企業の利益は虚偽申告率が0%のとき112.47であるが20%のときに227.77であり，虚偽申告率が20%まで利益が増加している．20%から30%にかけて利益が下がったのは，申告したコストが高くなりリソースの配分が変わってしまいオークションにおいて勝者となることができなくなってしまったためと考える．よってオークションの敗者になるまで，虚偽申告を行うことで利益を上げることが可能であり，耐戦略性を満たせないことが確認できる．また[@tbl:m1-1-total-profit-one-trial]の虚偽申告率0から20%まで総利益があまり変化がないにも関わらず，[@tbl:m1-1-providers-total-profit-one-trial]の総提供企業利益が増加し[@tbl:m1-1-requesters-total-profit-one-trial]の総要求企業利益が減少していることから，虚偽申告提供企業に利益が移動していることが確認できる．
+
+また[@tbl:m1-1-total-profit-one-trial]より，総利益は虚偽申告率が0%のときが最も高い9175.28であり，虚偽申告率が30%のときが最も低い9049.41である．このように虚偽申告企業が存在してしまうとパレート効率な状態を導けなくなることが確認できる．
 
 ### 1要求企業の虚偽申告率の変更
 
@@ -156,37 +191,70 @@ $sumTR_{j,n,r}$は要求企業$j$が入札$n$におけるリソース要求時�
 
 + 1要求企業の虚偽申告率:0%，10%，20%，30%
   + 虚偽申告が0%のときは正直に予算を申告する．
-+ 試行回数:1回
-  + ある1試行における虚偽申告企業の利益を見るために1試行とした．
 
 #### 結果
 
 [@tbl:m1-2-total-profit]〜[@tbl:m1-2-false-requester-profit]は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
 
-| False rate   | 0%      | 10%     | 20%     | 30%     |
-| ------------ | :-------: | :-------: | :-------: | :-------: |
-| Total Profit | 9175.28 | 9175.28 | 9175.28 | 9175.28 |
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | ------- | ------- | ------- | ------- |
+| AVE.       | 9163.08 | 9144.63 | 9053.55 | 8936.57 |
+| S.D.       | 803.90  | 793.26  | 815.86  | 831.57  |
+
 : Total profit  in Method I: A requester report false budget {#tbl:m1-2-total-profit}
 
-| False rate             | 0%      | 10%     | 20%     | 30%     |
-| ---------------------- | :-------: | :-------: | :-------: | :-------: |
-| Providers Total Profit | 4587.64 | 4492.88 | 4398.11 | 4303.35 |
+| False rate | 0%       | 10%      | 20%      | 30%      |
+| ---------- | -------- | -------- | -------- | -------- |
+| AVE.       | 4581.54  | 4491.91  | 4431.79  | 4396.59  |
+| S.D.       | 401.9517 | 394.9328 | 402.2865 | 409.6879 |
 
 : Total providers profit  in Method I: A requester report false budget {#tbl:m1-2-providers-total-profit}
 
-| False rate               | 0%      | 10%     | 20%     | 30%     |
-| ------------------------ | :-------: | :-------: | :-------: | :-------: |
-| Requesters Total  Profit | 4587.64 | 4682.41 | 4777.17 | 4871.93 |
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | ------- | ------- | ------- | ------- |
+| AVE.       | 4581.54 | 4652.71 | 4621.76 | 4539.97 |
+| S.D.       | 401.95  | 394.93  | 402.29  | 409.69  |
 
 : Total requesters profit  in Method I: A requester report false budget {#tbl:m1-2-requesters-total-profit}
 
-| False rate      | 0%     | 10%    | 20%    | 30%    |
-| --------------- | :------: | :------: | :------: | :------: |
-| Provider Profit | 412.85 | 457.55 | 573.55 | 694.53 |
+| False rate | 0%     | 10%    | 20%    | 30%    |
+| ---------- | ------ | ------ | ------ | ------ |
+| AVE.       | 355.23 | 398.52 | 291.70 | 171.81 |
+| S.D.       | 244.25 | 354.22 | 366.58 | 351.41 |
 
  : The false reporting requester profit in Method I: A requester report false budget {#tbl:m1-2-false-requester-profit}
 
 #### 考察
+
+[@tbl:m1-2-false-requester-profit]より，虚偽申告を行った提供企業は虚偽申告率が0%のときの355.23であるが，虚偽申告率が10%のとき398.52となっており虚偽申告率が0%のときの利益より高くなっている．よって正直な評価値の申告が支配戦略になっておらず耐戦略性を満たすことができない．
+
+[@tbl:m1-2-total-profit]より，虚偽申告の影響で総利益が9163.08から8936.57まで減少しパレート効率な状態を導けなくなっていることがわかる．
+
+虚偽申告による影響を詳しく考察するために[@tbl:m1-2-total-profit-one-trial]〜[@tbl:m1-2-false-requester-profit-one-trial]にある1試行における総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
+
+| False rate   |   0%    |   10%   |   20%   |   30%   |
+| ------------ | :-----: | :-----: | :-----: | :-----: |
+| Total Profit | 9175.28 | 9175.28 | 9175.28 | 9175.28 |
+
+: Total profit  in Method I: A requester report false budget, one trial {#tbl:m1-2-total-profit-one-trial}
+
+| False rate             |   0%    |   10%   |   20%   |   30%   |
+| ---------------------- | :-----: | :-----: | :-----: | :-----: |
+| Providers Total Profit | 4587.64 | 4492.88 | 4398.11 | 4303.35 |
+
+: Total providers profit  in Method I: A requester report false budget, one trial {#tbl:m1-2-providers-total-profit-one-trial}
+
+| False rate               |   0%    |   10%   |   20%   |   30%   |
+| ------------------------ | :-----: | :-----: | :-----: | :-----: |
+| Total Requesters  Profit | 4587.64 | 4682.41 | 4777.17 | 4871.93 |
+
+: Total requesters profit  in Method I: A requester report false budget, one trial {#tbl:m1-2-requesters-total-profit-one-trial}
+
+| False rate      |   0%   |  10%   |  20%   |  30%   |
+| --------------- | :----: | :----: | :----: | :----: |
+| Provider Profit | 412.85 | 457.55 | 573.55 | 694.53 |
+
+ : The false reporting requester profit in Method I: A requester report false budget, one trial {#tbl:m1-2-false-requester-profit-one-trial}
 
 [@tbl:m1-2-false-requester-profit]より，虚偽申告要求企業の利益は0%のとき412.85であり，30%のとき694.53となっており，虚偽申告率が増加するごとに利益が上がっていることが確認できる．よって手法Iが耐戦略性を満たせないことが確認できた．また[@tbl:m1-2-total-profit]において，総利益は虚偽申告率が0%から30%のとき9175.28と変化がないが，[@tbl:m1-2-providers-total-profit]の提供企業利益は減少し[@tbl:m1-2-requesters-total-profit]の総要求企業利益は増加している．これより虚偽申告企業に利益が移動していることが分かる．
 
@@ -196,7 +264,6 @@ $sumTR_{j,n,r}$は要求企業$j$が入札$n$におけるリソース要求時�
 
 + コストを発生させる乱数の幅: 2.5，2.0，1.5，1.0
   + コストを[1.75,4.25]，[2.0,4.0]，[2.25,3.75]，[2.5,3.5]で生成する．
-+ 試行回数: 10回
 
 #### 実験結果
 
@@ -253,7 +320,6 @@ $sumTR_{j,n,r}$は要求企業$j$が入札$n$におけるリソース要求時�
 
 + 予算を決める重みの乱数の幅: 2.5，2.0，1.5，1.0
   + 重みを[2.75,5.25]，[3.0,5.0]，[3.25,4.75]，[3.5,4.5]で生成する．
-+ 試行回数:10回
 
 #### 実験結果
 
