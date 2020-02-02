@@ -151,7 +151,7 @@ $sumTR_{j,n,r}$は要求企業$j$が入札$n$におけるリソース要求時�
 
 [@tbl:m1-1-false-requester-total-profit]より，虚偽申告を行った提供企業は虚偽申告率が0%のときの189.28であるが，虚偽申告率が10%のとき203.53，虚偽申告率が20%のとき201.61と虚偽申告率が0%のときの利益より高くなっている．よって正直な評価値の申告が支配戦略になっておらず耐戦略性を満たすことができない．
 
-[@tbl:m1-1-total-profit]より，虚偽申告率が増加するにつれ総利益の値は減少しており，虚偽申告が行われるとパレート効率な状態を導けない可能性があることがわかる．
+[@tbl:m1-1-total-profit]より，虚偽申告率が増加すると総利益が減少している部分があり，虚偽申告が行われるとパレート効率な状態を導けない可能性があることがわかる．
 
 虚偽申告の影響によって[@tbl:m1-1-providers-total-profit]において総提供企業利益は増加しているのに対し，[@tbl:m1-1-requesters-total-profit]より総要求企業利益は減少してしまっている．このことから虚偽申告提供企業に利益が移動してしまっていると考えられる．
 
@@ -181,7 +181,7 @@ $sumTR_{j,n,r}$は要求企業$j$が入札$n$におけるリソース要求時�
 
 :The false reporting provider profit in Method I: A provider report false cost, one trial {#tbl:m1-1-false-requester-total-profit-one-trial}
 
-[@tbl:m1-1-false-requester-total-profit-one-trial]において，偽申告提供企業の利益は虚偽申告率が0%のとき112.47であるが20%のときに227.77であり，虚偽申告率が20%まで利益が増加している．20%から30%にかけて利益が下がったのは，申告したコストが高くなりリソースの配分が変わってしまいオークションにおいて勝者となることができなくなってしまったためと考える．よってオークションの敗者になるまで，虚偽申告を行うことで利益を上げることが可能であり，耐戦略性を満たせないことが確認できる．また[@tbl:m1-1-total-profit-one-trial]の虚偽申告率0から20%まで総利益があまり変化がないにも関わらず，[@tbl:m1-1-providers-total-profit-one-trial]の総提供企業利益が増加し[@tbl:m1-1-requesters-total-profit-one-trial]の総要求企業利益が減少していることから，虚偽申告提供企業に利益が移動していることが確認できる．
+[@tbl:m1-1-false-requester-total-profit-one-trial]において，偽申告提供企業の利益は虚偽申告率が0%のとき112.47であるが20%のときに227.77であり，虚偽申告率が20%まで利益が増加している．20%から30%にかけて利益が下がったのは，申告したコストが高くなりリソースの配分が変わった結果オークションにおいて勝者となることができなくなってしまったためである．よってオークションの敗者になるまで，虚偽申告を行うことで利益を上げることが可能であり，耐戦略性を満たせないことが確認できる．また[@tbl:m1-1-total-profit-one-trial]の虚偽申告率0から20%まで総利益があまり変化がないにも関わらず，[@tbl:m1-1-providers-total-profit-one-trial]の総提供企業利益が増加し[@tbl:m1-1-requesters-total-profit-one-trial]の総要求企業利益が減少していることから，虚偽申告提供企業に利益が移動していることが確認できる．
 
 また[@tbl:m1-1-total-profit-one-trial]より，総利益は虚偽申告率が0%のときが最も高い9175.28であり，虚偽申告率が30%のときが最も低い9049.41である．このように虚偽申告企業が存在してしまうとパレート効率な状態を導けなくなることが確認できる．
 
@@ -297,7 +297,7 @@ $sumTR_{j,n,r}$は要求企業$j$が入札$n$におけるリソース要求時�
 
 :The false reporting provider profit in Method I: cost range=1.0 {#tbl:m1-3-1.0-false-provider-profit}
 
-[@tbl:m1-3-2.5-false-provider-profit]〜[@tbl:m1-3-1.0-false-provider-profit]の結果から，正直にコストを申告した場合に対する虚偽申告を行った際の利益の変化を[@tbl:m1-3-profit-rate]に示す．
+[@tbl:m1-3-2.5-false-provider-profit]〜[@tbl:m1-3-1.0-false-provider-profit]の結果より正直にコストを申告した場合に対する虚偽申告を行った際の利益の変化を[@tbl:m1-3-profit-rate]に示す．
 
 | False rate     | 10%    | 20%    | 30%    |
 | -------------- | :------: | :------: | :------: |
