@@ -159,7 +159,7 @@ $revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$におい�
 $$
 \begin{align}
 extra_{i,r}
-=&V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}}) \\
+=&V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}}) \notag \\
 =&revenue_{i,r}’-p_{i,r} \times u \label{extra} 
 \end{align}
 $$
@@ -248,6 +248,8 @@ $$
 | S.D.       | 450.48  | 480.56  | 518.26  | 570.34  |
 
 : Total providers profit in Method II: A provider report false cost {#tbl:m2-2-total-provider-profit}
+
+\newpage
 
 | False rate | 0%      | 10%     | 20%     | 30%     |
 | ---------- | ------- | ------- | ------- | ------- |

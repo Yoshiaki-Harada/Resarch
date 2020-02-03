@@ -1,7 +1,9 @@
 \newpage
 \thispagestyle{empty}
 \begin{center}
-\mbox{\LARGE{\bf{Title in Engliish}}}
+\mbox{\LARGE{\bf{A Proposal on Resource Allocation Method }}}
+\mbox{\LARGE{\bf{based on Combinatorial Double Auction}}}
+\mbox{\LARGE{\bf{for Crowdsourced Manufacturing }}}
 
 \vspace*{2mm}
 \mbox{\Large{\bf{Harada Yoshiaki}}}
@@ -9,4 +11,31 @@
 \vspace*{7mm}
 {\LARGE\bf Abstract}
 \end{center}
-abstract...
+Mainly, traditional manufacturing companies managed  with vertical
+integration. However, the problem has emerged int this mangement style that the
+product life cycle in recent years cannot be shortened and the demand cannot be
+changed. In order to solve the problem, discussions on the decentralization of
+manufacturing and the sharing of manufacturing resources based on the concept of
+sharing economy are being actively conducted in Japan. Under such circumstances,
+Crowdsourced Manufacturing, a concept of symbiotic manufacturing, has been
+proposed and attracted attention. Crowdsourced manufacturing is a production
+format in which resource information owned by individual companies is shared and
+mutually utilized. In order to realize this production, it is necessary to have
+a resource allocation mechanism between companies that work well even
+when independent companies participate. \\
+In this study, we focused on the combinatorial double auction in which both buyers and sellers can bid, and proposed two methods, one that satisfies Pareto efficiency, and the other that satisfies Stragegy-proofeness . Through computer experiments, the characteristics of each method were analyzed and the methods were compared. The following conclusions were obtained.
+\begin{itemize}
+\item In the method that satisfies Pareto efficiency, it was possible to realize
+  Pareto efficient allocation and high total profit.  However, it was confirmed
+  that the company did not have the Strategy-proofness that prevent the
+  participant companies bid false value.
+\item  In the method that satisfies the Strategy-Proofness, it was confirmed
+  that the Strategy-Proofness was satisfied in both the formulation and the
+  experiment. Total profirt in Method II lower than Method I, but it was confirmed that as the number of companies increased, this
+  total profit was closer to Pareto efficiency.
+\item  Since Method I cannot satisfy the Strategy-proofness, it was confirmed
+  that Pareto efficient allocation could not be realized correctly due to false
+  reporting, and in many cases, the loss was lower than the total profit of Method II.
+Therefore, it was confirmed that it is better to use Method I when truthful bids
+of participating companies can be expected, and to use Method II in other cases.
+\end{itemize}
