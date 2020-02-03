@@ -147,9 +147,9 @@ extra_{i,r}=&V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\
 $$
 $revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において提供企業$i$がリソース$r$を提供できる最大の価格(コストと時間の積)であり，売り手側においてVCGメカニズムと同様の価格決定方法で求めている．$revenue'_{i,r}$について[@fig:m2-revenue-1]を用いて説明する．
 
-![revenue-1](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-4/revenue-1.png){#fig:m2-revenue-1 width=70%}
+![VCG revenue](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-4/revenue-1.png){#fig:m2-revenue-1 width=70%}
 
-[@fig:m2-revenue-1]より，もし$revenue_{i,r}’$より大きく$c_{i,r}\times x_{i,r}$を申告してしまうと$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})>V(\boldsymbol{I},\boldsymbol{\tilde{J}})$となり問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解は問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の解に変わり，提供企業$i$はリソース$r$を提供できなくなってしまう．よって$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において，提供企業$i$がリソース$r$を提供できる最大の価格である．また$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$には提供企業$i$のリソース$r$の予算は含まれておらず$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})$にも提供企業$i$のリソース$r$の予算含まれていないので，$revenue'_{i,r}$において提供企業$i$のリソース$r$の評価値が使用されていない．
+[@fig:m2-revenue-1]より，もし$revenue_{i,r}’<c_{i,r}\times \sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}$となる$c_{i,r}$を申告してしまうと$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})>V(\boldsymbol{I},\boldsymbol{\tilde{J}})$となり問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解は問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の解に変わり，提供企業$i$はリソース$r$を提供できなくなってしまう．よって$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において，提供企業$i$がリソース$r$を提供できる最大の価格である．また$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$には提供企業$i$のリソース$r$の予算は含まれておらず$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})$にも提供企業$i$のリソース$r$の予算含まれていないので，$revenue'_{i,r}$において提供企業$i$のリソース$r$の評価値が使用されていない．
 
 また問題$P(\boldsymbol{I},\boldsymbol{J})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$において勝者となる要求側の入札は変わらないので$revenue_{i,r}’$は$c_{i,r}$よりコストが高い企業が安い順に$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}} x_{i,r,j,n}$[Ts]分リソースを提供したコストの和となっている．その提供企業の集合を$\boldsymbol{I'}$とする．
 
@@ -389,7 +389,7 @@ $$
 本項では手法IIの価格決定方法の特性を確認する為に，提供側の申告するコストの幅を変更する実験を行う．$\eqref{m2-reward}$より手法IIのある提供企業の報酬は他の提供企業のコストに依存した式になっているので，参加企業が均質化し申告するコストの幅が小さくなるごとに報酬が減少し，1提供企業あたりの利益は減少すると考えられる．またそれによって余剰利益が減少すると考えられるので．その変化についても確認をする．
 
 + コストを発生させる乱数の幅: 2.5，2.0，1.5，1.0
-  + コストを[1.75,4.25]，[2.0,4.0]，[2.25,3.75]，[2.5,3.5]で生成する．
+  + 平均を3.0としたコストを[1.75,4.25]，[2.0,4.0]，[2.25,3.75]，[2.5,3.5]で生成する．
 + 試行回数: 10回
 
 #### 実験結果
@@ -425,8 +425,8 @@ $$
 
 本項では，前項と同様に手法IIの価格決定方法の特性を確認するために要求側の申告する予算の幅を変更する実験を行う．$\eqref{m2-pay}$より，手法IIの提供企業の報酬は他企業のコストに依存した式になっているので，参加企業が均質化し申告する予算の幅が小さくなるごとに要求企業の支払いが増加し提供企業の利益は減少すると考えられる．その影響で余剰利益が変化すると考えられこの確認を行う．
 
-- 予算を決める重みを乱数の幅: 2.5，2.0，1.5，1.0
-  + 重みを[2.75,5.25]，[3.0,5.0]，[3.25,4.75]，[3.5,4.5]で生成する．
+- 予算を決める重みを乱数の幅: 2.5，2.0，1.5，1.0 
+  + 平均を4.0とした重みを[2.75,5.25]，[3.0,5.0]，[3.25,4.75]，[3.5,4.5]で生成する．
 - 試行回数: 10回
 
 #### 実験結果
