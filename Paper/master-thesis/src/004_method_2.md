@@ -301,7 +301,7 @@ $$
 
 しかし[@tbl:m2-2-total-provider-profit]より1提供企業の虚偽申告率が増加することで総提供企業利益が増加していることが確認できる．これは手法IIの報酬額の決定方法である$\eqref{m2-reward}$が他企業の提供企業利益から決定されるので，虚偽申告企業の影響で他の提供企業の利益を高めてしまっているからである．
 
-また[@tbl:m2-2-total-profit]より虚偽申告率が増加すると総利益の値が3204.51から3353.17まで減少してしまっている．本実験では意図的に虚偽申告企業を発生させているので，虚偽申告の影響により予算が足りない入札が発生しリソースの割当が変わり総利益が減少している．
+また[@tbl:m2-2-total-profit]より虚偽申告率が増加すると総利益の値が3204.51から3353.17まで減少してしまっている．本実験では意図的に虚偽申告企業を発生させているので，虚偽申告の影響により予算が足りない入札が発生することでリソースの割当が変わり総利益が減少している．
 
 ### 1要求企業の虚偽申告率の変更 
 
@@ -316,11 +316,41 @@ $$
 
 [@tbl:m2-3-total-profit]〜[@tbl:m2-3-requesters-total-profit]は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
 
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | ------- | ------- | ------- | ------- |
+| AVE.       | 8188.63 | 8188.63 | 8058.24 | 7850.93 |
+| S.D.       | 927.95  | 927.95  | 921.04  | 889.54  |
+
+: Total profit  in Method II: A requester report false budget {#tbl:m2-3-total-profit}
+
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | ------- | ------- | ------- | ------- |
+| AVE.       | 2536.34 | 2536.34 | 2553.90 | 2454.92 |
+| S.D.       | 450.48  | 450.48  | 475.76  | 424.08  |
+
+:Total providers profit  in Method II: A requester report false budget {#tbl:m2–3providers-total-profit}
+
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | ------- | ------- | ------- | ------- |
+| AVE.       | 2793.80 | 2783.87 | 2746.26 | 2590.26 |
+| S.D.       | 902.33  | 966.05  | 955.21  | 869.65  |
+
+: Total requesters profit  in Method II: A requester report false budget {#tbl:m2-3-requesters-total-profit}
+
+| False rate | 0%     | 10%    | 20%    | 30%  |
+| ---------- | ------ | ------ | ------ | ---- |
+| AVE.       | 321.80 | 321.80 | 184.40 | 0.00 |
+| S.D.       | 259.61 | 259.61 | 292.27 | 0.00 |
+
+:The false reporting requester profit in Method II: A requester report false budget {#tbl:m2-3-false-requester-profit}
+
 #### 考察
 
-[@tbl:m2-3-false-requester-profit]より，虚偽申告率が0%のとき虚偽申告機
+[@tbl:m2-3-false-requester-profit]より，虚偽申告率が0%のとき利益は321.80と最大となっており，耐戦略性を満たすことが確認できた．
 
-[@tbl:m2-3-total-profit-one-trial]〜[@tbl:m2-3-requesters-total-profit-one-trial]にある1試行における総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
+[@tbl:m2-3-requesters-total-profit]より，総要求企業利益は2793.80から2590.26に減少している．これは虚偽申告により予算を低く申告しているので予算が足りない入札が発生したためであると考える．
+
+より詳しく考察するために[@tbl:m2-3-total-profit-one-trial]〜[@tbl:m2-3-requesters-total-profit-one-trial]にある1試行における総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
 
 | False rate   |   0%    |   10%   |   20%   |   30%   |
 | ------------ | :-----: | :-----: | :-----: | :-----: |
@@ -338,17 +368,17 @@ $$
 | ----------------------- | :-----: | :-----: | :-----: | :-----: |
 | Total Requesters Profit | 3126.38 | 3126.38 | 2832.30 | 2180.29 |
 
-: Total providers profit  in Method II: A requester report false budget, one trial {#tbl:m2-3-requesters-total-profit-one-trial}
+: Total requesters profit  in Method II: A requester report false budget, one trial {#tbl:m2-3-requesters-total-profit-one-trial}
 
 | False rate              |   0%   |  10%   |  20%   | 30%  |
 | ----------------------- | :----: | :----: | :----: | :--: |
 | Total Requesters Profit | 468.09 | 468.09 | 468.09 | 0.00 |
 
-:The false reporting provider profit in Method II: A requester report false budget, one trial {#tbl:m2-3-false-requester-profit-one-trial}
+:The false reporting requster profit in Method II: A requester report false budget, one trial {#tbl:m2-3-false-requester-profit-one-trial}
 
-[@tbl:m2-3-false-requester-profit]より虚偽申告率が0%から20%までは同じ利益468.09であり，30%のとき利益が0となっており，耐戦略性を満たしていることが確認できた．予算が変わっても利益が変わらないことから手法IIの支払い額が自身の評価値に依存していないことも確認できる．
+[@tbl:m2-3-false-requester-profit]より虚偽申告率が0%から20%までは同じ利益468.09であり，30%のとき利益が0となっており，ある1試行においても耐戦略性を満たしていることが確認できた．虚偽申告により予算が変わっても利益が変わらないことから手法IIの支払い額が自身の評価値に依存していないことも確認できる．
 
-総利益，総提供企業利益に関して虚偽申告率が0%から20%まで変化がないのは，虚偽申告による問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$と$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解に対しては影響がなかったからである．総要求企業利益[@tbl:m2-3-total-profit]が虚偽申告率が10%から20%のときに減少している．この理由は，$\eqref{m2-pay}$において虚偽申告率が10%から20%になるときの$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の減少幅より$V(\boldsymbol{I},\boldsymbol{J}\backslash \{j\},\boldsymbol{Q})$の減少幅の方が小さく，支払い額が増加してしまう要求企業が存在したためと考える．
+総利益，総提供企業利益に関して虚偽申告率が0%から20%まで変化がないことより，虚偽申告による問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$と$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解に対しては影響がないことが分かった．総要求企業利益[@tbl:m2-3-total-profit]が虚偽申告率が10%から20%のときに減少している．この理由は，$\eqref{m2-pay}$において虚偽申告率が10%から20%になるときの$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$の減少幅より$V(\boldsymbol{I},\boldsymbol{J}\backslash \{j\},\boldsymbol{Q})$の減少幅の方が小さく，支払い額が増加してしまう要求企業が存在したためと考える．
 
 この理由について要求企業$2$の支払い額の決定時の結果を用いて説明する．虚偽申告を行った要求企業を要求企業$1$とする．このとき要求企業$2$の勝者となった入札の予算は2449.17であった．要求企業$1$の虚偽申告率が10%のときは$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4571.30$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4128.26$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の勝者に要求企業$1$の入札が選ばれていた．要求企業$0$の虚偽申告率が20%のときは$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})=4381.77$，$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})=4038.80$となり，問題$P(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$において要求企業$1$の入札は敗者となっていた．その結果$V(\boldsymbol{I},\boldsymbol{J}\backslash{\{2\}},\boldsymbol{Q})$の減少分は89.46となり$V(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$減少分189.53より小さい値となった．その結果支払い額が要求企業$1$虚偽申告率が10%のときより増加してしまった．
 
@@ -395,7 +425,7 @@ $$
 
 本項では，前項と同様に手法IIの価格決定方法の特性を確認するために要求側の申告する予算の幅を変更する実験を行う．$\eqref{m2-pay}$より，手法IIの提供企業の報酬は他企業のコストに依存した式になっているので，参加企業が均質化し申告する予算の幅が小さくなるごとに要求企業の支払いが増加し提供企業の利益は減少すると考えられる．その影響で余剰利益が変化すると考えられこの確認を行う．
 
-- 予算を決める重みの乱数の幅: 2.5，2.0，1.5，1.0
+- 予算を決める重みを乱数の幅: 2.5，2.0，1.5，1.0
   + 重みを[2.75,5.25]，[3.0,5.0]，[3.25,4.75]，[3.5,4.5]で生成する．
 - 試行回数: 10回
 
@@ -437,7 +467,7 @@ $$
 
 :Total provider profit in Method II: Change budget range {#tbl:m2-5-total-provider-profit}
 
-[@tbl:m2-5-total-provider-profit]予算の幅が増加すると総提供企業利益が増加していることが分かる．この結果から余剰利益が増加しなかった理由が総要求企業利益の増加の方が総要求企業利益の減少より大きくなったためと考える．
+[@tbl:m2-5-total-provider-profit]より，すると総提供企業利益が増加していることが分かる．この結果から余剰利益が増加しなかった理由が総要求企業利益の増加の方が総要求企業利益の減少より大きくなったためと考える．
 
 さらに[@tbl:m2-5-availability]にリソース提供前に対するリソース提供後の稼働率の増加率を示す．
 
