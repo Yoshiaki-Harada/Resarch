@@ -145,17 +145,17 @@ revenue_{i,r}’=&\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i
 extra_{i,r}=&V(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\tilde{J})-  V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})
 \end{align}
 $$
-$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において提供企業$i$がリソース$r$を提供できる最大の価格(コストと時間の積)であり，売り手側においてVCGメカニズムと同様の価格決定方法で求めている．$revenue_{i,r}’$について[@fig:m2-revenue-1]を用いて説明する．ただし横軸は金額を表す．
+$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において提供企業$i$がリソース$r$を提供できる最大の価格(コストと時間の積)であり，売り手側においてVCGメカニズムと同様の価格決定方法で求めている．$revenue'_{i,r}$について[@fig:m2-revenue-1]を用いて説明する．
 
 ![revenue-1](/Users/haradayoshiaki/Resarch/Paper/master-thesis/src/img/chapter-4/revenue-1.png){#fig:m2-revenue-1 width=70%}
 
-[@fig:m2-revenue-1]より，もし$revenue_{i,r}’$より大きくなるように$c_{i,r}$を申告してしまうと$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})>V(\boldsymbol{I},\boldsymbol{\tilde{J}})$となり問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解は問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の解に変わり，提供企業$i$はリソース$r$を提供できなくなってしまう．よって$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において，提供企業$i$がリソース$r$を提供できる最大の価格である．また$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$には提供企業$i$のリソース$r$の予算は含まれておらず$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})$にも提供企業$i$のリソース$r$の予算含まれていないので，$revenue_{i,r}’$において提供企業$i$のリソース$r$の評価値が使用されていない．
+[@fig:m2-revenue-1]より，もし$revenue_{i,r}’$より大きく$c_{i,r}\times x_{i,r}$を申告してしまうと$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})>V(\boldsymbol{I},\boldsymbol{\tilde{J}})$となり問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$の解は問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$の解に変わり，提供企業$i$はリソース$r$を提供できなくなってしまう．よって$revenue_{i,r}’$は問題$P(\boldsymbol{I},\boldsymbol{\tilde{J}})$において，提供企業$i$がリソース$r$を提供できる最大の価格である．また$V(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$には提供企業$i$のリソース$r$の予算は含まれておらず$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}c_{i,r} \times x_{i,r,j,n} +V(\boldsymbol{I},\boldsymbol{\tilde{J}})$にも提供企業$i$のリソース$r$の予算含まれていないので，$revenue'_{i,r}$において提供企業$i$のリソース$r$の評価値が使用されていない．
 
 また問題$P(\boldsymbol{I},\boldsymbol{J})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$において勝者となる要求側の入札は変わらないので$revenue_{i,r}’$は$c_{i,r}$よりコストが高い企業が安い順に$\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}} x_{i,r,j,n}$[Ts]分リソースを提供したコストの和となっている．その提供企業の集合を$\boldsymbol{I'}$とする．
 
-次に$extra_{i,r}$について説明する．$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$は問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において売手$i$がリソース$r$を提供する為の最大のコストである．つまり問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$における提供企業$i$のリソース$r$におけるcritical priceを提供時間[Ts]で割ったものである．ここで問題$P(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\boldsymbol{\tilde{J}})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$では勝者となる要求側の入札は変わらないので，先ほど定義した提供企業集合$\boldsymbol{I’}$のうち$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が提供している部分の解が異なる($p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が存在しなければ解は等しくなる)．
+次に$extra_{i,r}$について説明する．$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$は問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$において売手$i$がリソース$r$を提供するための最大コストである．つまり問題$P(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$における提供企業$i$のリソース$r$におけるcritical priceを提供時間[Ts]で割ったものである．ここで問題$P(I|c_{i,r}=p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q}),\boldsymbol{\tilde{J}})$と問題$P(\boldsymbol{I}|TP_{i,r}=0,\boldsymbol{\tilde{J}})$では勝者となる要求側の入札は変わらないので，先ほど定義した提供企業集合$\boldsymbol{I’}$のうち$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が提供している部分の解が異なる．ただし$p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})$よりコストが低い企業が存在しなければ解は等しくなる．
 
-よって$u=\sum_{\{i \in  \tilde{I}| c_{i,r}<p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\}}\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}$とおくと，
+よって$u=\sum_{\{i \in  \boldsymbol{I'}| c_{i,r}<p_{i,r}(\boldsymbol{I},\boldsymbol{J},\boldsymbol{Q})\}}\sum_{j\in\boldsymbol{\tilde{J}}}\sum_{n\in\boldsymbol{N}}x_{i,r,j,n}$とおくと，
 $$
 \begin{align}
 extra_{i,r}
@@ -169,7 +169,7 @@ $$
 
 ### 手法IIの持つ特徴
 
-\secref{sec:m2-pay}，\secref{sec:m2-reward}で示したように提案した手法IIは耐戦略性を満たす．しかし仮想的な買い手$\boldsymbol{Q}$の分のリソースはどの要求企業にも提供できなくなるので無駄になってしまい，パレート効率性を満たすことができない．一方で提供企業数が増えると仮想的な買い手$\boldsymbol{Q}$によって無駄になってしまうリソースの割合が減少し，パレート効率な状態に近づくと考えられる．また手法IIは提供企業の支払いの合計と提供側の報酬の合計が等しくなるとは限らず，提供企業の支払いの合計と提供側の報酬の合計余剰の差である余剰利益が発生する．この利益はクラウドソースドマニュファクチャリング内で閉じているので総利益に加算する．
+\secref{sec:m2-pay}，\secref{sec:m2-reward}で示したように提案した手法IIは耐戦略性を満たす．しかし仮想的な買い手$\boldsymbol{Q}$への配分リソースは要求企業にも提供できなくなるので無駄になってしまい，パレート効率性を満たすことができない．一方で提供企業数が増えると仮想的な買い手$\boldsymbol{Q}$によって無駄になってしまうリソースの割合が減少し，パレート効率な状態に近づくと考えられる．また手法IIは提供企業の支払いの合計と提供側の報酬の合計が等しくなるとは限らず，提供企業の支払いの合計と提供側の報酬の合計余剰の差である余剰利益が発生する．この利益はクラウドソースドマニュファクチャリング内で閉じているので総利益に加算することとする．
 
 ## 特性評価
 
@@ -194,23 +194,23 @@ $$
 
 [@tbl:m2-1-pareto-total-profit]にパレート効率な状態の総利益，[@tbl:m2-1-total-profit]に手法IIの総利益を示す．
 
-| Number of Provider | 15      | 20       | 25       | 30       |
+| Number of Providers | 15      | 20       | 25       | 30       |
 | ---------------- | :-------: | :--------: | :--------: | :--------: |
 | AVE.             | 8007.79 | 10857.46 | 13721.85 | 14706.66 |
 | S.D.             | 877.31  | 416.03   | 531.84   | 487.50   |
 
 :Pareto efficient total profit {#tbl:m2-1-pareto-total-profit}
 
-| Number of Provider | 15      | 20      | 25       | 30       |
+| Number of Providers | 15      | 20      | 25       | 30       |
 | ---------------- | :-------: | :-------: | :--------: | :--------: |
 | AVE.             | 6600.43 | 9457.75 | 12586.24 | 13785.36 |
 | S.D.             | 650.81  | 340.77  | 559.70   | 723.15   |
 
 :Total profit in Method II {#tbl:m2-1-total-profit}
 
-[@tbl:m2-1-pareto-total-profit]と[@tbl:m2-1-total-profit]よりパレート効率な総利益に対する手法IIの総利益の減少割合を[@tbl:m2-1-profit-decreased]に示す．
+以上よりパレート効率な総利益に対する手法IIの総利益の減少割合を[@tbl:m2-1-profit-decreased]に示す．
 
-| Number of Provider | 15     | 20     | 25    | 30    |
+| Number of Providers | 15     | 20     | 25    | 30    |
 | ---------------- | :------: | :------: | :-----: | :-----: |
 | Decrese Rate     | 17.57% | 12.89% | 8.28% | 6.26% |
 
@@ -218,7 +218,7 @@ $$
 
 #### 考察
 
-[@tbl:m2-1-profit-decreased]より，提供企業数が15のときはパレート効率な状態の総利益より17.57%減少してしまっているのに対して，提供企業数が30のときは6.25%の減少で留まっている．よって提供企業数が増加すると，仮想的な買い手$\boldsymbol{Q}$によって無駄になってしまうリソースの量が減少し，総利益はパレート効率な状態に近づくことが確認できた．これは提供企業数が増加すると，提供リソース全体における仮想的な買い手$\boldsymbol{Q}$によって無駄になるリソースの割合が減少するからである．
+[@tbl:m2-1-profit-decreased]より，提供企業数が15のときはパレート効率な状態の総利益より17.57%減少してしまっているのに対して，提供企業数が30のときは6.25%の減少で留まっている．よって提供企業数が増加すると，仮想的な買い手$\boldsymbol{Q}$によって無駄になってしまうリソースの量が減少し，総利益はパレート効率な状態に近づくことが確認できた．これは提供企業数が増加すると，提供リソース全体における仮想的な買い手$\boldsymbol{Q}$に配分されることで無駄になるリソースの割合が減少するからである．
 
 ### 1提供企業の虚偽申告率の変更 
 
@@ -235,37 +235,73 @@ $$
 
 [@tbl:m2-2-total-profit]〜[@tbl:m2-2-false-provider-profit]は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
 
-| False rate   | 0%      | 10%     | 20%     | 30%     |
-| ------------ | :-------: | :-------: | :-------: | :-------: |
-| Total Profit | 8654.35 | 8651.31 | 8651.31 | 8559.37 |
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | ------- | ------- | ------- | ------- |
+| AVE.       | 8188.63 | 8187.51 | 8157.33 | 8137.31 |
+| S.D.       | 927.95  | 929.41  | 959.21  | 949.95  |
 
 : Total profit in Method II: A provider report false cost {#tbl:m2-2-total-profit}
 
-| False rate           | 0%      | 10%     | 20%     | 30%     |
-| -------------------- | :-------: | :-------: | :-------: | :-------: |
-| Total Provier Profit | 3204.51 | 3257.36 | 3328.47 | 3353.17 |
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | ------- | ------- | ------- | ------- |
+| AVE.       | 2536.34 | 2592.67 | 2597.21 | 2623.43 |
+| S.D.       | 450.48  | 480.56  | 518.26  | 570.34  |
 
-: Total provider profit in Method II: A provider report false cost {#tbl:m2-2-total-provider-profit}
+: Total providers profit in Method II: A provider report false cost {#tbl:m2-2-total-provider-profit}
 
-| False rate             | 0%       | 10%      | 20%      | 30%      |
-| ---------------------- | :--------: | :--------: | :--------: | :--------: |
-| Total Requester Profit | 3126.378 | 3119.517 | 3105.653 | 2995.902 |
+| False rate | 0%      | 10%     | 20%     | 30%     |
+| ---------- | ------- | ------- | ------- | ------- |
+| AVE.       | 2793.80 | 2766.17 | 2725.87 | 2704.01 |
+| S.D.       | 902.33  | 915.71  | 935.06  | 927.98  |
 
-: Total  requester profit in Method II: A provider report false cost {#tbl:m2-2-total-requester-profit}
+: Total  requesters profit in Method II: A provider report false cost {#tbl:m2-2-total-requester-profit}
 
-| False rate     | 0%    | 10%   | 20%   | 30%  |
-| -------------- | :-----: | :-----: | :-----: |:----: |
-| Provier Profit | 94.98 | 91.94 | 91.94 | 0.00 |
+| False rate | 0%     | 10%    | 20%    | 30%    |
+| ---------- | ------ | ------ | ------ | ------ |
+| AVE.       | 142.60 | 141.48 | 127.48 | 107.46 |
+| S.D.       | 99.02  | 98.29  | 86.94  | 92.87  |
 
-: The false reporting requester profit in Method II: A provider report false cost {#tbl:m2-2-false-provider-profit}
+: The false reporting provider profit in Method II: A provider report false cost {#tbl:m2-2-false-provider-profit}
 
 #### 考察
 
-[@tbl:m2-2-false-provider-profit]より，正直な申告を行ったときの利益は94.98であり，虚偽申告を行ったときの利益は91.94，91.94，0.00と減少することが分かる．よって耐戦略性を満たすことが確認できた．
+[@tbl:m2-2-false-provider-profit]より，虚偽申告率が0%のとき利益が142.60と最大となっており耐戦略性を満たすことが確認できた．
+
+[@tbl:m2-2-total-provider-profit]より，虚偽申告率が増加すると総提供企業利益も2623.43から増加している．これは虚偽申告提供企業が他の提供企業の利益を高めているためと考えられる．
+
+[@tbl:m2-2-total-requester-profit]より，総提供企業利益は2536.34から2704.01に減少している．これは予算が足りず要求を満たして貰えない企業が増加したためと考える．
+
+より詳しく考察を行うために[@tbl:m2-2-total-profit]〜[@tbl:m2-2-false-provider-profit]は，ある1試行における総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1提供企業の利益を示す．
+
+| False rate   |   0%    |   10%   |   20%   |   30%   |
+| ------------ | :-----: | :-----: | :-----: | :-----: |
+| Total Profit | 8654.35 | 8651.31 | 8651.31 | 8559.37 |
+
+: Total profit in Method II: A provider report false cost, one tiral {#tbl:m2-2-total-profit-one-trial}
+
+| False rate           |   0%    |   10%   |   20%   |   30%   |
+| -------------------- | :-----: | :-----: | :-----: | :-----: |
+| Total Provier Profit | 3204.51 | 3257.36 | 3328.47 | 3353.17 |
+
+: Total providers profit in Method II: A provider report false cost, one tiral {#tbl:m2-2-total-provider-profit-one-trial}
+
+| False rate             |    0%    |   10%    |   20%    |   30%    |
+| ---------------------- | :------: | :------: | :------: | :------: |
+| Total Requester Profit | 3126.378 | 3119.517 | 3105.653 | 2995.902 |
+
+: Total  requesters profit in Method II: A provider report false cost, one tiral {#tbl:m2-2-total-requester-profit-one-trial}
+
+| False rate     |  0%   |  10%  |  20%  | 30%  |
+| -------------- | :---: | :---: | :---: | :--: |
+| Provier Profit | 94.98 | 91.94 | 91.94 | 0.00 |
+
+: The false reporting requester profit in Method II: A provider report false cost, one tiral {#tbl:m2-2-false-provider-profit-one-trial}
+
+[@tbl:m2-2-false-provider-profit]より，正直な申告を行ったときの利益は94.98であり，虚偽申告を行ったときの利益は91.94，91.94，0.00と減少することが分かる．よって耐戦略性を満たしていることがある1試行においても確認できた．
 
 しかし[@tbl:m2-2-total-provider-profit]より1提供企業の虚偽申告率が増加することで総提供企業利益が増加していることが確認できる．これは手法IIの報酬額の決定方法である$\eqref{m2-reward}$が他企業の提供企業利益から決定されるので，虚偽申告企業の影響で他の提供企業の利益を高めてしまっているからである．
 
-また[@tbl:m2-2-total-profit]より虚偽申告率が増加すると総利益の値が3204.51から3353.17まで減少してしまっている．本実験では意図的に虚偽申告企業を発生させているので，虚偽申告の影響によりリソースの割当が変わり総利益が減少している．
+また[@tbl:m2-2-total-profit]より虚偽申告率が増加すると総利益の値が3204.51から3353.17まで減少してしまっている．本実験では意図的に虚偽申告企業を発生させているので，虚偽申告の影響により予算が足りない入札が発生しリソースの割当が変わり総利益が減少している．
 
 ### 1要求企業の虚偽申告率の変更 
 
@@ -275,38 +311,40 @@ $$
 
 + 1要求企業の虚偽申告率: 0%，10%，20%，30%
   + 虚偽申告が0%のときは正直に予算を申告する．
-+ 試行回数: 1回
-  + ある1試行における虚偽申告企業の利益を見るために1試行とした．
 
 #### 実験結果
 
 [@tbl:m2-3-total-profit]〜[@tbl:m2-3-requesters-total-profit]は，それぞれ総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
 
-| False rate   | 0%      | 10%     | 20%     | 30%     |
-| ------------ | :-------: | :-------: | :-------: | :-------: |
+#### 考察
+
+[@tbl:m2-3-false-requester-profit]より，虚偽申告率が0%のとき虚偽申告機
+
+[@tbl:m2-3-total-profit-one-trial]〜[@tbl:m2-3-requesters-total-profit-one-trial]にある1試行における総利益，総提供企業利益，総要求企業利益，虚偽申告を行った1要求企業の利益を示す．
+
+| False rate   |   0%    |   10%   |   20%   |   30%   |
+| ------------ | :-----: | :-----: | :-----: | :-----: |
 | Total Profit | 8654.35 | 8654.35 | 8654.35 | 8106.60 |
 
-: Total profit  in Method II: A requester report false budget {#tbl:m2-3-total-profit}
+: Total profit  in Method II: A requester report false budget, one trial {#tbl:m2-3-total-profit-one-trial}
 
-| False rate             | 0%      | 10%     | 20%     | 30%     |
-| ---------------------- | :-------: | :-------: | :-------: | :-------: |
+| False rate             |   0%    |   10%   |   20%   |   30%   |
+| ---------------------- | :-----: | :-----: | :-----: | :-----: |
 | Total Providers Profit | 3204.51 | 3204.51 | 3204.51 | 2883.22 |
 
-:Total providers profit  in Method 1: A requester report false budget {#tbl:m2–3providers-total-profit}
+:Total providers profit  in Method 1: A requester report false budget, one trial {#tbl:m2–3providers-total-profit-one-trial}
 
-| False rate              | 0%      | 10%     | 20%     | 30%     |
-| ----------------------- | :-------: | :-------: | :-------: | :-------: |
+| False rate              |   0%    |   10%   |   20%   |   30%   |
+| ----------------------- | :-----: | :-----: | :-----: | :-----: |
 | Total Requesters Profit | 3126.38 | 3126.38 | 2832.30 | 2180.29 |
 
-: Total providers profit  in Method II: A requester report false budget {#tbl:m2-3-requesters-total-profit}
+: Total providers profit  in Method II: A requester report false budget, one trial {#tbl:m2-3-requesters-total-profit-one-trial}
 
-| False rate              | 0%     | 10%    | 20%    | 30%  |
-| ----------------------- | :------: | :------: | :------: | :----: |
+| False rate              |   0%   |  10%   |  20%   | 30%  |
+| ----------------------- | :----: | :----: | :----: | :--: |
 | Total Requesters Profit | 468.09 | 468.09 | 468.09 | 0.00 |
 
-: Total providers profit  in Method II: A requester report false budget {#tbl:m2-3-false-requester-profit}
-
-#### 考察
+:The false reporting provider profit in Method II: A requester report false budget, one trial {#tbl:m2-3-false-requester-profit-one-trial}
 
 [@tbl:m2-3-false-requester-profit]より虚偽申告率が0%から20%までは同じ利益468.09であり，30%のとき利益が0となっており，耐戦略性を満たしていることが確認できた．予算が変わっても利益が変わらないことから手法IIの支払い額が自身の評価値に依存していないことも確認できる．
 

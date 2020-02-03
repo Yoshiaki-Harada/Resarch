@@ -191,7 +191,7 @@ $$
 pay_{j} = -\{-f_{j,n}+V(\boldsymbol{J})\}+V(\boldsymbol{J}\backslash j) \label{eq:vcg-pay}
 \end{align}
 $$
-$V(\boldsymbol{J}\backslash  j)$は$j$を除いたオークションの勝者決定問題の目的関数値を表す．また，$\{-f_{j,n}+V(\boldsymbol{J})\}$は目的関数値から支払いを決めようとする入札の入札値を除いた値である．よって$pay_{j}$は$j$の入札値に関わらず決定されている．$\eqref{eq:vcg-pay}$で決定される支払いが耐戦略性，個人合理性を示すことを[@fig:vcg-under-1]〜[@fig:vcg-excessively-2]を用いて説明する．ただしそれぞれの横軸は金額を表す．また買い手$j$の入札$n$の真の評価値を$t_{j,n}$とする．
+$V(\boldsymbol{J}\backslash  j)$は$j$を除いたオークションの勝者決定問題の目的関数値を表す．また，$\{-f_{j,n}+V(\boldsymbol{J})\}$は目的関数値から支払いを決めようとする入札の入札値を除いた値である．よって$pay_{j}$は$j$の入札値に関わらず決定されている．$\eqref{eq:vcg-pay}$で決定される支払いが耐戦略性，個人合理性を示すことを[@fig:vcg-under-1]〜[@fig:vcg-excessively-2]を用いて説明する．また買い手$j$の入札$n$の真の評価値を$t_{j,n}$とする．
 
 過少申告を行う場合において，虚偽申告により$f_{j,n}$($pay_j<f_{j,n}<t_{j,n}$)と申告した場合を考える．[@fig:vcg-under-1]より過少申告により$pay_j$は変わらない．よって利益$t_{j,n}-pay_j$は変わらないことがわかる．
 
