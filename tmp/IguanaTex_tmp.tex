@@ -1,0 +1,17 @@
+\documentclass{jsarticle}
+\usepackage{amsmath}
+\usepackage[deluxe]{otf}
+\usepackage[sourcehan]{pxchfon}
+\usepackage{bm}
+\pagestyle{empty}
+\begin{document}
+\begin{flalign*}
+  {\rm max} \quad &V(\bm{I},\bm{J} ,\bm{Q})=\sum_{j\in \bm{J}}\sum_{n\in\bm{N}}v_{j} \times y_{j,n}  - \sum_{i\in\bm{I}}\sum_{r\in\bm{R}}\sum_{j\in\bm{J}}\sum_{n\in\bm{N}}c_{i,r} \times x_{i,r,j,n} -  \sum_{i\in\bm{I}}\sum_{r\in\bm{R}}c_{i,r} \times q_{i,r}\\ 
+  {\rm sub.to} \quad &\sum_{j\in \bm{J}}\sum_{n\in\bm{N}}x_{i,r,j,n}
+  +\sum_{i\in\bm{I}}\sum_{r\in\bm{R}} q_{i,r}\leq TP_{i,r} \quad (\forall i, \forall r) \\
+  &\sum_{i\in\bm{I}} q_{i,r}=Q_{r} \quad (\forall r)\\
+  &q_{i,r} \in \bm{Z} (\forall i,\forall r )
+\end{flalign*}
+
+
+\end{document}
